@@ -1,1 +1,1 @@
-<h1> A windows 10 Rasberry Pi Tribuchet</h1>
+<h1> A Windows 10 Rasberry Pi Tribuchet</h1>
