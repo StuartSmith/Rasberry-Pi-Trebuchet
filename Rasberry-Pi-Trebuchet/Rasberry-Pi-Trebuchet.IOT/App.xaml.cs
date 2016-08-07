@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Devkoes.Restup.WebServer.Http;
+using Devkoes.Restup.WebServer.Rest;
+using Rasberry_Pi_Trebuchet.IOT.Controllers;
+using Rasberry_Pi_Trebuchet.IOT.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,13 +41,13 @@ namespace Rasberry_Pi_Trebuchet.IOT
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override  void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
+            //if (System.Diagnostics.Debugger.IsAttached)
+            //{
+            //    this.DebugSettings.EnableFrameRateCounter = true;
+            //}
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -56,9 +60,11 @@ namespace Rasberry_Pi_Trebuchet.IOT
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+               
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                  
                 }
 
                 // Place the frame in the current Window
@@ -72,7 +78,7 @@ namespace Rasberry_Pi_Trebuchet.IOT
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(TrafficView), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

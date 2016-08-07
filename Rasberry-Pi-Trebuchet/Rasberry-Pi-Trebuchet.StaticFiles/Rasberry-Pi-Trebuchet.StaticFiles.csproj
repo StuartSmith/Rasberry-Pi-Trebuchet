@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1194A2E-14BB-4726-B273-A7CE7AB8C879}</ProjectGuid>
+    <ProjectGuid>{4EB31983-5BD1-4ACF-8161-F520FF41A877}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rasberry_Pi_Trebuchet.Common</RootNamespace>
-    <AssemblyName>Rasberry-Pi-Trebuchet.Common</AssemblyName>
+    <RootNamespace>Rasberry_Pi_Trebuchet.StaticFiles</RootNamespace>
+    <AssemblyName>Rasberry-Pi-Trebuchet.StaticFiles</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -107,15 +107,30 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementations\Client\LightStatus.cs" />
-    <Compile Include="Implementations\Server\LightStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceContracts\DataContracts\Light.cs" />
-    <Compile Include="ServiceContracts\DataContracts\RaspberryPiGPI0Pin.cs" />
-    <Compile Include="ServiceContracts\ILightStatus.cs" />
-    <Compile Include="ServiceContracts\ITribuchet.cs" />
-    <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
-    <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />
+    <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.StaticFiles.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web\css\Theme.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\favicon.ico" />
+    <Content Include="Web\Images\png\Windows-16x16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\Images\png\Windows-32x32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\js\jquery-latest.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\js\script.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\Windows_10_Logo.png" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

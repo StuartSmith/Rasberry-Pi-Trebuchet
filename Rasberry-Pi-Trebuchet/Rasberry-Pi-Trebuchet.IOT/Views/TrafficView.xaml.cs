@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rasberry_Pi_Trebuchet.IOT.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,18 +14,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Rasberry_Pi_Trebuchet.IOT
+namespace Rasberry_Pi_Trebuchet.IOT.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class TrafficView : Page
     {
-        public MainPage()
+        private VM_TrafficView vm_TrafficView = new VM_TrafficView();
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Await.Warning", "CS4014:Await.Warning")]
+        public TrafficView()
         {
             this.InitializeComponent();
+            this.DataContext = vm_TrafficView;
+
+            
+            vm_TrafficView.InitializeWebServer();
+
         }
     }
 }
