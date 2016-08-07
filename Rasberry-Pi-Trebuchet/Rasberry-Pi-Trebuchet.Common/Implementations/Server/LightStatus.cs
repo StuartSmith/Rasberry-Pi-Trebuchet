@@ -12,7 +12,7 @@ namespace Rasberry_Pi_Trebuchet.Common.Implementations.Server
     /// Using the singleton pattern so only going to create
     /// one instance of the light status object
     /// </summary>
-    class LightStatusServer : ILightStatus
+    public class LightStatusServer : ILightStatus
     {
 
         private static LightStatusServer instance;
@@ -39,6 +39,8 @@ namespace Rasberry_Pi_Trebuchet.Common.Implementations.Server
         });
 
         }
+
+      
 
         public static LightStatusServer Instance
         {
