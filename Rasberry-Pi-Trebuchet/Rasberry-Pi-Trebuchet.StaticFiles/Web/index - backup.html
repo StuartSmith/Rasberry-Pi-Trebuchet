@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trebuchet Test Page</title>
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <link rel="icon" type="image/png" href="Img/Windows-32x32.png"  />
+    <link rel="icon" type="image/png" href="Img/Windows-16x16.png"  />
+    
+
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+
+</head>
+
+<body>
+    <img src="Windows_10_Logo.png" />
+    <h1>Windows IOT web server</h1>
+    <p>
+        This server runs on Windows 10 IOT!       
+    </p>
+    
+
+    <table id="httpcommands"> 
+        <col class="columndescription" />    
+        <col class="ColumnHTTPCommand" />
+        <col class="ColumnRunCommand" />
+        <col class="ColumnResult" />
+      <tr>
+        <th>Description</th>
+        <th>GET Command</th>
+        <th>Run Command</th> 
+        <th>Result</th>
+       </tr>
+      <tr>
+        <td>Retrieve the statuses for all the lights</td>
+        <td>GET: /api/lights/statuses</td> 
+        <td><button id="ButtonLightStatuses" type="button">Retrieve the status </button></td>
+        <td id="lightStatusesResult"></td>
+       </tr>
+       <tr>
+            <td >Retrieve the status for the Left light</td>
+            <td >GET: /api/lights/statuses/LeftLight</td>
+            <td ><button id="ButtonLightStatusLeft" type="button">Retrieve status</button></td>
+            <td  id="lightStatuseLeftResult"></td>
+        </tr>
+        <tr>
+            <td >Retrieve the status for the Right light</td>
+            <td >GET: /api/lights/statuses/RightLight</td>
+            <td ><button id="ButtonLightStatusRight" type="button">Retrieve status</button></td>
+            <td  id="lightStatuseRightResult"></td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td >Turn On Right Light</td>
+            <td ">Put: /api/lights/statuses</td>
+            <td ><button id="ButtonTurnRightLightOn" type="button">Turn On Right Light</button></td>
+            <td  id="lightStatusChangeRightResultOn"></td>
+        </tr>
+
+        <tr>
+            <td >Turn Off Right Light</td>
+            <td >Put: /api/lights/statuses</td>
+            <td ><button id="ButtonTurnRightLightOff" type="button">Turn Off Right Light</button></td>
+            <td id="lightStatusChangeRightResultOff"></td>
+        </tr>
+    </table> 
+
+    <script src="js/jquery-latest.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

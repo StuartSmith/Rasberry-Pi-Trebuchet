@@ -19,7 +19,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
 
         public  async Task InitializeWebServer()
         {
-            var httpServer = new HttpServer(8800);
+            // var httpServer = new HttpServer(8800);
+            var httpServer = new HttpServer(80);
             _httpServer = httpServer;
             //Register the Server
             var restRouteHandler = new RestRouteHandler();
@@ -33,6 +34,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
 
             httpServer.RegisterRoute(new StaticFileRouteHandler(@"Rasberry-Pi-Trebuchet.StaticFiles\Web"));
 
+            
             await httpServer.StartServerAsync();
         }
     }
