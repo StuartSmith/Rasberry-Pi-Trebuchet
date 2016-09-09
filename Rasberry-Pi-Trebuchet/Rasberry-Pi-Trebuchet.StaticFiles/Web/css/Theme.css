@@ -2,7 +2,10 @@
 	color: red;
 }
 
-
+.Button-Margin
+{
+     margin-top:20px; 
+}
 
 .columndescription {
     min-width: 250px;
@@ -37,4 +40,9 @@
 }
 
 .top-buffer { margin-top:20px; }
+
+.type-splitter {
+    margin-bottom: 20px;
+    color: rebeccapurple;
+}
  

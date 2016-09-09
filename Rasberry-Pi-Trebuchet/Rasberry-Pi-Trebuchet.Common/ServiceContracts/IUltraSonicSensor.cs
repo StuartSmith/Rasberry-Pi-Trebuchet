@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Rasberry_Pi_Trebuchet.Common.ServiceContracts
 {
-    public interface ITribuchet 
+    public interface IUltraSonicSensor
     {
-      
-          
+        Task<List<UltraSonicSensor>> RetrieveSensorsData(UltraSonicSensorRequest request);
     }
 }

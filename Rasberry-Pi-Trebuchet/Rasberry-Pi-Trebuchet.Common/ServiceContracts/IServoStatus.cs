@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace Rasberry_Pi_Trebuchet.Common.ServiceContracts
 {
-    public interface ITribuchet 
+    public interface IServoStatus
     {
-      
-          
+        Task<List<Servo>> RetrieveServos();
+
+        List<string> ServoStatuses { get; }
+
+        Task<bool> SetServo(Servo servo);
     }
 }

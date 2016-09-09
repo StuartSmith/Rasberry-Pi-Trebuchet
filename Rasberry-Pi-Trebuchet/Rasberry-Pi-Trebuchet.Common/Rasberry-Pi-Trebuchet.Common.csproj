@@ -110,10 +110,18 @@
     <Compile Include="Implementations\Client\LightStatus.cs" />
     <Compile Include="Implementations\Server\LightStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContracts\DataContracts\AzurePiConfiguraton.cs" />
+    <Compile Include="ServiceContracts\DataContracts\AzureRequestData.cs" />
     <Compile Include="ServiceContracts\DataContracts\Light.cs" />
     <Compile Include="ServiceContracts\DataContracts\RaspberryPiGPI0Pin.cs" />
+    <Compile Include="ServiceContracts\DataContracts\Servo.cs" />
+    <Compile Include="ServiceContracts\DataContracts\UltraSonicSensor.cs" />
+    <Compile Include="ServiceContracts\IAzureConnection.cs" />
     <Compile Include="ServiceContracts\ILightStatus.cs" />
+    <Compile Include="ServiceContracts\IServoStatus.cs" />
     <Compile Include="ServiceContracts\ITribuchet.cs" />
+    <Compile Include="ServiceContracts\DataContracts\UltraSonicSensorRequest.cs" />
+    <Compile Include="ServiceContracts\IUltraSonicSensor.cs" />
     <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />
   </ItemGroup>

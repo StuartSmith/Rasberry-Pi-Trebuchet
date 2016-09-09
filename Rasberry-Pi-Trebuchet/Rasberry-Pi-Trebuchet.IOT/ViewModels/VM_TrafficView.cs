@@ -9,6 +9,7 @@ using Devkoes.Restup.WebServer.Models.Contracts;
 using Devkoes.Restup.WebServer.Rest;
 using Rasberry_Pi_Trebuchet.IOT.Controllers;
 using Devkoes.Restup.WebServer.File;
+using Rasberry_Pi_Trebuchet.IOT.Controllers.api;
 
 namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
 {
@@ -25,11 +26,11 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
             //Register the Server
             var restRouteHandler = new RestRouteHandler();
 
-            //Create the routes
+            //Create the Routes
             restRouteHandler.RegisterController<ParameterController>();
             restRouteHandler.RegisterController<LightsController>();
 
-
+            //Register the Route Controller
             httpServer.RegisterRoute("api", restRouteHandler);
 
             httpServer.RegisterRoute(new StaticFileRouteHandler(@"Rasberry-Pi-Trebuchet.StaticFiles\Web"));
