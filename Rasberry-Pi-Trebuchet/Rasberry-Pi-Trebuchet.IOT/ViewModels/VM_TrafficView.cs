@@ -26,13 +26,15 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
             //Register the Server
             var restRouteHandler = new RestRouteHandler();
 
-            //Create the Routes
-            restRouteHandler.RegisterController<ParameterController>();
+            //Create the Routes           
             restRouteHandler.RegisterController<LightsController>();
             restRouteHandler.RegisterController<ServoController>();
+            restRouteHandler.RegisterController<UltraSonicController>();
+
 
             //Register the Route Controller
             httpServer.RegisterRoute("api", restRouteHandler);
+            
 
             httpServer.RegisterRoute(new StaticFileRouteHandler(@"Rasberry-Pi-Trebuchet.StaticFiles\Web"));
 

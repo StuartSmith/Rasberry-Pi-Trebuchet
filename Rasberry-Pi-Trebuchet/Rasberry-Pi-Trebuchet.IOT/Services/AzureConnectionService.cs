@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Services
 {
+    /// <summary>
+    /// Class to Manage if the pi can and should 
+    /// connect to the Azure IOT Hub 
+    /// </summary>
+    /// 
+    /// <example>
+    /// var instance = new AzureConnectionService.Instance;
+    /// 
+    /// instance.SetAzureConfiguration(new  AzurePiConfiguraton())    
+    /// </example>
     public class AzureConnectionService : AzurePiConfiguraton, IAzureConnection
     {
         private static AzureConnectionService _instance;

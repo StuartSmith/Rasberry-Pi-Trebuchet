@@ -97,9 +97,7 @@
     </Compile>
     <Compile Include="Controllers\api\LightsController.cs" />
     <Compile Include="Controllers\api\ServoController.cs" />
-    <Compile Include="Controllers\LightsController.cs" />
-    <Compile Include="Controllers\ParameterController.cs" />
-    <Compile Include="Controllers\ResponseData.cs" />
+    <Compile Include="Controllers\api\UltraSonicController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureConnectionService.cs" />
     <Compile Include="Services\ServoStatusService.cs" />

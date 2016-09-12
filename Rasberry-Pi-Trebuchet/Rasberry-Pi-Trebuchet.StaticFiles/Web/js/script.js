@@ -213,7 +213,7 @@ $(document).ready(function () {
     //____________________________________________________________________________   
 
     $("#ButtonUltraSonicStatus").click(function () {
-        var url = "/api/UltraSonic/statuses?=" + new Date().getTime();
+        var url = "/api/ultrasonic/statuses?=" + new Date().getTime();
         aClient = new HttpClient();
         aClient.get(url, UltraSonicStatus);
     });
