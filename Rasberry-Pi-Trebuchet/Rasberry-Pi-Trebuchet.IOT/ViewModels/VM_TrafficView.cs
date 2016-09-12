@@ -29,6 +29,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
             //Create the Routes
             restRouteHandler.RegisterController<ParameterController>();
             restRouteHandler.RegisterController<LightsController>();
+            restRouteHandler.RegisterController<ServoController>();
 
             //Register the Route Controller
             httpServer.RegisterRoute("api", restRouteHandler);
