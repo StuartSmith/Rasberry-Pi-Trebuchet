@@ -294,6 +294,76 @@
         </div>
         <!--End Span For Getting Ultra Sonic Data-->
 
+
+        <h2 class="type-splitter">Raspberry Pi Configuration</h2>
+
+        <!--For Getting  Pi Configuration  status-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info  ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Get Pi Azure Configuration</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <h2 class="col-sm-1 control-label">GET:</h2>
+                                <div class="col-sm-10 col-xs-10 col-md-10">
+                                    <h2>/api/piconfiguration/status</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                                <table style="width:100%">
+                                    <tr>
+                                        <th><button id="ButtonConfigurationStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <span>
+                            <div id="PiConfigurationResult">
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--For Getting Pi Configuration  status-->
+        <!-- Set Left Light status-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-warning ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Post Turn Left Light On And OFF</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <h2 class="col-sm-1 control-label">POST:</h2>
+                                <div class="col-sm-10 col-xs-10 col-md-10">
+                                    <h2> /api/lights/statuses/LeftLight</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                                <table style="width:100%">
+                                    <tr>
+                                        <th><button id="PiConfingurationSendToAzure" type="button" class="btn btn-lg btn-success control ">On</button></th>
+                                        <th><button id="PiConfingurationStopSendingToAzure" type="button" class="btn btn-lg btn-danger control ">Off</button></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <span>
+                            <div id="PiConfigurationResultChange">
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Set Left Left Light status-->
+
+
     </div>
 
 

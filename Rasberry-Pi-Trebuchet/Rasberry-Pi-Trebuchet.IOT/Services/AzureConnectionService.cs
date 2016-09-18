@@ -1,5 +1,5 @@
-﻿using Rasberry_Pi_Trebuchet.Common.ServiceContracts;
-using Rasberry_Pi_Trebuchet.Common.ServiceContracts.DataContracts;
+﻿using Rasberry_Pi_Trebuchet.Common.Interfaces;
+using Rasberry_Pi_Trebuchet.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Common.ServiceContracts.DataContracts
+namespace Rasberry_Pi_Trebuchet.Common.Models
 {
 
     public enum AzureDataObjectType

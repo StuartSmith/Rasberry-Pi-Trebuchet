@@ -7,8 +7,8 @@ using Devkoes.Restup.WebServer.Attributes;
 using Devkoes.Restup.WebServer.Models.Schemas;
 using Devkoes.Restup.WebServer.Rest.Models.Contracts;
 using Rasberry_Pi_Trebuchet.IOT.Services;
-using Rasberry_Pi_Trebuchet.Common.ServiceContracts.DataContracts;
-using Rasberry_Pi_Trebuchet.Common.ServiceContracts;
+using Rasberry_Pi_Trebuchet.Common.Models;
+using Rasberry_Pi_Trebuchet.Common.Interfaces;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
 {
@@ -18,15 +18,13 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
         public object LightStatuService { get; private set; }
 
         [UriFormat("/lights/statuses?={time}")]
-        public GetResponse GetStatuses(string time)
+        public async Task<GetResponse> GetStatuses(string time)
         {
             LightStatusService lightStatusService = LightStatusService.Instance;
-            var task = lightStatusService.RetrieveLightStatuses();
-            task.Wait();
+          
 
-            return new GetResponse(
-                                   GetResponse.ResponseStatus.OK,
-                                   lightStatusService.RetrieveLightStatuses().Result);
+            return new GetResponse(GetResponse.ResponseStatus.OK,
+                                   await lightStatusService.RetrieveLightStatuses());
         }
 
 

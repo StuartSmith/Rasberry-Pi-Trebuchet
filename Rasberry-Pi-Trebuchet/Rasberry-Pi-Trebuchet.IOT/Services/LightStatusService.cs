@@ -1,5 +1,5 @@
-﻿using Rasberry_Pi_Trebuchet.Common.ServiceContracts;
-using Rasberry_Pi_Trebuchet.Common.ServiceContracts.DataContracts;
+﻿using Rasberry_Pi_Trebuchet.Common.Interfaces;
+using Rasberry_Pi_Trebuchet.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,12 +79,12 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
 
         public async Task<List<Light>> RetrieveLightStatuses()
         {
-            Task<List<Light>> RetrieveLights = Task<List<Light>>.Factory.StartNew(() =>
+           var RetrieveLights = await Task<List<Light>>.Factory.StartNew(() =>
             {
                 return _Lights;
             });
 
-            return RetrieveLights.Result;
+            return RetrieveLights;
         }
 
         /// <summary>

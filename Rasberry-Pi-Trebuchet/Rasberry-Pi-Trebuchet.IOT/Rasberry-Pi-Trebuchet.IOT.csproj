@@ -96,9 +96,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\api\LightsController.cs" />
+    <Compile Include="Controllers\api\PiConfigurationController.cs" />
     <Compile Include="Controllers\api\ServoController.cs" />
     <Compile Include="Controllers\api\UltraSonicController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sensors\LightSensor.cs" />
     <Compile Include="Services\AzureConnectionService.cs" />
     <Compile Include="Services\ServoStatusService.cs" />
     <Compile Include="Services\LightStatusService.cs" />
@@ -144,7 +146,11 @@
       <Name>Rasberry-Pi-Trebuchet.StaticFiles</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

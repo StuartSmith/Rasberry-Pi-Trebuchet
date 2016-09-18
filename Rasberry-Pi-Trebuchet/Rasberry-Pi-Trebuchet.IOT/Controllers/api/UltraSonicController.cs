@@ -1,6 +1,6 @@
 ﻿using Devkoes.Restup.WebServer.Attributes;
 using Devkoes.Restup.WebServer.Models.Schemas;
-using Rasberry_Pi_Trebuchet.Common.ServiceContracts.DataContracts;
+using Rasberry_Pi_Trebuchet.Common.Models;
 using Rasberry_Pi_Trebuchet.IOT.Services;
 using System;
 using System.Collections.Generic;
