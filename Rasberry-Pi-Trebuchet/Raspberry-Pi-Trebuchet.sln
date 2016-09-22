@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rasberry-Pi-Trebuchet.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rasberry-Pi-Trebuchet.StaticFiles", "Rasberry-Pi-Trebuchet.StaticFiles\Rasberry-Pi-Trebuchet.StaticFiles.csproj", "{4EB31983-5BD1-4ACF-8161-F520FF41A877}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Lights", "Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj", "{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Servos", "Raspberry-Pi-Trebuchet.Servos\Raspberry-Pi-Trebuchet.Servos.csproj", "{161EA637-F6DF-44E3-8248-8D72E5CBD66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +99,38 @@ Global
 		{4EB31983-5BD1-4ACF-8161-F520FF41A877}.Release|x64.Build.0 = Release|x64
 		{4EB31983-5BD1-4ACF-8161-F520FF41A877}.Release|x86.ActiveCfg = Release|x86
 		{4EB31983-5BD1-4ACF-8161-F520FF41A877}.Release|x86.Build.0 = Release|x86
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|ARM.ActiveCfg = Debug|ARM
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|ARM.Build.0 = Debug|ARM
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|x64.ActiveCfg = Debug|x64
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|x64.Build.0 = Debug|x64
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|x86.ActiveCfg = Debug|x86
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Debug|x86.Build.0 = Debug|x86
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|ARM.ActiveCfg = Release|ARM
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|ARM.Build.0 = Release|ARM
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|x64.ActiveCfg = Release|x64
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|x64.Build.0 = Release|x64
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|x86.ActiveCfg = Release|x86
+		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}.Release|x86.Build.0 = Release|x86
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|ARM.Build.0 = Debug|ARM
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|x64.ActiveCfg = Debug|x64
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|x64.Build.0 = Debug|x64
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|x86.ActiveCfg = Debug|x86
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Debug|x86.Build.0 = Debug|x86
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|ARM.ActiveCfg = Release|ARM
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|ARM.Build.0 = Release|ARM
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|x64.ActiveCfg = Release|x64
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|x64.Build.0 = Release|x64
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|x86.ActiveCfg = Release|x86
+		{161EA637-F6DF-44E3-8248-8D72E5CBD66E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

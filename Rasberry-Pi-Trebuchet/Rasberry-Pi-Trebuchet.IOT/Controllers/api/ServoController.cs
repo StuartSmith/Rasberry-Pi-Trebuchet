@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rasberry_Pi_Trebuchet.Servos.Models;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
 {

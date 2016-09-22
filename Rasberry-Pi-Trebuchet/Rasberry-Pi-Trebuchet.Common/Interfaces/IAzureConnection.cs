@@ -33,11 +33,11 @@ namespace Rasberry_Pi_Trebuchet.Common.Interfaces
 
 
 
-        Task<bool> SendServoData(List<Servo> data);
+        //Task<bool> SendServoData(List<Servo> data);
 
-        Task<bool> SendUltraSonicData(List<UltraSonicSensor> data);
+        //Task<bool> SendUltraSonicData(List<UltraSonicSensor> data);
 
-        Task<bool> SendLightData(List<Light> data);
+        //Task<bool> SendLightData(List<ILightRestViewModel> data);
 
 
 

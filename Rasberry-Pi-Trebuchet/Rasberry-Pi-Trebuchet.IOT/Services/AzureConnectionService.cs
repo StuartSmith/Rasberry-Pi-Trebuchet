@@ -1,9 +1,9 @@
 ﻿using Rasberry_Pi_Trebuchet.Common.Interfaces;
 using Rasberry_Pi_Trebuchet.Common.Models;
+using Rasberry_Pi_Trebuchet.Servos.Models;
+using Raspberry_Pi_Trebuchet.Lights.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Services
@@ -47,7 +47,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
         public bool AllowSendingofData { get; private set; }
         public bool AllowSendingToastLightData { get; private set; }
 
-        public async Task<bool> SendLightData(List<Light> data)
+        public async Task<bool> SendLightData(List<ILightRestViewModel> data)
         {
 
             if ((AllowSendingofData == true) && (AllowSendingToastLightData == true))
@@ -55,13 +55,13 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
                 throw new NotImplementedException();
             }
 
-            Task<bool> SendData = Task<bool>.Factory.StartNew(() =>
+           bool SendData = await Task<bool>.Factory.StartNew(() =>
             {
                 return true;
 
             });
 
-            return SendData.Result;
+            return SendData;
         }
 
 

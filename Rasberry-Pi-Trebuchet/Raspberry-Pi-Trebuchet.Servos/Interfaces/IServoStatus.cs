@@ -1,11 +1,12 @@
 ﻿using Rasberry_Pi_Trebuchet.Common.Models;
+using Rasberry_Pi_Trebuchet.Servos.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Common.Interfaces
+namespace Raspberry_Pi_Trebuchet.Servos.Interfaces
 {
     public interface IServoStatus
     {

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Common.Implementations.Client
+namespace Rasberry_Pi_Trebuchet.Common.Enums
 {
-    class LightStatus
+    public enum AzureDataObjectType
     {
+        Light,
+        Servo,
+        UltraSonic
     }
 }

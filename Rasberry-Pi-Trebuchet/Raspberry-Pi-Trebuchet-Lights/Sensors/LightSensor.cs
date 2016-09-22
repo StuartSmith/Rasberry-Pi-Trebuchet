@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Devices.Gpio;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Sensors
+
+namespace Raspberry_Pi_Trebuchet.Lights.Sensors
 {
-    class LightSensor
+    public class LightSensor
     {
 
-        private GpioPin _lightPin { get; set; }
+        public  GpioPin _lightPin { get; private set; }
+
+        private Object thisLock = new Object();
 
         public LightSensor(int lightPin)
         {
             GpioController controller = GpioController.GetDefault();
+           
 
             _lightPin = controller.OpenPin(lightPin);
            _lightPin.SetDriveMode(GpioPinDriveMode.Output);
@@ -29,15 +29,23 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
                }
             set
                 {
-                    if (value != _lighton)
-                    {
-                        if (value)                        
+                //if (value != _lighton)
+                //{
+                lock (thisLock)
+                {
+                    if (value)
                         _lightPin.Write(GpioPinValue.High);
                     
-                        else
-                        _lightPin.Write(GpioPinValue.Low);                   
-                    }
+                    else
+                        _lightPin.Write(GpioPinValue.Low);
+
+                    _lighton = value;
+                }              
+                    //}
                 }
         }
+
+
+      
     }
 }

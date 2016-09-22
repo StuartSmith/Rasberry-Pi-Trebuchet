@@ -1,22 +1,12 @@
-﻿using System;
+﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Common.Models
+namespace Rasberry_Pi_Trebuchet.Servos.Models
 {
-    public enum ServoWhereAbouts
-    {
-        ZeroDegrees,
-        NinetyDegrees,
-        OneEightyDegrees
-    }
-
-    public enum ServoType
-    {
-        LaunchServo
-    }
 
     public class Servo
     {
