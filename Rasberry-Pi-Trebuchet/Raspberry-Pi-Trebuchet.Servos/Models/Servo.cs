@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Servos.Models
+namespace Raspberry_Pi_Trebuchet.Servos.Models
 {
 
     public class Servo
