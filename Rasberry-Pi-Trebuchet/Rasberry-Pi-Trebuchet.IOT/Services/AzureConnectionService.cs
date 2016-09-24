@@ -1,7 +1,7 @@
 ﻿using Rasberry_Pi_Trebuchet.Common.Interfaces;
 using Rasberry_Pi_Trebuchet.Common.Models;
-using Rasberry_Pi_Trebuchet.Servos.Models;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
+using Raspberry_Pi_Trebuchet.Servos.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

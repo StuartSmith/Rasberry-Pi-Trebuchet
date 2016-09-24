@@ -14,8 +14,8 @@ namespace Raspberry_Pi_Trebuchet.Lights.Sensors
         public LightSensor(int lightPin)
         {
             GpioController controller = GpioController.GetDefault();
-           
 
+            
             _lightPin = controller.OpenPin(lightPin);
            _lightPin.SetDriveMode(GpioPinDriveMode.Output);
             _lightPin.Write(GpioPinValue.Low);

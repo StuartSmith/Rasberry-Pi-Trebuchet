@@ -13,7 +13,9 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
         [UriFormat("/servo/statuses?={time}")]
         public GetResponse GetStatuses(string time)
         {
-            ServoStatusService servoStatusServer = ServoStatusService.Instance;
+            try
+            {
+                ServoStatusService servoStatusServer = ServoStatusService.Instance;
             var task = servoStatusServer.RetrieveServos();
             task.Wait();
 
@@ -21,30 +23,50 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
             return new GetResponse(
                                    GetResponse.ResponseStatus.OK,
                                    task.Result);
+
+            }
+            catch (Exception ex)
+            {
+                return new GetResponse(GetResponse.ResponseStatus.OK);
+            }
+
         }
 
 
         [UriFormat("/servo/statuses")]
         public IPostResponse SetServoStatus([FromContent] Servo servo)
         {
-
-            ServoStatusService servoStatusServer = ServoStatusService.Instance;
+            try
+            {
+                ServoStatusService servoStatusServer = ServoStatusService.Instance;
             var task = servoStatusServer.SetServo(servo);
             task.Wait();
 
             return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", task.Result);
-
+            }           
+            catch (Exception ex)
+            {
+                return new PostResponse(PostResponse.ResponseStatus.Created);
+            }
         }
+        
 
         [UriFormat("/servo/servopositions")]
         public GetResponse GetServoStatuses()
         {
-            ServoStatusService servoStatusServer = ServoStatusService.Instance;
+            try
+            {
+                ServoStatusService servoStatusServer = ServoStatusService.Instance;
 
-            return new GetResponse(
-                             GetResponse.ResponseStatus.OK,
-                             servoStatusServer.ServoStatuses);
-    
-        }
+                return new GetResponse(
+                                 GetResponse.ResponseStatus.OK,
+                                 servoStatusServer.ServoStatuses);
+
+            }
+            catch (Exception ex)
+            {
+                return new GetResponse(GetResponse.ResponseStatus.OK);
+            }
+        }   
     }
 }

@@ -107,7 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ILightRestViewModel.cs" />
+    <Compile Include="Interfaces\IServoRestViewModel.cs" />
     <Compile Include="Interfaces\IServoStatus.cs" />
     <Compile Include="Models\Servo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,7 +6,7 @@ namespace Raspberry_Pi_Trebuchet.Servos.Interfaces
 {
     public interface IServoStatus
     {
-        Task<List<Servo>> RetrieveServos();
+        Task<List<IServoRestViewModel>> RetrieveServos();
 
         List<string> ServoStatuses { get; }
 

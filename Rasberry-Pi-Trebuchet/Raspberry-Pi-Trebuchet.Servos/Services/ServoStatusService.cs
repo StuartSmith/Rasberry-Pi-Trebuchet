@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Rasberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 using Raspberry_Pi_Trebuchet.Servos.Models;
+using Rasberry_Pi_Trebuchet.Servos.RestViewModels;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Services
 {
@@ -15,17 +16,25 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
     {
         private static ServoStatusService _instance;
         private List<Servo> _Servos;
+        private const int NumberOfTimesToSendMotorPulse = 25;
 
         private ServoStatusService()
         {
             _Servos = new List<Servo>();
-            _Servos.Add(new Servo()
+
+            var servo = new Servo()
             {
                 Description = ServoType.LaunchServo.ToString(),
                 ServoStatus = ServoWhereAbouts.OneEightyDegrees.ToString(),
                 ServoGPIO = RaspberryPiGPI0Pin.GPIO13,
-                
-            });
+                Servosensor = new Sensors.ServoSensor(RaspberryPiGPI0Pin.GPIO13)
+
+            };
+
+           // for (int x = 0; x < NumberOfTimesToSendMotorPulse; x++)
+           //     servo.Servosensor.PulseMotor(RotateServer.RotateToRight);
+
+            _Servos.Add(servo);
         }
 
         public static ServoStatusService Instance
@@ -40,10 +49,36 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
             }
         }
 
-        //Sets the servo
+        
+        /// <summary>
+        /// Sets the servo status
+        /// </summary>
+        /// <param name="servo"></param>
         private void SetServoStatus(Servo servo)
         {
+            // A little confusing but this is to create a mapping
+            // between the Rotate left right middle and 
+            // the 0, 90 and 180 degree enum
 
+           switch (servo.ServoStatus.ToUpper()) { 
+                case "ZERODEGREES":
+                    for (int x = 0; x < NumberOfTimesToSendMotorPulse; x++)
+                        servo.Servosensor.PulseMotor(RotateServer.RotateToLeft);
+                    break;
+
+                case "NINETYDEGREES":
+                    for (int x = 0; x < NumberOfTimesToSendMotorPulse; x++)
+                        servo.Servosensor.PulseMotor(RotateServer.RotateToMiddle);
+                    break;
+
+                case "ONEEIGHTYDEGREES":
+                    for (int x = 0; x < NumberOfTimesToSendMotorPulse; x++)
+                        servo.Servosensor.PulseMotor(RotateServer.RotateToRight);
+                    break;
+
+                default:
+                    throw new Exception($"Unknown ServoStatus  {servo.ServoStatus.ToUpper()}");
+                }
         }
 
 
@@ -55,7 +90,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
             //await AzureConnectionService.Instance.SendServoData(servoList);
 
 
-            Task<bool> RetrieveServos = Task<bool>.Factory.StartNew(() =>
+            var RetrieveServos = await Task<bool>.Factory.StartNew(() =>
             {
                 var query = from selectedServo in _Servos
                             where servo?.Description?.ToUpper() == selectedServo?.Description?.ToUpper()
@@ -64,24 +99,33 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
                 var ServoToUpdate = query.FirstOrDefault<Servo>();
                 ServoToUpdate.ServoStatus = servo.ServoStatus;
                 SetServoStatus(ServoToUpdate);
+
                 return true;
 
             });
-
-            return RetrieveServos.Result;
+            
+            return RetrieveServos;
 
         }
 
-        public async Task<List<Servo>> RetrieveServos()
+        public async Task<List<IServoRestViewModel>> RetrieveServos()
         {
 
-            Task<List<Servo>> RetrieveServos = Task<List<Servo>>.Factory.StartNew(() =>
+            List<IServoRestViewModel> RetrieveServos = await Task<List<IServoRestViewModel>>.Factory.StartNew(() =>
             {
-                return _Servos;
+
+                var query = from servo in _Servos
+                            select new ServoRestViewModel(servo);
+
+                return query.ToList<IServoRestViewModel>();
 
             });
-            return RetrieveServos.Result;
+
+
+            return RetrieveServos;
         }
+
+        
 
 
         /// <summary>

@@ -9,13 +9,13 @@ using Windows.Devices.Gpio;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Sensors
 {
-    class ServoSensor
+    public class ServoSensor
     {
         private GpioController _gpioController;
         private GpioPin _motorPin = null;
         private ulong _ticksPerMilliSecond = (ulong)(Stopwatch.Frequency) / 1000; //Number of ticks per millisecond this is different for different processor
 
-
+        private Object thisLock = new Object();
 
         public RaspberryPiGPI0Pin RaspberryGPIOpin { get; }
 
@@ -57,8 +57,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
             {
                 GpioInitialized = false;
                 _gpioController = GpioController.GetDefault();
-                _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin));
-                _motorPin.SetDriveMode(GpioPinDriveMode.Output);
+                _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin),GpioSharingMode.Exclusive);
+                _motorPin.SetDriveMode(GpioPinDriveMode.Output);             
                 GpioInitialized = true;
             }
             catch (Exception ex)
@@ -102,20 +102,25 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
         /// <param name="motorPulse">number of milliseconds to wait to pulse the servo</param>
         public void PulseMotor(double motorPulse)
         {
+            lock (thisLock)
+            {
+                if (_motorPin == null)
+                    GpioInit();
 
-            //Total amount of time for a pulse
-            double TotalPulseTime;
-            double timeToWait;
+                //Total amount of time for a pulse
+                double TotalPulseTime;
+                double timeToWait;
 
-            TotalPulseTime = 25;
-            timeToWait = TotalPulseTime - motorPulse;
+                TotalPulseTime = 25;
+                timeToWait = TotalPulseTime - motorPulse;
 
-            //Send the pulse to move the servo over a given time span
-            _motorPin.Write(GpioPinValue.High);
-            MillisecondToWait(motorPulse);
-            _motorPin.Write(GpioPinValue.Low);
-            MillisecondToWait(timeToWait);
-            _motorPin.Write(GpioPinValue.Low);
+                //Send the pulse to move the servo over a given time span
+                _motorPin.Write(GpioPinValue.High);
+                MillisecondToWait(motorPulse);
+                _motorPin.Write(GpioPinValue.Low);
+                MillisecondToWait(timeToWait);
+                _motorPin.Write(GpioPinValue.Low);
+            }
         }
 
         /// <summary>

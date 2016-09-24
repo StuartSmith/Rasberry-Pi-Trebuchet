@@ -100,9 +100,7 @@
     <Compile Include="Controllers\api\ServoController.cs" />
     <Compile Include="Controllers\api\UltraSonicController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sensors\ServoSensor.cs" />
     <Compile Include="Services\AzureConnectionService.cs" />
-    <Compile Include="Services\ServoStatusService.cs" />
     <Compile Include="Services\UltraSonicSensorService.cs" />
     <Compile Include="ViewModels\VM_TrafficView.cs" />
     <Compile Include="Views\TrafficView.xaml.cs">
