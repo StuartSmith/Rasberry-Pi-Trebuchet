@@ -12,7 +12,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
     public class ServoSensor
     {
         private GpioController _gpioController;
-        private GpioPin _motorPin = null;
+        private static  GpioPin _motorPin;
         private ulong _ticksPerMilliSecond = (ulong)(Stopwatch.Frequency) / 1000; //Number of ticks per millisecond this is different for different processor
 
         private Object thisLock = new Object();
@@ -57,9 +57,11 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
             {
                 GpioInitialized = false;
                 _gpioController = GpioController.GetDefault();
-                _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin),GpioSharingMode.Exclusive);
+                _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin));
                 _motorPin.SetDriveMode(GpioPinDriveMode.Output);             
                 GpioInitialized = true;
+
+               
             }
             catch (Exception ex)
             {
@@ -113,13 +115,14 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
 
                 TotalPulseTime = 25;
                 timeToWait = TotalPulseTime - motorPulse;
+             
 
                 //Send the pulse to move the servo over a given time span
-                _motorPin.Write(GpioPinValue.High);
+                _motorPin?.Write(GpioPinValue.High);
                 MillisecondToWait(motorPulse);
-                _motorPin.Write(GpioPinValue.Low);
+                _motorPin?.Write(GpioPinValue.Low);
                 MillisecondToWait(timeToWait);
-                _motorPin.Write(GpioPinValue.Low);
+                _motorPin?.Write(GpioPinValue.Low);
             }
         }
 
