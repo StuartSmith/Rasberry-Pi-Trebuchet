@@ -31,15 +31,13 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
             restRouteHandler.RegisterController<ServoController>();
             restRouteHandler.RegisterController<UltraSonicController>();
 
-
             //Register the Route Controller
-            httpServer.RegisterRoute("api", restRouteHandler);
-            
+            httpServer.RegisterRoute("api", restRouteHandler);            
 
             httpServer.RegisterRoute(new StaticFileRouteHandler(@"Rasberry-Pi-Trebuchet.StaticFiles\Web"));
-
             
             await httpServer.StartServerAsync();
+            
         }
     }
 }

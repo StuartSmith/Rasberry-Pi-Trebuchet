@@ -15,15 +15,13 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
         {
             try
             {
-                ServoStatusService servoStatusServer = ServoStatusService.Instance;
+            ServoStatusService servoStatusServer = ServoStatusService.Instance;
             var task = servoStatusServer.RetrieveServos();
             task.Wait();
-
 
             return new GetResponse(
                                    GetResponse.ResponseStatus.OK,
                                    task.Result);
-
             }
             catch (Exception ex)
             {
