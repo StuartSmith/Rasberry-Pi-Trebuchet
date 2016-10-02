@@ -10,6 +10,6 @@ namespace Raspberry_Pi_Tribuchet.Sonic.Interfaces
     {
         bool IsSonicRunRunning { get; set; }
 
-        int NumberOfSocondsSonicRunwillRunFor { get; set; }
+        int NumberofSecondsSonicSensorRecordsDataFor { get; set; }
     }
 }

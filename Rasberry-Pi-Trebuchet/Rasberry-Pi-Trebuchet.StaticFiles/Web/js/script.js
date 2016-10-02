@@ -113,15 +113,28 @@ var ServoStatusResultComplete = function (data, status) {
 var UltraSonicStatus = function (data, status) {
     $("#UltraSonicStatusResult").html(data);
 }
+////__________________________________________________
+/// End of results
+///____________________________________________________
+
 
 
 $(document).ready(function () {
-    //Click event to retrieve all light statuses
     $("#ButtonLightStatuses").click(function () {
         var url = "/api/lights/statuses?=" + new Date().getTime();
         aClient = new HttpClient();
         aClient.get(url, LightStatusesResult);
     });
+});
+
+
+$(document).ready(function () {
+    //Click event to retrieve all light statuses
+    //$("#ButtonLightStatuses").click(function () {
+    //    var url = "/api/lights/statuses?=" + new Date().getTime();
+    //    aClient = new HttpClient();
+    //    aClient.get(url, LightStatusesResult);
+    //});
 
     //Click event to retrieve the status of the left light
     $("#ButtonLightStatusLeft").click(function () {

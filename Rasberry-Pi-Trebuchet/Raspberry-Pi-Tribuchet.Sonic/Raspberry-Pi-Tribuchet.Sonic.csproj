@@ -109,16 +109,17 @@
   <ItemGroup>
     <Compile Include="Interfaces\ISonicRestViewModel.cs" />
     <Compile Include="Interfaces\ISonicRunStatus.cs" />
-    <Compile Include="Interfaces\ISonicStatus.cs" />
+    <Compile Include="Interfaces\ISonicProcess.cs" />
     <Compile Include="Models\SonicMeasurement.cs" />
     <Compile Include="Models\SonicRun.cs" />
+    <Compile Include="Models\SonicRunStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestViewModels\SonicRunRestStatusViewModel.cs" />
+    <Compile Include="RestViewModels\SonicRunStatus.ViewModel.cs" />
+    <Compile Include="Services\UltraSonicSensorService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Sonic.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sensors\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

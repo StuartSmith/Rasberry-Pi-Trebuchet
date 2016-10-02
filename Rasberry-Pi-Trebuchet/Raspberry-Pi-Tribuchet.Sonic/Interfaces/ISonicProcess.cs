@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Raspberry_Pi_Tribuchet.Sonic.Interfaces
 {
-    public interface ISonicStatus
+    public interface ISonicProcess
     {
         Task<List<SonicRun>> RetrieveLastRun();
         
         Task<List<SonicRun>> RetrieveAllRuns(int page);
 
-        Task<ISonicRunStatus> StartSonicRun(int numbeOfSeconds);
+        SonicRunStatus StartSonicSensorProcessing(int numbeOfSeconds);
 
-        Task<ISonicRunStatus> IsSonicRunRunning();
+        Task<ISonicRunStatus> IsSonicProcessRunning();
     }
 }

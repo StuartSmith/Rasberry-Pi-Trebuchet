@@ -70,11 +70,10 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
         }
 
 
-        public Task<List<ILightRestViewModel>> RetrieveLightStatus(string LightType)
-        {
+        public  Task<List<ILightRestViewModel>> RetrieveLightStatus(string LightType)
+        {            
 
-
-            Task<List<ILightRestViewModel>> RetrieveLights = Task<List<ILightRestViewModel>>.Factory.StartNew(() =>
+            Task<List<ILightRestViewModel>> RetrieveLights =  Task<List<ILightRestViewModel>>.Factory.StartNew(() =>
             {
                 var query = from selectedLight in _Lights
                             where LightType.ToString().ToUpper() == selectedLight.Description.ToUpper()
