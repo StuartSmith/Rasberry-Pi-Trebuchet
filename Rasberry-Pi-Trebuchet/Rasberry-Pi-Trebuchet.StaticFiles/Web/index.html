@@ -24,7 +24,6 @@
 
     <div class="container">
         <div class="row top-buffer">
-
             <div>
                 <img src="Windows_10_Logo.png" />
                 <h1 class="top-buffer">Windows IOT web server</h1>
@@ -32,345 +31,35 @@
                     This server runs on Windows 10 IOT!
                 </p>
             </div>
-
         </div>
+        <!-- -------------------------------------- -->
+        <!-- Retrieve the lights content from the lights.html file-->
+        <!-- -------------------------------------- -->
+        <div id="LightsContent"></div>
 
-        <h1 class="type-splitter">Light Commands</h1>
-        <!--For Getting light statuses-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get Light Statuses</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/lights/statuses</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonLightStatuses" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span id="lightStatusesResult"></span>
-                    </div>
+        <!-- -------------------------------------- -->
+        <!-- Retrieve the Serovs content from the Servos.html file-->
+        <!-- -------------------------------------- -->
+        <div id="ServosContent"></div>
 
-                </div>
-            </div>
-        </div>
-        <!--For Getting Light statuses-->
-        <!--For Getting Left Light status-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info  ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get Left Light Status</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/lights/statuses/LeftLight</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonLightStatusLeft" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span>
-                            <div id="lightStatuseLeftResult">
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--For Getting Left Light status-->
-        <!-- Set Left Light status-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-warning ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Post Turn Left Light On And OFF</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">POST:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/lights/statuses/LeftLight</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonTurnLeftLightOn" type="button" class="btn btn-lg btn-success control ">On</button></th>
-                                        <th><button id="ButtonTurnLeftLightOff" type="button" class="btn btn-lg btn-danger control ">Off</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span>
-                            <div id="lightStatuseLeftResultChange">
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Set Left Left Light status-->
-        <!--For Getting Right Light status-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get Left Right Status</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/lights/statuses/RightLight</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonLightStatusRight" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span>
-                            <div id="lightStatuseRightResult">
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--For Getting Right Light status-->
-        <!--Set Right Light status-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-warning ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Post Turn Right Light On And OFF</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">POST:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/lights/statuses/RightLight</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonTurnRightLightOn" type="button" class="btn btn-lg btn-success control ">On</button></th>
-                                        <th><button id="ButtonTurnRightLightOff" type="button" class="btn btn-lg btn-danger control ">Off</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span>
-                            <div id="lightStatuseRightResultChange">
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Set Right light status-->
-
-        <h2 class="type-splitter">Servo Commands</h2>
-        <!--For Getting Servo statuses-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get Servos Statuses</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/servo/statuses</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonServoStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span id="ServoStatus"></span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--End Span For Getting servo statuses-->
-        <!--For Setting Servo statuses-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Post Servos Statuses</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">POST:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/servo/statuses</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-9 col-md-ofset-9 col-sm-offset-8 col-xs-offset-6">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonServoStatus0" type="button" class="btn btn-lg btn-success control ">0* </button></th>
-                                        <th><button id="ButtonServoStatus90" type="button" class="btn btn-lg btn-info control ">90* </button></th>
-                                        <th><button id="ButtonServoStatus180" type="button" class="btn btn-lg btn-warning control ">180* </button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span id="ServoChangeStatusResults">test</span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--End Span For Getting servo statuses-->
-
-        <h2 class="type-splitter">UltraSonic Commands</h2>
-
-        <!--Span For Getting Ultra Sonic Data-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get UltraSonic Statuses</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2> /api/UltraSonic/statuses</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonUltraSonicStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span id="UltraSonicStatusResult"></span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--End Span For Getting Ultra Sonic Data-->
-        <!--Span For Getting Ultra Sonic Data-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Start Getting UltraSonic Statuses</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">POST:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2>/api/UltraSonic/StartUltraSonicSensorProcessing</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonStartUltraSonicProcessing" type="button" class="btn btn-lg btn-danger control ">Post</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span id="UltraSonicStartProcessing"></span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--End Span For Getting Ultra Sonic Data-->
-
-        <h2 class="type-splitter">Raspberry Pi Configuration</h2>
-
-        <!--For Getting  Pi Configuration  status-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info  ">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Get Pi Azure Configuration</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <h2 class="col-sm-1 control-label">GET:</h2>
-                                <div class="col-sm-10 col-xs-10 col-md-10">
-                                    <h2>/api/piconfiguration/status</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
-                                <table style="width:100%">
-                                    <tr>
-                                        <th><button id="ButtonConfigurationStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span>
-                            <div id="PiConfigurationResult">
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--For Getting Pi Configuration  status-->
-        
-
-
+        <!-- -------------------------------------- -->
+        <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
+        <!-- -------------------------------------- -->
+        <div id="UltraSonicContent"></div>
     </div>
 
 
-    <script type="text/javascript" src="js/jquery.min.js"> </script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/jQuery/dist/jquery.min.js"> </script>
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script> 
+    
+    <script src="js/HttpClient.js"></script>
+    <script src="js/LightStatus.js"></script>
+    <script src="js/ServoStatus.js"></script>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-latest.min.js"></script>
+    <script> $(function(){ $("#LightsContent").load("Lights.html");}); </script>
+    <script> $(function () { $("#ServosContent").load("Servos.html"); }); </script>
+    <script> $(function () { $("#UltraSonicContent").load("UltraSonic.html"); }); </script>
 
-    <script src="js/script.js"></script>
 </body>
 
 </html>

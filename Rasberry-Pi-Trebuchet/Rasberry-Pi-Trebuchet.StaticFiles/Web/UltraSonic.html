@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>UltraSonic</title>
+</head>
+<body>
+    <h2 class="type-splitter">UltraSonic Commands</h2>
+
+    <!--Span For Getting Ultra Sonic Data-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get Ultra Sonic Status</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">GET:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/UltraSonic/statuses</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonUltraSonicStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="UltraSonicStatusResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting Ultra Sonic Data-->
+
+    <script src="js/HttpClient.js"></script>
+    <script src="js/UltraSonic.js"></script>
+</body>
+</html>

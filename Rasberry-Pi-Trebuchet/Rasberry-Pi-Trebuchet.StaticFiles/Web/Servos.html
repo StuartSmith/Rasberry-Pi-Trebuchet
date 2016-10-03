@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Servos</title>
+</head>
+<body>
+    <h2 class="type-splitter">Servo Commands</h2>
+    <!--For Getting Servo statuses-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get Servos Statuses</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">GET:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/servo/statuses</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonServoStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="ServoStatus"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting servo statuses-->
+    <!--For Setting Servo statuses-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Post Servos Statuses</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">POST:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/servo/statuses</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-9 col-md-ofset-9 col-sm-offset-8 col-xs-offset-6">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonServoStatus0" type="button" class="btn btn-lg btn-success control ">0* </button></th>
+                                    <th><button id="ButtonServoStatus90" type="button" class="btn btn-lg btn-info control ">90* </button></th>
+                                    <th><button id="ButtonServoStatus180" type="button" class="btn btn-lg btn-warning control ">180* </button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="ServoChangeStatusResults"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting servo statuses-->
+
+    <script src="js/HttpClient.js"></script>
+    <script src="js/ServoStatus.js"></script>
+</body>
+</html>

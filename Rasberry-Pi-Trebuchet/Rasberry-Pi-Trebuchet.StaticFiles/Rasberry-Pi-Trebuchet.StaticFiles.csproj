@@ -139,21 +139,20 @@
     <Content Include="Web\img\Windows-32x32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web\js\bootstrap.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\js\jquery.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Web\js\HttpClient.js" />
     <Content Include="Web\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web\js\script -Backup.js">
+    <Content Include="Web\js\LightStatus.js" />
+    <Content Include="Web\js\ServoStatus.js" />
+    <Content Include="Web\js\UltraSonic.js" />
+    <Content Include="Web\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Web\lib\jQuery\dist\jquery.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web\js\script.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Web\Lights.HTML" />
+    <Content Include="Web\Servos.html" />
+    <Content Include="Web\UltraSonic.html" />
     <Content Include="Web\Windows_10_Logo.png" />
   </ItemGroup>
   <ItemGroup />
