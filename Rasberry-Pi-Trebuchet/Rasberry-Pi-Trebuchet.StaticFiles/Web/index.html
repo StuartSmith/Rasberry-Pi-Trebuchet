@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row top-buffer">
             <div>
@@ -32,33 +31,50 @@
                 </p>
             </div>
         </div>
-        <!-- -------------------------------------- -->
-        <!-- Retrieve the lights content from the lights.html file-->
-        <!-- -------------------------------------- -->
-        <div id="LightsContent"></div>
 
-        <!-- -------------------------------------- -->
-        <!-- Retrieve the Serovs content from the Servos.html file-->
-        <!-- -------------------------------------- -->
-        <div id="ServosContent"></div>
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"> <a href="#tab1" data-toggle="tab">Light Commands</a></li>
+            <li>                <a href="#tab2" data-toggle="tab">Servo Commands</a></li>
+            <li>                <a href="#tab3" data-toggle="tab">UltraSonic Commands</a></li>
+        </ul>
 
-        <!-- -------------------------------------- -->
-        <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
-        <!-- -------------------------------------- -->
-        <div id="UltraSonicContent"></div>
+
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the lights content from the lights.html file-->
+                <!-- -------------------------------------- -->
+                <div id="LightsContent"></div>
+            </div>
+            <div class="tab-pane" id="tab2">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the Serovs content from the Servos.html file-->
+                <!-- -------------------------------------- -->
+                <div id="ServosContent"></div>
+            </div>
+            <div class="tab-pane" id="tab3">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
+                <!-- -------------------------------------- -->
+                <div id="UltraSonicContent"></div>
+
+            </div>
+        </div>
     </div>
 
 
     <script type="text/javascript" src="lib/jQuery/dist/jquery.min.js"> </script>
-    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script> 
-    
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/HttpClient.js"></script>
     <script src="js/LightStatus.js"></script>
     <script src="js/ServoStatus.js"></script>
 
-    <script> $(function(){ $("#LightsContent").load("Lights.html");}); </script>
-    <script> $(function () { $("#ServosContent").load("Servos.html"); }); </script>
-    <script> $(function () { $("#UltraSonicContent").load("UltraSonic.html"); }); </script>
+    <script>
+    $(function () {
+        $("#LightsContent").load("Lights.html");
+        $("#ServosContent").load("Servos.html");
+        $("#UltraSonicContent").load("UltraSonic.html");
+     }); </script>
 
 </body>
 

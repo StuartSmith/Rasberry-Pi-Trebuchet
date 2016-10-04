@@ -11,7 +11,6 @@ namespace Raspberry_Pi_Tribuchet.Sonic.Models
         public int SonicMeasurementId { get; set; }
         public DateTime TimeOfMeasurment { get; set; }
         public long MeasurementDistance { get; set; }
-
         public int RunId { get; set; }
         public SonicRun Run { get; set; }
     }
