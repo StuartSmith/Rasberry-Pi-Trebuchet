@@ -107,19 +107,28 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ISonicRestViewModel.cs" />
-    <Compile Include="Interfaces\ISonicRunStatus.cs" />
-    <Compile Include="Interfaces\ISonicProcess.cs" />
-    <Compile Include="Models\SonicMeasurement.cs" />
-    <Compile Include="Models\SonicRun.cs" />
-    <Compile Include="Models\SonicRunStatus.cs" />
+    <Compile Include="Context\UltraSonicContext.cs" />
+    <Compile Include="Interfaces\IUltraSonicSensor .cs" />
+    <Compile Include="Interfaces\IUltraSonicSensorRun.cs" />
+    <Compile Include="Interfaces\IUltraSonicSensorRunMeasurement.cs" />
+    <Compile Include="Models\UltraSonicRunRequest.cs" />
+    <Compile Include="Models\UltraSonicSensorRequest.cs" />
+    <Compile Include="Models\UltraSonicSensorRun.cs" />
+    <Compile Include="Models\UltraSonicSensorRunMeasurement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestViewModels\SonicRunStatus.ViewModel.cs" />
+    <Compile Include="RestViewModels\ViewModelUltraSonicSensorRun.cs" />
+    <Compile Include="RestViewModels\ViewModelUltraSonicSensorRunMeasurement.cs" />
     <Compile Include="Services\UltraSonicSensorService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Sonic.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sensors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Rasberry-Pi-Trebuchet.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
+      <Name>Rasberry-Pi-Trebuchet.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
