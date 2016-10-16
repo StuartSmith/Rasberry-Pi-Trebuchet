@@ -1,7 +1,9 @@
 ﻿using Devkoes.Restup.WebServer.Http;
 using Devkoes.Restup.WebServer.Rest;
+using Microsoft.EntityFrameworkCore;
 using Rasberry_Pi_Trebuchet.IOT.Controllers;
 using Rasberry_Pi_Trebuchet.IOT.Views;
+using Raspberry_Pi_Tribuchet.Sonic.Context;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +36,13 @@ namespace Rasberry_Pi_Trebuchet.IOT
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new UltraSonicContext())
+            {
+                db.Database.Migrate();
+            }
+
+
         }
 
         /// <summary>
@@ -49,6 +58,9 @@ namespace Rasberry_Pi_Trebuchet.IOT
             //    this.DebugSettings.EnableFrameRateCounter = true;
             //}
 #endif
+            
+
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,

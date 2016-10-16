@@ -111,6 +111,11 @@
     <Compile Include="Interfaces\IUltraSonicSensor .cs" />
     <Compile Include="Interfaces\IUltraSonicSensorRun.cs" />
     <Compile Include="Interfaces\IUltraSonicSensorRunMeasurement.cs" />
+    <Compile Include="Migrations\20161016144440_InitialMigration.cs" />
+    <Compile Include="Migrations\20161016144440_InitialMigration.designer.cs">
+      <DependentUpon>20161016144440_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\UltraSonicContextModelSnapshot.cs" />
     <Compile Include="Models\UltraSonicRunRequest.cs" />
     <Compile Include="Models\UltraSonicSensorRequest.cs" />
     <Compile Include="Models\UltraSonicSensorRun.cs" />

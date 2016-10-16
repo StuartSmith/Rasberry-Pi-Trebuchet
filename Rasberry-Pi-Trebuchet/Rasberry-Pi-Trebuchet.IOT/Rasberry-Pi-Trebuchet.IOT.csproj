@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\api\HttpGetAttribute.cs" />
     <Compile Include="Controllers\api\LightsController.cs" />
     <Compile Include="Controllers\api\PiConfigurationController.cs" />
     <Compile Include="Controllers\api\ServoController.cs" />
