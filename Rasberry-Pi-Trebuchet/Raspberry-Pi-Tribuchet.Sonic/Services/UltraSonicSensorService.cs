@@ -7,19 +7,25 @@ using Raspberry_Pi_Tribuchet.Sonic.Models;
 using Raspberry_Pi_Tribuchet.Sonic.RestViewModels;
 using Raspberry_Pi_Tribuchet.Sonic.Context;
 using System.Diagnostics;
+using Raspberry_Pi_Tribuchet.Sonic.Sensors;
 
 namespace Raspberry_Pi_Tribuchet.Sonic.Services
 {
-    public class UltraSonicSensorService : IUltraSonicSensor
+    public class UltraSonicSensorService
     {
 
         private static UltraSonicSensorService _instance;
         private static Task<bool> _BackgroundThread;
         private static bool _isUltraSonicRunning;
         private Action<UltraSonicRunRequest> _ActionUltraSonicRun;
+        private static UltraSonicSensor _ultraSonicSensor;
 
         private UltraSonicSensorService()
         {
+            //Create an ultra sonic sensor using GPIO Pin echo 20 for trigger and 21 for echo
+
+            UltraSonicSensorRun SonicSensorRun = new UltraSonicSensorRun();
+            _ultraSonicSensor = new UltraSonicSensor((int)SonicSensorRun.PinGPIOTrigger, (int)SonicSensorRun.PinGPIOEcho);
         }
 
 
@@ -150,7 +156,7 @@ namespace Raspberry_Pi_Tribuchet.Sonic.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    double lastMeasurement = 5;
+                   
                     UltraSonicSensorRun SonicSensorRun = new UltraSonicSensorRun();
                     SonicSensorRun.SonicMeasurements = new List<UltraSonicSensorRunMeasurement>();
 
@@ -159,9 +165,8 @@ namespace Raspberry_Pi_Tribuchet.Sonic.Services
                         Task.Delay(100).Wait();
                         Debug.WriteLine($"Hello From Thread time elapsed {stopWatch.ElapsedMilliseconds}");
                         UltraSonicSensorRunMeasurement measurement = new UltraSonicSensorRunMeasurement();
-
-                        lastMeasurement += .1;
-                        measurement.MeasurementDistance = lastMeasurement;
+                                  
+                        measurement.MeasurementDistance = _ultraSonicSensor.GetDistanceInInches;
                         measurement.TimeOfMeasurment = DateTime.Now;
 
                         //Set values from Sonic Sensor Run

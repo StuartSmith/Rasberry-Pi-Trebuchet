@@ -79,5 +79,12 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
             return new PostResponse(PostResponse.ResponseStatus.Created, "", new { runstarted });
         }
 
+
+        /// <summary>
+        /// Need to add Delete to the ultra sonic sensor run
+        /// </summary>
+        [UriFormat("ultrasonic/startrun")]
+        public IDeleteResponse
+
     }
 }
