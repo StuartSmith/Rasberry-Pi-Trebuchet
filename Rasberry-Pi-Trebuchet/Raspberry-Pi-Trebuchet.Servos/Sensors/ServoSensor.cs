@@ -6,9 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
+using Microsoft.IoT.Lightning.Providers;
+using Windows.Devices;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Sensors
 {
+
+    /// <summary>
+    /// The Lightning driver is required to move the sensor change the device driver to use lightning
+    /// https://developer.microsoft.com/en-us/windows/iot/docs/lightningsetup
+    /// </summary>
     public class ServoSensor
     {
         private GpioController _gpioController;
@@ -45,18 +52,27 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
         {
             RaspberryGPIOpin = gpioPin;
             GpioInit();
+            //var task =  GpioInit();
+            //task.Wait();
         }
         #endregion
 
         /// <summary>
         /// Initialize the GPIO pin
         /// </summary>
-        private void GpioInit()
+        //private async Task<bool> GpioInit()
+       private void GpioInit()
         {
             try
             {
+                if (LightningProvider.IsLightningEnabled)
+                {
+                    LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
+                }
+
+
                 GpioInitialized = false;
-                _gpioController = GpioController.GetDefault();
+                _gpioController = GpioController.GetDefault(); 
                 _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin));
                 _motorPin.SetDriveMode(GpioPinDriveMode.Output);             
                 GpioInitialized = true;
@@ -67,6 +83,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
             {
                 Debug.WriteLine("ERROR: GpioInit failed - " + ex.ToString());
             }
+
+            //return true;
         }
 
         /// <summary>
@@ -106,23 +124,30 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
         {
             lock (thisLock)
             {
-                if (_motorPin == null)
-                    GpioInit();
+                try
+                {
+                    if (_motorPin == null)
+                        GpioInit();
 
-                //Total amount of time for a pulse
-                double TotalPulseTime;
-                double timeToWait;
+                    //Total amount of time for a pulse
+                    double TotalPulseTime;
+                    double timeToWait;
 
-                TotalPulseTime = 25;
-                timeToWait = TotalPulseTime - motorPulse;
-             
+                    TotalPulseTime = 25;
+                    timeToWait = TotalPulseTime - motorPulse;
 
-                //Send the pulse to move the servo over a given time span
-                _motorPin?.Write(GpioPinValue.High);
-                MillisecondToWait(motorPulse);
-                _motorPin?.Write(GpioPinValue.Low);
-                MillisecondToWait(timeToWait);
-                _motorPin?.Write(GpioPinValue.Low);
+
+                    //Send the pulse to move the servo over a given time span
+                    _motorPin?.Write(GpioPinValue.High);
+                    MillisecondToWait(motorPulse);
+                    _motorPin?.Write(GpioPinValue.Low);
+                    MillisecondToWait(timeToWait);
+                    _motorPin?.Write(GpioPinValue.Low);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Oops the unthinkable happened ");
+                }
             }
         }
 
@@ -155,7 +180,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Sensors
                 case RotateServer.RotateToMiddle:
                     return 1.2;
                 case RotateServer.RotateToRight:
-                    return .4;
+                    return .8;
 
             }
             return -1;

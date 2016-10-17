@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 
     $("#ButtonIsUltraSonicsRunning").click(function () {
-        var url = "/api/ultrasonic/IsUltraSonicRunning?=" + new Date().getTime();
+        var url = "/api/ultrasonic/isultrasonicrunning?=" + new Date().getTime();
         aClient = new HttpClient();
 
         aClient.get(url, IsUltraSonicRunningResult);
