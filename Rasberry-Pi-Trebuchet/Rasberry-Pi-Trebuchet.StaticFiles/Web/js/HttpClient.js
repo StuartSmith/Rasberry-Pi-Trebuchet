@@ -40,7 +40,9 @@
         var anHttpRequest = new XMLHttpRequest();
         anHttpRequest.onreadystatechange = function () {
             if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
+                aCallback("Removed All Runs");
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 204)
+                aCallback("No Runs found to remove");
         }
 
         anHttpRequest.open("DELETE", aUrl, true);

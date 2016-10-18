@@ -57,8 +57,8 @@ $(document).ready(function () {
 
 
     $("#ButtonRemoveUltraSonicsRun").click(function () {
-
-        var url = "/api/ultrasonic/RemoveUltraSonicRuns";
+       
+        var url = " /api/ultrasonic/removeultrasonicruns";
         aClient = new HttpClient();
         aClient.delete(url, UltraSonicRemovalResult);
     });

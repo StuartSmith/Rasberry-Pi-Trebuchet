@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Devkoes.Restup.WebServer.Models.Schemas.DeleteResponse;
 
 namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
 {
@@ -81,10 +82,19 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
 
 
         /// <summary>
-        /// Need to add Delete to the ultra sonic sensor run
+        /// Needs to add Delete to the ultra sonic sensor run
         /// </summary>
-        [UriFormat("ultrasonic/startrun")]
-        public IDeleteResponse
+        /// removeultrasonicruns
+        [UriFormat("ultrasonic/removeultrasonicruns")]
+        public IDeleteResponse RemoveUltraSonicRuns()
+        {
+            var ultraSonicService = UltraSonicSensorService.Instance;
+            long RunRemovalReturned = ultraSonicService.RemoveAllUltraSonicRuns();
+            if (RunRemovalReturned == 0) 
+                return new DeleteResponse(DeleteResponse.ResponseStatus.NoContent);
+            else
+                return new DeleteResponse(DeleteResponse.ResponseStatus.OK);
+        }
 
     }
 }
