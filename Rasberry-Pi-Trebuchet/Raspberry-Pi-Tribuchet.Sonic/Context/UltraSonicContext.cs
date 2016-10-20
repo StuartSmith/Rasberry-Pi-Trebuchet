@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Raspberry_Pi_Tribuchet.Sonic.Models;
+using Raspberry_Pi_Trebuchet.Sonic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.Context
+namespace Raspberry_Pi_Trebuchet.Sonic.Context
 {
     /// <summary>
     /// To add a migration run following for example..
     ///
-    /// Add-Migration InitialMigration -Verbose -project  Raspberry-Pi-Tribuchet.Sonic
+    /// Add-Migration InitialMigration -Verbose -project  Raspberry-Pi-Trebuchet.Sonic
     /// 
     /// *****************************************************************************************************************
     /// Packages to install to get sql lite working

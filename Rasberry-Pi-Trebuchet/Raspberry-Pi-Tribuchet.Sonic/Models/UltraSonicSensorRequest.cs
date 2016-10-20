@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.Models
+namespace Raspberry_Pi_Trebuchet.Sonic.Models
 {
     public class UltraSonicSensorRequest
     {

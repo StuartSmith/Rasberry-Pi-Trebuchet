@@ -3,7 +3,7 @@ using Devkoes.Restup.WebServer.Rest;
 using Microsoft.EntityFrameworkCore;
 using Rasberry_Pi_Trebuchet.IOT.Controllers;
 using Rasberry_Pi_Trebuchet.IOT.Views;
-using Raspberry_Pi_Tribuchet.Sonic.Context;
+using Raspberry_Pi_Trebuchet.Sonic.Context;
 using System;
 using System.Collections.Generic;
 using System.IO;

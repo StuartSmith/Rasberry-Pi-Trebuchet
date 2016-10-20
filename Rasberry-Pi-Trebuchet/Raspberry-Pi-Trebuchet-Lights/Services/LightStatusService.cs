@@ -106,7 +106,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
 
         /// <summary>
         /// Sets a light status to be on or OFF
-        /// on the tribuchet
+        /// on the Trebuchet
         /// </summary>
         /// <param name="light"></param>
         /// <returns></returns>

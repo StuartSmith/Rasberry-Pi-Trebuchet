@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Windows.Devices;
 using Windows.Devices.Gpio;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.Sensors
+namespace Raspberry_Pi_Trebuchet.Sonic.Sensors
 {
     class UltraSonicSensor
     {

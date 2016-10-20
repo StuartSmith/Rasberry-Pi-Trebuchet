@@ -1,15 +1,15 @@
-﻿using Raspberry_Pi_Tribuchet.Sonic.Interfaces;
+﻿using Raspberry_Pi_Trebuchet.Sonic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Raspberry_Pi_Tribuchet.Sonic.Models;
-using Raspberry_Pi_Tribuchet.Sonic.RestViewModels;
-using Raspberry_Pi_Tribuchet.Sonic.Context;
+using Raspberry_Pi_Trebuchet.Sonic.Models;
+using Raspberry_Pi_Trebuchet.Sonic.RestViewModels;
+using Raspberry_Pi_Trebuchet.Sonic.Context;
 using System.Diagnostics;
-using Raspberry_Pi_Tribuchet.Sonic.Sensors;
+using Raspberry_Pi_Trebuchet.Sonic.Sensors;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.Services
+namespace Raspberry_Pi_Trebuchet.Sonic.Services
 {
     public class UltraSonicSensorService
     {

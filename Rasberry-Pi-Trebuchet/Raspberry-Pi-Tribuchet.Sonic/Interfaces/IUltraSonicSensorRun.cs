@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.Interfaces
+namespace Raspberry_Pi_Trebuchet.Sonic.Interfaces
 {
     public interface IUltraSonicSensorRun
     {

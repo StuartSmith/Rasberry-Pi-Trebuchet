@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rasberry_Pi_Trebuchet.Common.Interfaces
 {
-    public interface ITribuchet 
+    public interface ITrebuchet 
     {
       
           

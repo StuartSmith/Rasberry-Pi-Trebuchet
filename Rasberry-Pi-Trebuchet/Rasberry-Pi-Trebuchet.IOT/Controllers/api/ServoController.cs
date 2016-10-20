@@ -37,8 +37,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
             try
             {
                 ServoStatusService servoStatusServer = ServoStatusService.Instance;
-            var task = servoStatusServer.SetServo(servo);
-            task.Wait();
+                var task = servoStatusServer.SetServo(servo);
+                task.Wait();
 
             return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", task.Result);
             }           

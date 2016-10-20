@@ -37,6 +37,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
             _Servos.Add(servo);
         }
 
+    
+
         public static ServoStatusService Instance
         {
             get
@@ -81,12 +83,17 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
                 }
         }
 
+        /// <summary>
+        /// Asumming only one servo to update on the trebuchet
+        /// </summary>
+        /// <param name="servo"></param>
+        /// <returns></returns>
 
-        public async Task<bool> SetServo(Servo servo)
+        public async Task<bool> SetServo(IServoRestViewModel servo)
         {
             // Send Servo status data to azure
-            var servoList = new List<Servo>();
-            servoList.Add(servo);
+            //var servoList = new List<Servo>();
+            //servoList.Add(servo);
             //await AzureConnectionService.Instance.SendServoData(servoList);
 
 
@@ -107,6 +114,8 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
             return RetrieveServos;
 
         }
+
+
 
         public async Task<List<IServoRestViewModel>> RetrieveServos()
         {

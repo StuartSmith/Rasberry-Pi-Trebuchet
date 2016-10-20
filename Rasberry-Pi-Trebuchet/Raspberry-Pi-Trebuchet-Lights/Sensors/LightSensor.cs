@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.IoT.Lightning.Providers;
+using System;
+using Windows.Devices;
 using Windows.Devices.Gpio;
 
 
@@ -13,12 +15,24 @@ namespace Raspberry_Pi_Trebuchet.Lights.Sensors
 
         public LightSensor(int lightPin)
         {
-            GpioController controller = GpioController.GetDefault();
+            try
+            {
+                if (LightningProvider.IsLightningEnabled)
+                {
+                    LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
+                }
 
-            
-            _lightPin = controller.OpenPin(lightPin);
-           _lightPin.SetDriveMode(GpioPinDriveMode.Output);
-            _lightPin.Write(GpioPinValue.Low);
+                GpioController controller = GpioController.GetDefault();
+
+
+                _lightPin = controller.OpenPin(lightPin);
+                _lightPin.SetDriveMode(GpioPinDriveMode.Output);
+                _lightPin.Write(GpioPinValue.Low);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private bool _lighton = false;

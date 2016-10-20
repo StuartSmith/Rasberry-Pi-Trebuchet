@@ -10,6 +10,6 @@ namespace Raspberry_Pi_Trebuchet.Servos.Interfaces
 
         List<string> ServoStatuses { get; }
 
-        Task<bool> SetServo(Servo servo);
+        Task<bool> SetServo(IServoRestViewModel servo);
     }
 }
