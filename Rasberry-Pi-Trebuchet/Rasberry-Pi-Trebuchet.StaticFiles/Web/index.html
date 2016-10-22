@@ -36,6 +36,8 @@
             <li class="active"> <a href="#tab1" data-toggle="tab">Light Commands</a></li>
             <li>                <a href="#tab2" data-toggle="tab">Servo Commands</a></li>
             <li>                <a href="#tab3" data-toggle="tab">UltraSonic Commands</a></li>
+            <li>                <a href="#tab4" data-toggle="tab">Trebuchet Commands</a></li>
+
         </ul>
 
 
@@ -59,6 +61,13 @@
                 <div id="UltraSonicContent"></div>
 
             </div>
+            <div class="tab-pane" id="tab4">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
+                <!-- -------------------------------------- -->
+                <div id="TrebuchetContent"></div>
+
+            </div>
         </div>
     </div>
 
@@ -68,12 +77,14 @@
     <script src="js/HttpClient.js"></script>
     <script src="js/LightStatus.js"></script>
     <script src="js/ServoStatus.js"></script>
+    <script src="js/Trebuchet.js"></script>
 
     <script>
     $(function () {
         $("#LightsContent").load("Lights.html");
         $("#ServosContent").load("Servos.html");
         $("#UltraSonicContent").load("UltraSonic.html");
+        $("#TrebuchetContent").load("Trebuchet.html");
      }); </script>
 
 </body>

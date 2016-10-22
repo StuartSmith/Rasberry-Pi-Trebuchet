@@ -30,6 +30,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.ViewModels
             restRouteHandler.RegisterController<LightsController>();
             restRouteHandler.RegisterController<ServoController>();
             restRouteHandler.RegisterController<UltraSonicController>();
+            restRouteHandler.RegisterController<TrebuchetController>();
 
             //Register the Route Controller
             httpServer.RegisterRoute("api", restRouteHandler);            

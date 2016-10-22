@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Trebuchet</title>
+</head>
+<body>
+
+    <!--For Getting Servo statuses-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Fire Trebuchet</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Post:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/trebuchet/fire</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonFireTrebuchet" type="button" class="btn btn-lg btn-danger control ">Fire</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="ButtonFireTrebuchetResults"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting servo statuses-->
+
+    <!--For Resetting result-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Reset Trebuchet</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Post:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2>/api/trebuchet/reset</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonResetTrebuchet" type="button" class="btn btn-lg btn-success control ">Reset</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="ButtonResetTrebuchetResults"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--For Resetting result-->
+
+    <script src="js/HttpClient.js"></script>
+    <script src="js/Trebuchet.js"></script>
+</body>
+</html>

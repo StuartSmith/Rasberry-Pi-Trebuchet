@@ -145,6 +145,7 @@
     </Content>
     <Content Include="Web\js\LightStatus.js" />
     <Content Include="Web\js\ServoStatus.js" />
+    <Content Include="Web\js\Trebuchet.js" />
     <Content Include="Web\js\UltraSonic.js" />
     <Content Include="Web\lib\bootstrap\dist\js\bootstrap.min.js" />
     <Content Include="Web\lib\jQuery\dist\jquery.min.js">
@@ -152,6 +153,7 @@
     </Content>
     <Content Include="Web\Lights.HTML" />
     <Content Include="Web\Servos.html" />
+    <Content Include="Web\Trebuchet.html" />
     <Content Include="Web\UltraSonic.html" />
     <Content Include="Web\Windows_10_Logo.png" />
   </ItemGroup>

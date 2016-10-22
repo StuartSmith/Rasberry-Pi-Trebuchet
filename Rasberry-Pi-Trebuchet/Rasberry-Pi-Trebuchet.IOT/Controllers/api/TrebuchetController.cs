@@ -15,7 +15,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
     {
         private object runrequest;
 
-        [UriFormat("Trebuchet/Fire")]
+        [UriFormat("trebuchet/fire")]
         public IPostResponse Fire()
         {
             TrebuchetService trebuchetService = new TrebuchetService();
@@ -25,7 +25,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
 
         }
 
-        [UriFormat("Trebuchet/Reset")]
+        [UriFormat("trebuchet/reset")]
         public IPostResponse Reset()
         {
             TrebuchetService trebuchetService = new TrebuchetService();
