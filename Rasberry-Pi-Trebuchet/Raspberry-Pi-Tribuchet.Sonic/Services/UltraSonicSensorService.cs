@@ -26,8 +26,16 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
 
             UltraSonicSensorRun SonicSensorRun = new UltraSonicSensorRun();
             _ultraSonicSensor = new UltraSonicSensor((int)SonicSensorRun.PinGPIOTrigger, (int)SonicSensorRun.PinGPIOEcho);
+
+            MaxDistance = 25;
         }
 
+
+        /// <summary>
+        /// The Maximum distance in inches for the Tribuchet. 
+        /// If the distance is greater than this return 0;
+        /// </summary>
+        public double MaxDistance { get; set; }
 
         private ViewModelUltraSonicSensorRun ConvertSensorRunModelToViewModel(UltraSonicSensorRun ultraSonicSensorRun)
         {
@@ -167,6 +175,9 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
                         UltraSonicSensorRunMeasurement measurement = new UltraSonicSensorRunMeasurement();
                                   
                         measurement.MeasurementDistance = _ultraSonicSensor.GetDistanceInInches;
+                        if (measurement.MeasurementDistance > MaxDistance)
+                            measurement.MeasurementDistance = -1;
+                            
                         measurement.TimeOfMeasurment = DateTime.Now;
 
                         //Set values from Sonic Sensor Run

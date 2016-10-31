@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Soni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Trebuchet", "Raspberry-Pi-Tribuchet.Tribuchet\Raspberry-Pi-Trebuchet.Trebuchet.csproj", "{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP", "UWP", "{D6193117-68AD-4284-B0E9-A1CFC8A0A644}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Microsoft.Samples.SimpleCommunication", "UWP\common\MediaExtensions\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj", "{DFEEA5AA-D079-40F7-BFD3-394D5C000047}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,8 +171,25 @@ Global
 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x64.Build.0 = Release|x64
 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x86.ActiveCfg = Release|x86
 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x86.Build.0 = Release|x86
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|ARM.Build.0 = Debug|ARM
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|x64.ActiveCfg = Debug|x64
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|x64.Build.0 = Debug|x64
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|x86.ActiveCfg = Debug|Win32
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Debug|x86.Build.0 = Debug|Win32
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|Any CPU.ActiveCfg = Release|Win32
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|ARM.ActiveCfg = Release|ARM
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|ARM.Build.0 = Release|ARM
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|x64.ActiveCfg = Release|x64
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|x64.Build.0 = Release|x64
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|x86.ActiveCfg = Release|Win32
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFEEA5AA-D079-40F7-BFD3-394D5C000047} = {D6193117-68AD-4284-B0E9-A1CFC8A0A644}
 	EndGlobalSection
 EndGlobal
