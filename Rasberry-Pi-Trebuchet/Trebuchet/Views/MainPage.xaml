@@ -30,7 +30,12 @@
                 </controls:PageHeader.SecondaryCommands>
             </controls:PageHeader>
         </Grid>
-        <Grid Name="ContentRow" Grid.Row="1">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="100"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Name="ContentRow" Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -71,21 +76,19 @@
 
                 </Grid>
             </Grid>
-            <Thumb Grid.Row="1"
-				Height="25"
-				IsTabStop="True" 
-				DragStarted="OnThumbDragStarted"
-				DragDelta="OnThumbDragDelta"
-				PointerEntered="OnThumbPointerEntered"
-				PointerExited="OnThumbPointerExited"
-				GotFocus="OnThumbGotFocus" BorderThickness="5" Background="#CCB4ACAC"
-               />
-            <Grid Name="ActionRow" Grid.Row="2">
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border  BorderThickness="3" BorderBrush="{StaticResource CustomColorBrush}" Margin="3,3,3,3">
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                        <Border Width="198" Height="198">
+                            <Image></Image>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                </Border>
             </Grid>
         </Grid>
-
-
-
     </Grid>
 </Page>
 
