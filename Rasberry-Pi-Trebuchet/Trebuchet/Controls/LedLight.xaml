@@ -1,0 +1,18 @@
+﻿<UserControl
+    x:Name="LedLightControl"
+    x:Class="Trebuchet.Controls.LedLight"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Trebuchet.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="50"
+    >
+
+    <Grid Margin="0,-1,0,1" Name="LayoutRoot">
+        <Path x:Name="path"  Width="13.84" Data="M5.14976,17.734 L24.25,17.484 M14.5958,0.500036 C17.5686,0.507579 20.6868,1.71791 23.968,4.27561 L24.275,17.4241 L5.275,17.539 L5.57597,4.39049 C8.43176,1.84696 11.4314,0.492003 14.5958,0.500036 z" Margin="18.118,6.601,18.042,15.75" Stretch="Fill" Stroke="{Binding LightStroke, ElementName=LedLightControl, Mode=OneWay}" UseLayoutRounding="False" Fill="{Binding LightBrush, ElementName=LedLightControl, Mode=OneWay}" HorizontalAlignment="Center" StrokeThickness="1"/>
+        <Path Width="23.125" Data="M28.875,17.351 L28.8391,19.6843 L22.9035,19.6843 L22.9,23.125 L18.9947,23.1748 L18.9947,19.6843 L9.98246,19.7841 L9.83769,23.125 L6.15,23.125 L6.27162,19.7196 L4.07667,19.734 L0.427615,19.834 L0.5,17.476 z" Margin="13.475,0,13.4,7" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" Height="9.403" VerticalAlignment="Bottom" RenderTransformOrigin="0.498,0.384" HorizontalAlignment="Center" Fill="Gray" />
+    </Grid>
+</UserControl>

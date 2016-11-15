@@ -8,7 +8,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:Trebuchet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vm="using:Trebuchet.ViewModels" mc:Ignorable="d">
+      xmlns:vm="using:Trebuchet.ViewModels"
+      xmlns:TrebControls="using:Trebuchet.Controls"
+      mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
@@ -81,8 +83,10 @@
                 <Border  BorderThickness="3" BorderBrush="{StaticResource CustomColorBrush}" Margin="3,3,3,3">
                 <ScrollViewer>
                     <StackPanel Orientation="Vertical">
-                        <Border Width="198" Height="198">
-                            <Image></Image>
+                        <Border >
+                                <StackPanel>
+                                    <TrebControls:PiControler></TrebControls:PiControler>
+                                </StackPanel>
                         </Border>
                     </StackPanel>
                 </ScrollViewer>

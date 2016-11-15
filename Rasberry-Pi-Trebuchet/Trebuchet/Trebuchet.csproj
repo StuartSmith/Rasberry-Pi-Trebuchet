@@ -97,9 +97,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LedLight.xaml.cs">
+      <DependentUpon>LedLight.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PiControler.xaml.cs">
       <DependentUpon>PiControler.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IPiSettingsAndConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CaptureDeviceService\CaptureDevice.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
@@ -148,6 +152,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\LedLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\PiControler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
