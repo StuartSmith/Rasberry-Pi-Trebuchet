@@ -37,6 +37,11 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
         /// </summary>
         public double MaxDistance { get; set; }
 
+        /// <summary>
+        /// Retrieve all the child records for an ultra sonic run 
+        /// </summary>
+        /// <param name="ultraSonicSensorRun"></param>
+        /// <returns></returns>
         private ViewModelUltraSonicSensorRun ConvertSensorRunModelToViewModel(UltraSonicSensorRun ultraSonicSensorRun)
         {
             ViewModelUltraSonicSensorRun viewModelLastUltraSonic = null;
@@ -98,7 +103,8 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
         {
             UltraSonicSensorRun LastUltraSonic = null;
             ViewModelUltraSonicSensorRun viewModelLastUltraSonic = null;
-
+            
+            //Retrieve Data from Local SQL Lite Database
             using (var db = new UltraSonicContext())
             {
                 var qResult = (from sensorRun in db.UltraSonicSensorRuns

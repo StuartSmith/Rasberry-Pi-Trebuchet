@@ -75,6 +75,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -90,6 +91,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="App.config" />
     <None Include="Trebuchet_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
@@ -97,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Context\PiConfigurationContext.cs" />
     <Compile Include="Controls\LedLight.xaml.cs">
       <DependentUpon>LedLight.xaml</DependentUpon>
     </Compile>
@@ -104,7 +107,17 @@
       <DependentUpon>PiControler.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IPiSettingsAndConfiguration.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ISettingsAndConfigurationRepository.cs" />
+    <Compile Include="Migrations\20161118133346_InitialMigration.cs" />
+    <Compile Include="Migrations\20161118133346_InitialMigration.designer.cs">
+      <DependentUpon>20161118133346_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PiConfigurationContextModelSnapshot.cs" />
+    <Compile Include="Models\PiSettingsAndConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\SettingsAndConfigurationRepository.cs" />
     <Compile Include="Services\CaptureDeviceService\CaptureDevice.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -191,14 +204,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\UWP\common\MediaExtensions\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj">
       <Project>{dfeea5aa-d079-40f7-bfd3-394d5c000047}</Project>
       <Name>Microsoft.Samples.SimpleCommunication</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

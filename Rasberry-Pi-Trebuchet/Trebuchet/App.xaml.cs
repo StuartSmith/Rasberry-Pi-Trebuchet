@@ -7,6 +7,8 @@ using Template10.Common;
 using System;
 using System.Linq;
 using Windows.UI.Xaml.Data;
+using Trebuchet.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Trebuchet
 {
@@ -27,6 +29,11 @@ namespace Trebuchet
             RequestedTheme = _settings.AppTheme;
             CacheMaxDuration = _settings.CacheMaxDuration;
             ShowShellBackButton = _settings.UseShellBackButton;
+
+            using (var db = new PiConfigurationContext())
+            {
+                db.Database.Migrate();
+            }
 
             #endregion
         }
