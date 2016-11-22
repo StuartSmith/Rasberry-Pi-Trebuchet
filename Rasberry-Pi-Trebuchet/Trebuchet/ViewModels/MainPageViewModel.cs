@@ -18,6 +18,7 @@ namespace Trebuchet.ViewModels
             }
         }
 
+        #region videocalls
         string _RemoteAddress = null;
         public string RemoteAddress { get { return _RemoteAddress; } set { Set(ref _RemoteAddress, value); } }
 
@@ -25,9 +26,105 @@ namespace Trebuchet.ViewModels
         Uri _VideoSource = null;
         public Uri VideoSource { get { return _VideoSource; } set { Set(ref _VideoSource, value); } }
 
+        #endregion
+        
+
+        System.Collections.ObjectModel.ObservableCollection<MainPageFlipViewViewModel> _FlipViewViewModels = new System.Collections.ObjectModel.ObservableCollection<MainPageFlipViewViewModel>();
+        public System.Collections.ObjectModel.ObservableCollection<MainPageFlipViewViewModel> FlipViewViewModels { get { return _FlipViewViewModels; } }
+
+       
+
+        MainPageFlipViewViewModel _SelectedFlipViewItem = default(MainPageFlipViewViewModel);
+        public MainPageFlipViewViewModel SelectedFlipViewItem
+        {
+            get { return _SelectedFlipViewItem; }
+            set
+            {
+                // base.SetProperty(ref _SelectedColor, value);
+                foreach (var item in FlipViewViewModels.Where(x => x.Selected))
+                    item.Selected= false;
+                if (value != null)
+                {
+                    value.Selected = true;
+                    if (_SelectedFlipViewItem != value)
+                    {
+                        _SelectedFlipViewItem = value;
+                        base.RaisePropertyChanged();
+                    }
+
+
+                }
+            }
+        }
+
+       
+
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
+            if (!(this._FlipViewViewModels.Any<MainPageFlipViewViewModel>()))
+            {
+                FlipViewViewModels.Add(new MainPageFlipViewViewModel()
+                {
+                    ColorPanelHighlight = "#FFFFCCCC",
+                    isConfigurationSetting = false,
+                    Name = "Red Team",
+                    MainPageViewModel = this,
+                    PiConfigid = 1,
+                    PiIP = "100.100.100.100",
+                    PiName = "WfRedTeam",
+                    Selected = true
+
+                }
+                );
+
+                FlipViewViewModels.Add(new MainPageFlipViewViewModel()
+                {
+                    ColorPanelHighlight = "#FFCDEACDC",
+                    isConfigurationSetting = false,
+                    Name = "Green Team",
+                    MainPageViewModel = this,
+                    PiConfigid = 1,
+                    PiIP = "100.100.100.101",
+                    PiName = "WfGreenTeam",
+                    Selected = false
+
+                }
+               );
+
+
+                FlipViewViewModels.Add(new MainPageFlipViewViewModel()
+                {
+                    ColorPanelHighlight = "#FFD9EDF7",
+                    isConfigurationSetting = false,
+                    Name = "Blue Team",
+                    MainPageViewModel = this,
+                    PiConfigid = 1,
+                    PiIP = "100.100.100.101",
+                    PiName = "WfBlueTeam",
+                    Selected = false
+
+                }
+               );
+
+                FlipViewViewModels.Add(new MainPageFlipViewViewModel()
+                {
+                    ColorPanelHighlight = "#FF787878",
+                    isConfigurationSetting = true,
+                    Name = "Settings",
+                    MainPageViewModel = this,
+                    PiConfigid = 1,
+                    PiIP = "",
+                    PiName = "",
+                    Selected = false
+
+                }
+               );
+
+
+
+            }
+
             if (suspensionState.Any())
             {
                 //Value = suspensionState[nameof(Value)]?.ToString();
@@ -36,16 +133,12 @@ namespace Trebuchet.ViewModels
         }
 
         public async Task<bool> StartCall()
-        {
-
-            //RemoteVideo.Source = new Uri(RemoteAddress);
-
+        {   
             VideoSource = new Uri("stsp://" + RemoteAddress);
-
-            //await new MessageDialog("Yeah the binding worked !!").ShowAsync();
-
             return true;
         }
+
+
 
 
         #region MainPageNav

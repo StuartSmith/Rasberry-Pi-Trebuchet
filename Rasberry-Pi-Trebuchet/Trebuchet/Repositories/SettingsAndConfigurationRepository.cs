@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trebuchet.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Trebuchet.Repositories
 {
@@ -14,7 +15,14 @@ namespace Trebuchet.Repositories
     {
        SettingsAndConfigurationRepository(DbContext dataContext):base(dataContext)
        {
+
        }
+
+        public IQueryable<IPiSettingsAndConfiguration> GetPIConfigureationByName(string Name  )
+        {
+            return DbSet.Where(h=> h.Name.ToUpper() == Name.ToUpper());
+        }
+
 
     }
 }

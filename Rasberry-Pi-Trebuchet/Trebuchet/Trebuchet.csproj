@@ -106,6 +106,7 @@
     <Compile Include="Controls\PiControler.xaml.cs">
       <DependentUpon>PiControler.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ColorConverter.cs" />
     <Compile Include="Interfaces\IPiSettingsAndConfiguration.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISettingsAndConfigurationRepository.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Repositories\SettingsAndConfigurationRepository.cs" />
     <Compile Include="Services\CaptureDeviceService\CaptureDevice.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
+    <Compile Include="ViewModels\MainPageFlipViewViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />

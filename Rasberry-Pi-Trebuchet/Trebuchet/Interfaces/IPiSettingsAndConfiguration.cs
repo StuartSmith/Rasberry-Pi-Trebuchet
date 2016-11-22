@@ -13,8 +13,10 @@ namespace Trebuchet.Interfaces
         string PiName { get; set; }
         string PiIP { get; set; }
         bool UserAzure { get; set; }
-        bool SendToast { get; set; }
-        string LedLightColor { get; set; }
+        bool SendToast { get; set; }      
+        string ColorLedLight { get; set; }
+        string ColorLedStroke { get; set;}
+        string ColorPanelHighlight { get; set; }
         bool isConfigurationSetting { get; set; }
 
     }

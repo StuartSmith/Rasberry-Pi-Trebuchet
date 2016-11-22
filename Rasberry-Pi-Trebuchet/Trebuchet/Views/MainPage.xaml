@@ -5,16 +5,34 @@
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:controls="using:Template10.Controls"
+      xmlns:converters="using:Template10.Converters" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:Trebuchet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Trebuchet.ViewModels"
-      xmlns:TrebControls="using:Trebuchet.Controls"
+      xmlns:TrebControls="using:Trebuchet.Controls"  
+      xmlns:TrebConverters="using:Trebuchet.Converters" 
       mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
+
+    <Page.Resources>
+        <converters:ValueWhenConverter x:Key="VisibleWhenTrueConverter">
+            <converters:ValueWhenConverter.When>
+                <x:Boolean>True</x:Boolean>
+            </converters:ValueWhenConverter.When>
+            <converters:ValueWhenConverter.Value>
+                <Visibility>Visible</Visibility>
+            </converters:ValueWhenConverter.Value>
+            <converters:ValueWhenConverter.Otherwise>
+                <Visibility>Collapsed</Visibility>
+            </converters:ValueWhenConverter.Otherwise>
+        </converters:ValueWhenConverter>
+
+        <TrebConverters:StringToColorConverter x:Key="StringToColorConverter"></TrebConverters:StringToColorConverter>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -81,15 +99,46 @@
             </Grid>
             <Grid Grid.Column="1">
                 <Border  BorderThickness="3" BorderBrush="{StaticResource CustomColorBrush}" Margin="3,3,3,3">
-                <ScrollViewer>
-                    <StackPanel Orientation="Vertical">
-                        <Border >
-                                <StackPanel>
-                                    <TrebControls:PiControler></TrebControls:PiControler>
-                                </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!-- Region Item Template Control -->
+                        <ItemsControl Grid.Row="0" ItemsSource="{x:Bind ViewModel.FlipViewViewModels}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">
+                                    <Button Style="{StaticResource TextBlockButtonStyle}" 
+                                        CommandParameter="{x:Bind}"
+                                        Command="{x:Bind SelectCommand, Mode=OneWay}">
+                                        <Grid Height="30" Width="30" Margin="10,10">
+                                            <Ellipse Fill="Gray" RenderTransformOrigin="0.5,0.5" Visibility="{x:Bind Selected, Converter={StaticResource VisibleWhenTrueConverter}, Mode=OneWay}" >
+                                                <Ellipse.RenderTransform>
+                                                    <CompositeTransform ScaleX="1.25" ScaleY="1.25"/>
+                                                </Ellipse.RenderTransform>
+                                            </Ellipse>
+                                            <Ellipse Fill="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}" Stroke="Gray" />
+                                        </Grid>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <!-- EndRegion -->
+                        <ScrollViewer Grid.Row="1">
+                            <StackPanel Orientation="Vertical">
+                                <Border >
+                                    <StackPanel>
+                                        <TrebControls:PiControler></TrebControls:PiControler>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </ScrollViewer> 
+                    </Grid>
                 </Border>
             </Grid>
         </Grid>
