@@ -7,11 +7,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TrebControls="using:Trebuchet.Controls"
+    xmlns:TrebConverters="using:Trebuchet.Converters" 
     mc:Ignorable="d"
     d:DesignHeight="600"
     d:DesignWidth="300">
 
     <UserControl.Resources>
+      
+        <TrebConverters:StringToColorConverter x:Key="StringToColorConverter"></TrebConverters:StringToColorConverter>
 
         <!--<Thickness x:Key="TextMargin"/>-->
 
@@ -244,8 +247,8 @@
     </UserControl.Resources>
     
     <StackPanel>
-        <Border Margin="15" BorderThickness="2" BorderBrush="#33FF0000"  CornerRadius="8,8,0,0" >
-            <StackPanel Margin="0,-1,0,0"  Background="#33FF0000" Orientation="Vertical"  CornerRadius="2,2,0,0">
+        <Border Margin="15" BorderThickness="2" BorderBrush="{Binding BrushPanel, ElementName=PiController, Mode=OneWay}"  CornerRadius="8,8,0,0" >
+            <StackPanel Margin="0,-1,0,0"  Background="{Binding BrushPanel, ElementName=PiController, Mode=OneWay}" Orientation="Vertical"  CornerRadius="2,2,0,0">
                 <Grid>
                     <TextBlock Margin ="{StaticResource TextMargin}" Text="Lights" Foreground="White" FontSize="22" FontWeight="Bold"/>
                 </Grid>

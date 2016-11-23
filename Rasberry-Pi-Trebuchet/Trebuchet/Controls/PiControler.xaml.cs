@@ -22,8 +22,50 @@ namespace Trebuchet.Controls
         public PiControler()
         {
             this.InitializeComponent();
+            BrushPanel = new SolidColorBrush(Windows.UI.Colors.Blue);
+
         }
 
+
+
+        public static readonly DependencyProperty BrushPanelProperty = DependencyProperty.Register("BrushPanel", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public Brush BrushPanel
+        {
+            get { return (Brush)GetValue(BrushPanelProperty); }
+            set { SetValue(BrushPanelProperty, value); }
+        }
+
+        #region RightLight
+        public static readonly DependencyProperty BrushRightLightFillProperty = DependencyProperty.Register("BrushRightLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public Brush BrushRightLightFill
+        {
+            get { return (Brush)GetValue(BrushRightLightFillProperty); }
+            set { SetValue(BrushRightLightFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty BrushRightLightStrokeProperty = DependencyProperty.Register("BrushRightLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public Brush BrushRightLightStroke
+        {
+            get { return (Brush)GetValue(BrushRightLightStrokeProperty); }
+            set { SetValue(BrushRightLightStrokeProperty, value); }
+        }
+        #endregion
+
+        #region LeftLight
+        public static readonly DependencyProperty BrushLeftLightFillProperty = DependencyProperty.Register("BrushLeftLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public Brush BrushLeftLightFill
+        {
+            get { return (Brush)GetValue(BrushLeftLightFillProperty); }
+            set { SetValue(BrushLeftLightFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty BrushLeftLightStrokeProperty = DependencyProperty.Register("BrushLeftLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public Brush BrushLeftLightStroke
+        {
+            get { return (Brush)GetValue(BrushLeftLightStrokeProperty); }
+            set { SetValue(BrushLeftLightStrokeProperty, value); }
+        }
+        #endregion
 
     }
 }

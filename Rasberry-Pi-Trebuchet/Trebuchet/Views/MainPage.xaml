@@ -32,6 +32,8 @@
         </converters:ValueWhenConverter>
 
         <TrebConverters:StringToColorConverter x:Key="StringToColorConverter"></TrebConverters:StringToColorConverter>
+
+        <converters:ChangeTypeConverter x:Key="TypeConverter"/>
     </Page.Resources>
 
     <Grid>
@@ -130,13 +132,18 @@
                         </ItemsControl>
                         <!-- EndRegion -->
                         <ScrollViewer Grid.Row="1">
-                            <StackPanel Orientation="Vertical">
-                                <Border >
-                                    <StackPanel>
-                                        <TrebControls:PiControler></TrebControls:PiControler>
-                                    </StackPanel>
-                                </Border>
-                            </StackPanel>
+                            <FlipView  ItemsSource="{x:Bind ViewModel.FlipViewViewModels}" 
+                                       SelectedItem="{x:Bind ViewModel.SelectedFlipViewItem, Mode=TwoWay, Converter={StaticResource TypeConverter}}" >
+                                <FlipView.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
+                                        <StackPanel Orientation="Vertical">
+                                            <TrebControls:PiControler 
+                                                BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}">                                                
+                                            </TrebControls:PiControler>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </FlipView.ItemTemplate>
+                            </FlipView>
                         </ScrollViewer> 
                     </Grid>
                 </Border>
