@@ -136,9 +136,13 @@
                                        SelectedItem="{x:Bind ViewModel.SelectedFlipViewItem, Mode=TwoWay, Converter={StaticResource TypeConverter}}" >
                                 <FlipView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
-                                        <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Vertical" Background="White">
                                             <TrebControls:PiControler 
-                                                BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}">                                                
+                                                BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                BrushRightLightFill ="{x:Bind ColorLedLightRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                BrushRightLightStroke="{x:Bind ColorLedStrokeRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                BrushLeftLightFill ="{x:Bind ColorLedLightLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                BrushLeftLightStroke="{x:Bind ColorLedStrokeLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}">                                                
                                             </TrebControls:PiControler>
                                         </StackPanel>
                                     </DataTemplate>

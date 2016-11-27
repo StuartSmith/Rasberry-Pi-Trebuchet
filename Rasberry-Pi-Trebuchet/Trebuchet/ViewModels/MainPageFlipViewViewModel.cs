@@ -23,6 +23,12 @@ namespace Trebuchet.ViewModels
         public string ColorLedStroke { get; set; }
         public string ColorPanelHighlight { get; set; }
 
+        public string ColorLedLightLeft { get; set; }
+        public string ColorLedLightRight { get; set; }
+
+        public string ColorLedStrokeLeft { get; set; }
+        public string ColorLedStrokeRight { get; set; }
+       
 
 
 

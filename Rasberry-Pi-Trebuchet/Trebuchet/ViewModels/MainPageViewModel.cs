@@ -73,7 +73,13 @@ namespace Trebuchet.ViewModels
                     PiConfigid = 1,
                     PiIP = "100.100.100.100",
                     PiName = "WfRedTeam",
-                    Selected = true
+                    Selected = true,
+                    ColorLedLight = "#FFFF0000",
+
+                    ColorLedLightLeft = "#FFFFFFFF",
+                    ColorLedLightRight = "#FFFFFFFF",
+                    ColorLedStrokeLeft = "#FF000000",
+                    ColorLedStrokeRight = "#FF000000",
 
                 }
                 );
@@ -87,7 +93,13 @@ namespace Trebuchet.ViewModels
                     PiConfigid = 1,
                     PiIP = "100.100.100.101",
                     PiName = "WfGreenTeam",
-                    Selected = false
+                    Selected = false,
+                    ColorLedLight = "#FF00FF00",
+
+                    ColorLedLightLeft = "#FFFFFFFF",
+                    ColorLedLightRight = "#FFFFFFFF",
+                    ColorLedStrokeLeft = "#FF000000",
+                    ColorLedStrokeRight = "#FF000000",
 
                 }
                );
@@ -102,7 +114,12 @@ namespace Trebuchet.ViewModels
                     PiConfigid = 1,
                     PiIP = "100.100.100.101",
                     PiName = "WfBlueTeam",
-                    Selected = false
+                    Selected = false,
+                    ColorLedLight = "#FF0000FF",
+                    ColorLedLightLeft = "#FFFFFFFF",
+                    ColorLedLightRight = "#FFFFFFFF",
+                    ColorLedStrokeLeft = "#FF000000",
+                    ColorLedStrokeRight = "#FF000000",
 
                 }
                );
@@ -116,7 +133,12 @@ namespace Trebuchet.ViewModels
                     PiConfigid = 1,
                     PiIP = "",
                     PiName = "",
-                    Selected = false
+                    Selected = false,
+                    ColorLedLight = "#FF787878",
+                    ColorLedLightLeft = "#FFFFFFFF",
+                    ColorLedLightRight = "#FFFFFFFF",
+                    ColorLedStrokeLeft = "#FF000000",
+                    ColorLedStrokeRight = "#FF000000",
 
                 }
                );

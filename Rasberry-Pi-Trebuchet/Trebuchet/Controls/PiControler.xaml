@@ -271,8 +271,9 @@
                     </Grid.ColumnDefinitions>
                     <!-- Grid Row1-->
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Status" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
-                    <TrebControls:LedLight x:Name="LeftLight"  Grid.Row="0" Grid.Column="1" LightBrush="Red" LightStroke="Black"></TrebControls:LedLight>
-                    <TrebControls:LedLight x:Name="RightLight" Grid.Row="0" Grid.Column="3" LightBrush="Red" LightStroke="Black" ></TrebControls:LedLight>
+                    <!-- Led Lights-->
+                    <TrebControls:LedLight x:Name="LeftLight"  Grid.Row="0" Grid.Column="1" LightBrush="{Binding BrushLeftLightFill,  ElementName=PiController, Mode=OneWay}" LightStroke="{Binding BrushLeftLightStroke,  ElementName=PiController, Mode=OneWay}"></TrebControls:LedLight>
+                    <TrebControls:LedLight x:Name="RightLight" Grid.Row="0" Grid.Column="3" LightBrush="{Binding BrushRightLightFill, ElementName=PiController, Mode=OneWay}" LightStroke="{Binding BrushRightLightStroke, ElementName=PiController, Mode=OneWay}" ></TrebControls:LedLight>
 
                     <!-- Grid Row2-->
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Both Lights" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>                   

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,7 +29,7 @@ namespace Trebuchet.Controls
 
 
 
-        public static readonly DependencyProperty BrushPanelProperty = DependencyProperty.Register("BrushPanel", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public static readonly DependencyProperty BrushPanelProperty = DependencyProperty.Register("BrushPanel", typeof(Brush), typeof(LedLight), new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Red)));
         public Brush BrushPanel
         {
             get { return (Brush)GetValue(BrushPanelProperty); }
@@ -36,14 +37,16 @@ namespace Trebuchet.Controls
         }
 
         #region RightLight
-        public static readonly DependencyProperty BrushRightLightFillProperty = DependencyProperty.Register("BrushRightLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public static readonly DependencyProperty BrushRightLightFillProperty = DependencyProperty.Register("BrushRightLightFill", typeof(Brush), typeof(LedLight), 
+                                                                                                             new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Red)));
         public Brush BrushRightLightFill
         {
             get { return (Brush)GetValue(BrushRightLightFillProperty); }
             set { SetValue(BrushRightLightFillProperty, value); }
         }
 
-        public static readonly DependencyProperty BrushRightLightStrokeProperty = DependencyProperty.Register("BrushRightLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public static readonly DependencyProperty BrushRightLightStrokeProperty = DependencyProperty.Register("BrushRightLightStroke", typeof(Brush), typeof(LedLight),
+                                                                                                              new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Black)));
         public Brush BrushRightLightStroke
         {
             get { return (Brush)GetValue(BrushRightLightStrokeProperty); }
@@ -52,14 +55,16 @@ namespace Trebuchet.Controls
         #endregion
 
         #region LeftLight
-        public static readonly DependencyProperty BrushLeftLightFillProperty = DependencyProperty.Register("BrushLeftLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public static readonly DependencyProperty BrushLeftLightFillProperty = DependencyProperty.Register("BrushLeftLightFill", typeof(Brush), typeof(LedLight), 
+                                                                                                            new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Red)));
         public Brush BrushLeftLightFill
         {
             get { return (Brush)GetValue(BrushLeftLightFillProperty); }
             set { SetValue(BrushLeftLightFillProperty, value); }
         }
 
-        public static readonly DependencyProperty BrushLeftLightStrokeProperty = DependencyProperty.Register("BrushLeftLightFill", typeof(Brush), typeof(LedLight), new PropertyMetadata(null));
+        public static readonly DependencyProperty BrushLeftLightStrokeProperty = DependencyProperty.Register("BrushLeftLightStroke", typeof(Brush), typeof(LedLight),
+                                                                                                               new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Black)));
         public Brush BrushLeftLightStroke
         {
             get { return (Brush)GetValue(BrushLeftLightStrokeProperty); }

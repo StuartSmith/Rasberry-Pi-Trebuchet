@@ -11,28 +11,19 @@
     <Color x:Key="SystemAccentColor">#006381</Color>
 
     <SolidColorBrush x:Key="ButtonForeground" Color="#FF000000"/>
-
-   
-
-
-
-
     <ResourceDictionary.ThemeDictionaries>
 
         <ResourceDictionary x:Key="Light">
-
             <SolidColorBrush x:Key="CustomColorBrush" Color="{StaticResource CustomColor}" />
             <SolidColorBrush x:Key="ContrastColorBrush" Color="{StaticResource ContrastColor}" />
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{StaticResource CustomColor}" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{StaticResource ContrastColor}" />
-
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="AccentColor" Value="{StaticResource CustomColor}" />
                 <Setter Property="VisualStateNarrowMinWidth" Value="{StaticResource NarrowMinWidth}" />
                 <Setter Property="VisualStateNormalMinWidth" Value="{StaticResource NormalMinWidth}" />
                 <Setter Property="VisualStateWideMinWidth" Value="{StaticResource WideMinWidth}" />
             </Style>
-
             <Style TargetType="controls:PageHeader">
                 <Setter Property="Background" Value="{ThemeResource CustomColorBrush}" />
                 <Setter Property="Foreground" Value="{ThemeResource ContrastColorBrush}" />
@@ -48,14 +39,11 @@
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Default">
-
             <SolidColorBrush x:Key="CustomColorBrush" Color="{StaticResource CustomColor}" />
             <SolidColorBrush x:Key="ContrastColorBrush" Color="{StaticResource ContrastColor}" />
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{StaticResource CustomColor}" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{StaticResource ContrastColor}" />
-
             <Style TargetType="controls:HamburgerMenu">
-
                 <!--
 
                 Windows 10 2015 (1511) Hamburger Menu Style
@@ -73,9 +61,7 @@
                 <Setter Property="NavButtonCheckedForeground" Value="White" />
                 <Setter Property="NavButtonCheckedBackground" Value="#FF2A4E6C" />
                 <Setter Property="NavButtonCheckedIndicatorBrush" Value="Transparent" />
-
                 -->
-
                 <Setter Property="AccentColor" Value="{StaticResource CustomColor}" />
                 <Setter Property="VisualStateNarrowMinWidth" Value="{StaticResource NarrowMinWidth}" />
                 <Setter Property="VisualStateNormalMinWidth" Value="{StaticResource NormalMinWidth}" />
@@ -93,14 +79,10 @@
                 <Setter Property="GrabberBrush" Value="{ThemeResource CustomColorBrush}" />
                 <Setter Property="GrabberVisibility" Value="Visible" />
             </Style>
-
         </ResourceDictionary>
-
         <ResourceDictionary x:Key="HighContrast">
-
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="Black" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="White" />
-
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="PaneBorderThickness" Value="0" />
                 <Setter Property="SecondarySeparator" Value="{ThemeResource SystemColorWindowTextColor}" />
@@ -113,14 +95,12 @@
                 <Setter Property="VisualStateNormalMinWidth" Value="{ThemeResource NormalMinWidth}" />
                 <Setter Property="VisualStateWideMinWidth" Value="{ThemeResource WideMinWidth}" />
             </Style>
-
             <Style TargetType="controls:PageHeader">
                 <Setter Property="Background" Value="{ThemeResource SystemColorWindowColor}" />
                 <Setter Property="Foreground" Value="{ThemeResource SystemColorWindowTextColor}" />
                 <Setter Property="VisualStateNarrowMinWidth" Value="{ThemeResource NarrowMinWidth}" />
                 <Setter Property="VisualStateNormalMinWidth" Value="{ThemeResource NormalMinWidth}" />
             </Style>
-
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
     
