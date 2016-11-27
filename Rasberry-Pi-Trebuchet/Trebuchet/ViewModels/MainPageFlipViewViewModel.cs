@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Trebuchet.Interfaces;
-using Trebuchet.Converters;
+using Trebuchet.UI.Controls.Converters;
 using Windows.UI.Xaml.Media;
 
 namespace Trebuchet.ViewModels

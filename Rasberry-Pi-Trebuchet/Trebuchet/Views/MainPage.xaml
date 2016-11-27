@@ -10,8 +10,8 @@
       xmlns:local="using:Trebuchet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Trebuchet.ViewModels"
-      xmlns:TrebControls="using:Trebuchet.Controls"  
-      xmlns:TrebConverters="using:Trebuchet.Converters" 
+      xmlns:TrebControls="using:Trebuchet.UI.Controls"  
+      xmlns:TrebConverters="using:Trebuchet.UI.Controls.Converters" 
       mc:Ignorable="d">
 
     <Page.DataContext>
@@ -137,13 +137,7 @@
                                 <FlipView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
                                         <StackPanel Orientation="Vertical" Background="White">
-                                            <TrebControls:PiControler 
-                                                BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
-                                                BrushRightLightFill ="{x:Bind ColorLedLightRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
-                                                BrushRightLightStroke="{x:Bind ColorLedStrokeRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
-                                                BrushLeftLightFill ="{x:Bind ColorLedLightLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
-                                                BrushLeftLightStroke="{x:Bind ColorLedStrokeLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}">                                                
-                                            </TrebControls:PiControler>
+                                            <TrebControls:PiLight Height="500" BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"></TrebControls:PiLight>
                                         </StackPanel>
                                     </DataTemplate>
                                 </FlipView.ItemTemplate>

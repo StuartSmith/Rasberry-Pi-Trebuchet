@@ -100,13 +100,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Context\PiConfigurationContext.cs" />
-    <Compile Include="Controls\LedLight.xaml.cs">
-      <DependentUpon>LedLight.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PiControler.xaml.cs">
-      <DependentUpon>PiControler.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Converters\ColorConverter.cs" />
     <Compile Include="Interfaces\IPiSettingsAndConfiguration.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISettingsAndConfigurationRepository.cs" />
@@ -167,14 +160,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\LedLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\PiControler.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,12 +191,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Trebuchet.UI\Trebuchet.UI.Controls.csproj">
+      <Project>{df38461c-7a23-4e96-9a85-39e01e117821}</Project>
+      <Name>Trebuchet.UI.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UWP\common\MediaExtensions\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj">
       <Project>{dfeea5aa-d079-40f7-bfd3-394d5c000047}</Project>
       <Name>Microsoft.Samples.SimpleCommunication</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
