@@ -137,7 +137,14 @@
                                 <FlipView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
                                         <StackPanel Orientation="Vertical" Background="White">
-                                            <TrebControls:PiLight Height="500" BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"></TrebControls:PiLight>
+                                            <TrebControls:PiLight Margin="0,0,15,0" Height="405" 
+                                                                  BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                                  PiTeam="{x:Bind Name, Mode=OneWay}"
+                                                                  PiName="{x:Bind PiName, Mode=OneWay}"
+                                                                  PiIp="{x:Bind PiIp, Mode=OneWay}"
+                                                                  BrushLeftLightFill="{x:Bind ColorLedLightLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                                  BrushRightLightFill="{x:Bind ColorLedLightRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                                  />
                                         </StackPanel>
                                     </DataTemplate>
                                 </FlipView.ItemTemplate>

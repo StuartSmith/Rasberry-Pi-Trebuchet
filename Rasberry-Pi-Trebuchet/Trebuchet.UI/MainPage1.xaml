@@ -9,7 +9,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>                
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -23,6 +23,13 @@
         </StackPanel>
 
         <Controls:LedLight Height="50"/>
+        <Button Height="50" Width="50" Style="{StaticResource BlueButtonStyle}">
+            <SymbolIcon Symbol="Refresh" RenderTransformOrigin="0.5,0.5" Foreground="Black" >
+                <SymbolIcon.RenderTransform>
+                    <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                </SymbolIcon.RenderTransform>
+            </SymbolIcon>
+        </Button>
         <Button Background="Black" Foreground="white" Content="OFF"></Button>
         <Controls:PiLight  Height="500"></Controls:PiLight>
 

@@ -12,27 +12,30 @@ namespace Trebuchet.ViewModels
 {
     public class MainPageFlipViewViewModel : ViewModelBase, IPiSettingsAndConfiguration
     {
-        public bool isConfigurationSetting { get; set; }     
+        public bool isConfigurationSetting { get; set; }   
        
         public MainPageViewModel MainPageViewModel { get; set; }
         public string Name { get; set; }
         public int PiConfigid { get; set; }
-        public string PiIP { get; set; }
+        public string PiIp { get; set; }
         public string PiName { get; set; }
+        /// <summary>
+        ///  Color to Use to When the light is Highlighted
+        /// </summary>
         public string ColorLedLight { get; set; }
+        public string ColorLedLightOff { get; set; }
+        /// <summary>
+        ///  Color to Set the Led Strokes
+        /// </summary>
         public string ColorLedStroke { get; set; }
+        /// <summary>
+        /// Background color for the panel
+        /// </summary>
         public string ColorPanelHighlight { get; set; }
-
         public string ColorLedLightLeft { get; set; }
         public string ColorLedLightRight { get; set; }
-
         public string ColorLedStrokeLeft { get; set; }
         public string ColorLedStrokeRight { get; set; }
-       
-
-
-
-
 
         bool _Selected = default(bool);
         public bool Selected
@@ -53,7 +56,6 @@ namespace Trebuchet.ViewModels
         }
         public bool SendToast { get; set; }
         public bool UserAzure { get; set; }
-
 
         DelegateCommand<MainPageFlipViewViewModel> _SelectCommand = null;
         public DelegateCommand<MainPageFlipViewViewModel> SelectCommand => _SelectCommand ?? (_SelectCommand = new DelegateCommand< MainPageFlipViewViewModel> ((o) =>

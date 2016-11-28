@@ -17,101 +17,190 @@
     <Style TargetType="local:PiLight" >
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:PiLight">
+                <ControlTemplate TargetType="local:PiLight">                    
                     <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="Team:" Foreground="Gray" FontSize="30" FontWeight="Bold"/>
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="{TemplateBinding PiTeam}" Foreground="Gray" FontSize="30" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="IP:" Foreground="Gray" FontSize="24" FontWeight="Bold" />
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="{TemplateBinding PiIp}" Foreground="Gray" FontSize="22" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="Pi Name:" Foreground="Gray" FontSize="24"  FontWeight="Bold" />
+                            <TextBlock Margin ="{StaticResource TextMargin}" Text="{TemplateBinding PiName}" Foreground="Gray" FontSize="22"/>
+                        </StackPanel>
+
                         <Border  BorderThickness="2" BorderBrush="{TemplateBinding BrushPanel}"  CornerRadius="8,8,0,0" >
                             <StackPanel Margin="0,-1,0,0"  Background="{TemplateBinding BrushPanel}" Orientation="Vertical"  CornerRadius="2,2,0,0">
                                 <Grid>
                                     <TextBlock Margin ="{StaticResource TextMargin}" Text="Lights" Foreground="White" FontSize="22" FontWeight="Bold"/>
                                 </Grid>
-                                <Grid Background="White">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition Height="5"></RowDefinition>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition Height="5"></RowDefinition>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition Height="5"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition Width="50"></ColumnDefinition>
-                                        <ColumnDefinition Width="5"></ColumnDefinition>
-                                        <ColumnDefinition Width="50"></ColumnDefinition>
-                                        <ColumnDefinition Width="5"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                     <!--Grid Row1-->
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Status" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
-                                     
-                                    <!--Led Lights-->
-                                    <local:LedLight x:Name="LeftLight"  Grid.Row="0" Grid.Column="1" LightBrush="{TemplateBinding BrushLeftLightFill}"   LightStroke="{TemplateBinding BrushLeftLightStroke}"></local:LedLight>
-                                    <local:LedLight x:Name="RightLight" Grid.Row="0" Grid.Column="3" LightBrush="{TemplateBinding BrushRightLightFill}" LightStroke="{TemplateBinding BrushRightLightStroke}" ></local:LedLight>
-
-                                     <!--Grid Row2 Both Lights-->
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Both Lights" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
-                                    <Button x:Name="btnBothOn" 
-                                            Grid.Row="1" 
+                                <StackPanel x:Name="Lights"> 
+                                    <!-- Two Led Lights -->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <!--Grid Row1-->
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Status" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
+                                        <!--Led Lights-->
+                                        <local:LedLight x:Name="LeftLight"  Grid.Row="0" Grid.Column="1" 
+                                                        LightBrush="{TemplateBinding BrushLeftLightFill}"  
+                                                        LightStroke="{TemplateBinding BrushLeftLightStroke}">                                            
+                                        </local:LedLight>
+                                        <local:LedLight x:Name="RightLight" Grid.Row="0" Grid.Column="3" 
+                                                        LightBrush="{TemplateBinding BrushRightLightFill}" 
+                                                        LightStroke="{TemplateBinding BrushRightLightStroke}" >                                            
+                                        </local:LedLight>
+                                    </Grid>
+                                    <!-- Refresh Button -->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                                   Text="Refresh Lights" Margin="{StaticResource TextMargin}"
+                                                   HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95">                                            
+                                        </TextBlock>
+                                        <Button x:Name="btnRefresh" 
+                                            Grid.Row="0" 
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch" 
+                                            VerticalAlignment="Stretch" 
+                                            Style="{StaticResource BlueButtonStyle}" 
+                                            Command="{TemplateBinding RefreshLights}">
+                                            <SymbolIcon Symbol="Refresh" RenderTransformOrigin="0.5,0.5" Foreground="Black" >
+                                                <SymbolIcon.RenderTransform>
+                                                    <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                </SymbolIcon.RenderTransform>
+                                            </SymbolIcon>
+                                        </Button>                                       
+                                    </Grid>
+                                    <!-- Turn ON/off Both Lights-->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Both Lights" 
+                                                   Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center" FontSize="22"
+                                                   Foreground="#FF858B95"></TextBlock>
+                                        <Button x:Name="btnBothOn" 
+                                            Grid.Row="0" 
                                             Grid.Column="1" 
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch"  
                                             Style="{StaticResource GreenButtonStyle}"
                                             Command="{TemplateBinding BothLightsOn}"                                                                                   
-                                            Content="ON">                                        
-                                    </Button>
-                                    <Button x:Name="btnBothOff" 
-                                            Grid.Row="1" 
+                                            Content="ON">
+                                        </Button>
+                                        <Button x:Name="btnBothOff" 
+                                            Grid.Row="0" 
                                             Grid.Column="3" 
                                             HorizontalAlignment="Stretch" 
                                             VerticalAlignment="Stretch" 
                                             Style="{StaticResource RedButtonStyle}" 
                                             Command="{TemplateBinding BothLightsOff}"
-                                            Content="OFF">                                        
-                                    </Button>
-
-                                     <!--Grid Row Left Ligth-->
-                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Left Light" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
-                                    <Button x:Name="btnLeftOn" 
-                                            Grid.Row="3" 
+                                            Content="OFF">
+                                        </Button>
+                                    </Grid>
+                                    <!-- Turn ON/off Left  Light-->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Left Light" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
+                                        <Button x:Name="btnLeftOn" 
+                                            Grid.Row="0" 
                                             Grid.Column="1"
                                             HorizontalAlignment="Stretch" 
                                             VerticalAlignment="Stretch"  
                                             Style="{StaticResource GreenButtonStyle}"   
-                                            Command="{TemplateBinding LeftLightOn}"
-                                           
+                                            Command="{TemplateBinding LeftLightOn}"                                           
                                             Content="ON">
-                                    </Button>
-                                    <Button x:Name="btnLeftOff" 
-                                            Grid.Row="3"
+                                        </Button>
+                                        <Button x:Name="btnLeftOff" 
+                                            Grid.Row="0"
                                             Grid.Column="3" 
                                             HorizontalAlignment="Stretch" 
                                             VerticalAlignment="Stretch"  
                                             Style="{StaticResource RedButtonStyle}"
                                             Command="{TemplateBinding LeftLightOff}"                                
-                                            Content="OFF">                                        
-                                    </Button>
-
-                                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Right Light" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
-                                    <Button x:Name="btnRightOn" 
-                                            Grid.Row="5"
+                                            Content="OFF">
+                                        </Button>
+                                    </Grid>
+                                    <!-- Turn ON/Off Right Light-->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Right Light" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
+                                        <Button x:Name="btnRightOn" 
+                                            Grid.Row="0"
                                             Grid.Column="1" 
                                             HorizontalAlignment="Stretch" 
                                             VerticalAlignment="Stretch" 
                                             Style="{StaticResource GreenButtonStyle}"
                                             Command="{TemplateBinding RightLightOn}"
-                                            Content="ON">                                        
-                                    </Button>
+                                            Content="ON">
+                                        </Button>
 
-                                    <Button x:Name="btnRightOff" 
-                                            Grid.Row="5"
+                                        <Button x:Name="btnRightOff" 
+                                            Grid.Row="0"
                                             Grid.Column="3" 
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch"  
                                             Style="{StaticResource RedButtonStyle}"
                                             Command="{TemplateBinding RightLightOff}"                           
-                                            Content="OFF">                                        
-                                    </Button>
-                                </Grid>
+                                            Content="OFF">
+                                        </Button>
+                                    </Grid>
+                                </StackPanel>
+                                
+                             
                             </StackPanel>
                         </Border>
                     </StackPanel>

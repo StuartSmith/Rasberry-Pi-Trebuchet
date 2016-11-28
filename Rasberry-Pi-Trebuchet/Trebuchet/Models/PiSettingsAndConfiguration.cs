@@ -26,7 +26,7 @@ namespace Trebuchet.Models
         public string ColorPanelHighlight { get; set; }
         public string Name { get; set; }
         public string PiName { get; set; }
-        public string PiIP { get; set; }
+        public string PiIp { get; set; }
         public bool UserAzure { get; set; }
         public bool SendToast { get; set; }       
       
@@ -43,7 +43,7 @@ namespace Trebuchet.Models
             piConfig1.isConfigurationSetting = piConfig2.isConfigurationSetting;
            
             piConfig1.Name = piConfig2.Name;
-            piConfig1.PiIP = piConfig2.PiIP;
+            piConfig1.PiIp = piConfig2.PiIp;
             piConfig1.PiName = piConfig2.PiName;
             piConfig1.SendToast = piConfig2.SendToast;
             piConfig1.UserAzure = piConfig2.UserAzure;

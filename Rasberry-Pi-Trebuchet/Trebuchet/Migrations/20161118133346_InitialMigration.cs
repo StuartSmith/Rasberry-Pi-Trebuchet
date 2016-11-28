@@ -16,7 +16,7 @@ namespace Trebuchet.Migrations
                         .Annotation("Autoincrement", true),
                     LedLightColor = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    PiIP = table.Column<string>(nullable: true),
+                    PiIp = table.Column<string>(nullable: true),
                     PiName = table.Column<string>(nullable: true),
                     SendToast = table.Column<bool>(nullable: false),
                     UserAzure = table.Column<bool>(nullable: false),

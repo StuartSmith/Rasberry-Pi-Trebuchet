@@ -93,14 +93,6 @@ namespace Trebuchet.UI.Controls
         #endregion
 
         #region Commands
-        public ICommand BothLightsOn
-        {
-            get { return (ICommand)GetValue(BothLightsOnProperty); }
-            set { SetValue(BothLightsOnProperty, value); }
-        }       
-        public static readonly DependencyProperty BothLightsOnProperty =
-            DependencyProperty.Register(nameof(BothLightsOn), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
-
 
         public ICommand BothLightsOff
         {
@@ -109,6 +101,13 @@ namespace Trebuchet.UI.Controls
         }       
         public static readonly DependencyProperty BothLightsOffProperty =
             DependencyProperty.Register(nameof(BothLightsOff), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
+        public ICommand BothLightsOn
+        {
+            get { return (ICommand)GetValue(BothLightsOnProperty); }
+            set { SetValue(BothLightsOnProperty, value); }
+        }
+        public static readonly DependencyProperty BothLightsOnProperty =
+            DependencyProperty.Register(nameof(BothLightsOn), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
 
 
         public ICommand LeftLightOff
@@ -118,8 +117,6 @@ namespace Trebuchet.UI.Controls
         }        
         public static readonly DependencyProperty LeftLightOffProperty =
             DependencyProperty.Register(nameof(LeftLightOff), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
-
-
         public ICommand LeftLightOn
         {
             get { return (ICommand)GetValue(LeftLightOnProperty); }
@@ -127,6 +124,17 @@ namespace Trebuchet.UI.Controls
         }       
         public static readonly DependencyProperty LeftLightOnProperty =
             DependencyProperty.Register(nameof(LeftLightOn), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
+
+
+
+        public ICommand RefreshLights
+        {
+            get { return (ICommand)GetValue(RefreshLightsProperty); }
+            set { SetValue(RefreshLightsProperty, value); }
+        }        
+        public static readonly DependencyProperty RefreshLightsProperty =
+            DependencyProperty.Register(nameof(RefreshLights), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
+
 
 
         public ICommand RightLightOn
@@ -146,6 +154,43 @@ namespace Trebuchet.UI.Controls
             DependencyProperty.Register(nameof(RightLightOff), typeof(ICommand), typeof(PiLight), new PropertyMetadata(null));
 
         #endregion
+
+
+
+
+        public string PiName
+        {
+            get { return (string)GetValue(PiNameProperty); }
+            set { SetValue(PiNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PiName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PiNameProperty =
+            DependencyProperty.Register(nameof(PiName), typeof(string), typeof(PiLight), new PropertyMetadata("Name of Pi"));
+
+
+
+        public string PiIp
+        {
+            get { return (string)GetValue(PiIpProperty); }
+            set { SetValue(PiIpProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PiIpProperty =
+            DependencyProperty.Register(nameof(PiIp), typeof(string), typeof(PiLight), new PropertyMetadata("IP of PI"));
+
+        public string PiTeam
+        {
+            get { return (string)GetValue(PiTeamProperty); }
+            set { SetValue(PiTeamProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PiTeamProperty =
+            DependencyProperty.Register(nameof(PiTeam), typeof(string), typeof(PiLight), new PropertyMetadata("Team for PI"));
+
+
 
     }
 }

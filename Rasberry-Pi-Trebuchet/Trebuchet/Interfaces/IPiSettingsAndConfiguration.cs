@@ -11,7 +11,7 @@ namespace Trebuchet.Interfaces
         int PiConfigid { get; set; }
         string Name { get; set; }
         string PiName { get; set; }
-        string PiIP { get; set; }
+        string PiIp { get; set; }
         bool UserAzure { get; set; }
         bool SendToast { get; set; }      
         string ColorLedLight { get; set; }
