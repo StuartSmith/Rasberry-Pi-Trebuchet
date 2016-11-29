@@ -1,4 +1,4 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Sonic.Interfaces;
 using Raspberry_Pi_Trebuchet.Sonic.Models;
 using System;

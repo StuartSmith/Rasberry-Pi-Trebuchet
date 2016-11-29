@@ -1,4 +1,4 @@
-﻿using Rasberry_Pi_Trebuchet.IOT.ViewModels;
+﻿using Raspberry_Pi_Trebuchet.IOT.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Rasberry_Pi_Trebuchet.IOT.Views
+namespace Raspberry_Pi_Trebuchet.IOT.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

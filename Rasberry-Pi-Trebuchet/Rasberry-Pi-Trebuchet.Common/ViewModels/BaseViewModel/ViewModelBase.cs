@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel
+namespace Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

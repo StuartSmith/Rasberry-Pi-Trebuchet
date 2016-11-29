@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="59190cfc-2dbc-4852-9665-c528e0576028" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Rasberry-Pi-Trebuchet</DisplayName>
+    <DisplayName>Raspberry-Pi-Trebuchet</DisplayName>
     <PublisherDisplayName>Stuart</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Rasberry_Pi_Trebuchet.App">
+      EntryPoint="Raspberry_Pi_Trebuchet.App">
       <uap:VisualElements
-        DisplayName="Rasberry-Pi-Trebuchet"
+        DisplayName="Raspberry-Pi-Trebuchet"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Rasberry-Pi-Trebuchet"
+        Description="Raspberry-Pi-Trebuchet"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

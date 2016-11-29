@@ -2,8 +2,8 @@
 using Devkoes.Restup.WebServer.Models.Schemas;
 using Devkoes.Restup.WebServer.Rest.Models.Contracts;
 using Newtonsoft.Json;
-using Rasberry_Pi_Trebuchet.Common.Models;
-using Rasberry_Pi_Trebuchet.IOT.Services;
+using Raspberry_Pi_Trebuchet.Common.Models;
+using Raspberry_Pi_Trebuchet.IOT.Services;
 using Raspberry_Pi_Trebuchet.Sonic.Models;
 using Raspberry_Pi_Trebuchet.Sonic.RestViewModels;
 using Raspberry_Pi_Trebuchet.Sonic.Services;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Devkoes.Restup.WebServer.Models.Schemas.DeleteResponse;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     class UltraSonicController

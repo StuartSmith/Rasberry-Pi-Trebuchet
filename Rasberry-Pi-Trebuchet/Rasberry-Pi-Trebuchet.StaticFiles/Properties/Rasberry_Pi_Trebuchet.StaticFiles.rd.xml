@@ -25,7 +25,7 @@
     http://go.microsoft.com/fwlink/?LinkID=391919
 -->
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
-  <Library Name="Rasberry_Pi_Trebuchet.StaticFiles">
+  <Library Name="Raspberry_Pi_Trebuchet.StaticFiles">
 
   	<!-- add directives for your library here -->
 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rasberry-Pi-Trebuchet.StaticFiles")]
+[assembly: AssemblyTitle("Raspberry-Pi-Trebuchet.StaticFiles")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Rasberry-Pi-Trebuchet.StaticFiles")]
+[assembly: AssemblyProduct("Raspberry-Pi-Trebuchet.StaticFiles")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

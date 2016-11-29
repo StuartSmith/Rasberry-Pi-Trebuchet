@@ -129,9 +129,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Rasberry-Pi-Trebuchet.Common.csproj">
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Rasberry-Pi-Trebuchet.Common</Name>
+      <Name>Raspberry-Pi-Trebuchet.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

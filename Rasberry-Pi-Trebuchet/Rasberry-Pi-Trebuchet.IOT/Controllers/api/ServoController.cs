@@ -1,11 +1,11 @@
 ﻿using Devkoes.Restup.WebServer.Attributes;
 using Devkoes.Restup.WebServer.Models.Schemas;
 using Devkoes.Restup.WebServer.Rest.Models.Contracts;
-using Rasberry_Pi_Trebuchet.IOT.Services;
+using Raspberry_Pi_Trebuchet.IOT.Services;
 using System;
 using Raspberry_Pi_Trebuchet.Servos.Models;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class ServoController

@@ -1,4 +1,4 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using Windows.Devices.Gpio;
 using Microsoft.IoT.Lightning.Providers;
 using Windows.Devices;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Sensors
+namespace Raspberry_Pi_Trebuchet.IOT.Sensors
 {
 
     /// <summary>

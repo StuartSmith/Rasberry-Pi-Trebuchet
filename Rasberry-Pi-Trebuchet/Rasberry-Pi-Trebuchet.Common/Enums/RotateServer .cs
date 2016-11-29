@@ -1,4 +1,4 @@
-﻿namespace Rasberry_Pi_Trebuchet.Common.Enums
+﻿namespace Raspberry_Pi_Trebuchet.Common.Enums
 {
     public enum RotateServer
     {

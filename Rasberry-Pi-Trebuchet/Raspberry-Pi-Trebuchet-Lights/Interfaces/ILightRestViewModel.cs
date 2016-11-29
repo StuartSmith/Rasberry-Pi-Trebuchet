@@ -1,4 +1,4 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
 
 namespace Raspberry_Pi_Trebuchet.Lights.Interfaces
 {

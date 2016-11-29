@@ -6,9 +6,9 @@ using Devkoes.Restup.WebServer.Models.Schemas;
 using Devkoes.Restup.WebServer.Rest.Models.Contracts;
 using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-using Rasberry_Pi_Trebuchet.IOT.Services;
+using Raspberry_Pi_Trebuchet.IOT.Services;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class LightsController 

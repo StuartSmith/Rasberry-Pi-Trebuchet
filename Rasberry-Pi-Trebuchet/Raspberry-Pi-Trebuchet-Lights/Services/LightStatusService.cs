@@ -1,4 +1,4 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
 using Raspberry_Pi_Trebuchet.Lights.Models;
 using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
@@ -9,7 +9,7 @@ using System.Linq;
 
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Services
+namespace Raspberry_Pi_Trebuchet.IOT.Services
 {
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace Rasberry_Pi_Trebuchet.IOT.Services
         }
 
 
-        //Turns on or off the lights on the Rasberry Pi
+        //Turns on or off the lights on the Raspberry Pi
         private void SetPILightStatus(Light light)
         {
             light.Lightsensor.LightOn = light.IsLightOn;

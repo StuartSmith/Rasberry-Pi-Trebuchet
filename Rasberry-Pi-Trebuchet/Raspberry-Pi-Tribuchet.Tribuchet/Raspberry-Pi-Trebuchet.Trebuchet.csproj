@@ -112,9 +112,9 @@
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Tribuchet.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Rasberry-Pi-Trebuchet.Common.csproj">
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Rasberry-Pi-Trebuchet.Common</Name>
+      <Name>Raspberry-Pi-Trebuchet.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Raspberry-Pi-Trebuchet.Servos\Raspberry-Pi-Trebuchet.Servos.csproj">
       <Project>{161ea637-f6df-44e3-8248-8d72e5cbd66e}</Project>

@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Common.Enums
+
+namespace Trebuchet.Controlers.Interfaces
 {
-    public enum AzureDataObjectType
+    public interface ILightsController
     {
-        Light,
-        Servo,
-        UltraSonic
+        
     }
 }

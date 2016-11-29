@@ -1,7 +1,7 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Enums;
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 
-namespace Rasberry_Pi_Trebuchet.Servos.RestViewModels
+namespace Raspberry_Pi_Trebuchet.Servos.RestViewModels
 {
     /// <summary>
     /// Object that is transfered back in forth in the form of JSON between the 

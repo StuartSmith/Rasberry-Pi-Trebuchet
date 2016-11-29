@@ -1,16 +1,16 @@
-﻿using Rasberry_Pi_Trebuchet.Common.Models;
-using Rasberry_Pi_Trebuchet.Common.Interfaces;
+﻿using Raspberry_Pi_Trebuchet.Common.Models;
+using Raspberry_Pi_Trebuchet.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Rasberry_Pi_Trebuchet.Common.Enums;
+using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 using Raspberry_Pi_Trebuchet.Servos.Models;
-using Rasberry_Pi_Trebuchet.Servos.RestViewModels;
+using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Services
+namespace Raspberry_Pi_Trebuchet.IOT.Services
 {
     public class ServoStatusService : IServoStatus
     {

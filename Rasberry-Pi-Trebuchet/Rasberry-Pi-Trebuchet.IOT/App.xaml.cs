@@ -1,8 +1,8 @@
 ﻿using Devkoes.Restup.WebServer.Http;
 using Devkoes.Restup.WebServer.Rest;
 using Microsoft.EntityFrameworkCore;
-using Rasberry_Pi_Trebuchet.IOT.Controllers;
-using Rasberry_Pi_Trebuchet.IOT.Views;
+using Raspberry_Pi_Trebuchet.IOT.Controllers;
+using Raspberry_Pi_Trebuchet.IOT.Views;
 using Raspberry_Pi_Trebuchet.Sonic.Context;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Rasberry_Pi_Trebuchet.IOT
+namespace Raspberry_Pi_Trebuchet.IOT
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

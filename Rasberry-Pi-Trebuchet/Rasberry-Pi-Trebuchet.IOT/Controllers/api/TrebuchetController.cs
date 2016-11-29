@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rasberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class TrebuchetController
