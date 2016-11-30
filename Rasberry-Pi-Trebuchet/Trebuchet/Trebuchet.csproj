@@ -100,7 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Context\PiConfigurationContext.cs" />
-    <Compile Include="Controlers\Interfaces\ILightsController.cs" />
+    <Compile Include="Interfaces\IFlipViewModel.cs" />
     <Compile Include="Interfaces\IPiSettingsAndConfiguration.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISettingsAndConfigurationRepository.cs" />
@@ -113,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\SettingsAndConfigurationRepository.cs" />
+    <Compile Include="Requestors\Lights\Controllers\IPLightsController.cs" />
+    <Compile Include="Requestors\Lights\Interfaces\ILightsController.cs" />
+    <Compile Include="Requestors\Lights\Manager\LightsManager.cs" />
     <Compile Include="Services\CaptureDeviceService\CaptureDevice.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="ViewModels\MainPageFlipViewViewModel.cs" />
@@ -192,6 +195,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
+      <Project>{A1194A2E-14BB-4726-B273-A7CE7AB8C879}</Project>
+      <Name>Raspberry-Pi-Trebuchet.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj">
       <Project>{83825cdf-3c8c-4dfc-b4f9-7a6a4f274018}</Project>
       <Name>Raspberry-Pi-Trebuchet.Lights</Name>
@@ -206,7 +213,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controlers\Lights\" />
     <Folder Include="Converters\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Trebuchet.ViewModels
 {
-    public class MainPageFlipViewViewModel : ViewModelBase, IPiSettingsAndConfiguration
+    public class MainPageFlipViewViewModel : ViewModelBase,  IMainPaigeFlipViewModel
     {
         public bool isConfigurationSetting { get; set; }   
        
@@ -57,11 +57,68 @@ namespace Trebuchet.ViewModels
         public bool SendToast { get; set; }
         public bool UserAzure { get; set; }
 
+        public bool UseIP { get; set; }
+
+        #region lightCommands
+        DelegateCommand<MainPageFlipViewViewModel> _BothLightsOffCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOffCommand => _BothLightsOffCommand ?? (_BothLightsOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        DelegateCommand<MainPageFlipViewViewModel> _BothLightsOnCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOnCommand => _BothLightsOnCommand ?? (_BothLightsOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+
+        DelegateCommand<MainPageFlipViewViewModel> _LeftLightOffCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOffCommand => _LeftLightOffCommand ?? (_LeftLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        DelegateCommand<MainPageFlipViewViewModel> _LeftLightOnCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOnCommand => _LeftLightOnCommand ?? (_LeftLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        DelegateCommand<MainPageFlipViewViewModel> _RightLightOffCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> RightLightOffCommand => _RightLightOffCommand ?? (_RightLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        DelegateCommand<MainPageFlipViewViewModel> _RightLightOnCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> RightLightOnCommand => _RightLightOffCommand ?? (_RightLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        DelegateCommand<MainPageFlipViewViewModel> _RefreshLightsCommand = null;
+        public DelegateCommand<MainPageFlipViewViewModel> RefreshLightsCommand => _RefreshLightsCommand ?? (_RefreshLightsCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+            //this.MainPageViewModel.SelectedFlipViewItem = o;
+        }
+        , (o) => true));
+
+        #endregion
+
         DelegateCommand<MainPageFlipViewViewModel> _SelectCommand = null;
         public DelegateCommand<MainPageFlipViewViewModel> SelectCommand => _SelectCommand ?? (_SelectCommand = new DelegateCommand< MainPageFlipViewViewModel> ((o) =>
         {
             this.MainPageViewModel.SelectedFlipViewItem = o;
         }
         , (o) => true));
+
+
     }
 }

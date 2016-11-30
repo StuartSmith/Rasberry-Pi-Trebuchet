@@ -31,7 +31,9 @@ namespace Trebuchet.Models
         public bool SendToast { get; set; }       
       
         public string LedLightColor { get; set; }
-        public  bool isConfigurationSetting { get; set; }     
+        public  bool isConfigurationSetting { get; set; } 
+        
+        public bool UseIP { get; set; }    
 
         public static void CopyIPiconfigurationSettings(IPiSettingsAndConfiguration piConfig1, IPiSettingsAndConfiguration piConfig2)
         {
@@ -47,6 +49,7 @@ namespace Trebuchet.Models
             piConfig1.PiName = piConfig2.PiName;
             piConfig1.SendToast = piConfig2.SendToast;
             piConfig1.UserAzure = piConfig2.UserAzure;
+            piConfig1.UseIP = piConfig2.UseIP;
 
           
 

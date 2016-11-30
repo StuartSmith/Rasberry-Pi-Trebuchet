@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace Trebuchet.Controlers.Interfaces
+namespace Trebuchet.Requestors.Lights.Manager
 {
-    public interface ILightsController
+    public class LightsManager
     {
-        
+      
     }
 }

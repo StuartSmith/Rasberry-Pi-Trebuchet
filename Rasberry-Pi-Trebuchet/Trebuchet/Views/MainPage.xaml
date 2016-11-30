@@ -144,6 +144,13 @@
                                                                   PiIp="{x:Bind PiIp, Mode=OneWay}"
                                                                   BrushLeftLightFill="{x:Bind ColorLedLightLeft, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
                                                                   BrushRightLightFill="{x:Bind ColorLedLightRight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
+                                                                  BothLightsOff="{x:Bind BothLightsOffCommand, Mode=OneWay}"
+                                                                  BothLightsOn="{x:Bind BothLightsOnCommand, Mode=OneWay}"
+                                                                  LeftLightOff="{x:Bind LeftLightOffCommand, Mode=OneWay}"
+                                                                  LeftLightOn="{x:Bind LeftLightOnCommand, Mode=OneWay}"
+                                                                  RightLightOff="{x:Bind RightLightOffCommand, Mode=OneWay}"
+                                                                  RightLightOn="{x:Bind RightLightOnCommand, Mode=OneWay}"
+                                                                  RefreshLights="{x:Bind RefreshLightsCommand, Mode=OneWay}"
                                                                   />
                                         </StackPanel>
                                     </DataTemplate>

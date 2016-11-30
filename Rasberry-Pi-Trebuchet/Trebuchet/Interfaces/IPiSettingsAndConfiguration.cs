@@ -18,6 +18,7 @@ namespace Trebuchet.Interfaces
         string ColorLedStroke { get; set;}
         string ColorPanelHighlight { get; set; }
         bool isConfigurationSetting { get; set; }
+        bool UseIP { get; set; }
 
     }
 }
