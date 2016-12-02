@@ -110,6 +110,7 @@
     <Compile Include="Converters\StringToColorConverter.cs" />
     <Compile Include="LedLight\LedLight.cs" />
     <Compile Include="PiLight\PiLight.cs" />
+    <Compile Include="PiSettingsPanel\PiSettingsPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Trebuchet.UI.rd.xml" />
   </ItemGroup>
@@ -118,11 +119,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MainPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PiLight\PiLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PiSettingsPanel\PiSettingsPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

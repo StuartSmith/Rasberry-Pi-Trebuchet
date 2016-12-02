@@ -2,18 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <ResourceDictionary.MergedDictionaries>
-        <!-- <ResourceDictionary Source="ms-appx:///LedLight/LedLight.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Themes/BlueButton.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Themes/GreenButton.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Themes/RedButton.xaml"/>
-        <ResourceDictionary Source="ms-appx:///PiLight/PiLight.xaml"/>-->
-
+    <ResourceDictionary.MergedDictionaries>  
         <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/LedLight/LedLight.xaml"/>
         <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/Themes/BlueButton.xaml"/>
         <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/Themes/GreenButton.xaml"/>
         <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/Themes/RedButton.xaml"/>
         <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/PiLight/PiLight.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Trebuchet.UI.Controls/PiSettingsPanel/PiSettingsPanel.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
    
@@ -21,4 +16,6 @@
    
 
    
+
+  
 </ResourceDictionary>
