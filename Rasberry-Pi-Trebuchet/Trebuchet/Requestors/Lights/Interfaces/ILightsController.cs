@@ -14,8 +14,8 @@ namespace Trebuchet.Requestors.Lights.Interfaces
         Task<LightRestViewModel> TurnRightLightOn();
         Task<LightRestViewModel> TurnRightLightOff();
 
-        Task<List<LightRestViewModel>> TurnBothLightsOff();
-        Task<List<LightRestViewModel>> TurnBothLightsOn();
+        //Task<List<LightRestViewModel>> TurnBothLightsOff();
+        //Task<List<LightRestViewModel>> TurnBothLightsOn();
 
         Task<List<LightRestViewModel>> GetLightStatuses();
 

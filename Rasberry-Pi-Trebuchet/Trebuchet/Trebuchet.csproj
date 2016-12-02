@@ -113,7 +113,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\SettingsAndConfigurationRepository.cs" />
-    <Compile Include="Requestors\Lights\Controllers\IPLightsController.cs" />
+    <Compile Include="Requestors\Lights\Controllers\AzureLightsController.cs" />
+    <Compile Include="Requestors\Lights\Controllers\DirectIPLightsController.cs" />
     <Compile Include="Requestors\Lights\Interfaces\ILightsController.cs" />
     <Compile Include="Requestors\Lights\Manager\LightsManager.cs" />
     <Compile Include="Services\CaptureDeviceService\CaptureDevice.cs" />

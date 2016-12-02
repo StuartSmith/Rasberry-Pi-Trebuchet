@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Trebuchet.Interfaces;
+using Trebuchet.Requestors.Lights.Manager;
 using Trebuchet.UI.Controls.Converters;
 using Windows.UI.Xaml.Media;
 
@@ -32,8 +33,43 @@ namespace Trebuchet.ViewModels
         /// Background color for the panel
         /// </summary>
         public string ColorPanelHighlight { get; set; }
-        public string ColorLedLightLeft { get; set; }
-        public string ColorLedLightRight { get; set; }
+
+        public string _ColorLedLightLeft;
+        public string ColorLedLightLeft
+        {
+            get
+            {
+                return _ColorLedLightLeft;
+            }
+            set
+            {
+                if (_ColorLedLightLeft != value)
+                {
+                    _ColorLedLightLeft = value;
+                    base.RaisePropertyChanged();
+                }
+            }
+       
+        }
+
+        public string _ColorLedLightRight;
+        public string ColorLedLightRight
+        {
+            get
+            {
+                return _ColorLedLightRight;
+            }
+            set
+            {
+                if (_ColorLedLightRight != value)
+                {
+                    _ColorLedLightRight = value;
+                    base.RaisePropertyChanged();
+                }
+            }
+        }
+
+
         public string ColorLedStrokeLeft { get; set; }
         public string ColorLedStrokeRight { get; set; }
 
@@ -61,52 +97,68 @@ namespace Trebuchet.ViewModels
 
         #region lightCommands
         DelegateCommand<MainPageFlipViewViewModel> _BothLightsOffCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOffCommand => _BothLightsOffCommand ?? (_BothLightsOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOffCommand => _BothLightsOffCommand ?? (_BothLightsOffCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) => 
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+
+            await lightManager.TurnBothLightsOff();
+
         }
-        , (o) => true));
+        , (o) => true));      
+        
 
         DelegateCommand<MainPageFlipViewViewModel> _BothLightsOnCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOnCommand => _BothLightsOnCommand ?? (_BothLightsOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> BothLightsOnCommand => _BothLightsOnCommand ?? (_BothLightsOnCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+                   
+            await lightManager.TurnBothLightsOn();
         }
         , (o) => true));
 
 
         DelegateCommand<MainPageFlipViewViewModel> _LeftLightOffCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOffCommand => _LeftLightOffCommand ?? (_LeftLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOffCommand => _LeftLightOffCommand ?? (_LeftLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>( async (o) =>
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+            await lightManager.TurnLeftLightOff();
+            
+
         }
         , (o) => true));
 
         DelegateCommand<MainPageFlipViewViewModel> _LeftLightOnCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOnCommand => _LeftLightOnCommand ?? (_LeftLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> LeftLightOnCommand => _LeftLightOnCommand ?? (_LeftLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+            await lightManager.TurnLeftLightOn();
+            
         }
         , (o) => true));
 
         DelegateCommand<MainPageFlipViewViewModel> _RightLightOffCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> RightLightOffCommand => _RightLightOffCommand ?? (_RightLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
-        {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
-        }
+        public DelegateCommand<MainPageFlipViewViewModel> RightLightOffCommand => _RightLightOffCommand ?? (_RightLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
+       {
+           var lightManager = new LightsManager(this);
+           await lightManager.TurnRightLightOff();
+
+       }
         , (o) => true));
 
         DelegateCommand<MainPageFlipViewViewModel> _RightLightOnCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> RightLightOnCommand => _RightLightOffCommand ?? (_RightLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> RightLightOnCommand => _RightLightOnCommand ?? (_RightLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+            await lightManager.TurnRightLightOn();
         }
         , (o) => true));
 
         DelegateCommand<MainPageFlipViewViewModel> _RefreshLightsCommand = null;
-        public DelegateCommand<MainPageFlipViewViewModel> RefreshLightsCommand => _RefreshLightsCommand ?? (_RefreshLightsCommand = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        public DelegateCommand<MainPageFlipViewViewModel> RefreshLightsCommand => _RefreshLightsCommand ?? (_RefreshLightsCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
-            //this.MainPageViewModel.SelectedFlipViewItem = o;
+            var lightManager = new LightsManager(this);
+            await lightManager.GetLightStatuses();
+
         }
         , (o) => true));
 
