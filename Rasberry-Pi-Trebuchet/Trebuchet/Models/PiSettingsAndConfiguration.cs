@@ -33,10 +33,12 @@ namespace Trebuchet.Models
         public string LedLightColor { get; set; }
         public  bool isConfigurationSetting { get; set; } 
         
-        public bool UseIP { get; set; }    
+        public bool UseAzure { get; set; }    
 
         public static void CopyIPiconfigurationSettings(IPiSettingsAndConfiguration piConfig1, IPiSettingsAndConfiguration piConfig2)
         {
+            piConfig1.Name = piConfig2.Name;
+
             piConfig1.ColorLedLight = piConfig2.ColorLedLight;
             piConfig1.ColorLedStroke = piConfig2.ColorLedStroke;
             piConfig1.ColorPanelHighlight = piConfig2.ColorPanelHighlight;
@@ -44,16 +46,13 @@ namespace Trebuchet.Models
             piConfig1.PiConfigid = piConfig2.PiConfigid;
             piConfig1.isConfigurationSetting = piConfig2.isConfigurationSetting;
            
-            piConfig1.Name = piConfig2.Name;
+            
             piConfig1.PiIp = piConfig2.PiIp;
             piConfig1.PiName = piConfig2.PiName;
+           
+            piConfig1.UseAzure = piConfig2.UseAzure;
+
             piConfig1.SendToast = piConfig2.SendToast;
-            piConfig1.UserAzure = piConfig2.UserAzure;
-            piConfig1.UseIP = piConfig2.UseIP;
-
-          
-
-
         }
     }
 }

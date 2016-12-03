@@ -28,7 +28,7 @@
                                     <!--Grid Row1-->
                                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Use Azure" Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95"></TextBlock>
                                     <!--Led Lights-->
-                                    <ToggleSwitch Grid.Column="1" ></ToggleSwitch>
+                                    <ToggleSwitch x:Name="_ToggleSwitchUseAzure" Grid.Column="1" IsOn="{Binding UseAzure, Mode=TwoWay}"></ToggleSwitch>
                                 </Grid>
 
                             </StackPanel>

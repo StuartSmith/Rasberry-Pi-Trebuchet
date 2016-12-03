@@ -23,7 +23,12 @@ namespace Trebuchet.UI.Controls
             this.DefaultStyleKey = typeof(PiSettingsPanel);
         }
 
+       private  ToggleSwitch _ToggleSwitchUseAzure;
+
         #region BrushPanel
+        /// <summary>
+        /// Background for the panel that is shown to the user
+        /// </summary>
         public Brush BrushPanel
         {
             get { return (Brush)GetValue(BrushPanelProperty); }
@@ -34,29 +39,32 @@ namespace Trebuchet.UI.Controls
             DependencyProperty.Register(nameof(BrushPanel), typeof(Brush), typeof(PiSettingsPanel), new PropertyMetadata(new SolidColorBrush(Colors.LightGray)));
         #endregion
 
-        #region UseAzure
+        public event EventHandler<RoutedEventArgs> ToggleUseAzure;
 
-        public bool UseAzure
+        #region UseAzure
+        public Boolean UseAzure
         {
-            get { return (bool)GetValue(UseAzureProperty); }
+            get { return (Boolean)GetValue(UseAzureProperty); }
             set { SetValue(UseAzureProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for UseAzure.  This enables animation, styling, binding, etc...
+       // Using a DependencyProperty as the backing store for UseAzure.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UseAzureProperty =
-            DependencyProperty.Register(nameof(UseAzure), typeof(bool), typeof(PiSettingsPanel), new PropertyMetadata(false));
+            DependencyProperty.Register(nameof(UseAzure), typeof(Boolean), typeof(PiSettingsPanel), new PropertyMetadata(false));
+        #endregion
 
-        public ICommand CommandUseAzure
+
+
+        protected override void OnApplyTemplate()
         {
-            get { return (ICommand)GetValue(CommandUseAzureProperty); }
-            set { SetValue(CommandUseAzureProperty, value); }
+            _ToggleSwitchUseAzure = GetTemplateChild(nameof(_ToggleSwitchUseAzure)) as ToggleSwitch;
+
+            _ToggleSwitchUseAzure.Toggled += (s, e) => ToggleUseAzure?.Invoke(s, e);
+
+            base.OnApplyTemplate();
         }
 
-        // Using a DependencyProperty as the backing store for CommandUseAzure.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CommandUseAzureProperty =
-            DependencyProperty.Register(nameof(CommandUseAzure), typeof(ICommand), typeof(PiSettingsPanel), new PropertyMetadata(null));
 
-        #endregion
 
 
 

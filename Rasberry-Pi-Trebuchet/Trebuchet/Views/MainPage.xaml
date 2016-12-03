@@ -31,6 +31,19 @@
             </converters:ValueWhenConverter.Otherwise>
         </converters:ValueWhenConverter>
 
+        <converters:ValueWhenConverter x:Key="VisibleWhenFalseConverter">
+            <converters:ValueWhenConverter.When>
+                <x:Boolean>False</x:Boolean>
+            </converters:ValueWhenConverter.When>
+            <converters:ValueWhenConverter.Value>
+                <Visibility>Visible</Visibility>
+            </converters:ValueWhenConverter.Value>
+            <converters:ValueWhenConverter.Otherwise>
+                <Visibility>Collapsed</Visibility>
+            </converters:ValueWhenConverter.Otherwise>
+        </converters:ValueWhenConverter>
+
+
         <TrebConverters:StringToColorConverter x:Key="StringToColorConverter"></TrebConverters:StringToColorConverter>
 
         <converters:ChangeTypeConverter x:Key="TypeConverter"/>
@@ -137,7 +150,7 @@
                                 <FlipView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
                                         <StackPanel Orientation="Vertical" Background="White">
-                                            <TrebControls:PiLight Margin="0,0,15,0" Height="405" 
+                                            <TrebControls:PiLight Visibility="{x:Bind isConfigurationSetting, Converter={StaticResource VisibleWhenFalseConverter},Mode=OneWay}" Margin="0,0,15,0" Height="405" 
                                                                   BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
                                                                   PiTeam="{x:Bind Name, Mode=OneWay}"
                                                                   PiName="{x:Bind PiName, Mode=OneWay}"
@@ -152,6 +165,9 @@
                                                                   RightLightOn="{x:Bind RightLightOnCommand, Mode=OneWay}"
                                                                   RefreshLights="{x:Bind RefreshLightsCommand, Mode=OneWay}"
                                                                   />
+                                               <TrebControls:PiSettingsPanel Visibility="{x:Bind isConfigurationSetting, Converter={StaticResource VisibleWhenTrueConverter},Mode=OneWay}"
+                                                                             UseAzure="{x:Bind UseAzure,Mode=TwoWay}" ToggleUseAzure="{x:Bind ToggleUseAzure}"
+                                                                             />
                                         </StackPanel>
                                     </DataTemplate>
                                 </FlipView.ItemTemplate>

@@ -7,28 +7,27 @@ using Template10.Mvvm;
 using Trebuchet.Interfaces;
 using Trebuchet.Requestors.Lights.Manager;
 using Trebuchet.UI.Controls.Converters;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Trebuchet.ViewModels
 {
     public class MainPageFlipViewViewModel : ViewModelBase,  IMainPaigeFlipViewModel
     {
-        public bool isConfigurationSetting { get; set; }   
-       
-        public MainPageViewModel MainPageViewModel { get; set; }
-        public string Name { get; set; }
-        public int PiConfigid { get; set; }
-        public string PiIp { get; set; }
-        public string PiName { get; set; }
-        /// <summary>
-        ///  Color to Use to When the light is Highlighted
-        /// </summary>
+        #region properties
         public string ColorLedLight { get; set; }
         public string ColorLedLightOff { get; set; }
         /// <summary>
         ///  Color to Set the Led Strokes
         /// </summary>
         public string ColorLedStroke { get; set; }
+        public bool isConfigurationSetting { get; set; }  
+        public MainPageViewModel MainPageViewModel { get; set; }
+        public string Name { get; set; }
+        public int PiConfigid { get; set; }
+        public string PiIp { get; set; }
+        public string PiName { get; set; } 
         /// <summary>
         /// Background color for the panel
         /// </summary>
@@ -48,8 +47,7 @@ namespace Trebuchet.ViewModels
                     _ColorLedLightLeft = value;
                     base.RaisePropertyChanged();
                 }
-            }
-       
+            }       
         }
 
         public string _ColorLedLightRight;
@@ -68,11 +66,8 @@ namespace Trebuchet.ViewModels
                 }
             }
         }
-
-
         public string ColorLedStrokeLeft { get; set; }
         public string ColorLedStrokeRight { get; set; }
-
         bool _Selected = default(bool);
         public bool Selected
         {
@@ -91,9 +86,23 @@ namespace Trebuchet.ViewModels
             }
         }
         public bool SendToast { get; set; }
-        public bool UserAzure { get; set; }
+        private bool _UseAzure;
+        public bool UseAzure {
+            get
+            {
+                return _UseAzure;
+            }
+            set
+            {
+                if (_UseAzure != value)
+                {
+                    _UseAzure = value;
+                    base.RaisePropertyChanged();
+                }
+            }
+        }
 
-        public bool UseIP { get; set; }
+        #endregion
 
         #region lightCommands
         DelegateCommand<MainPageFlipViewViewModel> _BothLightsOffCommand = null;
@@ -164,6 +173,7 @@ namespace Trebuchet.ViewModels
 
         #endregion
 
+        #region Commands
         DelegateCommand<MainPageFlipViewViewModel> _SelectCommand = null;
         public DelegateCommand<MainPageFlipViewViewModel> SelectCommand => _SelectCommand ?? (_SelectCommand = new DelegateCommand< MainPageFlipViewViewModel> ((o) =>
         {
@@ -171,6 +181,29 @@ namespace Trebuchet.ViewModels
         }
         , (o) => true));
 
+        DelegateCommand<MainPageFlipViewViewModel> _CommandToggleUseAzure = null;
+
+        public DelegateCommand<MainPageFlipViewViewModel> CommandToggleUseAzure => _CommandToggleUseAzure ?? (_CommandToggleUseAzure = new DelegateCommand<MainPageFlipViewViewModel>((o) =>
+        {
+               //Update all the User Azure values
+               MainPageViewModel.FlipViewViewModels.Where(x=> x.isConfigurationSetting == false)
+                                                         .Select(x => { x.UseAzure = this.UseAzure; return x; })
+                                                         .ToList();
+        }
+       , (o) => true));
+
+        #endregion
+
+
+        public void ToggleUseAzure(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch ts = (ToggleSwitch)sender;
+
+            MainPageViewModel.FlipViewViewModels.Where(x => x.isConfigurationSetting == ts.IsOn)
+                                                         .Select(x => { x.UseAzure = this.UseAzure; return x; })
+                                                         .ToList();
+
+        }
 
     }
 }

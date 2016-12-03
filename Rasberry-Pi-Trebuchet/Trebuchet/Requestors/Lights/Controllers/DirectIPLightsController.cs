@@ -28,7 +28,7 @@ namespace Trebuchet.Requestors.Lights.Controllers
         private HttpClient SetupHttpClient()
         {
             HttpClient client = new HttpClient();
-            if (_mainPageFlipViewModel.UseIP ==true)
+            if (_mainPageFlipViewModel.UseAzure == false)
                 client.BaseAddress = new Uri($"http://{_mainPageFlipViewModel.PiIp}/");
             else
                 client.BaseAddress = new Uri($"http://{_mainPageFlipViewModel.PiName}/");

@@ -247,5 +247,10 @@ namespace Trebuchet.Views
             // Start waiting for a new CallButton.
             await InitializeAsync();
         }
+
+        private void PiSettingsPanel_ToggleUseAzure(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

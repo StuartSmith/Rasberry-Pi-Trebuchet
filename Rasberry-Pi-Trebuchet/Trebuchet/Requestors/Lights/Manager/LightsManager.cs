@@ -19,7 +19,7 @@ namespace Trebuchet.Requestors.Lights.Manager
         {
             _mainPageFlipViewModel = mainPaigeFlipViewModel;
 
-            if (_mainPageFlipViewModel.UserAzure == true)
+            if (_mainPageFlipViewModel.UseAzure == true)
                 _LightsController = new AzureLightsController(mainPaigeFlipViewModel);
             else
                 _LightsController = new DirectIPLightsController(mainPaigeFlipViewModel);
