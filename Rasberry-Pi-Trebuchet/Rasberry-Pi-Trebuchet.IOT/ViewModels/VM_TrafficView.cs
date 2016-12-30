@@ -15,6 +15,7 @@ using System.Reflection;
 using Windows.Networking;
 using Windows.Networking.Connectivity;
 using System.Net;
+using System.IO;
 
 namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 {
@@ -65,9 +66,10 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
             restRouteHandler.RegisterController<TrebuchetController>();
 
             //Register the Route Controller
-            httpServer.RegisterRoute("api", restRouteHandler);            
+            httpServer.RegisterRoute("api", restRouteHandler);
+       
 
-            httpServer.RegisterRoute(new StaticFileRouteHandler(@"Raspberry-Pi-Trebuchet.StaticFiles\Web"));
+            httpServer.RegisterRoute(new StaticFileRouteHandler(@"rasberry-pi-trebuchet.staticfiles\web"));
             
             await httpServer.StartServerAsync();
             
