@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet", "Rasberry-Pi-Trebuchet\Raspberry-Pi-Trebuchet.csproj", "{903C4145-07AD-423B-A921-CDD0D119C86E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.IOT", "Rasberry-Pi-Trebuchet.IOT\Raspberry-Pi-Trebuchet.IOT.csproj", "{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Common", "Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj", "{A1194A2E-14BB-4726-B273-A7CE7AB8C879}"
@@ -41,26 +39,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|ARM.ActiveCfg = Debug|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|ARM.Build.0 = Debug|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|ARM.Deploy.0 = Debug|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x64.ActiveCfg = Debug|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x64.Build.0 = Debug|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x64.Deploy.0 = Debug|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x86.ActiveCfg = Debug|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x86.Build.0 = Debug|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Debug|x86.Deploy.0 = Debug|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|Any CPU.ActiveCfg = Release|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|ARM.ActiveCfg = Release|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|ARM.Build.0 = Release|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|ARM.Deploy.0 = Release|ARM
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x64.ActiveCfg = Release|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x64.Build.0 = Release|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x64.Deploy.0 = Release|x64
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x86.ActiveCfg = Release|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x86.Build.0 = Release|x86
-		{903C4145-07AD-423B-A921-CDD0D119C86E}.Release|x86.Deploy.0 = Release|x86
 		{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}.Debug|ARM.ActiveCfg = Debug|ARM
 		{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}.Debug|ARM.Build.0 = Debug|ARM
