@@ -155,6 +155,7 @@
     <Content Include="Web\lib\jQuery\dist\jquery.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\lib\sweetalert\dist\js\sweetalert-dev.js" />
     <Content Include="Web\Lights.HTML" />
     <Content Include="Web\PiConfiguration.html" />
     <Content Include="Web\Servos.html" />

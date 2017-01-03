@@ -8,7 +8,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Interfaces
 {
     public interface IPiNameValuePair
     {
-        string Name { get; set; }
-        string Value { get; set; }
+        string name { get; set; }
+        string value { get; set; }
     }
 }

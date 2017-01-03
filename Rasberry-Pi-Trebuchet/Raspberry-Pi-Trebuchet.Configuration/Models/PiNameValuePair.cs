@@ -12,7 +12,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Models
     {
         [Key]
         public int NameValuePairId { get; set; }
-        public string Name { get; set; }
-        public string Value { get; set; }
+        public string name { get; set; }
+        public string value { get; set; }
     }
 }

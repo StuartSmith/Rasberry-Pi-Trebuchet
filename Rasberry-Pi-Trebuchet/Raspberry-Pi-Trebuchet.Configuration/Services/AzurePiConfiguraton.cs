@@ -28,27 +28,27 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
 
         public bool AllowSendingofData
         {
-            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingofData))?.Value); }
+            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingofData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingofData), Convert.ToString(value)); }
         }
 
         public bool AllowSendingToastLightData
         {
-            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastLightData))?.Value); }
+            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastLightData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingToastLightData), Convert.ToString(value)); }
         }
 
 
         public bool AllowSendingToastServoData
         {
-            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastServoData))?.Value); }
+            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastServoData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingToastServoData), Convert.ToString(value)); }
         }
 
 
         public bool AllowSendingUltraSonicData
         {
-            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingUltraSonicData))?.Value); }
+            get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingUltraSonicData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingUltraSonicData), Convert.ToString(value)); }
         }
 
@@ -61,13 +61,13 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
 
         public string AzureIOTConnectionString
         {
-            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AzureIOTConnectionString))?.Value); }
+            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AzureIOTConnectionString))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AzureIOTConnectionString), Convert.ToString(value)); }
         }
 
         public string ToastWebSendURL
         {
-            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(ToastWebSendURL))?.Value); }
+            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(ToastWebSendURL))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(ToastWebSendURL), value); }
         }
 

@@ -1,6 +1,7 @@
 ﻿using Devkoes.Restup.WebServer.Http;
 using Devkoes.Restup.WebServer.Rest;
 using Microsoft.EntityFrameworkCore;
+using Raspberry_Pi_Trebuchet.Configuration.Context;
 using Raspberry_Pi_Trebuchet.IOT.Controllers;
 using Raspberry_Pi_Trebuchet.IOT.Views;
 using Raspberry_Pi_Trebuchet.Sonic.Context;
@@ -38,6 +39,11 @@ namespace Raspberry_Pi_Trebuchet.IOT
             this.Suspending += OnSuspending;
 
             using (var db = new UltraSonicContext())
+            {
+                db.Database.Migrate();
+            }
+
+            using (var db = new PiGeneralContext())
             {
                 db.Database.Migrate();
             }

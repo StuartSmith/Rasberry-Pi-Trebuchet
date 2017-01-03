@@ -3,7 +3,7 @@
 /// Pi Configuration status Results
 ///____________________________________________________
 var ButtonRefreshResult = function (data, status) {
-
+    debugger;
 
     var configurationValues = JSON.parse(data);
 

@@ -21,7 +21,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
         public GetResponse GetStatus(string time)
         {
             var Results = (from nameValuePair in new AzurePiConfiguraton().GetAllValues()
-                           select new ViewModelRestNameValuePair() { Name = nameValuePair.Name, Value = nameValuePair.Value }
+                           select new ViewModelRestNameValuePair() { name = nameValuePair.name, value = nameValuePair.value }
                         ).ToList<ViewModelRestNameValuePair>();
 
             return new GetResponse(GetResponse.ResponseStatus.OK,
@@ -39,7 +39,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
                                 null);
 
             return new GetResponse(GetResponse.ResponseStatus.OK,
-                              PiNameValueFromDb.Value);
+                              PiNameValueFromDb.value);
         }
 
 

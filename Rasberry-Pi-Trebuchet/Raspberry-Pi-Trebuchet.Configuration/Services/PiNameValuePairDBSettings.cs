@@ -14,8 +14,8 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
 
         public void CopyKeyValuePair(IPiNameValuePair from, IPiNameValuePair to)
         {
-            to.Name = from.Name;
-            to.Value = from.Value;
+            to.name = from.name;
+            to.value = from.value;
         }
 
 
@@ -24,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
             using (var db = new PiGeneralContext())
             {
                 var PairToDelete = (from ValuePairs in db.PiNameValuePairs
-                                    where ValuePairs.Name.ToUpper() == PairName.ToUpper()
+                                    where ValuePairs.name.ToUpper() == PairName.ToUpper()
                                     select ValuePairs).FirstOrDefault();
 
                 if (PairToDelete != null)
@@ -54,8 +54,9 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
         {
             using (var db = new PiGeneralContext())
             {
-                var PairToFind = (from ValuePairs in db.PiNameValuePairs
-                                  where ValuePairs.Name.ToUpper() == PairName.ToUpper()
+                var allPairs = db.PiNameValuePairs.ToList<PiNameValuePair>();
+                var PairToFind = (from ValuePairs in allPairs
+                                  where ValuePairs.name.ToUpper() == PairName.ToUpper()
                                   select ValuePairs).FirstOrDefault();
 
                 if (PairToFind != null)
@@ -77,7 +78,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
             }
             else
             {
-                PairToFind = new PiNameValuePair() { Name = PairName, Value = DefaultValue };
+                PairToFind = new PiNameValuePair() { name = PairName, value = DefaultValue };
             }
 
             return null;
@@ -88,10 +89,10 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
 
             foreach (var AzureValuePair in AzureValuePairs)
             {
-                var PairToFind = GetPiNameValuePair(AzureValuePair.Name);
+                var PairToFind = GetPiNameValuePair(AzureValuePair.name);
                 if (PairToFind != null)
                 {
-                    if (SetNameValuePair(AzureValuePair.Name, AzureValuePair.Value) == false)
+                    if (SetNameValuePair(AzureValuePair.name, AzureValuePair.value) == false)
                         return false;
                 }
             }
@@ -107,7 +108,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
 
                 if (PairToModify != null)
                 {
-                    PairToModify.Value = Value;
+                    PairToModify.value = Value;
                     db.PiNameValuePairs.Update(PairToModify);
                     db.SaveChanges();
                     return true;
@@ -115,8 +116,8 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Services
                 else
                 {
                     PairToModify = new PiNameValuePair();
-                    PairToModify.Value = Value;
-                    PairToModify.Name = PairName;
+                    PairToModify.value = Value;
+                    PairToModify.name = PairName;
                     db.PiNameValuePairs.Add(PairToModify);
                     db.SaveChanges();
                 }
