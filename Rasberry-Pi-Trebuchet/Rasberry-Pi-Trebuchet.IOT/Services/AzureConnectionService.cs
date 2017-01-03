@@ -1,5 +1,6 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.Interfaces;
 using Raspberry_Pi_Trebuchet.Common.Models;
+using Raspberry_Pi_Trebuchet.Configuration.Services;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
 using Raspberry_Pi_Trebuchet.Servos.Models;
 using System;
@@ -44,8 +45,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Services
             }
         }
 
-        public bool AllowSendingofData { get; private set; }
-        public bool AllowSendingToastLightData { get; private set; }
+      
 
         public async Task<bool> SendLightData(List<ILightRestViewModel> data)
         {

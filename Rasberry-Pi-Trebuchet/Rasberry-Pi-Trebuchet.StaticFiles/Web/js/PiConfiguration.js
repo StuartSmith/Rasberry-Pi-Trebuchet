@@ -79,7 +79,7 @@ $(document).ready(function () {
     //Click event to retrieve all light statuses
     $("#ButtonConfigurationRefresh").click(function () {
 
-        var url = "/api/configuration?=" + new Date().getTime();
+        var url = "/api/piconfiguration?=" + new Date().getTime();
         aClient = new HttpClient();
         aClient.get(url, ButtonRefreshResult);
     });
@@ -96,7 +96,7 @@ $(document).ready(function () {
         UpdateArrarywithTextBoxValue(arr, "#AzureConnectinString", "AzureIOTConnectionString");
         UpdateArrarywithTextBoxValue(arr, "#AzureToastServiceURL", "ToastWebSendURL");
 
-        var WebServiceUrl = "/api/configuration";
+        var WebServiceUrl = "/api/piconfiguration";
         var aClient = new HttpClient();
         aClient.put(WebServiceUrl, arr, ButtonSaveResult);
     });

@@ -5,9 +5,10 @@
     <title>Trebuchet Test Page</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
-    
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
     <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/ToggleSwitch.css">
 
     <link rel="icon" type="image/png" href="Img/Windows-32x32.png" />
     <link rel="icon" type="image/png" href="Img/Windows-16x16.png" />
@@ -37,6 +38,7 @@
             <li>                <a href="#tab2" data-toggle="tab">Servo Commands</a></li>
             <li>                <a href="#tab3" data-toggle="tab">UltraSonic Commands</a></li>
             <li>                <a href="#tab4" data-toggle="tab">Trebuchet Commands</a></li>
+            <li>                <a href="#tab5" data-toggle="tab">PI Configuration</a></li>
 
         </ul>
 
@@ -48,25 +50,33 @@
                 <!-- -------------------------------------- -->
                 <div id="LightsContent"></div>
             </div>
+
             <div class="tab-pane" id="tab2">
                 <!-- -------------------------------------- -->
                 <!-- Retrieve the Serovs content from the Servos.html file-->
                 <!-- -------------------------------------- -->
                 <div id="ServosContent"></div>
             </div>
+
             <div class="tab-pane" id="tab3">
                 <!-- -------------------------------------- -->
                 <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
                 <!-- -------------------------------------- -->
                 <div id="UltraSonicContent"></div>
-
             </div>
+
             <div class="tab-pane" id="tab4">
                 <!-- -------------------------------------- -->
-                <!-- Retrieve the Ultra Sonic content from the UltraSonic.html file-->
-                <!-- -------------------------------------- -->
+                <!-- Retrieve the Trebuchet content from the UltraSonic.html file-->
+                <!-- ------------------------------------- -->
                 <div id="TrebuchetContent"></div>
+            </div>
 
+            <div class="tab-pane" id="tab5">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the Configuration content from the UltraSonic.html file-->
+                <!-- -------------------------------------- -->
+                <div id="PiConfigurationContent"></div>
             </div>
         </div>
     </div>
@@ -74,6 +84,7 @@
 
     <script type="text/javascript" src="lib/jQuery/dist/jquery.min.js"> </script>
     <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/sweetalert/dist/js/sweetalert-dev.js"></script>
     <script src="js/HttpClient.js"></script>
     <script src="js/LightStatus.js"></script>
     <script src="js/ServoStatus.js"></script>
@@ -85,6 +96,7 @@
         $("#ServosContent").load("Servos.html");
         $("#UltraSonicContent").load("UltraSonic.html");
         $("#TrebuchetContent").load("Trebuchet.html");
+        $("#PiConfigurationContent").load("PiConfiguration.html");
      }); </script>
 
 </body>

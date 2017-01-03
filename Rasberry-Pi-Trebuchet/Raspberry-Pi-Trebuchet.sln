@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trebuchet.UI.Controls", "Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Azure", "Raspberry-Pi-Trebuchet.Azure\Raspberry-Pi-Trebuchet.Azure.csproj", "{A783D8F4-4F83-4D30-B1DD-09AF4210C060}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Configuration", "Raspberry-Pi-Trebuchet.Configuration\Raspberry-Pi-Trebuchet.Configuration.csproj", "{29B84A1F-2063-4CC4-8C65-583EDC168635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,22 @@ Global
 		{A783D8F4-4F83-4D30-B1DD-09AF4210C060}.Release|x64.Build.0 = Release|x64
 		{A783D8F4-4F83-4D30-B1DD-09AF4210C060}.Release|x86.ActiveCfg = Release|x86
 		{A783D8F4-4F83-4D30-B1DD-09AF4210C060}.Release|x86.Build.0 = Release|x86
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|ARM.ActiveCfg = Debug|ARM
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|ARM.Build.0 = Debug|ARM
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|x64.ActiveCfg = Debug|x64
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|x64.Build.0 = Debug|x64
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|x86.ActiveCfg = Debug|x86
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Debug|x86.Build.0 = Debug|x86
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|ARM.ActiveCfg = Release|ARM
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|ARM.Build.0 = Release|ARM
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|x64.ActiveCfg = Release|x64
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|x64.Build.0 = Release|x64
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|x86.ActiveCfg = Release|x86
+		{29B84A1F-2063-4CC4-8C65-583EDC168635}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

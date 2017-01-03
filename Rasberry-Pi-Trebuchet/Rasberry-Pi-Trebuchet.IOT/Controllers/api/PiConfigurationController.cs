@@ -2,6 +2,9 @@
 using Devkoes.Restup.WebServer.Models.Schemas;
 using Devkoes.Restup.WebServer.Rest.Models.Contracts;
 using Raspberry_Pi_Trebuchet.Common.Models;
+using Raspberry_Pi_Trebuchet.Configuration.Interfaces;
+using Raspberry_Pi_Trebuchet.Configuration.RestViewModels;
+using Raspberry_Pi_Trebuchet.Configuration.Services;
 using Raspberry_Pi_Trebuchet.IOT.Services;
 using System;
 using System.Collections.Generic;
@@ -14,25 +17,48 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
     [RestController(InstanceCreationType.Singleton)]
     class PiConfigurationController
     {
-        [UriFormat("/piconfiguration/status?={time}")]
+        [UriFormat("/piconfiguration?={time}")]
         public GetResponse GetStatus(string time)
         {
-            var azureConnectionService = AzureConnectionService.Instance;
-            azureConnectionService.GetAzureConfiguration();
+            var Results = (from nameValuePair in new AzurePiConfiguraton().GetAllValues()
+                           select new ViewModelRestNameValuePair() { Name = nameValuePair.Name, Value = nameValuePair.Value }
+                        ).ToList<ViewModelRestNameValuePair>();
+
             return new GetResponse(GetResponse.ResponseStatus.OK,
-                                azureConnectionService.GetAzureConfiguration());
+                                Results);
         }
 
-        [UriFormat("/piconfiguration/status")]
-        public IPostResponse SetStatuses([FromContent] AzurePiConfiguraton data)
+
+        [UriFormat("/piconfiguration/{name}?={time}")]
+        public GetResponse Get(string name, string time)
         {
-            var azureConnectionService = AzureConnectionService.Instance;
-            azureConnectionService.SetAzureConfiguration(data);
-            return new PostResponse(PostResponse.ResponseStatus.Created, $"/piconfiguration/status", data);
+            var piNameValuePairDBSettings = new PiNameValuePairDBSettings();
+            var PiNameValueFromDb = new PiNameValuePairDBSettings().GetPiNameValuePair(name);
+            if (PiNameValueFromDb == null)
+                return new GetResponse(GetResponse.ResponseStatus.NotFound,
+                                null);
+
+            return new GetResponse(GetResponse.ResponseStatus.OK,
+                              PiNameValueFromDb.Value);
+        }
+
+
+        [UriFormat("/piconfiguration")]
+        public IPostResponse SetStatuses([FromContent] List<ViewModelRestNameValuePair> values)
+        {
+            new AzurePiConfiguraton().UpdateValues(values.ToList<IPiNameValuePair>());
+            return new PostResponse(PostResponse.ResponseStatus.Created, $"/api/piconfiguration", values);
+        }
+
+
+        // PUT api/values/5
+        [UriFormat("/piconfiguration/{name}")]
+        public IPutResponse Put(string name, [FromContent]string value)
+        {
+            new PiNameValuePairDBSettings().SetNameValuePair(name, value);
+            return new PutResponse(PutResponse.ResponseStatus.OK);
         }
 
     }
 
 }
-
-

@@ -113,7 +113,6 @@
     <Compile Include="Enums\ServoType.cs" />
     <Compile Include="Enums\ServoWhereAbouts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\AzurePiConfiguraton.cs" />
     <Compile Include="Models\AzureRequestData.cs" />
     <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />
     <Compile Include="Models\UltraSonicSensor.cs" />

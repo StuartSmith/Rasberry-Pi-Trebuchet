@@ -123,9 +123,11 @@
     <Content Include="Web\css\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\css\sweetalert.css" />
     <Content Include="Web\css\Theme.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\css\ToggleSwitch.css" />
     <Content Include="Web\favicon.ico" />
     <Content Include="Web\img\glyphicons-halflings-white.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -139,11 +141,13 @@
     <Content Include="Web\img\Windows-32x32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\js\bootstrap.min.js" />
     <Content Include="Web\js\HttpClient.js" />
     <Content Include="Web\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\js\LightStatus.js" />
+    <Content Include="Web\js\PiConfiguration.js" />
     <Content Include="Web\js\ServoStatus.js" />
     <Content Include="Web\js\Trebuchet.js" />
     <Content Include="Web\js\UltraSonic.js" />
@@ -152,6 +156,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\Lights.HTML" />
+    <Content Include="Web\PiConfiguration.html" />
     <Content Include="Web\Servos.html" />
     <Content Include="Web\Trebuchet.html" />
     <Content Include="Web\UltraSonic.html" />
