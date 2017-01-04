@@ -14,6 +14,7 @@ var ButtonRefreshResult = function (data, status) {
 
     UpdateTextBox(configurationValues, "AzureIOTConnectionString", "#AzureConnectinString");
     UpdateTextBox(configurationValues, "ToastWebSendURL", "#AzureToastServiceURL");
+    $("#RefreshData").html("");
 }
 
 var ButtonSaveResult = function (data, status) {
@@ -29,7 +30,8 @@ var ButtonSaveResult = function (data, status) {
 
     }
 
-    swal("Value Saved", saveValues, "success");
+    swal("Value Saved", saveValues, "success");    
+    $("#SavingData").html("");
 }
 
 //_______________________________________
@@ -82,6 +84,7 @@ $(document).ready(function () {
         var url = "/api/piconfiguration?=" + new Date().getTime();
         aClient = new HttpClient();
         aClient.get(url, ButtonRefreshResult);
+        $("#RefreshData").html("Refreshing Data ...");
     });
 
     $("#ButtonConfigurationSave").click(function () {
@@ -99,5 +102,6 @@ $(document).ready(function () {
         var WebServiceUrl = "/api/piconfiguration";
         var aClient = new HttpClient();
         aClient.put(WebServiceUrl, arr, ButtonSaveResult);
+        $("#SavingData").html("Saving Data ...");
     });
 });
