@@ -1,21 +1,14 @@
-﻿using Devkoes.Restup.WebServer.Http;
-using Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Devkoes.Restup.WebServer.Models.Contracts;
-using Devkoes.Restup.WebServer.Rest;
-using Raspberry_Pi_Trebuchet.IOT.Controllers;
-using Devkoes.Restup.WebServer.File;
+﻿using Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel;
 using Raspberry_Pi_Trebuchet.IOT.Controllers.api;
+using Restup.Webserver.File;
+
+using Restup.Webserver.Http;
+using Restup.Webserver.Rest;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
-using System.Reflection;
 using Windows.Networking;
 using Windows.Networking.Connectivity;
-using System.Net;
-using System.IO;
+
 
 namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 {
@@ -54,24 +47,31 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 
 
             // var httpServer = new HttpServer(8800);
-            var httpServer = new HttpServer(80);
-            _httpServer = httpServer;
-            //Register the Server
+            
+
             var restRouteHandler = new RestRouteHandler();
 
             //Create the Routes           
             restRouteHandler.RegisterController<LightsController>();
             restRouteHandler.RegisterController<PiConfigurationController>();
-            restRouteHandler.RegisterController<ServoController>();      
+            restRouteHandler.RegisterController<ServoController>();
             restRouteHandler.RegisterController<TrebuchetController>();
             restRouteHandler.RegisterController<UltraSonicController>();
 
+            var configuration = new HttpServerConfiguration()
+                .ListenOnPort(80)
+                .RegisterRoute("api", restRouteHandler)
+                .RegisterRoute(new StaticFileRouteHandler(@"rasberry-pi-trebuchet.staticfiles\web"))
+                .EnableCors();
+
+            var httpServer = new HttpServer(configuration);
+            _httpServer = httpServer;
+            //Register the Server
+          
+
 
             //Register the Route Controller
-            httpServer.RegisterRoute("api", restRouteHandler);
-       
-
-            httpServer.RegisterRoute(new StaticFileRouteHandler(@"rasberry-pi-trebuchet.staticfiles\web"));
+           
             
             await httpServer.StartServerAsync();
             

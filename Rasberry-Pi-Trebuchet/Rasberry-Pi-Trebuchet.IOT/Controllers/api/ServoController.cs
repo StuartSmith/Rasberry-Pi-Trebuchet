@@ -1,6 +1,7 @@
-﻿using Devkoes.Restup.WebServer.Attributes;
-using Devkoes.Restup.WebServer.Models.Schemas;
-using Devkoes.Restup.WebServer.Rest.Models.Contracts;
+﻿using Restup.Webserver.Attributes;
+using Restup.Webserver.Models.Schemas;
+using Restup.Webserver.Models.Contracts;
+
 using Raspberry_Pi_Trebuchet.IOT.Services;
 using System;
 using Raspberry_Pi_Trebuchet.Servos.Models;

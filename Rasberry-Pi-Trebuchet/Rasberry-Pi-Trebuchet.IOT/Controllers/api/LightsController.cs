@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Devkoes.Restup.WebServer.Attributes;
-using Devkoes.Restup.WebServer.Models.Schemas;
-using Devkoes.Restup.WebServer.Rest.Models.Contracts;
+using Restup.Webserver.Attributes;
+using Restup.Webserver.Models.Schemas;
+using Restup.Webserver.Models.Contracts;
+
 using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
 using Raspberry_Pi_Trebuchet.IOT.Services;
