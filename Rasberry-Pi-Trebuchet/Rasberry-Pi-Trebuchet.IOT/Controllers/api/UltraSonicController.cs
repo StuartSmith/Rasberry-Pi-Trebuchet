@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
-    class UltraSonicController
+    public class UltraSonicController
     {
         
         [UriFormat("ultrasonic/ultrasonicruns?={time}")]       

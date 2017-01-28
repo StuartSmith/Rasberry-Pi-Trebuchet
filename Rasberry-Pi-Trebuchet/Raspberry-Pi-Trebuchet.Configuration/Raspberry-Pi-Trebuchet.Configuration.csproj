@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PiGeneralContext.cs" />
+    <Compile Include="Controllers\api\PiConfigurationController.cs" />
     <Compile Include="Interfaces\IAzurePiConfiguraton.cs" />
     <Compile Include="Interfaces\IPiNameValuePair.cs" />
     <Compile Include="Interfaces\IPiNameValuePairDBSettings.cs" />
@@ -123,7 +124,12 @@
     <Compile Include="Services\PiNameValuePairDBSettings.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Configuration.rd.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
+      <Name>Raspberry-Pi-Trebuchet.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
       <Name>Windows IoT Extensions for the UWP</Name>

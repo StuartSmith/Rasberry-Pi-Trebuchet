@@ -112,6 +112,7 @@
     <Compile Include="Enums\RotateServer .cs" />
     <Compile Include="Enums\ServoType.cs" />
     <Compile Include="Enums\ServoWhereAbouts.cs" />
+    <Compile Include="RestViewModels\RestUpMutableHttpServerRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\AzureRequestData.cs" />
     <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />
@@ -123,9 +124,7 @@
     <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RestViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -100,7 +100,6 @@
     </Compile>
     <Compile Include="Controllers\api\HttpGetAttribute.cs" />
     <Compile Include="Controllers\api\LightsController.cs" />
-    <Compile Include="Controllers\api\PiConfigurationController.cs" />
     <Compile Include="Controllers\api\ServoController.cs" />
     <Compile Include="Controllers\api\TrebuchetController.cs" />
     <Compile Include="Controllers\api\UltraSonicController.cs" />

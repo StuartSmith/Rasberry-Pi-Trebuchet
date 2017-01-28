@@ -3,7 +3,6 @@ using Raspberry_Pi_Trebuchet.Common.Models;
 using Raspberry_Pi_Trebuchet.Configuration.Interfaces;
 using Raspberry_Pi_Trebuchet.Configuration.RestViewModels;
 using Raspberry_Pi_Trebuchet.Configuration.Services;
-using Raspberry_Pi_Trebuchet.IOT.Services;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Contracts;
 using Restup.Webserver.Models.Schemas;
@@ -13,13 +12,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.Configuration.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
-    class PiConfigurationController
+    public class PiConfigurationController
     {
         [UriFormat("/piconfiguration?={time}")]
-        public GetResponse GetStatus(string time)
+        public GetResponse GetAllConfigurationValuePairs(string time)
         {
             var Results = (from nameValuePair in new AzurePiConfiguraton().GetAllValues()
                            select new ViewModelRestNameValuePair() { name = nameValuePair.name, value = nameValuePair.value }
@@ -31,7 +30,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 
 
         [UriFormat("/piconfiguration/{name}?={time}")]
-        public GetResponse Get(string name, string time)
+        public GetResponse GetSingleConfigurationValuePairs(string name, string time)
         {
             var piNameValuePairDBSettings = new PiNameValuePairDBSettings();
             var PiNameValueFromDb = new PiNameValuePairDBSettings().GetPiNameValuePair(name);
@@ -45,7 +44,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 
 
         [UriFormat("/piconfiguration")]
-        public IPostResponse SetStatuses([FromContent] List<ViewModelRestNameValuePair> values)
+        public IPostResponse UpdateMultipleConfigurationValuePairs([FromContent] List<ViewModelRestNameValuePair> values)
         {
             new AzurePiConfiguraton().UpdateValues(values.ToList<IPiNameValuePair>());
             return new PostResponse(PostResponse.ResponseStatus.Created, $"/api/piconfiguration", values);
@@ -54,7 +53,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
 
         // PUT api/values/5
         [UriFormat("/piconfiguration/{name}")]
-        public IPutResponse Put(string name, [FromContent]string value)
+        public IPutResponse UpdateSingleConfigurationValuePair(string name, [FromContent]string value)
         {
             new PiNameValuePairDBSettings().SetNameValuePair(name, value);
             return new PutResponse(PutResponse.ResponseStatus.OK);
