@@ -19,7 +19,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Services
     /// 
     /// instance.SetAzureConfiguration(new  AzurePiConfiguraton())    
     /// </example>
-    public class AzureConnectionService : AzurePiConfiguraton, IAzureConnection
+    public class AzureConnectionService : AzurePiConfiguration, IAzureConnection
     {
         private static AzureConnectionService _instance;
 
@@ -98,7 +98,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Services
             return SendData.Result;
         }
 
-        public bool SetAzureConfiguration(AzurePiConfiguraton azureConfig)
+        public bool SetAzureConfiguration(AzurePiConfiguration azureConfig)
         {
             this.AllowSendingofData = azureConfig.AllowSendingofData;
             this.AllowSendingToastLightData = azureConfig.AllowSendingToastLightData;
@@ -108,14 +108,13 @@ namespace Raspberry_Pi_Trebuchet.IOT.Services
             return true;
         }
 
-        public AzurePiConfiguraton GetAzureConfiguration()
+        public AzurePiConfiguration GetAzureConfiguration()
         {
 
-            var azureConfig = new AzurePiConfiguraton();
+            var azureConfig = new AzurePiConfiguration();
 
             azureConfig.AllowSendingofData = this.AllowSendingofData;
             azureConfig.AllowSendingToastLightData = this.AllowSendingToastLightData;
-
             azureConfig.AllowSendingToastServoData = this.AllowSendingToastServoData;
             azureConfig.AllowSendingUltraSonicData = this.AllowSendingUltraSonicData;
 

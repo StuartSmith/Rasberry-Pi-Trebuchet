@@ -20,7 +20,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Controllers.api
         [UriFormat("/piconfiguration?={time}")]
         public GetResponse GetAllConfigurationValuePairs(string time)
         {
-            var Results = (from nameValuePair in new AzurePiConfiguraton().GetAllValues()
+            var Results = (from nameValuePair in new AzurePiConfiguration().GetAllValues()
                            select new ViewModelRestNameValuePair() { name = nameValuePair.name, value = nameValuePair.value }
                         ).ToList<ViewModelRestNameValuePair>();
 
@@ -46,7 +46,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Controllers.api
         [UriFormat("/piconfiguration")]
         public IPostResponse UpdateMultipleConfigurationValuePairs([FromContent] List<ViewModelRestNameValuePair> values)
         {
-            new AzurePiConfiguraton().UpdateValues(values.ToList<IPiNameValuePair>());
+            new AzurePiConfiguration().UpdateValues(values.ToList<IPiNameValuePair>());
             return new PostResponse(PostResponse.ResponseStatus.Created, $"/api/piconfiguration", values);
         }
 

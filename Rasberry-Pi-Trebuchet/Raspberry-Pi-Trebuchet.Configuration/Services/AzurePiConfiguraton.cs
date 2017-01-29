@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Raspberry_Pi_Trebuchet.Configuration.Services
 {
-    public class AzurePiConfiguraton : IAzurePiConfiguraton
+    public class AzurePiConfiguration : IAzurePiConfiguraton
     {
-        public AzurePiConfiguraton()
+        public AzurePiConfiguration()
         {
             var nameValuePairService = new PiNameValuePairDBSettings();
 
