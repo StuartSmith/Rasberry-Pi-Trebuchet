@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using Windows.Devices.Gpio;
 using Microsoft.IoT.Lightning.Providers;
 using Windows.Devices;
+using Windows.System.Profile;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Sensors
+namespace Raspberry_Pi_Trebuchet.Servos.Sensors
 {
 
     /// <summary>
@@ -21,16 +22,12 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
         private GpioController _gpioController;
         private static  GpioPin _motorPin;
         private ulong _ticksPerMilliSecond = (ulong)(Stopwatch.Frequency) / 1000; //Number of ticks per millisecond this is different for different processor
-
+        private bool RunningOnPi = false;
         private Object thisLock = new Object();
 
         public RaspberryPiGPI0Pin RaspberryGPIOpin { get; }
 
-        public bool GpioInitialized
-        {
-            get;
-            private set;
-        }
+       
 
         #region Constructors
         /// <summary>
@@ -39,6 +36,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
         /// </summary>
         public ServoSensor()
         {
+          
             RaspberryGPIOpin = RaspberryPiGPI0Pin.GPIO05;
             GpioInit();
         }
@@ -50,12 +48,22 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
         /// <param name="gpioPin"></param>
         public ServoSensor(RaspberryPiGPI0Pin gpioPin)
         {
+           
             RaspberryGPIOpin = gpioPin;
             GpioInit();
             //var task =  GpioInit();
             //task.Wait();
         }
-        #endregion
+
+
+        private void CheckifRunningOnPi()
+        {
+            if (AnalyticsInfo.VersionInfo.DeviceFamily.ToUpper() == "Windows.IoT".ToUpper())
+            {
+                RunningOnPi = true;
+            }
+        }
+       
 
         /// <summary>
         /// Initialize the GPIO pin
@@ -65,19 +73,20 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
         {
             try
             {
+                CheckifRunningOnPi();
+
+
                 if (LightningProvider.IsLightningEnabled)
                 {
                     LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
                 }
 
-
-                GpioInitialized = false;
-                _gpioController = GpioController.GetDefault(); 
-                _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin));
-                _motorPin.SetDriveMode(GpioPinDriveMode.Output);             
-                GpioInitialized = true;
-
-               
+                if (RunningOnPi == true)
+                {                  
+                        _gpioController = GpioController.GetDefault();
+                        _motorPin = _gpioController.OpenPin(Convert.ToInt32(RaspberryGPIOpin));
+                        _motorPin.SetDriveMode(GpioPinDriveMode.Output);                  
+                }     
             }
             catch (Exception ex)
             {
@@ -86,6 +95,8 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
 
             //return true;
         }
+        #endregion
+
 
         /// <summary>
         /// Sends a pulse to the server motor that will 
@@ -122,7 +133,13 @@ namespace Raspberry_Pi_Trebuchet.IOT.Sensors
         /// <param name="motorPulse">number of milliseconds to wait to pulse the servo</param>
         public void PulseMotor(double motorPulse)
         {
-            lock (thisLock)
+
+            if (!(RunningOnPi))
+            {
+                return;
+            }
+
+             lock (thisLock)
             {
                 try
                 {

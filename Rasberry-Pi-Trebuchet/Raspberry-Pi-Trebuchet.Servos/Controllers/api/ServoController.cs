@@ -2,11 +2,11 @@
 using Restup.Webserver.Models.Schemas;
 using Restup.Webserver.Models.Contracts;
 
-using Raspberry_Pi_Trebuchet.IOT.Services;
 using System;
 using Raspberry_Pi_Trebuchet.Servos.Models;
+using Raspberry_Pi_Trebuchet.Servos.Services;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.Servos.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class ServoController
@@ -29,8 +29,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
                 return new GetResponse(GetResponse.ResponseStatus.OK);
             }
 
-        }
-
+        }    
 
         [UriFormat("/servo/statuses")]
         public IPostResponse SetServoStatus([FromContent] Servo servo)
@@ -41,31 +40,12 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
                 var task = servoStatusServer.SetServo(servo);
                 task.Wait();
 
-            return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", task.Result);
-            }           
+                return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", task.Result);
+            }
             catch (Exception ex)
             {
                 return new PostResponse(PostResponse.ResponseStatus.Created);
             }
         }
-        
-
-        [UriFormat("/servo/servopositions")]
-        public GetResponse GetServoStatuses()
-        {
-            try
-            {
-                ServoStatusService servoStatusServer = ServoStatusService.Instance;
-
-                return new GetResponse(
-                                 GetResponse.ResponseStatus.OK,
-                                 servoStatusServer.ServoStatuses);
-
-            }
-            catch (Exception ex)
-            {
-                return new GetResponse(GetResponse.ResponseStatus.OK);
-            }
-        }   
     }
 }

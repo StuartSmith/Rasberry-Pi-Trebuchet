@@ -1,5 +1,5 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.IOT.Sensors;
+using Raspberry_Pi_Trebuchet.Servos.Sensors;
 using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 using System;
 using System.Collections.Generic;

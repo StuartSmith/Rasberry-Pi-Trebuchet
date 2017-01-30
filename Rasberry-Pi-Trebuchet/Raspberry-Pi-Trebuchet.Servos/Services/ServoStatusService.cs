@@ -10,7 +10,7 @@ using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 using Raspberry_Pi_Trebuchet.Servos.Models;
 using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Services
+namespace Raspberry_Pi_Trebuchet.Servos.Services
 {
     public class ServoStatusService : IServoStatus
     {
