@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\api\LightsController.cs" />
     <Compile Include="Interfaces\ILightRestViewModel.cs" />
     <Compile Include="Interfaces\ILightStatus.cs" />
     <Compile Include="Models\Light.cs" />

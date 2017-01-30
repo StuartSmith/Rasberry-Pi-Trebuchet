@@ -4,12 +4,11 @@ using System.Threading.Tasks;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Schemas;
 using Restup.Webserver.Models.Contracts;
-
 using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
 using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-using Raspberry_Pi_Trebuchet.IOT.Services;
+using Raspberry_Pi_Trebuchet.Lights.Services;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.Lights.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class LightsController 
@@ -22,14 +21,12 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
             try
             {
                 LightStatusService lightStatusService = LightStatusService.Instance;
-
-
                 return new GetResponse(GetResponse.ResponseStatus.OK,
                                        await lightStatusService.RetrieveLightStatuses());
             }
             catch (Exception ex)
             {
-                return new GetResponse(GetResponse.ResponseStatus.OK);
+                return new GetResponse(GetResponse.ResponseStatus.NotFound);
             }
         }
 
@@ -52,7 +49,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
             }
             catch (Exception ex)
             {
-                return new GetResponse(GetResponse.ResponseStatus.OK);
+                return new GetResponse(GetResponse.ResponseStatus.NotFound);
             }
         }
 
@@ -75,7 +72,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
             }
             catch (Exception ex)
             {
-                return new PostResponse(PostResponse.ResponseStatus.Created);
+                return new PostResponse(PostResponse.ResponseStatus.Conflict);
             }
         }
 

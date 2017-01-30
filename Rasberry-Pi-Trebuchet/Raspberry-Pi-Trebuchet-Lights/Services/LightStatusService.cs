@@ -9,7 +9,7 @@ using System.Linq;
 
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Services
+namespace Raspberry_Pi_Trebuchet.Lights.Services
 {
 
     /// <summary>
@@ -117,6 +117,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Services
 
             lightList.Add(light);
             //await AzureConnectionService.Instance.SendLightData(lightList);
+
 
             bool SetLights =  await Task<bool>.Factory.StartNew(() =>
             {

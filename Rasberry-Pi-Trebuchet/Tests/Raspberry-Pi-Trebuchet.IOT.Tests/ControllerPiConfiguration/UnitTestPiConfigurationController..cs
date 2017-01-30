@@ -33,7 +33,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         /// service.       
         /// </summary>
         [TestMethod]
-        public void GetMultiplePIConfigurationStatuses()
+        public void ConfigurationTest_GetMultiplePIConfigurationStatuses()
         {
             //Create the Rest Rout handler to process the request
             var restRouteHandler = new RestRouteHandler();
@@ -83,7 +83,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
 
         #region  SetPIConfigurationStatus
         [TestMethod]
-        public void SetMultiplePIConfigurationStatuses()
+        public void ConfigurationTest_SetMultiplePIConfigurationStatuses()
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<PiConfigurationController>();
@@ -173,7 +173,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         /// Status code.
         /// </summary>
         [TestMethod]
-        public void SetAndGetPIConfigurationStatus_AllowSendingofData()
+        public void ConfigurationTest_SetAndGetPIConfigurationStatus_AllowSendingofData()
         {
             //Create the Rest Rout handler to process the request
             var restRouteHandler = new RestRouteHandler();

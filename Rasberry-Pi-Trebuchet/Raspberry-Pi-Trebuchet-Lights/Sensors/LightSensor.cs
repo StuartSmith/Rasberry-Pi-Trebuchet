@@ -2,16 +2,19 @@
 using System;
 using Windows.Devices;
 using Windows.Devices.Gpio;
-
+using Windows.System.Profile;
 
 namespace Raspberry_Pi_Trebuchet.Lights.Sensors
 {
     public class LightSensor
     {
+      
 
         public  GpioPin _lightPin { get; private set; }
 
         private Object thisLock = new Object();
+
+        private bool RunningOnPi = false;
 
         public LightSensor(int lightPin)
         {
@@ -22,12 +25,23 @@ namespace Raspberry_Pi_Trebuchet.Lights.Sensors
                     LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
                 }
 
-                GpioController controller = GpioController.GetDefault();
+                if (AnalyticsInfo.VersionInfo.DeviceFamily.ToUpper() == "Windows.IoT".ToUpper())
+                {
+                    RunningOnPi = true;
+                }
 
+                //determines that the code is running on a Raspberry pi
+                if (RunningOnPi == true)
+                {
+                    GpioController controller = GpioController.GetDefault();
 
-                _lightPin = controller.OpenPin(lightPin);
-                _lightPin.SetDriveMode(GpioPinDriveMode.Output);
-                _lightPin.Write(GpioPinValue.Low);
+                    lock (this)
+                    {
+                        _lightPin = controller.OpenPin(lightPin);
+                        _lightPin.SetDriveMode(GpioPinDriveMode.Output);
+                        _lightPin.Write(GpioPinValue.Low);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -47,11 +61,14 @@ namespace Raspberry_Pi_Trebuchet.Lights.Sensors
                 //{
                 lock (thisLock)
                 {
-                    if (value)
-                        _lightPin.Write(GpioPinValue.High);
-                    
-                    else
-                        _lightPin.Write(GpioPinValue.Low);
+                    if (RunningOnPi)
+                    {
+                        if (value)
+                            _lightPin.Write(GpioPinValue.High);
+
+                        else
+                            _lightPin.Write(GpioPinValue.Low);
+                    }
 
                     _lighton = value;
                 }              
