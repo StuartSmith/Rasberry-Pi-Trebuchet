@@ -56,7 +56,7 @@
         </Grid.RowDefinitions>
         <Grid Name="HeaderRow" Grid.Row="0">
             <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"                             
-                             Text="Main Page">
+                             Text="Trebuchet Controler">
                 <!--  secondary commands  -->
                 <controls:PageHeader.SecondaryCommands>
                     <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />

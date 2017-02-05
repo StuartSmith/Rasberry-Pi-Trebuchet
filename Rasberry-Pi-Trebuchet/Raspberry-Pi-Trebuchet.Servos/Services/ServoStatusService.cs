@@ -9,6 +9,7 @@ using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Servos.Interfaces;
 using Raspberry_Pi_Trebuchet.Servos.Models;
 using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
+using Raspberry_Pi_Trebuchet.Servos.Enums;
 
 namespace Raspberry_Pi_Trebuchet.Servos.Services
 {

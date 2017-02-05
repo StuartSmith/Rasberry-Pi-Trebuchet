@@ -86,9 +86,9 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
-            var postRequest = ChangeLightStatus_PostRequest();
+            var postRequest = SetLightStatus_PostRequest(lightRestViewModel);
 
-            postRequest.Content = System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(lightRestViewModel));
+           
             var request = restRouteHandler.HandleRequest(postRequest);
 
             
@@ -124,27 +124,30 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
 
         private RestUpHttpServerRequest GetSingleLightStatuses_GetRequest()
         {
-            RestUpHttpServerRequest basicPost = new RestUpHttpServerRequest()
+            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
             {
                 Method = HttpMethod.GET,
                 Uri = new Uri($"/lights/statuses?={DateTime.Now}", UriKind.RelativeOrAbsolute),
                 AcceptMediaTypes = new[] { "application/json" },
                 IsComplete = true
             };
-            return basicPost;
+            return basicGet;
         }
 
 
-        private RestUpHttpServerRequest ChangeLightStatus_PostRequest()
+        private RestUpHttpServerRequest SetLightStatus_PostRequest(LightRestViewModel lightRestViewModel)
         {
-            RestUpHttpServerRequest basicPost = new RestUpHttpServerRequest()
+            RestUpHttpServerRequest postRequest = new RestUpHttpServerRequest()
             {
                 Method = HttpMethod.POST,
                 Uri = new Uri($"/lights/statuses", UriKind.RelativeOrAbsolute),
                 AcceptMediaTypes = new[] { "application/json" },
                 IsComplete = true
             };
-            return basicPost;
+
+            postRequest.Content = System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(lightRestViewModel));
+
+            return postRequest;
         }
 
     }

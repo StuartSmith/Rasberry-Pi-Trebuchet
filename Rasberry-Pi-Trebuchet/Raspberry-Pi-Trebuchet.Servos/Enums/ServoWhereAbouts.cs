@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Common.Enums
+namespace Raspberry_Pi_Trebuchet.Servos.Enums
 {
     public enum ServoWhereAbouts
     {

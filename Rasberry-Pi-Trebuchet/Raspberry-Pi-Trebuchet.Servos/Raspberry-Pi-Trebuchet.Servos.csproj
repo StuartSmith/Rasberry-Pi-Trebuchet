@@ -108,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\api\ServoController.cs" />
+    <Compile Include="Enums\RotateServer .cs" />
+    <Compile Include="Enums\ServoType.cs" />
+    <Compile Include="Enums\ServoWhereAbouts.cs" />
     <Compile Include="Interfaces\IServoRestViewModel.cs" />
     <Compile Include="Interfaces\IServoStatus.cs" />
     <Compile Include="Models\Servo.cs" />

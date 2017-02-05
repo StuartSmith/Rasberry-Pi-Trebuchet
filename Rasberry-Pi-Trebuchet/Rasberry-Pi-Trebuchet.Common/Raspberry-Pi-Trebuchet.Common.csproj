@@ -109,10 +109,6 @@
   <ItemGroup>
     <Compile Include="Enums\AzureDataObjectType.cs" />
     <Compile Include="Enums\LightType.cs" />
-    <Compile Include="Enums\RotateServer .cs" />
-    <Compile Include="Enums\ServoType.cs" />
-    <Compile Include="Enums\ServoWhereAbouts.cs" />
-    <Compile Include="RestViewModels\RestUpMutableHttpServerRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\AzureRequestData.cs" />
     <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />
@@ -121,6 +117,7 @@
     <Compile Include="Interfaces\ITribuchet.cs" />
     <Compile Include="Models\UltraSonicSensorRequest.cs" />
     <Compile Include="Interfaces\IUltraSonicSensor.cs" />
+    <Compile Include="RestViewModels\RestUpHttpServerRequest.cs" />
     <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />
   </ItemGroup>

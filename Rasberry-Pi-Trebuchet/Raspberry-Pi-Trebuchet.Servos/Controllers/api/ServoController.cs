@@ -5,6 +5,7 @@ using Restup.Webserver.Models.Contracts;
 using System;
 using Raspberry_Pi_Trebuchet.Servos.Models;
 using Raspberry_Pi_Trebuchet.Servos.Services;
+using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
 
 namespace Raspberry_Pi_Trebuchet.Servos.Controllers.api
 {
@@ -32,7 +33,7 @@ namespace Raspberry_Pi_Trebuchet.Servos.Controllers.api
         }    
 
         [UriFormat("/servo/statuses")]
-        public IPostResponse SetServoStatus([FromContent] Servo servo)
+        public IPostResponse SetServoStatus([FromContent] ServoRestViewModel servo)
         {
             try
             {
