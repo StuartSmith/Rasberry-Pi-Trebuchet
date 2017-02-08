@@ -100,7 +100,6 @@
     </Compile>
     <Compile Include="Controllers\api\HttpGetAttribute.cs" />
     <Compile Include="Controllers\api\TrebuchetController.cs" />
-    <Compile Include="Controllers\api\UltraSonicController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureConnectionService.cs" />
     <Compile Include="ViewModels\VM_TrafficView.cs" />

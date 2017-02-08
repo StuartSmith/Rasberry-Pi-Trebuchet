@@ -5,7 +5,7 @@ using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Servos.Controllers.api;
 using Raspberry_Pi_Trebuchet.Servos.Enums;
 using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
-
+using Raspberry_Pi_Trebuchet.Servos.RetupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;
@@ -19,6 +19,8 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
     [TestClass]
     public class UnitTestServoController
     {
+     
+
         [TestMethod]
         public void ServoTest_GetServerPosition()
         {
@@ -30,7 +32,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<ServoController>();
-            var basicGet = GetRequest_ServoStatus();
+            var basicGet = HttpRequestsServo.GetRequestServoStatus();
             var request = restRouteHandler.HandleRequest(basicGet);
 
             var val = request.Result.Content.ToString();
@@ -41,18 +43,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
         }
 
 
-        private RestUpHttpServerRequest GetRequest_ServoStatus()
-        {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/servo/statuses?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-
-            return basicGet;
-        }
+       
 
         [TestMethod]
         public void ServoTest_SetServerPosition()
@@ -60,7 +51,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
             Test_SetServerPosition(ServoWhereAbouts.NinetyDegrees);
             Test_SetServerPosition(ServoWhereAbouts.OneEightyDegrees);
             Test_SetServerPosition(ServoWhereAbouts.ZeroDegrees);
-
 
         }
 
@@ -85,27 +75,13 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<ServoController>();
-            var postRequest = PostRequest_SetServerPosition(content);
+            var postRequest = HttpRequestsServo.PostRequestSetServerPosition(content);
 
             var request = restRouteHandler.HandleRequest(postRequest);
 
 
         }
 
-        private RestUpHttpServerRequest PostRequest_SetServerPosition(ServoRestViewModel content)
-        {
-            RestUpHttpServerRequest basicPost = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.POST,
-                Uri = new Uri($"/servo/statuses", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-
-            basicPost.Content =  System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(content));
-
-
-            return basicPost;
-        }
+      
     }
 }

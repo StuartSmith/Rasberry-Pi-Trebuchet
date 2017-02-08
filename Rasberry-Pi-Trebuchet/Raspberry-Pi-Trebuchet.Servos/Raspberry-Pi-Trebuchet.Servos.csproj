@@ -116,6 +116,7 @@
     <Compile Include="Models\Servo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestViewModels\ServoRestViewModel.cs" />
+    <Compile Include="RetupHttpRequests\HttpRequestsServo.cs" />
     <Compile Include="Sensors\ServoSensor.cs" />
     <Compile Include="Services\ServoStatusService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Servos.rd.xml" />

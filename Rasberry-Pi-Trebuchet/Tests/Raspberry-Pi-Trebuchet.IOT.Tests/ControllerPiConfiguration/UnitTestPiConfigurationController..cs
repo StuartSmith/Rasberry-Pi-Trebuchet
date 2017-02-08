@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.Configuration.Controllers.api;
+using Raspberry_Pi_Trebuchet.Configuration.RestupHttpRequests;
 using Raspberry_Pi_Trebuchet.Configuration.RestViewModels;
 using Raspberry_Pi_Trebuchet.Configuration.Services;
 using Restup.HttpMessage.Models.Schemas;
@@ -40,7 +41,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
             restRouteHandler.RegisterController<PiConfigurationController>();
 
             //Send the Request to the route Handler
-            RestUpHttpServerRequest basicGet =  GetMultiplePIConfigurationStatuses_GetRequest();
+            RestUpHttpServerRequest basicGet = HttpRequestsConfiguration.GetRequestPIConfigurationStatuses();  
             var request = restRouteHandler.HandleRequest(basicGet);
 
             //Deserialize the returned Values
@@ -59,18 +60,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         }
 
 
-        private RestUpHttpServerRequest GetMultiplePIConfigurationStatuses_GetRequest()
-        {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/piconfiguration?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-
-            return basicGet;
-        }
+       
 
 
         private void GetMultiplePIConfigurationStatusesValueCheck(string ValueToCheckAgainst, List<ViewModelRestNameValuePair> PiConfigurations)
@@ -109,7 +99,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
        private  List<ViewModelRestNameValuePair> SetMultiplePIConfigurationStatuses_PiConfigurations_Retrieve(RestRouteHandler restRouteHandler)
         {
             //Retrieve pi configurations
-            RestUpHttpServerRequest basicGet = SetPIConfigurationStatuss_GetRequest();
+            RestUpHttpServerRequest basicGet = HttpRequestsConfiguration.GetRequestPIConfigurationStatuses();
             var request = restRouteHandler.HandleRequest(basicGet);
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, $"Reponse should be OK but was {request.Result.ResponseStatus.ToString()} ");
             
@@ -125,9 +115,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         private void SetMultiplePIConfigurationStatuses_PiConfigurations_Transfer(RestRouteHandler restRouteHandler, 
                                                                             List<ViewModelRestNameValuePair> piConfigurations)
         {
-            RestUpHttpServerRequest postRequest = SetPIConfigurationStatuss_GetRequest();
-            postRequest.Method = HttpMethod.POST;
-            postRequest.Content = System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(piConfigurations));
+            RestUpHttpServerRequest postRequest = HttpRequestsConfiguration.PostReqestPiConfigurationStatuses(piConfigurations);
             var request = restRouteHandler.HandleRequest(postRequest);
         }
 
@@ -152,17 +140,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         }
 
 
-        private RestUpHttpServerRequest SetPIConfigurationStatuss_GetRequest()
-        {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/piconfiguration?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-            return basicGet;
-        }
+       
         #endregion
 
 
@@ -179,14 +157,14 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<PiConfigurationController>();
 
-            //Send the Request to the route Handler
-            RestUpHttpServerRequest basicPut;
-            basicPut = SetPIConfigurationStatus_AllowSendingofData_PutRequest();
+            //Send the Request to the route Handler as False
+            RestUpHttpServerRequest basicPut = HttpRequestsConfiguration.PostReqestPiConfigurationStatus("AllowSendingofData", "\"false\"");            
             var request = restRouteHandler.HandleRequest(basicPut);
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, "Failed to Set  AllowSendingofData to false");
-
-            basicPut.Content = Encoding.UTF8.GetBytes("\"true\"");
-            request = restRouteHandler.HandleRequest(basicPut);
+            
+            //Send the Request to the route as True
+            basicPut = HttpRequestsConfiguration.PostReqestPiConfigurationStatus("AllowSendingofData", "\"true\"");
+            request = restRouteHandler.HandleRequest(basicPut);           
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, "Failed to Set AllowSendingofData to true");
                     
             String piConfigValue = SetPIConfigurationStatus_AllowSendingofData_RetrieveData(restRouteHandler);
@@ -200,14 +178,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         /// <returns></returns>
         private RestUpHttpServerRequest SetPIConfigurationStatus_AllowSendingofData_GetRequest()
         {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/piconfiguration/AllowSendingofData?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-            return basicGet;
+            return HttpRequestsConfiguration.GetRequestPIConfigurationStatus("AllowSendingofData");
         }
 
 
@@ -215,18 +186,18 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         /// Creates the Put Response for the SetPIConfigurationStatus 
         /// Configuration Service Tests
         /// </summary>
-        private RestUpHttpServerRequest SetPIConfigurationStatus_AllowSendingofData_PutRequest()
-        {
-            RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.PUT,
-                Uri = new Uri($"/piconfiguration/AllowSendingofData", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                Content = Encoding.UTF8.GetBytes("\"false\""),
-                IsComplete = true
-            };
-            return basicPut;
-        }
+        //private RestUpHttpServerRequest SetPIConfigurationStatus_AllowSendingofData_PutRequest()
+        //{
+        //    RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
+        //    {
+        //        Method = HttpMethod.PUT,
+        //        Uri = new Uri($"/piconfiguration/AllowSendingofData", UriKind.RelativeOrAbsolute),
+        //        AcceptMediaTypes = new[] { "application/json" },
+        //        Content = Encoding.UTF8.GetBytes("\"false\""),
+        //        IsComplete = true
+        //    };
+        //    return basicPut;
+        //}
 
         /// <summary>
         ///  Retrieve the allow send data values from the database through the web server

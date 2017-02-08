@@ -167,6 +167,8 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
 
                 _BackgroundThread = new Task<bool>(() =>
                 {
+
+                    
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
@@ -194,15 +196,23 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Services
 
                         SonicSensorRun.SonicMeasurements.Add(measurement);
                     }
-                    //save UltraSonic Run to sqllite database
-                    using (var db = new UltraSonicContext())
+
+                    try
                     {
-                        var SonicEnity = db.UltraSonicSensorRuns.Add(SonicSensorRun);
-                        foreach (var sonicMeasurement in SonicSensorRun.SonicMeasurements)
+                        //save UltraSonic Run to sqllite database
+                        using (var db = new UltraSonicContext())
                         {
-                            db.UltraSonicSensorRunMeasurements.Add(sonicMeasurement);
+                            var SonicEnity = db.UltraSonicSensorRuns.Add(SonicSensorRun);
+                            foreach (var sonicMeasurement in SonicSensorRun.SonicMeasurements)
+                            {
+                                db.UltraSonicSensorRunMeasurements.Add(sonicMeasurement);
+                            }
+                            db.SaveChanges();
                         }
-                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
                     }
                     _isUltraSonicRunning = false;
                     return true;

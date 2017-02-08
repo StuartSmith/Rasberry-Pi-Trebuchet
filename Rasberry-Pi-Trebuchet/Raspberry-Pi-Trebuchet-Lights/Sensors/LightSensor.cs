@@ -9,11 +9,8 @@ namespace Raspberry_Pi_Trebuchet.Lights.Sensors
     public class LightSensor
     {
       
-
         public  GpioPin _lightPin { get; private set; }
-
         private Object thisLock = new Object();
-
         private bool RunningOnPi = false;
 
         public LightSensor(int lightPin)

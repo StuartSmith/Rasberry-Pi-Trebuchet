@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Devices;
 using Windows.Devices.Gpio;
+using Windows.System.Profile;
 
 namespace Raspberry_Pi_Trebuchet.Sonic.Sensors
 {
@@ -16,6 +17,7 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Sensors
         private GpioPin triggerPin { get; set; }
         private GpioPin echoPin { get; set; }
         private Stopwatch timeWatcher;
+        private bool RunningOnPi = false;
 
 
         public UltraSonicSensor(int triggerPin, int echoPin)
@@ -25,19 +27,50 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Sensors
                 LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
             }
 
+
+
             GpioController controller = GpioController.GetDefault();
             timeWatcher = new Stopwatch();
-            //initialize trigger pin.
-            this.triggerPin = controller.OpenPin(triggerPin);
-            this.triggerPin.SetDriveMode(GpioPinDriveMode.Output);
-            this.triggerPin.Write(GpioPinValue.Low);
-            //initialize echo pin.
-            this.echoPin = controller.OpenPin(echoPin);
-            this.echoPin.SetDriveMode(GpioPinDriveMode.Input);
+
+            if (AnalyticsInfo.VersionInfo.DeviceFamily.ToUpper() == "Windows.IoT".ToUpper())
+            {
+                RunningOnPi = true;
+
+            }
+
+            if (RunningOnPi)
+            {
+                //initialize trigger pin.
+                this.triggerPin = controller.OpenPin(triggerPin);
+                this.triggerPin.SetDriveMode(GpioPinDriveMode.Output);
+                this.triggerPin.Write(GpioPinValue.Low);
+                //initialize echo pin.
+                this.echoPin = controller.OpenPin(echoPin);
+                this.echoPin.SetDriveMode(GpioPinDriveMode.Input);
+            }
+        }
+
+        private double RandomNumberDistanceGenerator()
+        {
+            var list = new[] { new { value = 0.0, Id = Guid.NewGuid() } }.ToList();
+            for (double i = 0.0001; i < .01; i = i + .0001)
+            {
+                list.Add(new { value =i, Id = Guid.NewGuid() });
+            }
+
+            var ReturnValue = (from item in list orderby item.Id select item.value).FirstOrDefault<double>();
+
+            return ReturnValue;
         }
 
         private double GetDistance()
         {
+            if (RunningOnPi ==false)
+            {
+                return RandomNumberDistanceGenerator();
+            }
+
+
             ManualResetEvent mre = new ManualResetEvent(false);
             mre.WaitOne(100);
             Stopwatch pulseLength = new Stopwatch();

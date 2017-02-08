@@ -4,6 +4,7 @@ using Rasberry_Pi_Trebuchet.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.Lights.Controllers.api;
 using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.Lights.RetupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;
@@ -86,7 +87,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
-            var postRequest = SetLightStatus_PostRequest(lightRestViewModel);
+            var postRequest = HttpRequestsLight.PostRequestSetLightStatus(lightRestViewModel);
 
            
             var request = restRouteHandler.HandleRequest(postRequest);
@@ -98,7 +99,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
-            var basicGet = GetMultipleLightStatuses_GetRequest();
+            var basicGet = HttpRequestsLight.GetRequestLightStatuses();
             var request = restRouteHandler.HandleRequest(basicGet);
 
             var val = request.Result.Content.ToString();
@@ -108,47 +109,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             return Lights;
         }
 
-
-        private RestUpHttpServerRequest GetMultipleLightStatuses_GetRequest()
-        {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/lights/statuses?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-            return basicGet;
-        }
-
-
-        private RestUpHttpServerRequest GetSingleLightStatuses_GetRequest()
-        {
-            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.GET,
-                Uri = new Uri($"/lights/statuses?={DateTime.Now}", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-            return basicGet;
-        }
-
-
-        private RestUpHttpServerRequest SetLightStatus_PostRequest(LightRestViewModel lightRestViewModel)
-        {
-            RestUpHttpServerRequest postRequest = new RestUpHttpServerRequest()
-            {
-                Method = HttpMethod.POST,
-                Uri = new Uri($"/lights/statuses", UriKind.RelativeOrAbsolute),
-                AcceptMediaTypes = new[] { "application/json" },
-                IsComplete = true
-            };
-
-            postRequest.Content = System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(lightRestViewModel));
-
-            return postRequest;
-        }
+        
 
     }
 }
