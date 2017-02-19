@@ -7,35 +7,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP-UI", "UWP-UI", "{D61931
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F74ACC54-C8B7-4029-9E04-839C9E7D4659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.IOT.Tests", "Tests\Raspberry-Pi-Trebuchet.IOT.Tests\Raspberry-Pi-Trebuchet.IOT.Tests.csproj", "{8ED5AB60-BDF5-493D-9BC7-772A7E924B22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.Tests.IOT", "Tests\Raspberry-Pi-Trebuchet.IOT.Tests\Raspberry_Pi_Trebuchet.Tests.IOT.csproj", "{8ED5AB60-BDF5-493D-9BC7-772A7E924B22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trebuchet.UI.Controls", "UWP-UI\Controls\Trebuchet.UI.Controls.csproj", "{DF38461C-7A23-4E96-9A85-39E01E117821}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.UWP_UI.Controls", "UWP-UI\Controls\Raspberry_Pi_Trebuchet.UWP_UI.Controls.csproj", "{DF38461C-7A23-4E96-9A85-39E01E117821}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Microsoft.Samples.SimpleCommunication", "UWP-UI\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj", "{DFEEA5AA-D079-40F7-BFD3-394D5C000047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trebuchet", "UWP-UI\Trebuche\Trebuchet.csproj", "{2EF86483-A0A8-4C1D-BFBD-66E1B367318F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.UWP_UI.Desktop", "UWP-UI\Trebuche\Raspberry_Pi_Trebuchet.UWP_UI.Desktop.csproj", "{2EF86483-A0A8-4C1D-BFBD-66E1B367318F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP-IOT", "UWP-IOT", "{7C5F05E5-5707-45FD-BFDD-343AA3441E58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.IOT", "UWP-IOT\Raspberry-Pi-Trebuchet.IOT\Raspberry-Pi-Trebuchet.IOT.csproj", "{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.UWP_IOT.Pi", "UWP-IOT\Raspberry-Pi-Trebuchet.IOT\Raspberry_Pi_Trebuchet.UWP_IOT.Pi.csproj", "{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestUp-Sevices", "RestUp-Sevices", "{B42D6250-DC38-45CC-8F8B-15C17B8A7681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Azure", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Azure\Raspberry-Pi-Trebuchet.Azure.csproj", "{A783D8F4-4F83-4D30-B1DD-09AF4210C060}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Azure", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Azure\Raspberry_Pi_Trebuchet.RestUp.Azure.csproj", "{A783D8F4-4F83-4D30-B1DD-09AF4210C060}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Configuration", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Configuration\Raspberry-Pi-Trebuchet.Configuration.csproj", "{29B84A1F-2063-4CC4-8C65-583EDC168635}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Configuration", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Configuration\Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj", "{29B84A1F-2063-4CC4-8C65-583EDC168635}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Servos", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Servos\Raspberry-Pi-Trebuchet.Servos.csproj", "{161EA637-F6DF-44E3-8248-8D72E5CBD66E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Servos", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Servos\Raspberry_Pi_Trebuchet.RestUp.Servos.csproj", "{161EA637-F6DF-44E3-8248-8D72E5CBD66E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.StaticFiles", "RestUp-Sevices\Raspberry-Pi-Trebuchet.StaticFiles\Raspberry-Pi-Trebuchet.StaticFiles.csproj", "{4EB31983-5BD1-4ACF-8161-F520FF41A877}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.StaticFiles", "RestUp-Sevices\Raspberry-Pi-Trebuchet.StaticFiles\Raspberry_Pi_Trebuchet.RestUp.StaticFiles.csproj", "{4EB31983-5BD1-4ACF-8161-F520FF41A877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Lights", "RestUp-Sevices\Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj", "{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Lights", "RestUp-Sevices\Raspberry-Pi-Trebuchet-Lights\Raspberry_Pi_Trebuchet.RestUp.Lights.csproj", "{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Trebuchet", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Tribuchet\Raspberry-Pi-Trebuchet.Trebuchet.csproj", "{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Trebuchet", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Tribuchet\Raspberry_Pi_Trebuchet.RestUp.Trebuchet.csproj", "{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Common", "RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj", "{A1194A2E-14BB-4726-B273-A7CE7AB8C879}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Common", "RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj", "{A1194A2E-14BB-4726-B273-A7CE7AB8C879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry-Pi-Trebuchet.Sonic", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Sonic\Raspberry-Pi-Trebuchet.Sonic.csproj", "{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Sonic", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj", "{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

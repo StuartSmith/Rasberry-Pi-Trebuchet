@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4EB31983-5BD1-4ACF-8161-F520FF41A877}</ProjectGuid>
+    <ProjectGuid>{A1194A2E-14BB-4726-B273-A7CE7AB8C879}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rasberry_Pi_Trebuchet.StaticFiles</RootNamespace>
-    <AssemblyName>Rasberry-Pi-Trebuchet.StaticFiles</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Common</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Common</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -107,61 +107,19 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\AzureDataObjectType.cs" />
+    <Compile Include="Enums\LightType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.StaticFiles.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web\css\bootstrap-responsive.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\css\bootstrap-responsive.min.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\css\bootstrap.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\css\bootstrap.min.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\css\sweetalert.css" />
-    <Content Include="Web\css\Theme.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\css\ToggleSwitch.css" />
-    <Content Include="Web\favicon.ico" />
-    <Content Include="Web\img\glyphicons-halflings-white.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\img\glyphicons-halflings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\img\Windows-16x16.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\img\Windows-32x32.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\js\bootstrap.min.js" />
-    <Content Include="Web\js\HttpClient.js" />
-    <Content Include="Web\index.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\js\LightStatus.js" />
-    <Content Include="Web\js\PiConfiguration.js" />
-    <Content Include="Web\js\ServoStatus.js" />
-    <Content Include="Web\js\Trebuchet.js" />
-    <Content Include="Web\js\UltraSonic.js" />
-    <Content Include="Web\lib\bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="Web\lib\jQuery\dist\jquery.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Web\lib\sweetalert\dist\js\sweetalert-dev.js" />
-    <Content Include="Web\Lights.HTML" />
-    <Content Include="Web\PiConfiguration.html" />
-    <Content Include="Web\Servos.html" />
-    <Content Include="Web\Trebuchet.html" />
-    <Content Include="Web\UltraSonic.html" />
-    <Content Include="Web\Windows_10_Logo.png" />
+    <Compile Include="Models\AzureRequestData.cs" />
+    <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />
+    <Compile Include="Models\UltraSonicSensor.cs" />
+    <Compile Include="Interfaces\IAzureConnection.cs" />
+    <Compile Include="Interfaces\ITribuchet.cs" />
+    <Compile Include="Models\UltraSonicSensorRequest.cs" />
+    <Compile Include="Interfaces\IUltraSonicSensor.cs" />
+    <Compile Include="RestViewModels\RestUpHttpServerRequest.cs" />
+    <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
+    <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

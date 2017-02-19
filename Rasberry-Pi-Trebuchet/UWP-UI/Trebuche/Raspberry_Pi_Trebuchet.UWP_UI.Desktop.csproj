@@ -7,8 +7,8 @@
     <ProjectGuid>{2EF86483-A0A8-4C1D-BFBD-66E1B367318F}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trebuchet</RootNamespace>
-    <AssemblyName>Trebuchet</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.UWP_UI.Desktop</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.UWP_UI.Desktop</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -196,17 +196,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
+    <ProjectReference Include="..\..\RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Raspberry-Pi-Trebuchet.Common</Name>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\RestUp-Sevices\Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj">
+    <ProjectReference Include="..\..\RestUp-Sevices\Raspberry-Pi-Trebuchet-Lights\Raspberry_Pi_Trebuchet.RestUp.Lights.csproj">
       <Project>{83825cdf-3c8c-4dfc-b4f9-7a6a4f274018}</Project>
-      <Name>Raspberry-Pi-Trebuchet.Lights</Name>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Lights</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Controls\Trebuchet.UI.Controls.csproj">
+    <ProjectReference Include="..\Controls\Raspberry_Pi_Trebuchet.UWP_UI.Controls.csproj">
       <Project>{df38461c-7a23-4e96-9a85-39e01e117821}</Project>
-      <Name>Trebuchet.UI.Controls</Name>
+      <Name>Raspberry_Pi_Trebuchet.UWP_UI.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj">
       <Project>{dfeea5aa-d079-40f7-bfd3-394d5c000047}</Project>

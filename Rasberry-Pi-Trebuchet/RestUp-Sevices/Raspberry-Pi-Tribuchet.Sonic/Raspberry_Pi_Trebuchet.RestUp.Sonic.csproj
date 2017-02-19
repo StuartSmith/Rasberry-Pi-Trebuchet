@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF38461C-7A23-4E96-9A85-39E01E117821}</ProjectGuid>
+    <ProjectGuid>{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trebuchet.UI.Controls</RootNamespace>
-    <AssemblyName>Trebuchet.UI.Controls</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Sonic</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Sonic</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -107,52 +107,40 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\StringToColorConverter.cs" />
-    <Compile Include="LedLight\LedLight.cs" />
-    <Compile Include="PiLight\PiLight.cs" />
-    <Compile Include="PiSettingsPanel\PiSettingsPanel.cs" />
+    <Compile Include="Context\UltraSonicContext.cs" />
+    <Compile Include="Controllers\api\UltraSonicController.cs" />
+    <Compile Include="Interfaces\IUltraSonicSensor .cs" />
+    <Compile Include="Interfaces\IUltraSonicSensorRun.cs" />
+    <Compile Include="Interfaces\IUltraSonicSensorRunMeasurement.cs" />
+    <Compile Include="Migrations\20161016144440_InitialMigration.cs" />
+    <Compile Include="Migrations\20161016144440_InitialMigration.designer.cs">
+      <DependentUpon>20161016144440_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\UltraSonicContextModelSnapshot.cs" />
+    <Compile Include="Models\UltraSonicRunRequest.cs" />
+    <Compile Include="Models\UltraSonicSensorRequest.cs" />
+    <Compile Include="Models\UltraSonicSensorRun.cs" />
+    <Compile Include="Models\UltraSonicSensorRunMeasurement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Trebuchet.UI.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="LedLight\LedLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainPage2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainPage1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PiLight\PiLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PiSettingsPanel\PiSettingsPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\BlueButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\GreenButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\RedButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="RestViewModels\ViewModelUltraSonicSensorRun.cs" />
+    <Compile Include="RestViewModels\ViewModelUltraSonicSensorRunMeasurement.cs" />
+    <Compile Include="RetupHttpRequests\HttpRequestsSonic.cs" />
+    <Compile Include="Sensors\UltraSonicSensor.cs" />
+    <Compile Include="Services\UltraSonicSensorService.cs" />
+    <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Sonic.rd.xml" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

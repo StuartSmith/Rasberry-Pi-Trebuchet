@@ -7,8 +7,8 @@
     <ProjectGuid>{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raspberry_Pi_Trebuchet.Lights</RootNamespace>
-    <AssemblyName>Raspberry-Pi-Trebuchet.Lights</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Lights</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Lights</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -119,9 +119,9 @@
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet_Lights.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Raspberry-Pi-Trebuchet.Common</Name>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

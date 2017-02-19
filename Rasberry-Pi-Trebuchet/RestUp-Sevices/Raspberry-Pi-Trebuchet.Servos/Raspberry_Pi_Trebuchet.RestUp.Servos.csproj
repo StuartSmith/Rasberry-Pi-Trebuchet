@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A783D8F4-4F83-4D30-B1DD-09AF4210C060}</ProjectGuid>
+    <ProjectGuid>{161EA637-F6DF-44E3-8248-8D72E5CBD66E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raspberry_Pi_Trebuchet.Azure</RootNamespace>
-    <AssemblyName>Raspberry-Pi-Trebuchet.Azure</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Servos</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Servos</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -107,8 +107,30 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\api\ServoController.cs" />
+    <Compile Include="Enums\RotateServer .cs" />
+    <Compile Include="Enums\ServoType.cs" />
+    <Compile Include="Enums\ServoWhereAbouts.cs" />
+    <Compile Include="Interfaces\IServoRestViewModel.cs" />
+    <Compile Include="Interfaces\IServoStatus.cs" />
+    <Compile Include="Models\Servo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Azure.rd.xml" />
+    <Compile Include="RestViewModels\ServoRestViewModel.cs" />
+    <Compile Include="RetupHttpRequests\HttpRequestsServo.cs" />
+    <Compile Include="Sensors\ServoSensor.cs" />
+    <Compile Include="Services\ServoStatusService.cs" />
+    <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Servos.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
