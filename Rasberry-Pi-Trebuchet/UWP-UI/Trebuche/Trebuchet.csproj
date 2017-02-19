@@ -196,11 +196,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
-      <Project>{A1194A2E-14BB-4726-B273-A7CE7AB8C879}</Project>
+    <ProjectReference Include="..\..\RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry-Pi-Trebuchet.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
       <Name>Raspberry-Pi-Trebuchet.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj">
+    <ProjectReference Include="..\..\RestUp-Sevices\Raspberry-Pi-Trebuchet-Lights\Raspberry-Pi-Trebuchet.Lights.csproj">
       <Project>{83825cdf-3c8c-4dfc-b4f9-7a6a4f274018}</Project>
       <Name>Raspberry-Pi-Trebuchet.Lights</Name>
     </ProjectReference>
