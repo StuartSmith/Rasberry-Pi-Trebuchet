@@ -1,13 +1,12 @@
 ﻿using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Schemas;
 using Restup.Webserver.Models.Contracts;
-
 using System;
-using Raspberry_Pi_Trebuchet.Servos.Models;
-using Raspberry_Pi_Trebuchet.Servos.Services;
-using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
 
-namespace Raspberry_Pi_Trebuchet.Servos.Controllers.api
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestViewModels;
+
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class ServoController

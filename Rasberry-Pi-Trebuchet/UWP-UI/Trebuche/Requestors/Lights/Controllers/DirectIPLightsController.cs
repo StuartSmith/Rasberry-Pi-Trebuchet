@@ -1,19 +1,18 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
-using Trebuchet.Requestors.Lights.Interfaces;
-using Trebuchet.Interfaces;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Raspberry_Pi_Trebuchet.Common.Enums;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using Trebuchet.Interfaces;
 
-namespace Trebuchet.Requestors.Lights.Controllers
+
+namespace Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Controllers
 {
     public class DirectIPLightsController : ILightsController
     {

@@ -10,7 +10,7 @@ using Microsoft.IoT.Lightning.Providers;
 using Windows.Devices;
 using Windows.System.Profile;
 
-namespace Raspberry_Pi_Trebuchet.Servos.Sensors
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Sensors
 {
 
     /// <summary>

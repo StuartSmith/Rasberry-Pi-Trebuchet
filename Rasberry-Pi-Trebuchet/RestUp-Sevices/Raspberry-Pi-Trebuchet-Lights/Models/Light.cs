@@ -1,8 +1,9 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-using Raspberry_Pi_Trebuchet.Lights.Sensors;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Sensors;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
 
-namespace Raspberry_Pi_Trebuchet.Lights.Models
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Models
 {
     public class Light : ILightRestViewModel
     {

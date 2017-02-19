@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Raspberry_Pi_Trebuchet.Configuration.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Context
+
+
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Context
 {
     /// <summary>
     /// To add a migration run following for example..

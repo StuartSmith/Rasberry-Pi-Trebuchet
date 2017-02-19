@@ -1,9 +1,8 @@
-﻿
+﻿using Raspberry_Pi_Trebuchet.Common.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
 
-using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-
-namespace Raspberry_Pi_Trebuchet.Lights.RestViewModels
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels
 {
     /// <summary>
     /// Object that is transfered back in forth in the form of JSON between the 

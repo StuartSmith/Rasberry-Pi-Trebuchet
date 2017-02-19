@@ -1,5 +1,5 @@
 ﻿
-using Raspberry_Pi_Tribuchet.Tribuchet.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Tribuchet.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Schemas;
 using Restup.Webserver.Models.Contracts;
 
-namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.RestUp.Trebuchet.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class TrebuchetController

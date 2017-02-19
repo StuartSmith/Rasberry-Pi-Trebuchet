@@ -1,6 +1,7 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
 
-namespace Raspberry_Pi_Trebuchet.Lights.Interfaces
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Interfaces
 {
 
     /// <summary>

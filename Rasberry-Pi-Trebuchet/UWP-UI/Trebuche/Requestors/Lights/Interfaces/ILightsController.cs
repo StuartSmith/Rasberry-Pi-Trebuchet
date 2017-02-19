@@ -1,11 +1,11 @@
-﻿using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trebuchet.Requestors.Lights.Interfaces
+namespace Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Interfaces
 {
     public interface ILightsController
     {

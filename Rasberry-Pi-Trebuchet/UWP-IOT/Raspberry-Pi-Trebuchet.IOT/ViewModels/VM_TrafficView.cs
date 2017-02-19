@@ -1,8 +1,9 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel;
-using Raspberry_Pi_Trebuchet.Configuration.Controllers.api;
 using Raspberry_Pi_Trebuchet.IOT.Controllers.api;
-using Raspberry_Pi_Trebuchet.Lights.Controllers.api;
-using Raspberry_Pi_Trebuchet.Servos.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Trebuchet.Controllers.api;
 using Restup.Webserver.File;
 using Restup.Webserver.Http;
 using Restup.Webserver.Rest;
@@ -10,7 +11,6 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Networking;
 using Windows.Networking.Connectivity;
-
 
 namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 {
@@ -20,16 +20,13 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
         private HttpServer _httpServer;
 
         public VM_TrafficView()
-        {
-
-            ///Retieve the Machine Name
+        {  
             TrebuchetVersion = string.Format("{0}.{1}.{2}.{3}",
                                     Package.Current.Id.Version.Major,
                                     Package.Current.Id.Version.Minor,
                                     Package.Current.Id.Version.Build,
                                     Package.Current.Id.Version.Revision);
-
-            ///Retieve the Host Name
+            
             foreach (HostName localHostName in NetworkInformation.GetHostNames())
             {
                 if (localHostName.IPInformation != null)
@@ -45,12 +42,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 
         public  async Task InitializeWebServer()
         {
-
-
-
-            // var httpServer = new HttpServer(8800);
-            
-
             var restRouteHandler = new RestRouteHandler();
 
             //Create the Routes           
@@ -68,17 +59,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
 
             var httpServer = new HttpServer(configuration);
             _httpServer = httpServer;
-            //Register the Server
-          
-
-
-            //Register the Route Controller
-           
-            
             await httpServer.StartServerAsync();
-            
-           
-            
         }
 
 

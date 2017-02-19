@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Raspberry_Pi_Trebuchet.Configuration.Context;
-using Raspberry_Pi_Trebuchet.Sonic.Context;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Context;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Context;
 using System;
 using System.Collections.Generic;
 using System.IO;

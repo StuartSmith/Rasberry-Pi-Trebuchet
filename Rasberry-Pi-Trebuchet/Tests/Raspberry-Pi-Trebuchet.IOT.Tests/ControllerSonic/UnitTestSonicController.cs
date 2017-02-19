@@ -1,13 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Newtonsoft.Json;
 using Raspberry_Pi_Trebuchet.IOT.Controllers.api;
-using Raspberry_Pi_Trebuchet.Sonic.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
 using Raspberry_Pi_Tribuchet.Sonic.RetupHttpRequests;
 using Restup.Webserver.Rest;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerSonic

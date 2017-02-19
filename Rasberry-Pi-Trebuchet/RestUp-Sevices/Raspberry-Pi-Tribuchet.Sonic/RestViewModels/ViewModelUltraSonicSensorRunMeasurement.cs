@@ -1,11 +1,11 @@
-﻿using Raspberry_Pi_Trebuchet.Sonic.Interfaces;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Sonic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Sonic.RestViewModels
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels
 {
     public class ViewModelUltraSonicSensorRunMeasurement : IUltraSonicSensorRunMeasurement
     {

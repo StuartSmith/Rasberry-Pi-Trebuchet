@@ -10,8 +10,6 @@ using Windows.Storage.Streams;
 
 namespace Rasberry_Pi_Trebuchet.Common.RestViewModels
 {
-   
-
    public class RestUpHttpServerRequest : IHttpServerRequest
     {
         private readonly List<IHttpRequestHeader> _headers;

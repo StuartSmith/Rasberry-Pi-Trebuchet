@@ -10,7 +10,7 @@ using Windows.Devices;
 using Windows.Devices.Gpio;
 using Windows.System.Profile;
 
-namespace Raspberry_Pi_Trebuchet.Sonic.Sensors
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Sensors
 {
     class UltraSonicSensor
     {

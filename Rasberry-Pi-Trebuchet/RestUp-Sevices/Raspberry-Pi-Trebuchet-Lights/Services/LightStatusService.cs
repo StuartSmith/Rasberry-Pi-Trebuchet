@@ -1,15 +1,16 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-using Raspberry_Pi_Trebuchet.Lights.Models;
-using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
-using Raspberry_Pi_Trebuchet.Lights.Sensors;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Sensors;
 
 using System.Collections.Generic;
 using System.Linq;
 
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Lights.Services
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Services
 {
 
     /// <summary>

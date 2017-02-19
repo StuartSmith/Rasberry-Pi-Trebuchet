@@ -1,13 +1,13 @@
-﻿using Raspberry_Pi_Trebuchet.Configuration.Context;
-using Raspberry_Pi_Trebuchet.Configuration.Interfaces;
-using Raspberry_Pi_Trebuchet.Configuration.Models;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Configuration.Context;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Services
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
 {
     public class PiNameValuePairDBSettings : IPiNameValuePairDBSettings
     {

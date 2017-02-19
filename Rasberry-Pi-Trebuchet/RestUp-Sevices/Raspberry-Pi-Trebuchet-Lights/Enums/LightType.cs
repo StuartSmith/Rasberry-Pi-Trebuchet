@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Common.Enums
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Enums
 {
-    public enum AzureDataObjectType
+    public enum LightType
     {
-        Light,
-        Servo,
-        UltraSonic
+        LeftLight,
+        RightLight
     }
 }

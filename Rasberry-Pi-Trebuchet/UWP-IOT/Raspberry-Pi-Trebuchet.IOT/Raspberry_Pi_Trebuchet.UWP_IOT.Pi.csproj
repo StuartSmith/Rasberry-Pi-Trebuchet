@@ -98,8 +98,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\api\HttpGetAttribute.cs" />
-    <Compile Include="Controllers\api\TrebuchetController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureConnectionService.cs" />
     <Compile Include="ViewModels\VM_TrafficView.cs" />
@@ -170,6 +168,9 @@
       <Project>{dbe38084-0619-40b8-b4cf-e2cd1e39f37b}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Trebuchet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\api\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

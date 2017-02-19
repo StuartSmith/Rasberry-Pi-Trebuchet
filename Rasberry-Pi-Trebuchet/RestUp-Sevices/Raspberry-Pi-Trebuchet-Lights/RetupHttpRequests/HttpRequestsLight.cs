@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
-using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
 using Restup.HttpMessage.Models.Schemas;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Lights.RetupHttpRequests
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.RetupHttpRequests
 {
     public static class HttpRequestsLight
     {

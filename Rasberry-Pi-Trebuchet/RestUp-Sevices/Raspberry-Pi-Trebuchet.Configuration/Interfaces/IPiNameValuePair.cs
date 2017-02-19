@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Interfaces
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Interfaces
 {
     public interface IPiNameValuePair
     {

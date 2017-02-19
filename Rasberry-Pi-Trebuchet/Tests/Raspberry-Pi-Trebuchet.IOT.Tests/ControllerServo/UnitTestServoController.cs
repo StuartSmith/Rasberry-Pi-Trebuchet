@@ -2,10 +2,10 @@
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Servos.Controllers.api;
-using Raspberry_Pi_Trebuchet.Servos.Enums;
-using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
-using Raspberry_Pi_Trebuchet.Servos.RetupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RetupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;

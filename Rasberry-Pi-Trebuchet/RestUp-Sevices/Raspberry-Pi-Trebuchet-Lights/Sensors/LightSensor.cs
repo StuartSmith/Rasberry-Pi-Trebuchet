@@ -4,7 +4,7 @@ using Windows.Devices;
 using Windows.Devices.Gpio;
 using Windows.System.Profile;
 
-namespace Raspberry_Pi_Trebuchet.Lights.Sensors
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Sensors
 {
     public class LightSensor
     {

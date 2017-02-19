@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Raspberry_Pi_Trebuchet.Sonic.Context;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Context;
 
-namespace Raspberry_Pi_Trebuchet.Sonic.Migrations
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Migrations
 {
     [DbContext(typeof(UltraSonicContext))]
     partial class UltraSonicContextModelSnapshot : ModelSnapshot
@@ -15,7 +15,7 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1");
 
-            modelBuilder.Entity("Raspberry_Pi_Trebuchet.Sonic.Models.UltraSonicSensorRun", b =>
+            modelBuilder.Entity("Raspberry_Pi_Trebuchet.RestUp.Sonic.Models.UltraSonicSensorRun", b =>
                 {
                     b.Property<int>("SonicId")
                         .ValueGeneratedOnAdd();
@@ -39,7 +39,7 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Migrations
                     b.ToTable("UltraSonicSensorRuns");
                 });
 
-            modelBuilder.Entity("Raspberry_Pi_Trebuchet.Sonic.Models.UltraSonicSensorRunMeasurement", b =>
+            modelBuilder.Entity("Raspberry_Pi_Trebuchet.RestUp.Sonic.Models.UltraSonicSensorRunMeasurement", b =>
                 {
                     b.Property<int>("SonicMeasurementId")
                         .ValueGeneratedOnAdd();
@@ -61,9 +61,9 @@ namespace Raspberry_Pi_Trebuchet.Sonic.Migrations
                     b.ToTable("UltraSonicSensorRunMeasurements");
                 });
 
-            modelBuilder.Entity("Raspberry_Pi_Trebuchet.Sonic.Models.UltraSonicSensorRunMeasurement", b =>
+            modelBuilder.Entity("Raspberry_Pi_Trebuchet.RestUp.Sonic.Models.UltraSonicSensorRunMeasurement", b =>
                 {
-                    b.HasOne("Raspberry_Pi_Trebuchet.Sonic.Models.UltraSonicSensorRun", "Run")
+                    b.HasOne("Raspberry_Pi_Trebuchet.RestUp.Sonic.Models.UltraSonicSensorRun", "Run")
                         .WithMany("SonicMeasurements")
                         .HasForeignKey("UltraSonicSensorRunId")
                         .OnDelete(DeleteBehavior.Cascade);

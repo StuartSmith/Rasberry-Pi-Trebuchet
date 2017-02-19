@@ -1,17 +1,14 @@
-﻿using Raspberry_Pi_Trebuchet.Common.Models;
-using Raspberry_Pi_Trebuchet.Common.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Servos.Interfaces;
-using Raspberry_Pi_Trebuchet.Servos.Models;
-using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
-using Raspberry_Pi_Trebuchet.Servos.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Enums;
 
-namespace Raspberry_Pi_Trebuchet.Servos.Services
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Services
 {
     public class ServoStatusService : IServoStatus
     {
@@ -30,11 +27,7 @@ namespace Raspberry_Pi_Trebuchet.Servos.Services
                 ServoGPIO = RaspberryPiGPI0Pin.GPIO13,
                 Servosensor = new Sensors.ServoSensor(RaspberryPiGPI0Pin.GPIO13)
 
-            };
-
-           // for (int x = 0; x < NumberOfTimesToSendMotorPulse; x++)
-           //     servo.Servosensor.PulseMotor(RotateServer.RotateToRight);
-
+            };  
             _Servos.Add(servo);
         }
 

@@ -1,15 +1,15 @@
 ﻿
-using Raspberry_Pi_Trebuchet.Servos.Models;
-using Raspberry_Pi_Trebuchet.Servos.Services;
-using Raspberry_Pi_Trebuchet.Sonic.Models;
-using Raspberry_Pi_Trebuchet.Sonic.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Tribuchet.Tribuchet.Services
+namespace Raspberry_Pi_Trebuchet.RestUp.Tribuchet.Services
 {
     public class TrebuchetService
     {

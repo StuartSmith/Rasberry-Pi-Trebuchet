@@ -1,17 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Newtonsoft.Json;
-using Rasberry_Pi_Trebuchet.Common.RestViewModels;
-using Raspberry_Pi_Trebuchet.Common.Enums;
-using Raspberry_Pi_Trebuchet.Lights.Controllers.api;
-using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
-using Raspberry_Pi_Trebuchet.Lights.RetupHttpRequests;
-using Restup.HttpMessage.Models.Schemas;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RetupHttpRequests;
 using Restup.Webserver.Rest;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
 {
@@ -39,7 +34,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             //Makes sure the left light is turned off...
             var leftLight = new LightRestViewModel()
             {
-                Description = Common.Enums.LightType.LeftLight.ToString(),               
+                Description = LightType.LeftLight.ToString(),               
                 IsLightOn = false
             };
             ChangeLightStatus(leftLight);
@@ -67,7 +62,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             //Makes sure the Right light is turned off...          
             var rightLight = new LightRestViewModel()
             {
-                Description = Common.Enums.LightType.RightLight.ToString(),
+                Description = LightType.RightLight.ToString(),
                 IsLightOn = false
             };
 
@@ -89,10 +84,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             restRouteHandler.RegisterController<LightsController>();
             var postRequest = HttpRequestsLight.PostRequestSetLightStatus(lightRestViewModel);
 
-           
-            var request = restRouteHandler.HandleRequest(postRequest);
-
-            
+            var request = restRouteHandler.HandleRequest(postRequest);            
         }
 
         private List<LightRestViewModel> GetLightStatuses()

@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
-using Raspberry_Pi_Trebuchet.Configuration.Controllers.api;
-using Raspberry_Pi_Trebuchet.Configuration.RestupHttpRequests;
-using Raspberry_Pi_Trebuchet.Configuration.RestViewModels;
-using Raspberry_Pi_Trebuchet.Configuration.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.RestupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;

@@ -1,8 +1,8 @@
-﻿using Raspberry_Pi_Trebuchet.Servos.Models;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Servos.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Servos.Interfaces
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Interfaces
 {
     public interface IServoStatus
     {

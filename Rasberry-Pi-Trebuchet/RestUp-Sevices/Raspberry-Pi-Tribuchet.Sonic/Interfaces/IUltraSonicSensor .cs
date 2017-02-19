@@ -1,12 +1,12 @@
-﻿using Raspberry_Pi_Trebuchet.Sonic.Models;
-using Raspberry_Pi_Trebuchet.Sonic.RestViewModels;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Sonic.Interfaces
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Interfaces
 {
     public interface IUltraSonicSensor 
     {

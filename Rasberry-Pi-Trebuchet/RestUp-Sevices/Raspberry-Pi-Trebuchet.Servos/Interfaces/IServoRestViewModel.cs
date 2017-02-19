@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Servos.Interfaces
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Interfaces
 {
     public interface IServoRestViewModel
     {

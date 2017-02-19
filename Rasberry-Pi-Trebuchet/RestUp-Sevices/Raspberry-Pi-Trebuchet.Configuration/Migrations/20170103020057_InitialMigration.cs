@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Migrations
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Migrations
 {
     public partial class InitialMigration : Migration
     {

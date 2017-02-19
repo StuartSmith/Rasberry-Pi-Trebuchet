@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
-using Raspberry_Pi_Trebuchet.Servos.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestViewModels;
 using Restup.HttpMessage.Models.Schemas;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Servos.RetupHttpRequests
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.RetupHttpRequests
 {
   public static class HttpRequestsServo
     {

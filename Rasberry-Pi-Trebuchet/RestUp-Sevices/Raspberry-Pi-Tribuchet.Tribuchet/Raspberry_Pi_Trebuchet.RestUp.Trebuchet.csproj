@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\api\TrebuchetController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TrebuchetService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Tribuchet.rd.xml" />

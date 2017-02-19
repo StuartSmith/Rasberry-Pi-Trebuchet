@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
-using Raspberry_Pi_Trebuchet.Sonic.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
 using Restup.HttpMessage.Models.Schemas;
 using System;
 using System.Collections.Generic;

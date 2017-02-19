@@ -1,4 +1,4 @@
-﻿using Raspberry_Pi_Trebuchet.Sonic.Interfaces;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Sonic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Sonic.Models
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Models
 {
     [DebuggerDisplay("SonicMeasurementId {SonicMeasurementId}  MeasurementDistance {MeasurementDistance} ")]
     public class UltraSonicSensorRunMeasurement: IUltraSonicSensorRunMeasurement

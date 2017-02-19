@@ -1,8 +1,8 @@
 ﻿
-using Raspberry_Pi_Trebuchet.Common.Models;
-using Raspberry_Pi_Trebuchet.Configuration.Interfaces;
-using Raspberry_Pi_Trebuchet.Configuration.RestViewModels;
-using Raspberry_Pi_Trebuchet.Configuration.Services;
+//using Raspberry_Pi_Trebuchet.Common.Models;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Contracts;
 using Restup.Webserver.Models.Schemas;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Controllers.api
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class PiConfigurationController

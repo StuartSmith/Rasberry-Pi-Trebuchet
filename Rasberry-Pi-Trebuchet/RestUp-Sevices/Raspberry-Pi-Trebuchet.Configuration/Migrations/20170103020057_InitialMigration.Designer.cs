@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Raspberry_Pi_Trebuchet.Configuration.Context;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Context;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.Migrations
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Migrations
 {
     [DbContext(typeof(PiGeneralContext))]
     [Migration("20170103020057_InitialMigration")]
@@ -16,7 +16,7 @@ namespace Raspberry_Pi_Trebuchet.Configuration.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1");
 
-            modelBuilder.Entity("Raspberry_Pi_Trebuchet.Configuration.Models.PiNameValuePair", b =>
+            modelBuilder.Entity("Raspberry_Pi_Trebuchet.RestUp.Configuration.Models.PiNameValuePair", b =>
                 {
                     b.Property<int>("NameValuePairId")
                         .ValueGeneratedOnAdd();

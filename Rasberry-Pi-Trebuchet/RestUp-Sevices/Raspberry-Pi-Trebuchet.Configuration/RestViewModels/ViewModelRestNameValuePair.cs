@@ -1,4 +1,4 @@
-﻿using Raspberry_Pi_Trebuchet.Configuration.Interfaces;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Configuration.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.Configuration.RestViewModels
+namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.RestViewModels
 {
     [DebuggerDisplay( "Name={name} Value={value} ")]
     public class ViewModelRestNameValuePair: IPiNameValuePair

@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Schemas;
 using Restup.Webserver.Models.Contracts;
-using Raspberry_Pi_Trebuchet.Lights.RestViewModels;
-using Raspberry_Pi_Trebuchet.Lights.Interfaces;
-using Raspberry_Pi_Trebuchet.Lights.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.Services;
 
-namespace Raspberry_Pi_Trebuchet.Lights.Controllers.api
+namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class LightsController 
