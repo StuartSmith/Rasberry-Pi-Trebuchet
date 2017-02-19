@@ -1,8 +1,0 @@
-﻿<Application
-    x:Class="Rasberry_Pi_Tribuchet.iot.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Rasberry_Pi_Tribuchet.iot"
-    RequestedTheme="Light">
-
-</Application>
