@@ -32,9 +32,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerSonic
                 Task.Delay(2000).Wait();
             }
             Assert.IsFalse(Isrunning);
-
-
-
         }
 
 
