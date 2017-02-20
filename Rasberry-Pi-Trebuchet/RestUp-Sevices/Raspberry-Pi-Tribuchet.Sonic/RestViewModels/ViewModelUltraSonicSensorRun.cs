@@ -1,5 +1,7 @@
-﻿using Raspberry_Pi_Trebuchet.Common.Enums;
+﻿using Newtonsoft.Json;
+using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Interfaces;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.JsonParams;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels
         public int SonicId { get; set; }
         public string SonicGUID { get; set; }
         public DateTime RunDate { get; set; }
+        [JsonConverter(typeof(SonicJsonConverter<List<ViewModelUltraSonicSensorRunMeasurement>>))]
         public List<IUltraSonicSensorRunMeasurement> SonicMeasurements { get; set; }
     }
 }

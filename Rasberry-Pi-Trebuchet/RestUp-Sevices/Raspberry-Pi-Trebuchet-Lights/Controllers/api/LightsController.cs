@@ -56,19 +56,19 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api
         [UriFormat("/lights/statuses")]
         public IPostResponse SetLightStatus([FromContent] LightRestViewModel data)
         {
+            try
+            {
+                ILightStatus lightStatusServer = LightStatusService.Instance;
+                var task = lightStatusServer.RetrieveLightStatus(data.Description);
+                task.Wait();
 
-            try {
-            ILightStatus lightStatusServer = LightStatusService.Instance;
-            var task = lightStatusServer.RetrieveLightStatus(data.Description);
-            task.Wait();
+                if (!(task.Result.Any()))
+                    return new PostResponse(PostResponse.ResponseStatus.Conflict);
+                    //return base.BadRequest();
 
-            if (!(task.Result.Any()))
-                return new PostResponse(PostResponse.ResponseStatus.Conflict);
-                //return base.BadRequest();
+                lightStatusServer.SetLight(data);
 
-            lightStatusServer.SetLight(data);
-
-            return new PostResponse(PostResponse.ResponseStatus.Created, $"/lights/statuses/{data.LightPosition}", data);
+                return new PostResponse(PostResponse.ResponseStatus.Created, $"/lights/statuses/{data.LightPosition}", data);
             }
             catch (Exception ex)
             {

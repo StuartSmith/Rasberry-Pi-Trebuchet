@@ -18,16 +18,14 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
         {
             //Create the Rest Rout handler to process the request
             var Lights = GetLightStatuses();
-
             Assert.AreEqual(Lights.Count(), 2, "There should be two lights in the collection but there are {Lights.Count()}");
-
         }
 
 
         [TestMethod]
         public void LightTest_TurnLeftLightOn()
         {
-            //Create the Rest Rout handler to process the request
+            //Create the Rest Route handler to process the request
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
 
@@ -37,25 +35,22 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
                 Description = LightType.LeftLight.ToString(),               
                 IsLightOn = false
             };
-            ChangeLightStatus(leftLight);
+            SendRequestToChangeLightStatus(leftLight);
             var Lights = GetLightStatuses();            
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.LeftLight.ToString())).Any(), true, "There should be two lights in the collection but there are {Lights.Count()}");
-
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.LeftLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.LeftLight,"off"));
 
             //Turn Left Light On
             leftLight.IsLightOn = true;
-            ChangeLightStatus(leftLight);
+            SendRequestToChangeLightStatus(leftLight);
             Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.LeftLight.ToString())).Any(), true, "There should be two lights in the collection but there are {Lights.Count()}");
-
-
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.LeftLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.LeftLight, "on"));
         }
 
 
         [TestMethod]
         public void LightTest_TurnRightLightOn()
         {
-            //Create the Rest Rout handler to process the request
+            //Create the Rest Route handler to process the request
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
 
@@ -66,22 +61,22 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
                 IsLightOn = false
             };
 
-            ChangeLightStatus(rightLight);
+            SendRequestToChangeLightStatus(rightLight);
             var Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.RightLight.ToString())).Any(), true, "There should be two lights in the collection but there are {Lights.Count()}");
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.RightLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.RightLight, "off"));
 
             rightLight.IsLightOn = true;
-            ChangeLightStatus(rightLight);
+            SendRequestToChangeLightStatus(rightLight);
             Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.RightLight.ToString())).Any(), true, "There should be two lights in the collection but there are {Lights.Count()}");
-
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.RightLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.RightLight, "on"));
         }
 
 
-        private void ChangeLightStatus(LightRestViewModel lightRestViewModel)
+        private void SendRequestToChangeLightStatus(LightRestViewModel lightRestViewModel)
         {
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<LightsController>();
+
             var postRequest = HttpRequestsLight.PostRequestSetLightStatus(lightRestViewModel);
 
             var request = restRouteHandler.HandleRequest(postRequest);            
@@ -101,7 +96,9 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             return Lights;
         }
 
-        
-
+        private string LightOnOrOffFailureMsg(LightType lightType , string OffOrOn)
+        {
+            return ($"The {lightType.ToString()} should be turned {OffOrOn} but is not. ");
+        }
     }
 }

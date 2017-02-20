@@ -71,16 +71,16 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Services
         }
 
 
-        public  Task<List<ILightRestViewModel>> RetrieveLightStatus(string LightType)
+        public  Task<List<LightRestViewModel>> RetrieveLightStatus(string LightType)
         {            
 
-            Task<List<ILightRestViewModel>> RetrieveLights =  Task<List<ILightRestViewModel>>.Factory.StartNew(() =>
+            Task<List<LightRestViewModel>> RetrieveLights =  Task<List<LightRestViewModel>>.Factory.StartNew(() =>
             {
                 var query = from selectedLight in _Lights
                             where LightType.ToString().ToUpper() == selectedLight.Description.ToUpper()
                             select new LightRestViewModel(selectedLight);
 
-                var LightToUpdate = query.ToList<ILightRestViewModel>();
+                var LightToUpdate = query.ToList<LightRestViewModel>();
                 return LightToUpdate;
             });
 
@@ -88,11 +88,11 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Services
         }
 
 
-        public async Task<List<ILightRestViewModel>> RetrieveLightStatuses()
+        public async Task<List<LightRestViewModel>> RetrieveLightStatuses()
         {
-           var RetrieveLights = await Task<List<ILightRestViewModel>>.Factory.StartNew(() =>
+           var RetrieveLights = await Task<List<LightRestViewModel>>.Factory.StartNew(() =>
             {
-                List<ILightRestViewModel> ViewModelLights = new List<ILightRestViewModel>();
+                List<LightRestViewModel> ViewModelLights = new List<LightRestViewModel>();
 
                 foreach (var light in _Lights)
                 {

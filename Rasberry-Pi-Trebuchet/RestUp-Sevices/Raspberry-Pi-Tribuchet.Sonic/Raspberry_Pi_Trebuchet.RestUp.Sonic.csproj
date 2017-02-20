@@ -112,6 +112,7 @@
     <Compile Include="Interfaces\IUltraSonicSensor .cs" />
     <Compile Include="Interfaces\IUltraSonicSensorRun.cs" />
     <Compile Include="Interfaces\IUltraSonicSensorRunMeasurement.cs" />
+    <Compile Include="JsonParams\SonicJsonConverter.cs" />
     <Compile Include="Migrations\20161016144440_InitialMigration.cs" />
     <Compile Include="Migrations\20161016144440_InitialMigration.designer.cs">
       <DependentUpon>20161016144440_InitialMigration.cs</DependentUpon>
