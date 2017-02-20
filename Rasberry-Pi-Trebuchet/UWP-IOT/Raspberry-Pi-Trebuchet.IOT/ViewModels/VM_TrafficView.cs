@@ -1,8 +1,8 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel;
-using Raspberry_Pi_Trebuchet.IOT.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Trebuchet.Controllers.api;
 using Restup.Webserver.File;
 using Restup.Webserver.Http;
@@ -26,19 +26,29 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
                                     Package.Current.Id.Version.Minor,
                                     Package.Current.Id.Version.Build,
                                     Package.Current.Id.Version.Revision);
-            
+
+            PiIP = GetCurrentIPHostIp();
+
+
+        }
+
+        private string GetCurrentIPHostIp()
+        {
+            string currentIP = "";
             foreach (HostName localHostName in NetworkInformation.GetHostNames())
             {
                 if (localHostName.IPInformation != null)
                 {
                     if (localHostName.Type == HostNameType.Ipv4)
                     {
-                        PiIP = localHostName.ToString();
+                        currentIP = localHostName.ToString();
                         break;
                     }
                 }
             }
+            return currentIP;
         }
+
 
         public  async Task InitializeWebServer()
         {

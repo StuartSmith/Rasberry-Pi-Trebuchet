@@ -1,37 +1,25 @@
-﻿
-using Newtonsoft.Json;
-//using Raspberry_Pi_Trebuchet.Common.Models;
-
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Services;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Contracts;
 using Restup.Webserver.Models.Schemas;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
     public class UltraSonicController
-    {
-        
+    { 
         [UriFormat("ultrasonic/ultrasonicruns?={time}")]       
-         public GetResponse GetUltraSonicRuns(string time)
+         public async Task<GetResponse> GetUltraSonicRuns(string time)
         {
-            var ultraSonicService = UltraSonicSensorService.Instance;
-            var AllRuns = ultraSonicService.RetrieveAllRuns();
-            string output = JsonConvert.SerializeObject(AllRuns);
-
-            return new GetResponse(
+            var ultraSonicService = UltraSonicSensorService.Instance;           
+            return new GetResponse( 
                                   GetResponse.ResponseStatus.OK,
-                                  new { AllRuns });
-            
+                                  await ultraSonicService.RetrieveAllRuns()
+                                  );
         }
 
 
@@ -43,7 +31,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
             return new GetResponse(
                                  GetResponse.ResponseStatus.OK,
                                  new { returnvalue });
-
         }
 
 
@@ -65,8 +52,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
         public GetResponse LastRun(string time)
         {
             var ultraSonicService = UltraSonicSensorService.Instance;
-            var lastRun = ultraSonicService.RetrieveLatestUltraSonicRun();
-            
+            var lastRun = ultraSonicService.RetrieveLatestUltraSonicRun();            
             return new GetResponse(
                               GetResponse.ResponseStatus.OK,
                               new { lastRun });
@@ -82,10 +68,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Controllers.api
         }
 
 
-        /// <summary>
-        /// Needs to add Delete to the ultra sonic sensor run
-        /// </summary>
-        /// removeultrasonicruns
         [UriFormat("ultrasonic/removeultrasonicruns")]
         public IDeleteResponse RemoveUltraSonicRuns()
         {

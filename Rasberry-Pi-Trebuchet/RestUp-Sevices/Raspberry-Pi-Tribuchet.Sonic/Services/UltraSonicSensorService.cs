@@ -17,7 +17,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
         private static UltraSonicSensorService _instance;
         private static Task<bool> _BackgroundThread;
         private static bool _isUltraSonicRunning;
-        private Action<UltraSonicRunRequest> _ActionUltraSonicRun;
+        //private Action<UltraSonicRunRequest> _ActionUltraSonicRun;
         private static UltraSonicSensor _ultraSonicSensor;
 
         private UltraSonicSensorService()
@@ -32,7 +32,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
 
 
         /// <summary>
-        /// The Maximum distance in inches for the Tribuchet. 
+        /// The Maximum distance in inches for the Trebuchet. 
         /// If the distance is greater than this return 0;
         /// </summary>
         public double MaxDistance { get; set; }
@@ -116,28 +116,33 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
         }
 
 
-        public List<ViewModelUltraSonicSensorRun> RetrieveAllRuns()
+        public async Task<List<ViewModelUltraSonicSensorRun>> RetrieveAllRuns()
         {
-            List<UltraSonicSensorRun> ultraSonicRuns;
-            List<ViewModelUltraSonicSensorRun> viewModelUltraSonicSensorRuns = null;
 
-            using (var db = new UltraSonicContext())
-            {
-                ultraSonicRuns = (from sensorRun in db.UltraSonicSensorRuns
-                                  select sensorRun).ToList<UltraSonicSensorRun>();
-            }
-
-            if (ultraSonicRuns.Any())
-            {
-                viewModelUltraSonicSensorRuns = new List<ViewModelUltraSonicSensorRun>();
-                foreach (var ultraSonicRun in ultraSonicRuns)
+            var RetrieveLights = await Task<List<ViewModelUltraSonicSensorRun>>.Factory.StartNew(() =>
+            {               
+                List<ViewModelUltraSonicSensorRun> viewModelUltraSonicSensorRuns = null;
+                using (var db = new UltraSonicContext())
                 {
-                    viewModelUltraSonicSensorRuns.Add(ConvertSensorRunModelToViewModel(ultraSonicRun));
-                }
-            }
-            return viewModelUltraSonicSensorRuns;
-        }
+                    List<UltraSonicSensorRun> ultraSonicRuns;
+                    ultraSonicRuns = db.UltraSonicSensorRuns.ToList<UltraSonicSensorRun>();
 
+                    if (ultraSonicRuns.Any())
+                    {
+                        viewModelUltraSonicSensorRuns = new List<ViewModelUltraSonicSensorRun>();
+                        ultraSonicRuns.ForEach(
+                                                x => viewModelUltraSonicSensorRuns.Add(ConvertSensorRunModelToViewModel(x))
+                                               );
+                    }
+                }  
+
+                return viewModelUltraSonicSensorRuns;
+           
+            });
+
+            return RetrieveLights;
+        }
+        
 
         public ViewModelUltraSonicSensorRun RetrieveUltraSonicRun(long RunId)
         {

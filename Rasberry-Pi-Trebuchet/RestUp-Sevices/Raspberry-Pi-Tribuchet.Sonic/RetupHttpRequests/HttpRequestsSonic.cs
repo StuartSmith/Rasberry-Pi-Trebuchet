@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Tribuchet.Sonic.RetupHttpRequests
+namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.RetupHttpRequests
 {
     public static class HttpRequestsSonic
     {
-        public static RestUpHttpServerRequest DeleteUltraSonicRuns()
+        public static RestUpHttpServerRequest DeleteRequest_RemoveAllUltraSonicRuns()
         {
             RestUpHttpServerRequest basicDelete = new RestUpHttpServerRequest()
             {
@@ -22,10 +22,35 @@ namespace Raspberry_Pi_Tribuchet.Sonic.RetupHttpRequests
                 IsComplete = true
             };
             return basicDelete;
-
         }
 
-        public static RestUpHttpServerRequest GetRequestIsSonicRunning()
+        public static RestUpHttpServerRequest GetRequest_AllUltraSonicRuns()
+        {
+            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
+            {
+                Method = HttpMethod.GET,
+                Uri = new Uri($"/ultrasonic/ultrasonicruns?={DateTime.Now}", UriKind.RelativeOrAbsolute),
+                AcceptMediaTypes = new[] { "application/json" },
+                IsComplete = true
+            };
+            return basicGet;
+        }
+
+
+        public static RestUpHttpServerRequest GetRequest_LastUltraSonicRuns()
+        {
+            RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
+            {
+                Method = HttpMethod.GET,
+                Uri = new Uri($"/ultrasonic/lastrun?={DateTime.Now}", UriKind.RelativeOrAbsolute),
+                AcceptMediaTypes = new[] { "application/json" },
+                IsComplete = true
+            };
+            return basicGet;
+        }
+
+
+        public static RestUpHttpServerRequest GetRequest_IsSonicRunning()
         {
             RestUpHttpServerRequest basicGet = new RestUpHttpServerRequest()
             {
@@ -37,7 +62,8 @@ namespace Raspberry_Pi_Tribuchet.Sonic.RetupHttpRequests
             return basicGet;
         }
 
-        public static RestUpHttpServerRequest PostRequestStartRun(UltraSonicRunRequest runrequest)
+
+        public static RestUpHttpServerRequest PostRequest_StartRun(UltraSonicRunRequest runrequest)
         {
             RestUpHttpServerRequest basicPost = new RestUpHttpServerRequest()
             {
@@ -49,9 +75,5 @@ namespace Raspberry_Pi_Tribuchet.Sonic.RetupHttpRequests
             basicPost.Content = System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(runrequest));
             return basicPost;
         }
-
-       
-
-
     }
 }

@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Context;
-using Raspberry_Pi_Trebuchet.IOT.Controllers;
 using Raspberry_Pi_Trebuchet.IOT.Views;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Context;
 using System;
