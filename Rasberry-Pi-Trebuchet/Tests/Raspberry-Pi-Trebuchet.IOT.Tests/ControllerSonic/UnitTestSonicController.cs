@@ -49,6 +49,7 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerSonic
             //Removed one or more ultra sonic run 
             request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK);
+
             //No Ultra sonic runs left to remove
             request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.NoContent);

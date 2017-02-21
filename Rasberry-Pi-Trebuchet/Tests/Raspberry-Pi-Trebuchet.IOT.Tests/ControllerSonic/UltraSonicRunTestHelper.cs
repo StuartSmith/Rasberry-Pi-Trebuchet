@@ -17,8 +17,6 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerSonic
         {
             var val = request.Content.ToString();
             val = System.Text.Encoding.UTF8.GetString(request.Content);
-           
-         
             var UltraSonicRuns = JsonConvert.DeserializeObject<List<ViewModelUltraSonicSensorRun>>(val);
 
             return UltraSonicRuns;

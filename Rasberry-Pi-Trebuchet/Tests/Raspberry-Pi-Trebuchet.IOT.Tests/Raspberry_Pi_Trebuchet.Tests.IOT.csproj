@@ -99,6 +99,8 @@
     <Compile Include="ControllerLights\UnitTestLightsController.cs" />
     <Compile Include="ControllerSonic\UltraSonicRunTestHelper.cs" />
     <Compile Include="ControllerSonic\UnitTestSonicController.cs" />
+    <Compile Include="ControllerTrebuchet\TrebuchetTestHelper.cs" />
+    <Compile Include="ControllerTrebuchet\UnitTestTrebuchetRestUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControllerServo\UnitTestServoController.cs" />
     <Compile Include="UnitTestApp.xaml.cs">

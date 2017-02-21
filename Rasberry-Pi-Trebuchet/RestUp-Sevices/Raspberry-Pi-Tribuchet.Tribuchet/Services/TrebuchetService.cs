@@ -41,7 +41,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Tribuchet.Services
 
             //start the run Create the thread to get the distance of the trebuchet arm
             UltraSonicRunRequest runrequest = new UltraSonicRunRequest();
-            runrequest.TimeInSecondsToRunSensor = 10;
+            runrequest.TimeInSecondsToRunSensor = 5;
             ultrasonicSensorService.StartUltraSonicRun(runrequest);          
 
 
