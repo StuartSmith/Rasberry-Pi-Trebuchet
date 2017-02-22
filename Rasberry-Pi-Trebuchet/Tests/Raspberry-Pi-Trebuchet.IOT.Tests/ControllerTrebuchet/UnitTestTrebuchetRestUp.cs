@@ -12,8 +12,43 @@ using System.Threading.Tasks;
 namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerTrebuchet
 {
     [TestClass]
-    public class TrebuchetRestUpRunTests
+    public class UnitTestTrebuchetController
     {
+        [TestMethod]
+        public void TrebuchetTest_Fire()
+        {
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<UltraSonicController>();
+            restRouteHandler.RegisterController<TrebuchetController>();
+
+            TrebuchetTestHelper.WaitForTrebuchetToFinishRunning(restRouteHandler, 10);
+            var SuccessfullyFiredTrebuchet = TrebuchetTestHelper.FireTrebuchet(restRouteHandler);
+
+            Assert.IsTrue(SuccessfullyFiredTrebuchet, "Could not Successfully Reset the Trebuchet");
+
+        }
+
+
+        [TestMethod]
+        public void TrebuchetTest_Fire_Reset_Fire()
+        {
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<UltraSonicController>();
+            restRouteHandler.RegisterController<TrebuchetController>();
+
+            TrebuchetTestHelper.WaitForTrebuchetToFinishRunning(restRouteHandler, 10);
+            var SuccessfullyFiredTrebuchet = TrebuchetTestHelper.FireTrebuchet(restRouteHandler);
+            Assert.IsTrue(SuccessfullyFiredTrebuchet, "Could not Successfully Reset the Trebuchet");
+
+            TrebuchetTestHelper.WaitForTrebuchetToFinishRunning(restRouteHandler, 10);
+            var SuccessfullyResetTrebuchet = TrebuchetTestHelper.ResetTrebuchet(restRouteHandler);
+            Assert.IsTrue(SuccessfullyResetTrebuchet, "Could not Successfully Reset the Trebuchet");
+
+            TrebuchetTestHelper.WaitForTrebuchetToFinishRunning(restRouteHandler, 10);
+            SuccessfullyFiredTrebuchet = TrebuchetTestHelper.FireTrebuchet(restRouteHandler);
+            Assert.IsTrue(SuccessfullyFiredTrebuchet, "Could not Successfully Reset the Trebuchet");
+        }
+
 
         [TestMethod]
         public void TrebuchetTest_Reset()
@@ -21,28 +56,12 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerTrebuchet
             var restRouteHandler = new RestRouteHandler();
             restRouteHandler.RegisterController<UltraSonicController>();
             restRouteHandler.RegisterController<TrebuchetController>();
-
-            var Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
-            int LoopUntil = 0;
-            while (Isrunning && LoopUntil < 10)
-            {
-                Task.Delay(1000).Wait();
-                Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler)
-                LoopUntil++;
-            }
+            TrebuchetTestHelper.WaitForTrebuchetToFinishRunning(restRouteHandler, 10);
 
             //Make sure the ultra Sonic is not running
             var SuccessfullyResetTrebuchet = TrebuchetTestHelper.ResetTrebuchet(restRouteHandler);
             Assert.IsTrue(SuccessfullyResetTrebuchet, "Could not Successfully Reset the Trebuchet");
         }
-
-        public void TrebuchetLaunch()
-        {
-            var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<UltraSonicController>();
-            restRouteHandler.RegisterController<TrebuchetController>();
-        }
-
-
+        
     }
 }
