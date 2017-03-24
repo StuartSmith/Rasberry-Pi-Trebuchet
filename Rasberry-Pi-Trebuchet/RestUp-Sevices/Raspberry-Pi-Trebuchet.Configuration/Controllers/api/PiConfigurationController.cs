@@ -51,7 +51,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api
         }
 
 
-        // PUT api/values/5
+        
         [UriFormat("/piconfiguration/{name}")]
         public IPutResponse UpdateSingleConfigurationValuePair(string name, [FromContent]string value)
         {

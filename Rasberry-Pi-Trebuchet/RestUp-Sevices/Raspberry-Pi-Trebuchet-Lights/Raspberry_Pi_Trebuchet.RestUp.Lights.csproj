@@ -114,7 +114,7 @@
     <Compile Include="Models\Light.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestViewModels\LightRestViewModel.cs" />
-    <Compile Include="RetupHttpRequests\HttpRequestsLight.cs" />
+    <Compile Include="RestupHttpRequests\HttpRequestsLight.cs" />
     <Compile Include="Sensors\LightSensor.cs" />
     <Compile Include="Services\LightStatusService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet_Lights.rd.xml" />

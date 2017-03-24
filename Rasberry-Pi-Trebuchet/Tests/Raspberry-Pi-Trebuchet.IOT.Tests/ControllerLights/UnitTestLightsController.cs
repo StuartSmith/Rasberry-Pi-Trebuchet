@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
-using Raspberry_Pi_Trebuchet.RestUp.Lights.RetupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestupHttpRequests;
 using Restup.Webserver.Rest;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,53 +22,38 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
         }
 
 
-        [TestMethod]
-        public void LightTest_TurnLeftLightOn()
+        private void LightTestTurnLightOn(LightType lightType)
         {
-            //Create the Rest Route handler to process the request
-            var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<LightsController>();
+           
 
             //Makes sure the left light is turned off...
             var leftLight = new LightRestViewModel()
             {
-                Description = LightType.LeftLight.ToString(),               
+                Description = lightType.ToString(),
                 IsLightOn = false
             };
             SendRequestToChangeLightStatus(leftLight);
-            var Lights = GetLightStatuses();            
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.LeftLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.LeftLight,"off"));
+            var Lights = GetLightStatuses();
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == lightType.ToString())).Any(), true, LightOnOrOffFailureMsg(lightType, "off"));
 
             //Turn Left Light On
             leftLight.IsLightOn = true;
             SendRequestToChangeLightStatus(leftLight);
             Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.LeftLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.LeftLight, "on"));
+            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == lightType.ToString())).Any(), true, LightOnOrOffFailureMsg(lightType, "on"));
+
+        }
+        [TestMethod]
+        public void LightTest_TurnLeftLightOn()
+        {
+            LightTestTurnLightOn(LightType.LeftLight);
         }
 
 
         [TestMethod]
         public void LightTest_TurnRightLightOn()
         {
-            //Create the Rest Route handler to process the request
-            var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<LightsController>();
-
-            //Makes sure the Right light is turned off...          
-            var rightLight = new LightRestViewModel()
-            {
-                Description = LightType.RightLight.ToString(),
-                IsLightOn = false
-            };
-
-            SendRequestToChangeLightStatus(rightLight);
-            var Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == false && x.Description == LightType.RightLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.RightLight, "off"));
-
-            rightLight.IsLightOn = true;
-            SendRequestToChangeLightStatus(rightLight);
-            Lights = GetLightStatuses();
-            Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == LightType.RightLight.ToString())).Any(), true, LightOnOrOffFailureMsg(LightType.RightLight, "on"));
+            LightTestTurnLightOn(LightType.RightLight);
         }
 
 

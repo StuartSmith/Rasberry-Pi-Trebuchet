@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Controllers.api;
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.RetupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System.Threading.Tasks;

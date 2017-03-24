@@ -5,7 +5,7 @@ using Raspberry_Pi_Trebuchet.Common.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.RestViewModels;
-using Raspberry_Pi_Trebuchet.RestUp.Servos.RetupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;

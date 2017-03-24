@@ -192,7 +192,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Sensors
         {
             switch (rotateServer)
             {
-                case Common.Enums.RotateServer.RotateToLeft:
+                case RotateServer.RotateToLeft:
                     return 2;
                 case RotateServer.RotateToMiddle:
                     return 1.2;

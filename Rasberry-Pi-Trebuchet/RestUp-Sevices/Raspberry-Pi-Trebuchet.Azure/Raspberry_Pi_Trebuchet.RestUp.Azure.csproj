@@ -107,9 +107,20 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RestupHttpRequests\HttpRequestsAzureMsgListener.cs" />
+    <Compile Include="Services\AzureMsgListener.cs" />
+    <Compile Include="Controller\api\AzureMsgListenerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestViewModels\ViewModelMSGFromAzureStatus.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Azure.rd.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

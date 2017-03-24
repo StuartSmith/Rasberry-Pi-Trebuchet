@@ -125,7 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestViewModels\ViewModelUltraSonicSensorRun.cs" />
     <Compile Include="RestViewModels\ViewModelUltraSonicSensorRunMeasurement.cs" />
-    <Compile Include="RetupHttpRequests\HttpRequestsSonic.cs" />
+    <Compile Include="RestupHttpRequests\HttpRequestsSonic.cs" />
     <Compile Include="Sensors\UltraSonicSensor.cs" />
     <Compile Include="Services\UltraSonicSensorService.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Sonic.rd.xml" />

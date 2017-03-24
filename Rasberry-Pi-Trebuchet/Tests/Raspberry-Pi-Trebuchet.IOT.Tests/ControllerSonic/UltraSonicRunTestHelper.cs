@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels;
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.RetupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestupHttpRequests;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Interfaces;
 using Restup.HttpMessage;
 using Restup.Webserver.Rest;

@@ -25,33 +25,47 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
 
         }
 
-
+        /// <summary>
+        /// Allow the sending from the Raspberry pi back to azure
+        /// </summary>
         public bool AllowSendingofData
         {
             get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingofData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingofData), Convert.ToString(value)); }
         }
 
+        /// <summary>
+        /// Send a toast message each time the light data is changed
+        /// </summary>
         public bool AllowSendingToastLightData
         {
             get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastLightData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingToastLightData), Convert.ToString(value)); }
         }
 
-
+        /// <summary>
+        /// Send a toast message each time the servoe data is changed
+        /// </summary>
         public bool AllowSendingToastServoData
         {
             get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingToastServoData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingToastServoData), Convert.ToString(value)); }
         }
 
-
+        /// <summary>
+        /// Send the data from the ultra Sonic Sensor to Azure
+        /// </summary>
         public bool AllowSendingUltraSonicData
         {
             get { return Convert.ToBoolean(new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AllowSendingUltraSonicData))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingUltraSonicData), Convert.ToString(value)); }
         }
 
+        /// <summary>
+        /// makes a clone of the key value pair values
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
         public void CopyKeyValuePair(IPiNameValuePair from, IPiNameValuePair to)
         {
             new PiNameValuePairDBSettings().CopyKeyValuePair(from, to);

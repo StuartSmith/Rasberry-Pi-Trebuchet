@@ -84,7 +84,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
             SetMultiplePIConfigurationStatuses_AllowedValues(false, piConfigurations);
             SetMultiplePIConfigurationStatuses_PiConfigurations_Transfer(restRouteHandler, piConfigurations);
             String piConfigValue = SetPIConfigurationStatus_AllowSendingofData_RetrieveData(restRouteHandler);
-            Assert.AreEqual(piConfigValue.ToUpper(), "false".ToUpper(), "Configuraiton value AllowSendingofData should be false after test run");
+            Assert.AreEqual(piConfigValue.ToUpper(), "false".ToUpper(), "Configuration value AllowSendingofData should be false after test run");
 
 
             //Set all Allowed values to true and validate

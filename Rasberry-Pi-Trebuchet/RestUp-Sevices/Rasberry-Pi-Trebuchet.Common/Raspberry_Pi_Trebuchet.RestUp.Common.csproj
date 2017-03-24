@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />
+    <Compile Include="RestViewModels\OperationResult.cs" />
     <Compile Include="RestViewModels\RestUpHttpServerRequest.cs" />
     <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />

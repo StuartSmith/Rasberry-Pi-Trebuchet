@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raspberry_Pi_Trebuchet.RestUp.Servos.RetupHttpRequests
+namespace Raspberry_Pi_Trebuchet.RestUp.Servos.RestupHttpRequests
 {
   public static class HttpRequestsServo
     {
