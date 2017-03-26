@@ -1,10 +1,15 @@
-﻿using Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Manager;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Template10.Mvvm;
 using Trebuchet.Interfaces;
+using Trebuchet.Requestors.Lights.Manager;
+using Trebuchet.UI.Controls.Converters;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Media;
 
 namespace Trebuchet.ViewModels
 {
@@ -114,7 +119,8 @@ namespace Trebuchet.ViewModels
         DelegateCommand<MainPageFlipViewViewModel> _BothLightsOnCommand = null;
         public DelegateCommand<MainPageFlipViewViewModel> BothLightsOnCommand => _BothLightsOnCommand ?? (_BothLightsOnCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
-            var lightManager = new LightsManager(this);                   
+            var lightManager = new LightsManager(this);
+                   
             await lightManager.TurnBothLightsOn();
         }
         , (o) => true));
@@ -124,7 +130,9 @@ namespace Trebuchet.ViewModels
         public DelegateCommand<MainPageFlipViewViewModel> LeftLightOffCommand => _LeftLightOffCommand ?? (_LeftLightOffCommand = new DelegateCommand<MainPageFlipViewViewModel>( async (o) =>
         {
             var lightManager = new LightsManager(this);
-            await lightManager.TurnLeftLightOff();  
+            await lightManager.TurnLeftLightOff();
+            
+
         }
         , (o) => true));
 
@@ -132,7 +140,8 @@ namespace Trebuchet.ViewModels
         public DelegateCommand<MainPageFlipViewViewModel> LeftLightOnCommand => _LeftLightOnCommand ?? (_LeftLightOnCommand = new DelegateCommand<MainPageFlipViewViewModel>(async (o) =>
         {
             var lightManager = new LightsManager(this);
-            await lightManager.TurnLeftLightOn();            
+            await lightManager.TurnLeftLightOn();
+            
         }
         , (o) => true));
 
@@ -141,6 +150,7 @@ namespace Trebuchet.ViewModels
        {
            var lightManager = new LightsManager(this);
            await lightManager.TurnRightLightOff();
+
        }
         , (o) => true));
 

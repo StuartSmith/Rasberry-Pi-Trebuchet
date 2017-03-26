@@ -7,8 +7,8 @@
     <ProjectGuid>{DF38461C-7A23-4E96-9A85-39E01E117821}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raspberry_Pi_Trebuchet.UWP_UI.Controls</RootNamespace>
-    <AssemblyName>Raspberry_Pi_Trebuchet.UWP_UI.Controls</AssemblyName>
+    <RootNamespace>Trebuchet.UI.Controls</RootNamespace>
+    <AssemblyName>Trebuchet.UI.Controls</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

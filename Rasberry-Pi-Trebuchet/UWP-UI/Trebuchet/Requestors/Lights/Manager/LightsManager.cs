@@ -1,14 +1,13 @@
-﻿using Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Controllers;
-using Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trebuchet.Interfaces;
+using Trebuchet.Requestors.Lights.Controllers;
+using Trebuchet.Requestors.Lights.Interfaces;
 
-
-namespace Raspberry_Pi_Trebuchet.UWP_UI.Desktop.Requestors.Lights.Manager
+namespace Trebuchet.Requestors.Lights.Manager
 {
     public class LightsManager
     {
