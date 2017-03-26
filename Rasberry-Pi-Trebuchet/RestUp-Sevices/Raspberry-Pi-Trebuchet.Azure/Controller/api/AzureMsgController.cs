@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
 {
     [RestController(InstanceCreationType.Singleton)]
-    public class AzureMsgListenerController
+    public class AzureMsgController
     {
         [UriFormat("/azuremsglistener/status?={time}")]
         public GetResponse Status(string time)
@@ -21,7 +21,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
             return new GetResponse(
                                  GetResponse.ResponseStatus.OK,
                                  new { msgListener.IsAzureMsgListenerRunning});
-          
         }
 
 
@@ -57,9 +56,23 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
         }
 
 
-
-      
-
+        [UriFormat("/azuremsglistener/registerdevice")]
+        public async Task <IPutResponse> RegisterDevice()
+        {
+            try
+            {
+                AzureDeviceRegistration azureRegistration = AzureDeviceRegistration.Instance;               
+                var OperationResult = await  azureRegistration.RegisterDevice();
+                return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
+            }
+            catch (Exception ex)
+            {
+                return new PutResponse(PutResponse.ResponseStatus.NoContent);
+            }
         }
+    }
+
+
+   
 
 }

@@ -2,8 +2,12 @@
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests;
 using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.RestupHttpRequests;
+using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;
 using System.Collections.Generic;
@@ -20,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
         public void AzureMsgListener_GetMsgListenerStatus()
         {
             var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<AzureMsgListenerController>();
+            restRouteHandler.RegisterController<AzureMsgController>();
 
             bool isRunning = IsMsgListenerRunning(restRouteHandler);
         }
@@ -30,7 +34,7 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
         public void AzureMsgListener_StartMsgListener()
         {
             var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<AzureMsgListenerController>();
+            restRouteHandler.RegisterController<AzureMsgController>();
 
             OperationResult<bool> opResult;
             if (IsMsgListenerRunning(restRouteHandler))
@@ -48,7 +52,7 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
         public void AzureMsgListener_StopMsgListener()
         {
             var restRouteHandler = new RestRouteHandler();
-            restRouteHandler.RegisterController<AzureMsgListenerController>();
+            restRouteHandler.RegisterController<AzureMsgController>();
 
             OperationResult<bool> opResult;
             //if the msglistener is not running start it
@@ -61,6 +65,30 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
 
         }
 
+
+        [TestMethod]
+        public void AzureMsgListener_RegisterDevice()
+        {
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<AzureMsgController>();
+            restRouteHandler.RegisterController<PiConfigurationController>();
+
+            //Set the pi connection string value
+            RestUpHttpServerRequest basicPut = HttpRequestsConfiguration.PostReqestPiConfigurationStatus("AzureIOTConnectionString", $"\"{AzureControllerTestData.IOTConnectionString()}\"");
+            var request = restRouteHandler.HandleRequest(basicPut);
+
+            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, "Could not set AzureIOTConnectionString ");
+
+            basicPut = HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerRegister();
+            request = restRouteHandler.HandleRequest(basicPut);
+
+            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, "Could not set Register Device bad HTTP Request ");
+
+            var val = System.Text.Encoding.UTF8.GetString(request.Result.Content);
+            var opResult = JsonConvert.DeserializeAnonymousType(val, new OperationResult<RegisterDeviceStatus>());
+
+
+        }
 
         private bool  IsMsgListenerRunning(RestRouteHandler restRouteHandler)
         {
@@ -81,8 +109,6 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             var opResult = JsonConvert.DeserializeAnonymousType(val, new OperationResult<bool>());
 
             return opResult;
-        }
-
-        
+        }        
     }
 }

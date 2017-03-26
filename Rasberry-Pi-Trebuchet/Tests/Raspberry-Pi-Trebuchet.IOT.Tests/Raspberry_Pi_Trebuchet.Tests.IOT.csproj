@@ -96,6 +96,7 @@
     <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControllerAzure\AzureControllerTestData.cs" />
     <Compile Include="ControllerAzure\UnitTestAzureController.cs" />
     <Compile Include="ControllerLights\UnitTestLightsController.cs" />
     <Compile Include="ControllerSonic\UltraSonicRunTestHelper.cs" />

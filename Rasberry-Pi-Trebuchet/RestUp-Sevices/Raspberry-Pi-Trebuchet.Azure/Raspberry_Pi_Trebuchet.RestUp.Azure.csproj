@@ -107,9 +107,12 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\RegisterDeviceStatus.cs" />
+    <Compile Include="Model\DeviceEnity.cs" />
     <Compile Include="RestupHttpRequests\HttpRequestsAzureMsgListener.cs" />
+    <Compile Include="Services\AzureDeviceRegistration.cs" />
     <Compile Include="Services\AzureMsgListener.cs" />
-    <Compile Include="Controller\api\AzureMsgListenerController.cs" />
+    <Compile Include="Controller\api\AzureMsgController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestViewModels\ViewModelMSGFromAzureStatus.cs" />
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Azure.rd.xml" />
@@ -118,6 +121,10 @@
     <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Raspberry-Pi-Trebuchet.Configuration\Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj">
+      <Project>{29b84a1f-2063-4cc4-8c65-583edc168635}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

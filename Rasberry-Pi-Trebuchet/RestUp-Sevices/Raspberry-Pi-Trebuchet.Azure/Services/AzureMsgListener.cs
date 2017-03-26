@@ -1,4 +1,7 @@
-﻿using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
+﻿//using Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Client;
+using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +13,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
     public class AzureMsgListener
     {
         private static AzureMsgListener _instance;
+        private static DeviceClient _deviceClient;
 
         public bool IsAzureMsgListenerRunning { get; set; } = false;
         public Action<OperationResult<bool>> AzurelistenerStatusEvent;
@@ -62,20 +66,47 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
 
                 MSGListenerTask = Task<bool>.Factory.StartNew(()=> 
                 {
-                    IsAzureMsgListenerRunning = true;
-                    while (IsAzureMsgListenerRunning == true)
+                    try
                     {
-                        LogMessage("Azure ListenerServiceRunning");
+                        _deviceClient = CreateAzureDeviceClient();
 
-                        Task.Delay(1000);
+                        IsAzureMsgListenerRunning = true;
+
+                        while (IsAzureMsgListenerRunning == true)
+                        {
+                            LogMessage("Azure ListenerServiceRunning");
+
+                            Task<Message> t = _deviceClient.ReceiveAsync();
+                            t.Wait();
+                            Message receivedMessage = t.Result;
+                            if (receivedMessage == null) continue;
+                            Task.Delay(1000);
+                        }
+                        return true;
                     }
-                    return true;
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
+                   
                 }
                 );
             }
                         
         }
-       
+
+        private DeviceClient CreateAzureDeviceClient()
+        {
+            var azurePiConfiguration = new AzurePiConfiguration();
+            var iotHubConnectionString = azurePiConfiguration.AzureIOTConnectionString;
+            var deviceName = azurePiConfiguration.DeviceName.ToUpper();
+            var  deviceClient = DeviceClient.CreateFromConnectionString(iotHubConnectionString, deviceName, TransportType.Mqtt);
+
+            return deviceClient;
+
+        }
+
+
 
         private void LogMessage(string msg)
         {

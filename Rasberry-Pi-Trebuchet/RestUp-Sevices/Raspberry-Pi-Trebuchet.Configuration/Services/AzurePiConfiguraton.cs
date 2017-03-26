@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,10 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AllowSendingUltraSonicData), "true");
 
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AzureIOTConnectionString), "");
-            nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");
+            nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");            
+
+            ///only set this value when we register
+            nameValuePairService.SetValueIfOneDoesNotExist(nameof(DeviceName), "");
 
         }
 
@@ -61,6 +65,12 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AllowSendingUltraSonicData), Convert.ToString(value)); }
         }
 
+        public string AzureIOTConnectionString
+        {
+            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AzureIOTConnectionString))?.value); }
+            set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AzureIOTConnectionString), Convert.ToString(value)); }
+        }
+
         /// <summary>
         /// makes a clone of the key value pair values
         /// </summary>
@@ -72,18 +82,18 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
         }
 
 
-
-        public string AzureIOTConnectionString
+        public string DeviceName
         {
-            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(AzureIOTConnectionString))?.value); }
-            set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(AzureIOTConnectionString), Convert.ToString(value)); }
-        }
+            get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(DeviceName))?.value.ToUpper()); }
+            set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(DeviceName), value.ToUpper()); }
+        }       
 
         public string ToastWebSendURL
         {
             get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(ToastWebSendURL))?.value); }
             set { new PiNameValuePairDBSettings().SetNameValuePair(nameof(ToastWebSendURL), value); }
         }
+
 
         public List<IPiNameValuePair> GetAllValues()
         {

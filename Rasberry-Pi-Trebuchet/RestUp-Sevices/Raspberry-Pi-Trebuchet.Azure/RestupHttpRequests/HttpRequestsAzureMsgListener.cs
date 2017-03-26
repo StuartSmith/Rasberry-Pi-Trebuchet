@@ -23,6 +23,19 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests
             return basicGet;
         }
 
+        public static RestUpHttpServerRequest PutRequest_AzureMsgListenerRegister()
+        {
+
+            RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
+            {
+                Method = HttpMethod.PUT,
+                Uri = new Uri($"/azuremsglistener/registerdevice", UriKind.RelativeOrAbsolute),
+                AcceptMediaTypes = new[] { "application/json" },
+                IsComplete = true
+            };
+            return basicPut;
+        }
+
         public static RestUpHttpServerRequest PutRequest_AzureMsgListenerStart()
         {
 
