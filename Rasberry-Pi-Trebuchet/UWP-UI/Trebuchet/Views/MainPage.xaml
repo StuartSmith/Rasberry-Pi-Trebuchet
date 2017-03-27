@@ -150,7 +150,7 @@
                                 <FlipView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:MainPageFlipViewViewModel">                                     
                                         <StackPanel Orientation="Vertical" Background="White">
-                                            <TrebControls:PiLight Visibility="{x:Bind isConfigurationSetting, Converter={StaticResource VisibleWhenFalseConverter},Mode=OneWay}" Margin="0,0,15,0" Height="405" 
+                                            <TrebControls:PiLight Visibility="{x:Bind isConfigurationSetting, Converter={StaticResource VisibleWhenFalseConverter},Mode=OneWay}" Margin="0,0,15,0" Height="700" 
                                                                   BrushPanel="{x:Bind ColorPanelHighlight, Converter={StaticResource StringToColorConverter},Mode=OneWay}"
                                                                   PiTeam="{x:Bind Name, Mode=OneWay}"
                                                                   PiName="{x:Bind PiName, Mode=OneWay}"

@@ -203,6 +203,96 @@
                              
                             </StackPanel>
                         </Border>
+                        <Border  BorderThickness="2" BorderBrush="{TemplateBinding BrushPanel}"  CornerRadius="8,8,0,0" Margin="0,5,0,0">
+                            <StackPanel Margin="0,-1,0,0"  Background="{TemplateBinding BrushPanel}" Orientation="Vertical"  CornerRadius="2,2,0,0">
+                                <Grid>
+                                    <TextBlock Margin ="{StaticResource TextMargin}" Text="Fire Trebuchet" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                                </Grid>
+                                <StackPanel x:Name="Launcher">
+                                    <!-- Two Led Lights -->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"></RowDefinition>
+                                            <!--<RowDefinition Height="5"></RowDefinition>-->
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                    </Grid>
+                                   
+                                    <!-- Fire Catapult-->
+                                    <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="5"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="5"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Fire Catapult" 
+                                                   Margin="{StaticResource TextMargin}" HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center" FontSize="22"
+                                                   Foreground="#FF858B95"></TextBlock>
+                                        <Button x:Name="btnFireCatapult" 
+                                            Grid.Row="0" 
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"  
+                                            Style="{StaticResource RedButtonStyle}"
+                                            Command="{TemplateBinding BothLightsOn}"                                                                                   
+                                           >
+                                            <SymbolIcon Symbol="Go" RenderTransformOrigin="0.5,0.5" Foreground="Black" >
+                                                <SymbolIcon.RenderTransform>
+                                                    <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                </SymbolIcon.RenderTransform>
+                                            </SymbolIcon>
+                                        </Button>                                        
+                                    </Grid>
+                                </StackPanel>
+                                <!-- Refresh Button -->
+                                <Grid Background="White" BorderBrush="white" Margin="0,-1,0,-1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="5"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="5"></ColumnDefinition>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="5"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0"
+                                                   Text="Reset Catapult" Margin="{StaticResource TextMargin}"
+                                                   HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center" FontSize="22" Foreground="#FF858B95">
+                                    </TextBlock>
+                                    <Button x:Name="btnResetCatapult" 
+                                            Grid.Row="0" 
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch" 
+                                            VerticalAlignment="Stretch" 
+                                            Style="{StaticResource BlueButtonStyle}" 
+                                            Command="{TemplateBinding RefreshLights}">
+                                        <SymbolIcon Symbol="RePair" RenderTransformOrigin="0.5,0.5" Foreground="Black" >
+                                            <SymbolIcon.RenderTransform>
+                                                <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            </SymbolIcon.RenderTransform>
+                                        </SymbolIcon>
+                                    </Button>
+                                </Grid>
+
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

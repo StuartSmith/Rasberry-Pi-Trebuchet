@@ -4,9 +4,13 @@ using Rasberry_Pi_Trebuchet.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.Enums;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.Services;
 using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.RestupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Servos.RestupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Trebuchet.RetupHttpRequests;
 using Restup.HttpMessage.Models.Schemas;
 using Restup.Webserver.Rest;
 using System;
@@ -87,8 +91,25 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             var val = System.Text.Encoding.UTF8.GetString(request.Result.Content);
             var opResult = JsonConvert.DeserializeAnonymousType(val, new OperationResult<RegisterDeviceStatus>());
 
-
         }
+
+
+        [TestMethod]
+        public void AzureMsgListener_DeviceListener()
+        {
+            AzureMsgListener_StartMsgListener();
+
+            Task t = Task.Delay(1000);
+            t.Wait();
+
+            var sndmsgdevice = SendMsgToDevice.Instance;
+            sndmsgdevice.SetConnectionString(AzureControllerTestData.IOTConnectionString());
+            AzurePiConfiguration AzConfig = new AzurePiConfiguration();
+
+            t = sndmsgdevice.Send(AzConfig.DeviceName, HttpRequestsTrebuchet.PostRequest_TrebuchetFire());
+            t.Wait();
+        }
+
 
         private bool  IsMsgListenerRunning(RestRouteHandler restRouteHandler)
         {

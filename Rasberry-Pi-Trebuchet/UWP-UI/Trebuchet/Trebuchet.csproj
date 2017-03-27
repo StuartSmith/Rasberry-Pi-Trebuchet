@@ -91,7 +91,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Trebuchet_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>

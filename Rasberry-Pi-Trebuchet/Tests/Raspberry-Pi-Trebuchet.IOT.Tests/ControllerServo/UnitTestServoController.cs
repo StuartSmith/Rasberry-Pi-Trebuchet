@@ -66,8 +66,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
             //Retrieve the Servo Status
             var ServoPosition = GetServoPostions();
             Assert.AreEqual(ServoPosition[0].ServoStatus, servoWhereAbouts.ToString(), $"Servo Status should be {servoWhereAbouts.ToString()} , but was {ServoPosition[0].ServoStatus}");
-
-
         }
 
 
@@ -78,8 +76,6 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerServo
             var postRequest = HttpRequestsServo.PostRequestSetServerPosition(content);
 
             var request = restRouteHandler.HandleRequest(postRequest);
-
-
         }
 
       
