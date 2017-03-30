@@ -86,21 +86,32 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                         restRouteHandler.RegisterController<ServoController>();
                         restRouteHandler.RegisterController<TrebuchetController>();
                         restRouteHandler.RegisterController<UltraSonicController>();
+                        restRouteHandler.RegisterController<UltraSonicController>();
 
 
                         while (IsAzureMsgListenerRunning == true)
                         {
                             LogMessage("Azure ListenerServiceRunning");
-                            Task<Message> t = _deviceClient.ReceiveAsync();
-                            t.Wait();
-                            Message receivedMessage = t.Result;
-                            if (receivedMessage == null) continue;
-                            Task.Delay(1000);
+                            Task<Message> RecievedMessageTask = _deviceClient.ReceiveAsync();
+                            RecievedMessageTask.Wait();
+                            Message receivedMessage = RecievedMessageTask.Result;
+                            if (receivedMessage == null)
+                            {
+                                Task.Delay(1000).Wait();
+                                continue;
+                               
+                            }
+                            string value = Encoding.ASCII.GetString(receivedMessage.GetBytes());
 
-                            string value =  Encoding.ASCII.GetString(receivedMessage.GetBytes());
+                            Task ConfirmReceiptTask =  _deviceClient.CompleteAsync(receivedMessage);
+                            ConfirmReceiptTask.Wait();
+
+                          
                             RestUpHttpServerRequest restuprequest = JsonConvert.DeserializeObject<RestUpHttpServerRequest> (value);
                             var request = restRouteHandler.HandleRequest(restuprequest);
 
+
+                            
                         }
                         return true;
                     }

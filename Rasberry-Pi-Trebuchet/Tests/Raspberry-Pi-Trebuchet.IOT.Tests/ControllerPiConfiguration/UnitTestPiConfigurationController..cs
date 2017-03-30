@@ -169,35 +169,9 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
                     
             String piConfigValue = SetPIConfigurationStatus_AllowSendingofData_RetrieveData(restRouteHandler);
             Assert.AreEqual(piConfigValue.ToUpper(), "true".ToUpper(), "AllowSendingofData should be true after test run");
-        }
+        }     
 
-
-        /// <summary>
-        /// Creates the Get Response for the PI Configuration Service
-        /// </summary>
-        /// <returns></returns>
-        private RestUpHttpServerRequest SetPIConfigurationStatus_AllowSendingofData_GetRequest()
-        {
-            return HttpRequestsConfiguration.GetRequestPIConfigurationStatus("AllowSendingofData");
-        }
-
-
-        /// <summary>
-        /// Creates the Put Response for the SetPIConfigurationStatus 
-        /// Configuration Service Tests
-        /// </summary>
-        //private RestUpHttpServerRequest SetPIConfigurationStatus_AllowSendingofData_PutRequest()
-        //{
-        //    RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
-        //    {
-        //        Method = HttpMethod.PUT,
-        //        Uri = new Uri($"/piconfiguration/AllowSendingofData", UriKind.RelativeOrAbsolute),
-        //        AcceptMediaTypes = new[] { "application/json" },
-        //        Content = Encoding.UTF8.GetBytes("\"false\""),
-        //        IsComplete = true
-        //    };
-        //    return basicPut;
-        //}
+       
 
         /// <summary>
         ///  Retrieve the allow send data values from the database through the web server
@@ -206,7 +180,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerPiConfiguration
         /// <returns></returns>
         string SetPIConfigurationStatus_AllowSendingofData_RetrieveData(RestRouteHandler restRouteHandler)
         {
-            RestUpHttpServerRequest basicGet = SetPIConfigurationStatus_AllowSendingofData_GetRequest();
+            RestUpHttpServerRequest basicGet = HttpRequestsConfiguration.GetRequestPIConfigurationStatus("AllowSendingofData"); 
             var  request = restRouteHandler.HandleRequest(basicGet);
 
             //Deserialize the returned Values

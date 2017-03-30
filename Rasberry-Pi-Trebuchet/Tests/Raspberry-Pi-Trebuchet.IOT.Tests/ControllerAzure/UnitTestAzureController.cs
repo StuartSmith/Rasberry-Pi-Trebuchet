@@ -43,11 +43,11 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             OperationResult<bool> opResult;
             if (IsMsgListenerRunning(restRouteHandler))
             {
-                opResult = MsgListenerAction(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStop());
+                opResult = SendPutMSGtoDevice(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStop());
                 Task.Delay(100);
             }
 
-            opResult = MsgListenerAction(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStart());
+            opResult = SendPutMSGtoDevice(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStart());
             Assert.IsTrue(IsMsgListenerRunning(restRouteHandler), $"Message listener should be running, but it is not last operation result Message { opResult.Message}");
         }
 
@@ -62,10 +62,10 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             //if the msglistener is not running start it
             if (!(IsMsgListenerRunning(restRouteHandler)))
             {
-                opResult = MsgListenerAction(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStart());
+                opResult = SendPutMSGtoDevice(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStart());
                 Task.Delay(100);
             }
-            opResult = MsgListenerAction(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStop());
+            opResult = SendPutMSGtoDevice(restRouteHandler, HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerStop());
 
         }
 
@@ -80,7 +80,6 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             //Set the pi connection string value
             RestUpHttpServerRequest basicPut = HttpRequestsConfiguration.PostReqestPiConfigurationStatus("AzureIOTConnectionString", $"\"{AzureControllerTestData.IOTConnectionString()}\"");
             var request = restRouteHandler.HandleRequest(basicPut);
-
             Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK, "Could not set AzureIOTConnectionString ");
 
             basicPut = HttpRequestsAzureMsgListener.PutRequest_AzureMsgListenerRegister();
@@ -95,18 +94,32 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
 
 
         [TestMethod]
-        public void AzureMsgListener_DeviceListener()
+        public void AzureMsgListener_TestSendMsgToDevice()
         {
-            AzureMsgListener_StartMsgListener();
 
-            Task t = Task.Delay(1000);
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<AzureMsgController>();
+            restRouteHandler.RegisterController<PiConfigurationController>();
+
+            //Set the pi connection string value
+            RestUpHttpServerRequest basicPut = HttpRequestsConfiguration.PostReqestPiConfigurationStatus("AzureIOTConnectionString", $"\"{AzureControllerTestData.IOTConnectionString()}\"");
+            var request = restRouteHandler.HandleRequest(basicPut);
+
+            AzurePiConfiguration AzConfig = new AzurePiConfiguration();           
+            var deviceName = AzConfig.DeviceName;
+
+            AzureMsgListener_StartMsgListener();
+            Task t = Task.Delay(500);
             t.Wait();
 
             var sndmsgdevice = SendMsgToDevice.Instance;
             sndmsgdevice.SetConnectionString(AzureControllerTestData.IOTConnectionString());
-            AzurePiConfiguration AzConfig = new AzurePiConfiguration();
+            
 
-            t = sndmsgdevice.Send(AzConfig.DeviceName, HttpRequestsTrebuchet.PostRequest_TrebuchetFire());
+            t = sndmsgdevice.Send(deviceName, HttpRequestsTrebuchet.PostRequest_TrebuchetFire());
+            t.Wait();
+
+            t = Task.Delay(500);
             t.Wait();
         }
 
@@ -123,7 +136,7 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
         }
 
 
-        private OperationResult<bool> MsgListenerAction(RestRouteHandler restRouteHandler, RestUpHttpServerRequest basicPut)
+        private OperationResult<bool> SendPutMSGtoDevice(RestRouteHandler restRouteHandler, RestUpHttpServerRequest basicPut)
         {
             var request = restRouteHandler.HandleRequest(basicPut);
             var val = System.Text.Encoding.UTF8.GetString(request.Result.Content);           

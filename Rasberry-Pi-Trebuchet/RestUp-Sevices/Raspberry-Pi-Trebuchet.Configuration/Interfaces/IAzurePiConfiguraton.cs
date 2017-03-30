@@ -14,6 +14,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Interfaces
         bool AllowSendingUltraSonicData { get; set; }
         string AzureIOTConnectionString { get; set; }
         string ToastWebSendURL { get; set; }
+        string DeviceName { get; set; }
 
         List<IPiNameValuePair> GetAllValues();
         bool UpdateValues(List<IPiNameValuePair> PiValuePairs);

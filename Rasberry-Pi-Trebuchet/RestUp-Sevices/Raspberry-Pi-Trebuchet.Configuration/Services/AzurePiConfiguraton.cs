@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
 {
-    public class AzurePiConfiguration : IAzurePiConfiguraton
+   public class AzurePiConfiguration : IAzurePiConfiguraton
     {
         public AzurePiConfiguration()
         {
@@ -22,11 +22,11 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AllowSendingUltraSonicData), "true");
 
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AzureIOTConnectionString), "");
-            nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");            
+            nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");
 
             ///only set this value when we register
-            nameValuePairService.SetValueIfOneDoesNotExist(nameof(DeviceName), "");
-
+            nameValuePairService.SetValueIfOneDoesNotExist(nameof(DeviceName), Dns.GetHostName().ToUpper());
+          
         }
 
         /// <summary>
