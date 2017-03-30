@@ -2,6 +2,7 @@
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
@@ -78,7 +79,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                     try
                     {
                         _deviceClient = CreateAzureDeviceClient();
-                        
 
                         var restRouteHandler = new RestRouteHandler();
 
@@ -86,8 +86,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                         restRouteHandler.RegisterController<ServoController>();
                         restRouteHandler.RegisterController<TrebuchetController>();
                         restRouteHandler.RegisterController<UltraSonicController>();
-                        restRouteHandler.RegisterController<UltraSonicController>();
-
+                       
 
                         while (IsAzureMsgListenerRunning == true)
                         {
@@ -106,12 +105,12 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                             Task ConfirmReceiptTask =  _deviceClient.CompleteAsync(receivedMessage);
                             ConfirmReceiptTask.Wait();
 
-                          
-                            RestUpHttpServerRequest restuprequest = JsonConvert.DeserializeObject<RestUpHttpServerRequest> (value);
-                            var request = restRouteHandler.HandleRequest(restuprequest);
+                            MsgContentToAndFromAzure msgContentToAndFromAzure = new MsgContentToAndFromAzure(JsonConvert.DeserializeObject<MsgContentToAzure>(value));                            
+                            var response = restRouteHandler.HandleRequest(msgContentToAndFromAzure.RestUpMsgRequest);
 
+                            msgContentToAndFromAzure.Response = System.Text.Encoding.UTF8.GetString(response.Result.Content);
+                            AzureMsgLogQueue.Instance.addMsgToQueue(msgContentToAndFromAzure);
 
-                            
                         }
                         return true;
                     }

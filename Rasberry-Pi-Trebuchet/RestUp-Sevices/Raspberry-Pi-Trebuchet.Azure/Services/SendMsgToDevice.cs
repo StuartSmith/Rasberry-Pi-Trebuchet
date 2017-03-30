@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.Devices;
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +15,22 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
         private static SendMsgToDevice _instance;
         private static ServiceClient serviceClient;
 
+        private SendMsgToDevice()
+        { }
+
+
         private async static void ReceiveFeedbackAsync()
         {
             var feedbackReceiver = serviceClient.GetFeedbackReceiver();
-
             Console.WriteLine("\nReceiving c2d feedback from service");
             while (true)
             {
                 var feedbackBatch = await feedbackReceiver.ReceiveAsync();
-                if (feedbackBatch == null) continue;
-
-               //Console.ForegroundColor = ConsoleColor.Yellow;
-               Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
-               // Console.ResetColor();
-
+                if (feedbackBatch == null) continue;              
                 await feedbackReceiver.CompleteAsync(feedbackBatch);
             }
         }
+
 
         public static SendMsgToDevice Instance
         {
@@ -44,17 +44,24 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
             }
         }
 
+
         public void SetConnectionString(string connectionstring)
         {
             serviceClient = ServiceClient.CreateFromConnectionString(connectionstring);
         }
 
-        public async Task Send(string deviceName, RestUpHttpServerRequest restupRequest)
-        {
-            string restupJSON = JsonConvert.SerializeObject(restupRequest);
-            var commandMessage = new Message(Encoding.ASCII.GetBytes(restupJSON));
+
+        public async Task<MsgContentToAzure> Send(string deviceName, RestUpHttpServerRequest restupRequest)
+        {            
+            Guid RequestGuid = Guid.NewGuid();
+            MsgContentToAzure msgContent = new MsgContentToAzure(RequestGuid, restupRequest);
+            string msgContentJSON = JsonConvert.SerializeObject(msgContent);
+
+            var commandMessage = new Message(Encoding.ASCII.GetBytes(msgContentJSON));
             commandMessage.Ack = DeliveryAcknowledgement.Full;
             await serviceClient.SendAsync(deviceName, commandMessage);
+
+            return msgContent;
         }
     }
 }

@@ -13,16 +13,30 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
     [RestController(InstanceCreationType.Singleton)]
     public class AzureMsgController
     {
-        [UriFormat("/azuremsglistener/status?={time}")]
-        public GetResponse Status(string time)
+        [UriFormat("/azuremsglistener/registerdevice")]
+        public async Task<IPutResponse> RegisterDevice()
         {
-            AzureMsgListener msgListener = AzureMsgListener.Instance;
+            try
+            {
+                AzureDeviceRegistration azureRegistration = AzureDeviceRegistration.Instance;
+                var OperationResult = await azureRegistration.RegisterDevice();
+                return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
+            }
+            catch (Exception ex)
+            {
+                return new PutResponse(PutResponse.ResponseStatus.NoContent);
+            }
+        }
+
+        [UriFormat("/azuremsglistener/loggedmessages?={time}")]
+        public async Task<GetResponse> LoggedMessage(string time)
+        {
+            AzureMsgLogQueue msgListener = AzureMsgLogQueue.Instance;
 
             return new GetResponse(
                                  GetResponse.ResponseStatus.OK,
-                                 new { msgListener.IsAzureMsgListenerRunning});
+                                 await msgListener.RetrieveAllQueuedMessages());
         }
-
 
         [UriFormat("/azuremsglistener/start")]
         public IPutResponse Start()
@@ -39,6 +53,15 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
             }      
         }
 
+        [UriFormat("/azuremsglistener/status?={time}")]
+        public GetResponse Status(string time)
+        {
+            AzureMsgListener msgListener = AzureMsgListener.Instance;
+
+            return new GetResponse(
+                                 GetResponse.ResponseStatus.OK,
+                                 new { msgListener.IsAzureMsgListenerRunning });
+        }
 
         [UriFormat("/azuremsglistener/stop")]
         public IPutResponse Stop()
@@ -56,20 +79,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
         }
 
 
-        [UriFormat("/azuremsglistener/registerdevice")]
-        public async Task <IPutResponse> RegisterDevice()
-        {
-            try
-            {
-                AzureDeviceRegistration azureRegistration = AzureDeviceRegistration.Instance;               
-                var OperationResult = await  azureRegistration.RegisterDevice();
-                return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
-            }
-            catch (Exception ex)
-            {
-                return new PutResponse(PutResponse.ResponseStatus.NoContent);
-            }
-        }
+       
     }
 
 

@@ -123,6 +123,8 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
             t.Wait();
         }
 
+       // public void AzureMsgListener_TestMsgLogging()
+
 
         private bool  IsMsgListenerRunning(RestRouteHandler restRouteHandler)
         {
