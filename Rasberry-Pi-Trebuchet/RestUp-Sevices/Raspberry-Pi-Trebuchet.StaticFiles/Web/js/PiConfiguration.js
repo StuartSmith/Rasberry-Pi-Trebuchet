@@ -101,7 +101,7 @@ $(document).ready(function () {
 
         var WebServiceUrl = "/api/piconfiguration";
         var aClient = new HttpClient();
-        aClient.put(WebServiceUrl, arr, ButtonSaveResult);
+        aClient.post(WebServiceUrl, arr, ButtonSaveResult);
         $("#SavingData").html("Saving Data ...");
     });
 });

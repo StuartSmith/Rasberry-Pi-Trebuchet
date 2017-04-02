@@ -54,10 +54,14 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
             }
         }
 
+
         public OperationResult<bool> StopAzureMsgListener()
         {
-            if (IsAzureMsgListenerRunning)                
-                return new OperationResult<bool>(true, "Stop Azure Message Listener");
+            if (IsAzureMsgListenerRunning)
+            { 
+                IsAzureMsgListenerRunning = false;
+                return new OperationResult<bool>(true, "Stopped Azure Message Listener");
+            }
             else
             {
                 return new OperationResult<bool>(true, "Azure Message Listener is currently not running.");

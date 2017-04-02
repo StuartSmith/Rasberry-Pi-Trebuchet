@@ -39,6 +39,7 @@
             <li>                <a href="#tab3" data-toggle="tab">UltraSonic Commands</a></li>
             <li>                <a href="#tab4" data-toggle="tab">Trebuchet Commands</a></li>
             <li>                <a href="#tab5" data-toggle="tab">PI Configuration</a></li>
+            <li>                <a href="#tab6" data-toggle="tab">Azure Listener Commands</a></li>
 
         </ul>
 
@@ -78,6 +79,13 @@
                 <!-- -------------------------------------- -->
                 <div id="PiConfigurationContent"></div>
             </div>
+
+            <div class="tab-pane" id="tab6">
+                <!-- -------------------------------------- -->
+                <!-- Retrieve the Configuration content from the UltraSonic.html file-->
+                <!-- -------------------------------------- -->
+                <div id="AzureListenerContent"></div>
+            </div>
         </div>
     </div>
 
@@ -89,6 +97,7 @@
     <script src="js/LightStatus.js"></script>
     <script src="js/ServoStatus.js"></script>
     <script src="js/Trebuchet.js"></script>
+    <script src="js/AzureListener.js"></script>
 
     <script>
     $(function () {
@@ -97,6 +106,7 @@
         $("#UltraSonicContent").load("UltraSonic.html");
         $("#TrebuchetContent").load("Trebuchet.html");
         $("#PiConfigurationContent").load("PiConfiguration.html");
+        $("#AzureListenerContent").load("AzureListener.html");
      }); </script>
 
 </body>

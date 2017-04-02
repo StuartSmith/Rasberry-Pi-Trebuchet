@@ -14,7 +14,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
     public class AzureMsgController
     {
         [UriFormat("/azuremsglistener/registerdevice")]
-        public async Task<IPutResponse> RegisterDevice()
+        public async Task<IPutResponse> RegisterDevice([FromContent] bool data)
         {
             try
             {

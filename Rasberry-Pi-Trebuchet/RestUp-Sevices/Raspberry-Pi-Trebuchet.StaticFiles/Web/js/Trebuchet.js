@@ -17,7 +17,7 @@ $(document).ready(function () {
     $("#ButtonFireTrebuchet").click(function () {
         var url = "/api/trebuchet/fire";
         aClient = new HttpClient();
-        aClient.put(url, null, TrebuchetFires);
+        aClient.post(url, null, TrebuchetFires);
     });
 
    
@@ -25,7 +25,7 @@ $(document).ready(function () {
     $("#ButtonResetTrebuchet").click(function () {
         var url = "/api/trebuchet/reset";
         aClient = new HttpClient();
-        aClient.put(url, null, TrebuchetReset);
+        aClient.post(url, null, TrebuchetReset);
        
     });
 });

@@ -111,6 +111,7 @@
     <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.StaticFiles.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Web\AzureListener.html" />
     <Content Include="Web\css\bootstrap-responsive.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -141,6 +142,7 @@
     <Content Include="Web\img\Windows-32x32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\js\AzureListener.js" />
     <Content Include="Web\js\bootstrap.min.js" />
     <Content Include="Web\js\HttpClient.js" />
     <Content Include="Web\index.html">

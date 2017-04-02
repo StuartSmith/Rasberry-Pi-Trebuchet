@@ -31,7 +31,7 @@ $(document).ready(function () {
         var servoData = { "servoStatus": "zeroDegrees", "description": "LaunchServo", "servoGPIO": 13 };
         servoData.servoStatus = "zeroDegrees";
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, servoData, ServoStatusResult);
+        aClient.post(WebServiceUrl, servoData, ServoStatusResult);
     });
 
     $("#ButtonServoStatus90").click(function () {
@@ -39,7 +39,7 @@ $(document).ready(function () {
         var servoData = { "servoStatus": "NinetyDegrees", "description": "LaunchServo", "servoGPIO": 13 };
         servoData.servoStatus = "NinetyDegrees";
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, servoData, ServoStatusResult);
+        aClient.post(WebServiceUrl, servoData, ServoStatusResult);
     });
 
     $("#ButtonServoStatus180").click(function () {
@@ -47,6 +47,6 @@ $(document).ready(function () {
         var servoData = { "servoStatus": "OneEightyDegrees", "description": "LaunchServo", "servoGPIO": 13 };
         servoData.servoStatus = "OneEightyDegrees";
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, servoData, ServoStatusResult);
+        aClient.post(WebServiceUrl, servoData, ServoStatusResult);
     });
 });

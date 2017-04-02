@@ -64,7 +64,7 @@ $(document).ready(function () {
         var lightdata = { "IsLightOn": true, "Description": "RightLight", "LightPosition": 0, "LightGPIO": 7 };
         lightdata.IsLightOn = true;
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, lightdata, LightStatusesChangeResultRight);
+        aClient.post(WebServiceUrl, lightdata, LightStatusesChangeResultRight);
     });
 
     $("#ButtonTurnRightLightOff").click(function () {
@@ -72,7 +72,7 @@ $(document).ready(function () {
         var lightdata = { "IsLightOn": false, "Description": "RightLight", "LightPosition": 0, "LightGPIO": 7 };
         lightdata.IsLightOn = false;
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, lightdata, LightStatusesChangeResultRight);
+        aClient.post(WebServiceUrl, lightdata, LightStatusesChangeResultRight);
     });
 
     $("#ButtonTurnLeftLightOn").click(function () {
@@ -80,7 +80,7 @@ $(document).ready(function () {
         var lightdata = { "IsLightOn": true, "Description": "leftLight", "LightPosition": 0, "LightGPIO": 7 };
         lightdata.IsLightOn = true;
         var aClient = new HttpClient();
-        aClient.put(WebServiceUrl, lightdata, LightStatusesChangeResultLeft);
+        aClient.post(WebServiceUrl, lightdata, LightStatusesChangeResultLeft);
     });
 
     $("#ButtonTurnLeftLightOff").click(function () {
@@ -88,6 +88,6 @@ $(document).ready(function () {
         var lightdata = { "IsLightOn": false, "Description": "LeftLight", "LightPosition": 0, "LightGPIO": 7 };
         lightdata.IsLightOn = false;
         aClient = new HttpClient();
-        aClient.put(WebServiceUrl, lightdata, LightStatusesChangeResultLeft);
+        aClient.post(WebServiceUrl, lightdata, LightStatusesChangeResultLeft);
     });
 });
