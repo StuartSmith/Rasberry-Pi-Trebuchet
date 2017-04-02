@@ -63,7 +63,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                 return new OperationResult<bool>(true, "Azure Message Listener is currently not running.");
             }
         }
-
        
 
         //Run Azure Message Listener Recieve Messages from Azure
@@ -86,7 +85,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                         restRouteHandler.RegisterController<ServoController>();
                         restRouteHandler.RegisterController<TrebuchetController>();
                         restRouteHandler.RegisterController<UltraSonicController>();
-                       
 
                         while (IsAzureMsgListenerRunning == true)
                         {
@@ -97,19 +95,20 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                             if (receivedMessage == null)
                             {
                                 Task.Delay(1000).Wait();
-                                continue;
-                               
+                                continue;                               
                             }
-                            string value = Encoding.ASCII.GetString(receivedMessage.GetBytes());
-
-                            Task ConfirmReceiptTask =  _deviceClient.CompleteAsync(receivedMessage);
-                            ConfirmReceiptTask.Wait();
+                            string value = Encoding.ASCII.GetString(receivedMessage.GetBytes());                           
 
                             MsgContentToAndFromAzure msgContentToAndFromAzure = new MsgContentToAndFromAzure(JsonConvert.DeserializeObject<MsgContentToAzure>(value));                            
                             var response = restRouteHandler.HandleRequest(msgContentToAndFromAzure.RestUpMsgRequest);
 
+                            //Log Message once request is complete
                             msgContentToAndFromAzure.Response = System.Text.Encoding.UTF8.GetString(response.Result.Content);
-                            AzureMsgLogQueue.Instance.addMsgToQueue(msgContentToAndFromAzure);
+                            AzureMsgLogQueue.Instance.addMsgToLog(msgContentToAndFromAzure);
+
+                            //confirm message was recieved and processed
+                            Task ConfirmReceiptTask = _deviceClient.CompleteAsync(receivedMessage);
+                            ConfirmReceiptTask.Wait();
 
                         }
                         return true;

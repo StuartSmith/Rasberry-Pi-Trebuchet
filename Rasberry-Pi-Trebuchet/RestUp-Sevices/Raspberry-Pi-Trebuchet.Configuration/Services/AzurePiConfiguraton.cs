@@ -21,7 +21,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AllowSendingToastServoData), "true");
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AllowSendingUltraSonicData), "true");
 
-            nameValuePairService.SetValueIfOneDoesNotExist(nameof(AzureIOTConnectionString), "");
+            nameValuePairService.SetValueIfOneDoesNotExist(nameof(AzureIOTConnectionString), "HostName=TrebuchetIOTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=cRSCEQHPczFag4TYDpnUcTdq9V/ABpt//diRRmYk/eE=");
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");
 
             ///only set this value when we register

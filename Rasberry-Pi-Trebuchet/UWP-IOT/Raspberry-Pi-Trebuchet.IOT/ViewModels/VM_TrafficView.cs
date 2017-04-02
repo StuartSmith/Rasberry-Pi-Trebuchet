@@ -1,4 +1,5 @@
 ﻿using Raspberry_Pi_Trebuchet.Common.ViewModels.BaseViewModel;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api;
@@ -60,16 +61,22 @@ namespace Raspberry_Pi_Trebuchet.IOT.ViewModels
             restRouteHandler.RegisterController<ServoController>();
             restRouteHandler.RegisterController<TrebuchetController>();
             restRouteHandler.RegisterController<UltraSonicController>();
+            restRouteHandler.RegisterController<AzureMsgController>();
 
             var configuration = new HttpServerConfiguration()
                 .ListenOnPort(80)
                 .RegisterRoute("api", restRouteHandler)
-                .RegisterRoute(new StaticFileRouteHandler(@"rasberry-pi-trebuchet.staticfiles\web"))
+                .RegisterRoute(new StaticFileRouteHandler(@"Raspberry_Pi_Trebuchet.RestUp.StaticFiles\web"))
                 .EnableCors();
+
+
 
             var httpServer = new HttpServer(configuration);
             _httpServer = httpServer;
             await httpServer.StartServerAsync();
+
+
+
         }
 
 

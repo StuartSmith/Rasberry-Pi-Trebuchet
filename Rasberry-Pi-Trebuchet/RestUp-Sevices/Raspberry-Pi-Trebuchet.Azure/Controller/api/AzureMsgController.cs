@@ -29,7 +29,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
         }
 
         [UriFormat("/azuremsglistener/loggedmessages?={time}")]
-        public async Task<GetResponse> LoggedMessage(string time)
+        public async Task<GetResponse> LoggedMessages(string time)
         {
             AzureMsgLogQueue msgListener = AzureMsgLogQueue.Instance;
 

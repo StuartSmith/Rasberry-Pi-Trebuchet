@@ -36,7 +36,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests
             return basicGet;
         }
 
-        public static RestUpHttpServerRequest PutRequest_AzureMsgListenerRegister()
+        public static RestUpHttpServerRequest PutRequest_AzureMsgListenerRegisterDevice()
         {
 
             RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
@@ -49,7 +49,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests
             return basicPut;
         }
 
-        public static RestUpHttpServerRequest PutRequest_AzureMsgListenerStart()
+        public static RestUpHttpServerRequest PutRequest_StartAzureMsgListener()
         {
 
             RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()
@@ -62,7 +62,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestupHttpRequests
             return basicPut;
         }
 
-        public static RestUpHttpServerRequest PutRequest_AzureMsgListenerStop()
+        public static RestUpHttpServerRequest PutRequest_StopAzureMsgListener()
         {
 
             RestUpHttpServerRequest basicPut = new RestUpHttpServerRequest()

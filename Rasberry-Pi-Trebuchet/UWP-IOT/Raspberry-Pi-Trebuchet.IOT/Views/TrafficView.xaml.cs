@@ -1,4 +1,5 @@
 ﻿using Raspberry_Pi_Trebuchet.IOT.ViewModels;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +32,8 @@ namespace Raspberry_Pi_Trebuchet.IOT.Views
             this.InitializeComponent();
             this.DataContext = vm_TrafficView;
 
-            
+            AzureMsgListener.Instance.StartAzureMsgListener();
+
             vm_TrafficView.InitializeWebServer();
 
         }
