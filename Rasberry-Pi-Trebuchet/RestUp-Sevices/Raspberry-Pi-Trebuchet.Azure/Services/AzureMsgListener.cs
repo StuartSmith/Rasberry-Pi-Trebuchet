@@ -93,8 +93,21 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                         while (IsAzureMsgListenerRunning == true)
                         {
                             LogMessage("Azure ListenerServiceRunning");
-                            Task<Message> RecievedMessageTask = _deviceClient.ReceiveAsync();
-                            RecievedMessageTask.Wait();
+
+                            Task<Message> RecievedMessageTask;
+                            try
+                            {
+                                 RecievedMessageTask = _deviceClient.ReceiveAsync();
+                                RecievedMessageTask.Wait();
+                            }
+                            catch (Exception ex)
+                            {
+                                var msglog = AzureMsgLogQueue.Instance;
+                                msglog.addMsgToLog(new MsgContentToAndFromAzure(){ Response = ex.Message});
+                                IsAzureMsgListenerRunning = false;
+                                return false;                              
+                            }
+
                             Message receivedMessage = RecievedMessageTask.Result;
                             if (receivedMessage == null)
                             {

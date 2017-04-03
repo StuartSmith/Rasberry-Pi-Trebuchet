@@ -1,4 +1,6 @@
-﻿using Raspberry_Pi_Trebuchet.RestUp.Azure.Services;
+﻿using Raspberry_Pi_Trebuchet.RestUp.Azure.Enums;
+using Raspberry_Pi_Trebuchet.RestUp.Azure.Services;
+using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
 using Restup.Webserver.Attributes;
 using Restup.Webserver.Models.Contracts;
 using Restup.Webserver.Models.Schemas;
@@ -24,6 +26,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
             }
             catch (Exception ex)
             {
+                var retval = new  OperationResult <RegisterDeviceStatus> (RegisterDeviceStatus.FailedToRegisterDevice , "Failed to Register Device");
                 return new PutResponse(PutResponse.ResponseStatus.NoContent);
             }
         }

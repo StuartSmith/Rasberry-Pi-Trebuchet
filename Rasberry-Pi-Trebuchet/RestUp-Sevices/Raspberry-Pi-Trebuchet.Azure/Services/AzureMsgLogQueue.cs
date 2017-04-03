@@ -34,6 +34,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
         }
 
 
+
         public void addMsgToLog(MsgContentToAndFromAzure msgContent)
         {
             AzureMsgQueue.Enqueue(msgContent);
