@@ -62,7 +62,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
             return new OperationResult<RegisterDeviceStatus>(RegisterDeviceStatus.RegisteredDevice, $"Successfully registered the Device {deviceName}"); 
         }
 
-        
 
         private OperationResult<RegisterDeviceStatus> IsAzureConnectionstringValid()
         {
@@ -73,9 +72,9 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
             if (string.IsNullOrEmpty(azurePiConfigurtion.AzureIOTConnectionString))
                 return new OperationResult<RegisterDeviceStatus>(RegisterDeviceStatus.FailedToRegisterDevice, "Azure IOT Connection string is empty please provide a valid IOT Connection string.");
 
-
             return result;
         }
+
 
         private OperationResult<RegisterDeviceStatus> ValidateCurrentConfiguration()
         {
@@ -85,9 +84,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
 
             ValidateDeviceName();
 
-
             return new OperationResult<RegisterDeviceStatus>(RegisterDeviceStatus.RegisteredDevice, "");
-
         }
 
         /// <summary>
@@ -139,23 +136,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                             deviceEntity.SecondaryKey = device.Authentication.SymmetricKey?.SecondaryKey;
                             deviceEntity.PrimaryThumbPrint = device.Authentication.X509Thumbprint?.PrimaryThumbprint;
                             deviceEntity.SecondaryThumbPrint = device.Authentication.X509Thumbprint?.SecondaryThumbprint;
-
-                            //if ((device.Authentication.SymmetricKey != null) &&
-                            //    !((device.Authentication.SymmetricKey.PrimaryKey == null) ||
-                            //      (device.Authentication.SymmetricKey.SecondaryKey == null)))
-                            //{
-                            //    deviceEntity.PrimaryKey = device.Authentication.SymmetricKey.PrimaryKey;
-                            //    deviceEntity.SecondaryKey = device.Authentication.SymmetricKey.SecondaryKey;
-                            //    deviceEntity.PrimaryThumbPrint = "";
-                            //    deviceEntity.SecondaryThumbPrint = "";
-                            //}
-                            //else
-                            //{
-                            //    deviceEntity.PrimaryKey = "";
-                            //    deviceEntity.SecondaryKey = "";
-                            //    deviceEntity.PrimaryThumbPrint = device.Authentication.X509Thumbprint.PrimaryThumbprint;
-                            //    deviceEntity.SecondaryThumbPrint = device.Authentication.X509Thumbprint.SecondaryThumbprint;
-                            //}
+                                                       
                         }
 
                         listOfDevices.Add(deviceEntity);

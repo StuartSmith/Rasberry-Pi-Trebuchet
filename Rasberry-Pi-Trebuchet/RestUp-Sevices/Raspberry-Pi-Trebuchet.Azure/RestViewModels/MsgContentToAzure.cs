@@ -15,6 +15,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels
 
         public DateTime ProcessedRequestDateTime { get; set; } = DateTime.UtcNow;
 
+        public string InernalMessageInfo { get; set;}
+
         public MsgContentToAzure()
         {            
         }
@@ -32,10 +34,6 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels
             MSGGUID = msgId;
             RestUpMsgRequest = restUpMsgRequest;
            
-        }
-
-
-       
-
+        }   
     }
 }

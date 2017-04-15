@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "Raspberry_Pi_Trebuchet.Azure-WebService.Models/1.0.0": {
+      "type": "project",
+      "framework": ".NETPortable,Version=v4.5,Profile=Profile111",
+      "compile": {
+        "bin/Debug/Raspberry_Pi_Trebuchet.Azure-WebService.Models.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Raspberry_Pi_Trebuchet.Azure-WebService.Models.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Raspberry_Pi_Trebuchet.Azure-WebService.Models.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

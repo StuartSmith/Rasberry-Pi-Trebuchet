@@ -1,30 +1,32 @@
-﻿using System;
+﻿using Raspberry_Pi_Trebuchet.Azure_WebService.Models.RestViewModels;
+using System;
 using System.Collections.Concurrent;
-using Raspberry_Pi_Trebuchet.Azure_WebService.RestViewModel;
 
-namespace Raspberry_Pi_Trebuchet.Azure_WebService.Services
+
+
+namespace Raspberry_Pi_Trebuchet.RestUp.LoggingService.Services
 {
     public class AzureIOTRequestResponceService
     {
         private static AzureIOTRequestResponceService _instance;
 
-        private ConcurrentDictionary<Guid, rvm_IOTAzureRequestResponce> requestedConcurrentDictionary;
+        private ConcurrentDictionary<Guid, IOTDeviceResponce> requestedConcurrentDictionary;
 
         private AzureIOTRequestResponceService()
         {
-            requestedConcurrentDictionary = new ConcurrentDictionary<Guid, rvm_IOTAzureRequestResponce>();
+            requestedConcurrentDictionary = new ConcurrentDictionary<Guid, IOTDeviceResponce>();
         }
 
 
-        public void Add(rvm_IOTAzureRequestResponce msgContentToAndFromAzure)
+        public void Add(IOTDeviceResponce msgContentToAndFromAzure)
         {
             requestedConcurrentDictionary.TryAdd(msgContentToAndFromAzure.MSGGUID, msgContentToAndFromAzure);
         }
 
 
-        public rvm_IOTAzureRequestResponce Get(Guid guid)
+        public IOTDeviceResponce Get(Guid guid)
         {
-            rvm_IOTAzureRequestResponce msgContentToAndFromAzure;
+            IOTDeviceResponce msgContentToAndFromAzure;
 
             if (requestedConcurrentDictionary.TryGetValue(guid, out msgContentToAndFromAzure))
                 return msgContentToAndFromAzure;
@@ -34,7 +36,7 @@ namespace Raspberry_Pi_Trebuchet.Azure_WebService.Services
 
         public void Delete(Guid guid)
         {
-            rvm_IOTAzureRequestResponce msgContentToAndFromAzure;
+            IOTDeviceResponce msgContentToAndFromAzure;
             requestedConcurrentDictionary.TryRemove(guid,out msgContentToAndFromAzure);
         }
 

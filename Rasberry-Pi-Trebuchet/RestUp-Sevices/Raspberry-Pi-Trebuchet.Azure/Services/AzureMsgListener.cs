@@ -2,6 +2,7 @@
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using Rasberry_Pi_Trebuchet.Common.RestViewModels;
+using Raspberry_Pi_Trebuchet.Azure_WebService.Models.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Configuration.Services;
@@ -24,6 +25,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
         private static DeviceClient _deviceClient;
 
         public bool IsAzureMsgListenerRunning { get; set; } = false;
+
         public Action<OperationResult<bool>> AzurelistenerStatusEvent;
 
         private Task<bool> MSGListenerTask;
@@ -67,9 +69,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                 return new OperationResult<bool>(true, "Azure Message Listener is currently not running.");
             }
         }
-       
 
-        //Run Azure Message Listener Recieve Messages from Azure
+      
         private void RunAzureMsgListenerAsync()
         {
             if (!(IsAzureMsgListenerRunning))
@@ -81,7 +82,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                 {
                     try
                     {
-                        _deviceClient = CreateAzureDeviceClient();
+                        _deviceClient = CreateAzureIOTDeviceClient();
 
                         var restRouteHandler = new RestRouteHandler();
 
@@ -115,13 +116,16 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                                 continue;                               
                             }
                             string value = Encoding.ASCII.GetString(receivedMessage.GetBytes());                           
-
+                            //send Request to internal rest up 
                             MsgContentToAndFromAzure msgContentToAndFromAzure = new MsgContentToAndFromAzure(JsonConvert.DeserializeObject<MsgContentToAzure>(value));                            
                             var response = restRouteHandler.HandleRequest(msgContentToAndFromAzure.RestUpMsgRequest);
 
                             //Log Message once request is complete
                             msgContentToAndFromAzure.Response = System.Text.Encoding.UTF8.GetString(response.Result.Content);
                             AzureMsgLogQueue.Instance.addMsgToLog(msgContentToAndFromAzure);
+
+                            //Create Object to send to Azure Web Service 
+                            var rvm_IOTAzureRequestResponce = AzureMsgListener.Instance.Create_IOTAzureRequestResponce_From_MsgContentToAndFromAzure(msgContentToAndFromAzure);
 
                             //confirm message was recieved and processed
                             Task ConfirmReceiptTask = _deviceClient.CompleteAsync(receivedMessage);
@@ -140,7 +144,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
             }                        
         }
 
-        private DeviceClient CreateAzureDeviceClient()
+        private DeviceClient CreateAzureIOTDeviceClient()
         {
             var azurePiConfiguration = new AzurePiConfiguration();
             var iotHubConnectionString = azurePiConfiguration.AzureIOTConnectionString;
@@ -151,12 +155,33 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
 
         }
 
+        public IOTAzureDeviceResponce Create_IOTAzureRequestResponce_From_MsgContentToAndFromAzure(MsgContentToAndFromAzure msgContent)
+
+        {
+            IOTAzureDeviceResponce iOTDeviceResponce = new IOTAzureDeviceResponce();
+
+            iOTDeviceResponce.MSGGUID =  msgContent.MSGGUID;
+            iOTDeviceResponce.RequestContent = msgContent.RestUpMsgRequest.Content;
+            iOTDeviceResponce.RequestContentLength = msgContent.RestUpMsgRequest.ContentLength;
+            iOTDeviceResponce.RequestContentType = msgContent.RestUpMsgRequest.ContentType;
+            iOTDeviceResponce.RequestUri = msgContent.RestUpMsgRequest.Uri;
+            iOTDeviceResponce.Response = msgContent.Response;
+            iOTDeviceResponce.ProcessedRequestDateTime = msgContent.ProcessedRequestDateTime;
+
+           string msg =  JsonConvert.SerializeObject(iOTDeviceResponce);
+
+            return iOTDeviceResponce;
+        }
 
 
         private void LogMessage(string msg)
         {
             if (AzurelistenerStatusEvent != null)
                 AzurelistenerStatusEvent(new OperationResult<bool>(true, msg));
+            else
+            {
+             //To Do add code to log start and stop message to error log   
+            }
         }
 
     }

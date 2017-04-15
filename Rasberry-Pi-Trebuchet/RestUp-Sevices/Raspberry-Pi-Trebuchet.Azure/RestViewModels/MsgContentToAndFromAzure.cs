@@ -23,5 +23,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.RestViewModels
             this.Response = other.Response;
         }
 
+        
+
     }
 }

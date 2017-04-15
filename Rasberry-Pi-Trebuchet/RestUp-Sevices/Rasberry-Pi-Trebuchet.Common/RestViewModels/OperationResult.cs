@@ -14,9 +14,13 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Common.RestViewModels
         {
             this.Result = Result;
             this.Message = Message;
+            this.ResultOccured = DateTime.Now;
+
         }
 
         public T Result { get; set; }
         public string Message { get; set; }
+
+        public DateTime ResultOccured { get; set; }
     }
 }
