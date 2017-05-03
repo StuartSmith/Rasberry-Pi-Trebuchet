@@ -91,6 +91,9 @@ namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerAzure
 
             var sndmsgdevice = new SendMsgToDeviceThroughAzure(AzureControllerTestData.IOTConnectionString()); 
 
+            ///Create the Message to send to the Device
+            
+
             Task <MsgContentToAzure> msgcontentTask  = sndmsgdevice.Send(deviceName, HttpRequestsTrebuchet.PostRequest_TrebuchetFire());
             msgcontentTask.Wait();
 

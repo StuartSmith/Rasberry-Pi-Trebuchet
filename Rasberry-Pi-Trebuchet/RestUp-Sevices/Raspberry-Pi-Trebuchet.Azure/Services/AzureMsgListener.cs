@@ -125,7 +125,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                             AzureMsgLogQueue.Instance.addMsgToLog(msgContentToAndFromAzure);
 
                             //Create Object to send to Azure Web Service 
-                            var rvm_IOTAzureRequestResponce = AzureMsgListener.Instance.Create_IOTAzureRequestResponce_From_MsgContentToAndFromAzure(msgContentToAndFromAzure);
+                            var iOTAzurDeviceResponce = AzureMsgListener.Instance.Create_IOTAzureRequestResponce_From_MsgContentToAndFromAzure(msgContentToAndFromAzure);
 
                             //confirm message was recieved and processed
                             Task ConfirmReceiptTask = _deviceClient.CompleteAsync(receivedMessage);

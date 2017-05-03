@@ -19,7 +19,10 @@ namespace Raspberry_Pi_Trebuchet.Azure_WebService.Models.RestViewModels
         public string RequestContentType { get; set; }
 
         public byte[] RequestContent { get; set; }
-
+        
+        /// <summary>
+        /// Time the Message was finish processing by the Device
+        /// </summary>
         public DateTime ProcessedRequestDateTime { get; set; } = DateTime.Now;
 
     }

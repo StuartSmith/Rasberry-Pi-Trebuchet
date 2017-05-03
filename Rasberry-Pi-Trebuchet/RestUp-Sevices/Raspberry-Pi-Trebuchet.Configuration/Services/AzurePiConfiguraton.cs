@@ -24,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(AzureIOTConnectionString), "HostName=TrebuchetIOTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=cRSCEQHPczFag4TYDpnUcTdq9V/ABpt//diRRmYk/eE=");
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(ToastWebSendURL), "");
 
-            ///only set this value when we register
+            
             nameValuePairService.SetValueIfOneDoesNotExist(nameof(DeviceName), Dns.GetHostName().ToUpper());
           
         }
@@ -80,8 +80,9 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
         {
             new PiNameValuePairDBSettings().CopyKeyValuePair(from, to);
         }
-
-
+        /// <summary>
+        /// The Device Name is set to the local Machine if a value has not been already set
+        /// </summary>
         public string DeviceName
         {
             get { return (new PiNameValuePairDBSettings().GetPiNameValuePair(nameof(DeviceName))?.value.ToUpper()); }
