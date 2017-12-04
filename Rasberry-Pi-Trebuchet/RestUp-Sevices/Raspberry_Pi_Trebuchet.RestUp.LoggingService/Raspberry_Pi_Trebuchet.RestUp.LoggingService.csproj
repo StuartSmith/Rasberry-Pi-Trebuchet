@@ -122,10 +122,6 @@
       <Project>{23b00616-396e-4af7-b1d8-94156343932c}</Project>
       <Name>Raspberry_Pi_Trebuchet.Azure-WebService.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
-      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
