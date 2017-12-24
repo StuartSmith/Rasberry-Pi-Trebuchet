@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D48CBD4A-84DE-4473-9A89-E5BBC6ED2FDB}</ProjectGuid>
+    <ProjectGuid>{0A80CC65-C52B-4A40-BB1D-DAF7A7D16F37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Lights</RootNamespace>
-    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Lights</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Configuration</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Configuration</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -106,37 +106,28 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controllers\api\LightsController.cs" />
-    <Compile Include="Enums\LightType.cs" />
-    <Compile Include="Interfaces\ILightRestViewModel.cs" />
-    <Compile Include="Interfaces\ILightStatus.cs" />
-    <Compile Include="Models\Light.cs" />
+    <Compile Include="Context\PiGeneralContext.cs" />
+    <Compile Include="Controllers\api\PiConfigurationController.cs" />
+    <Compile Include="Interfaces\IAzurePiConfiguraton.cs" />
+    <Compile Include="Interfaces\IPiNameValuePair.cs" />
+    <Compile Include="Interfaces\IPiNameValuePairDBSettings.cs" />
+    <Compile Include="Migrations\20170103020057_InitialMigration.cs" />
+    <Compile Include="Migrations\20170103020057_InitialMigration.designer.cs">
+      <DependentUpon>20170103020057_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\PiGeneralContextModelSnapshot.cs" />
+    <Compile Include="Models\PiNameValuePair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestupHttpRequests\HttpRequestsLight.cs" />
-    <Compile Include="RestViewModels\LightRestViewModel.cs" />
-    <Compile Include="Sensors\LightSensor.cs" />
-    <Compile Include="Services\LightStatusService.cs" />
-    <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.RestUp.Lights.rd.xml" />
+    <Compile Include="RestupHttpRequests\HttpRequestsConfiguration.cs" />
+    <Compile Include="RestViewModels\ViewModelRestNameValuePair.cs" />
+    <Compile Include="Services\AzurePiConfiguraton.cs" />
+    <Compile Include="Services\PiNameValuePairDBSettings.cs" />
+    <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.RestUp.Configuration.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.IoT.Lightning">
-      <Version>1.1.0</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.4</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Restup">
-      <Version>1.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
-      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
-      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

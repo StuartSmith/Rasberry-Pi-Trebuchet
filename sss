@@ -1,0 +1,358 @@
+[1mdiff --git a/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/Raspberry_Pi_Trebuchet.Azure-WebService.xproj b/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/Raspberry_Pi_Trebuchet.Azure-WebService.xproj[m
+[1mdeleted file mode 100644[m
+[1mindex 5a880d7..0000000[m
+[1m--- a/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/Raspberry_Pi_Trebuchet.Azure-WebService.xproj[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-﻿<?xml version="1.0" encoding="utf-8"?>[m
+[31m-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[31m-  <PropertyGroup>[m
+[31m-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>[m
+[31m-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>[m
+[31m-  </PropertyGroup>[m
+[31m-  <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />[m
+[31m-  <PropertyGroup Label="Globals">[m
+[31m-    <ProjectGuid>95d6ef44-9aaa-4b5c-a944-26f664c73830</ProjectGuid>[m
+[31m-    <RootNamespace>Raspberry_Pi_Trebuchet.Azure_WebService</RootNamespace>[m
+[31m-    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>[m
+[31m-    <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>[m
+[31m-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>[m
+[31m-  </PropertyGroup>[m
+[31m-  <PropertyGroup>[m
+[31m-    <SchemaVersion>2.0</SchemaVersion>[m
+[31m-  </PropertyGroup>[m
+[31m-  <ItemGroup>[m
+[31m-    <ProjectReference Include="..\Raspberry_Pi_Trebuchet.Azure-WebService.Models\Raspberry_Pi_Trebuchet.Azure-WebService.Models.csproj" />[m
+[31m-  </ItemGroup>[m
+[31m-  <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />[m
+[31m-</Project>[m
+\ No newline at end of file[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/project.json b/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/project.json[m
+[1mdeleted file mode 100644[m
+[1mindex d270658..0000000[m
+[1m--- a/Rasberry-Pi-Trebuchet/Azure-WebService/Raspberry_Pi_Trebuchet.Azure-RestWebService/project.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,61 +0,0 @@[m
+[31m-{[m
+[31m-  "dependencies": {[m
+[31m-    "Microsoft.NETCore.App": {[m
+[31m-      "version": "1.0.1",[m
+[31m-      "type": "platform"[m
+[31m-    },[m
+[31m-    "Microsoft.AspNetCore.Mvc": "1.0.1",[m
+[31m-    "Microsoft.AspNetCore.Routing": "1.0.1",[m
+[31m-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",[m
+[31m-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",[m
+[31m-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Configuration.Json": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Logging": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Logging.Console": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Logging.Debug": "1.0.0",[m
+[31m-    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"[m
+[31m-  },[m
+[31m-[m
+[31m-  "tools": {[m
+[31m-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"[m
+[31m-  },[m
+[31m-[m
+[31m-  "frameworks": {[m
+[31m-    "netcoreapp1.0": {[m
+[31m-      "imports": [[m
+[31m-        "dotnet5.6",[m
+[31m-        "portable-net45+win8"[m
+[31m-      ],[m
+[31m-      "dependencies": {[m
+[31m-        "Raspberry_Pi_Trebuchet.Azure-WebService.Models": {[m
+[31m-          "target": "project"[m
+[31m-        }[m
+[31m-      }[m
+[31m-    }[m
+[31m-  },[m
+[31m-[m
+[31m-  "buildOptions": {[m
+[31m-    "emitEntryPoint": true,[m
+[31m-    "preserveCompilationContext": true[m
+[31m-  },[m
+[31m-[m
+[31m-  "runtimeOptions": {[m
+[31m-    "configProperties": {[m
+[31m-      "System.GC.Server": true[m
+[31m-    }[m
+[31m-  },[m
+[31m-[m
+[31m-  "publishOptions": {[m
+[31m-    "include": [[m
+[31m-      "wwwroot",[m
+[31m-      "**/*.cshtml",[m
+[31m-      "appsettings.json",[m
+[31m-      "web.config"[m
+[31m-    ][m
+[31m-  },[m
+[31m-[m
+[31m-  "scripts": {[m
+[31m-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ][m
+[31m-  }[m
+[31m-}[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/Raspberry-Pi-Trebuchet.sln b/Rasberry-Pi-Trebuchet/Raspberry-Pi-Trebuchet.sln[m
+[1mindex ce5d6ea..9d55863 100644[m
+[1m--- a/Rasberry-Pi-Trebuchet/Raspberry-Pi-Trebuchet.sln[m
+[1m+++ b/Rasberry-Pi-Trebuchet/Raspberry-Pi-Trebuchet.sln[m
+[36m@@ -1,22 +1,24 @@[m
+ ﻿[m
+ Microsoft Visual Studio Solution File, Format Version 12.00[m
+[31m-# Visual Studio 14[m
+[31m-VisualStudioVersion = 14.0.25420.1[m
+[32m+[m[32m# Visual Studio 15[m
+[32m+[m[32mVisualStudioVersion = 15.0.27004.2009[m
+ MinimumVisualStudioVersion = 10.0.40219.1[m
+ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP-UI", "UWP-UI", "{D6193117-68AD-4284-B0E9-A1CFC8A0A644}"[m
+ EndProject[m
+ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F74ACC54-C8B7-4029-9E04-839C9E7D4659}"[m
+ EndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP-IOT", "UWP-IOT", "{7C5F05E5-5707-45FD-BFDD-343AA3441E58}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestUp-Sevices", "RestUp-Sevices", "{B42D6250-DC38-45CC-8F8B-15C17B8A7681}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure-WebService", "Azure-WebService", "{3CD1C2C3-2A55-4D47-8222-9307B60E0568}"[m
+[32m+[m[32mEndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.Tests.IOT", "Tests\Raspberry-Pi-Trebuchet.IOT.Tests\Raspberry_Pi_Trebuchet.Tests.IOT.csproj", "{8ED5AB60-BDF5-493D-9BC7-772A7E924B22}"[m
+ EndProject[m
+ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Microsoft.Samples.SimpleCommunication", "UWP-UI\Microsoft.Samples.SimpleCommunication\Microsoft.Samples.SimpleCommunication.vcxproj", "{DFEEA5AA-D079-40F7-BFD3-394D5C000047}"[m
+ EndProject[m
+[31m-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP-IOT", "UWP-IOT", "{7C5F05E5-5707-45FD-BFDD-343AA3441E58}"[m
+[31m-EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.UWP_IOT.Pi", "UWP-IOT\Raspberry-Pi-Trebuchet.IOT\Raspberry_Pi_Trebuchet.UWP_IOT.Pi.csproj", "{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}"[m
+ EndProject[m
+[31m-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestUp-Sevices", "RestUp-Sevices", "{B42D6250-DC38-45CC-8F8B-15C17B8A7681}"[m
+[31m-EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Azure", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Azure\Raspberry_Pi_Trebuchet.RestUp.Azure.csproj", "{A783D8F4-4F83-4D30-B1DD-09AF4210C060}"[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Configuration", "RestUp-Sevices\Raspberry-Pi-Trebuchet.Configuration\Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj", "{29B84A1F-2063-4CC4-8C65-583EDC168635}"[m
+[36m@@ -29,17 +31,13 @@[m [mProject("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.Rest[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Trebuchet", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Tribuchet\Raspberry_Pi_Trebuchet.RestUp.Trebuchet.csproj", "{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}"[m
+ EndProject[m
+[31m-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Common", "RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj", "{A1194A2E-14BB-4726-B273-A7CE7AB8C879}"[m
+[31m-EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.Sonic", "RestUp-Sevices\Raspberry-Pi-Tribuchet.Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj", "{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}"[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trebuchet.UI.Controls", "UWP-UI\Trebuchet.UI\Trebuchet.UI.Controls.csproj", "{DF38461C-7A23-4E96-9A85-39E01E117821}"[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trebuchet", "UWP-UI\Trebuchet\Trebuchet.csproj", "{2EF86483-A0A8-4C1D-BFBD-66E1B367318F}"[m
+ EndProject[m
+[31m-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure-WebService", "Azure-WebService", "{3CD1C2C3-2A55-4D47-8222-9307B60E0568}"[m
+[31m-EndProject[m
+[31m-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Raspberry_Pi_Trebuchet.Azure-WebService", "Azure-WebService\Raspberry_Pi_Trebuchet.Azure-RestWebService\Raspberry_Pi_Trebuchet.Azure-WebService.xproj", "{95D6EF44-9AAA-4B5C-A944-26F664C73830}"[m
+[32m+[m[32mProject("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raspberry_Pi_Trebuchet.Azure-RestWebService", "Azure-WebService\Raspberry_Pi_Trebuchet.Azure-RestWebService\Raspberry_Pi_Trebuchet.Azure-RestWebService.csproj", "{95D6EF44-9AAA-4B5C-A944-26F664C73830}"[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.Azure-WebService.Models", "Azure-WebService\Raspberry_Pi_Trebuchet.Azure-WebService.Models\Raspberry_Pi_Trebuchet.Azure-WebService.Models.csproj", "{23B00616-396E-4AF7-B1D8-94156343932C}"[m
+ EndProject[m
+[36m@@ -47,6 +45,8 @@[m [mProject("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.Test[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspberry_Pi_Trebuchet.RestUp.LoggingService", "Raspberry_Pi_Trebuchet.RestUp.LoggingService\Raspberry_Pi_Trebuchet.RestUp.LoggingService.csproj", "{EA14144E-3060-48AC-BF46-0677E9AE324A}"[m
+ EndProject[m
+[32m+[m[32mProject("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raspberry_Pi_Trebuchet.RestUp.Common", "RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj", "{0F16CA29-2D77-437A-A216-D52424D7F4BF}"[m
+[32m+[m[32mEndProject[m
+ Global[m
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution[m
+ 		Debug|Any CPU = Debug|Any CPU[m
+[36m@@ -209,22 +209,6 @@[m [mGlobal[m
+ 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x64.Build.0 = Release|x64[m
+ 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x86.ActiveCfg = Release|x86[m
+ 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B}.Release|x86.Build.0 = Release|x86[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|Any CPU.Build.0 = Debug|Any CPU[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|ARM.ActiveCfg = Debug|ARM[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|ARM.Build.0 = Debug|ARM[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|x64.ActiveCfg = Debug|x64[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|x64.Build.0 = Debug|x64[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|x86.ActiveCfg = Debug|x86[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Debug|x86.Build.0 = Debug|x86[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|Any CPU.ActiveCfg = Release|Any CPU[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|Any CPU.Build.0 = Release|Any CPU[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|ARM.ActiveCfg = Release|ARM[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|ARM.Build.0 = Release|ARM[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|x64.ActiveCfg = Release|x64[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|x64.Build.0 = Release|x64[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|x86.ActiveCfg = Release|x86[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879}.Release|x86.Build.0 = Release|x86[m
+ 		{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU[m
+ 		{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}.Debug|Any CPU.Build.0 = Debug|Any CPU[m
+ 		{88F2D4DA-4DEB-4E56-BD98-8496F0030E89}.Debug|ARM.ActiveCfg = Debug|ARM[m
+[36m@@ -341,6 +325,22 @@[m [mGlobal[m
+ 		{EA14144E-3060-48AC-BF46-0677E9AE324A}.Release|x64.Build.0 = Release|x64[m
+ 		{EA14144E-3060-48AC-BF46-0677E9AE324A}.Release|x86.ActiveCfg = Release|x86[m
+ 		{EA14144E-3060-48AC-BF46-0677E9AE324A}.Release|x86.Build.0 = Release|x86[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|ARM.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|ARM.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|x64.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|x64.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|x86.ActiveCfg = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Debug|x86.Build.0 = Debug|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|Any CPU.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|ARM.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|ARM.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|x64.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|x64.Build.0 = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|x86.ActiveCfg = Release|Any CPU[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF}.Release|x86.Build.0 = Release|Any CPU[m
+ 	EndGlobalSection[m
+ 	GlobalSection(SolutionProperties) = preSolution[m
+ 		HideSolutionNode = FALSE[m
+[36m@@ -355,7 +355,6 @@[m [mGlobal[m
+ 		{4EB31983-5BD1-4ACF-8161-F520FF41A877} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+ 		{83825CDF-3C8C-4DFC-B4F9-7A6A4F274018} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+ 		{DBE38084-0619-40B8-B4CF-E2CD1E39F37B} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+[31m-		{A1194A2E-14BB-4726-B273-A7CE7AB8C879} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+ 		{88F2D4DA-4DEB-4E56-BD98-8496F0030E89} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+ 		{DF38461C-7A23-4E96-9A85-39E01E117821} = {D6193117-68AD-4284-B0E9-A1CFC8A0A644}[m
+ 		{2EF86483-A0A8-4C1D-BFBD-66E1B367318F} = {D6193117-68AD-4284-B0E9-A1CFC8A0A644}[m
+[36m@@ -363,5 +362,9 @@[m [mGlobal[m
+ 		{23B00616-396E-4AF7-B1D8-94156343932C} = {3CD1C2C3-2A55-4D47-8222-9307B60E0568}[m
+ 		{9484288E-013A-4DD5-8CB1-15D9FCE6E534} = {F74ACC54-C8B7-4029-9E04-839C9E7D4659}[m
+ 		{EA14144E-3060-48AC-BF46-0677E9AE324A} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+[32m+[m		[32m{0F16CA29-2D77-437A-A216-D52424D7F4BF} = {B42D6250-DC38-45CC-8F8B-15C17B8A7681}[m
+[32m+[m	[32mEndGlobalSection[m
+[32m+[m	[32mGlobalSection(ExtensibilityGlobals) = postSolution[m
+[32m+[m		[32mSolutionGuid = {55BA7509-17AF-4AB7-9FEB-19E17C693A56}[m
+ 	EndGlobalSection[m
+ EndGlobal[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/Raspberry_Pi_Trebuchet.RestUp.LoggingService/Raspberry_Pi_Trebuchet.RestUp.LoggingService.csproj b/Rasberry-Pi-Trebuchet/Raspberry_Pi_Trebuchet.RestUp.LoggingService/Raspberry_Pi_Trebuchet.RestUp.LoggingService.csproj[m
+[1mindex 4253126..5dd23ff 100644[m
+[1m--- a/Rasberry-Pi-Trebuchet/Raspberry_Pi_Trebuchet.RestUp.LoggingService/Raspberry_Pi_Trebuchet.RestUp.LoggingService.csproj[m
+[1m+++ b/Rasberry-Pi-Trebuchet/Raspberry_Pi_Trebuchet.RestUp.LoggingService/Raspberry_Pi_Trebuchet.RestUp.LoggingService.csproj[m
+[36m@@ -122,10 +122,6 @@[m
+       <Project>{23b00616-396e-4af7-b1d8-94156343932c}</Project>[m
+       <Name>Raspberry_Pi_Trebuchet.Azure-WebService.Models</Name>[m
+     </ProjectReference>[m
+[31m-    <ProjectReference Include="..\RestUp-Sevices\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">[m
+[31m-      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>[m
+[31m-      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>[m
+[31m-    </ProjectReference>[m
+   </ItemGroup>[m
+   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">[m
+     <VisualStudioVersion>14.0</VisualStudioVersion>[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/Raspberry_Pi_Trebuchet.RestUp.Common.csproj b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/Raspberry_Pi_Trebuchet.RestUp.Common.csproj[m
+[1mindex 86cd273..158f734 100644[m
+[1m--- a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/Raspberry_Pi_Trebuchet.RestUp.Common.csproj[m
+[1m+++ b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/Raspberry_Pi_Trebuchet.RestUp.Common.csproj[m
+[36m@@ -1,18 +1,18 @@[m
+ ﻿<?xml version="1.0" encoding="utf-8"?>[m
+[31m-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />[m
+   <PropertyGroup>[m
+     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[31m-    <ProjectGuid>{A1194A2E-14BB-4726-B273-A7CE7AB8C879}</ProjectGuid>[m
+[32m+[m[32m    <ProjectGuid>{A96A2B06-AFE3-4B96-8DD0-ACC5938E8FC0}</ProjectGuid>[m
+     <OutputType>Library</OutputType>[m
+     <AppDesignerFolder>Properties</AppDesignerFolder>[m
+     <RootNamespace>Raspberry_Pi_Trebuchet.RestUp.Common</RootNamespace>[m
+     <AssemblyName>Raspberry_Pi_Trebuchet.RestUp.Common</AssemblyName>[m
+     <DefaultLanguage>en-US</DefaultLanguage>[m
+     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>[m
+[31m-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>[m
+[31m-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>[m
+[32m+[m[32m    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>[m
+[32m+[m[32m    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>[m
+     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>[m
+     <FileAlignment>512</FileAlignment>[m
+     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>[m
+[36m@@ -102,19 +102,28 @@[m
+     <UseVSHostingProcess>false</UseVSHostingProcess>[m
+     <ErrorReport>prompt</ErrorReport>[m
+   </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m[32m    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>[m
+[32m+[m[32m  </PropertyGroup>[m
+   <ItemGroup>[m
+[31m-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->[m
+[31m-    <None Include="project.json" />[m
+[31m-  </ItemGroup>[m
+[31m-  <ItemGroup>[m
+[31m-    <Compile Include="Properties\AssemblyInfo.cs" />[m
+     <Compile Include="Enums\RaspberryPiGPI0Pin.cs" />[m
+[32m+[m[32m    <Compile Include="Properties\AssemblyInfo.cs" />[m
+     <Compile Include="RestViewModels\OperationResult.cs" />[m
+     <Compile Include="RestViewModels\RestUpHttpServerRequest.cs" />[m
+     <Compile Include="ViewModels\BaseViewModel\ViewModelBase.cs" />[m
+[31m-    <EmbeddedResource Include="Properties\Rasberry_Pi_Trebuchet.Common.rd.xml" />[m
+[32m+[m[32m    <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.RestUp.Common.rd.xml" />[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">[m
+[32m+[m[32m      <Version>6.0.1</Version>[m
+[32m+[m[32m    </PackageReference>[m
+[32m+[m[32m    <PackageReference Include="Newtonsoft.Json">[m
+[32m+[m[32m      <Version>10.0.3</Version>[m
+[32m+[m[32m    </PackageReference>[m
+[32m+[m[32m    <PackageReference Include="Restup">[m
+[32m+[m[32m      <Version>1.0.0</Version>[m
+[32m+[m[32m    </PackageReference>[m
+   </ItemGroup>[m
+[31m-  <ItemGroup />[m
+   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">[m
+     <VisualStudioVersion>14.0</VisualStudioVersion>[m
+   </PropertyGroup>[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/project.json b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/project.json[m
+[1mdeleted file mode 100644[m
+[1mindex 299fe8a..0000000[m
+[1m--- a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Rasberry-Pi-Trebuchet.Common/project.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,17 +0,0 @@[m
+[31m-﻿{[m
+[31m-  "dependencies": {[m
+[31m-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",[m
+[31m-    "Restup": "1.0.0"[m
+[31m-  },[m
+[31m-  "frameworks": {[m
+[31m-    "uap10.0": {}[m
+[31m-  },[m
+[31m-  "runtimes": {[m
+[31m-    "win10-arm": {},[m
+[31m-    "win10-arm-aot": {},[m
+[31m-    "win10-x86": {},[m
+[31m-    "win10-x86-aot": {},[m
+[31m-    "win10-x64": {},[m
+[31m-    "win10-x64-aot": {}[m
+[31m-  }[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet-Lights/Raspberry_Pi_Trebuchet.RestUp.Lights.csproj b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet-Lights/Raspberry_Pi_Trebuchet.RestUp.Lights.csproj[m
+[1mindex c67781d..0f8258d 100644[m
+[1m--- a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet-Lights/Raspberry_Pi_Trebuchet.RestUp.Lights.csproj[m
+[1m+++ b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet-Lights/Raspberry_Pi_Trebuchet.RestUp.Lights.csproj[m
+[36m@@ -119,12 +119,6 @@[m
+     <Compile Include="Services\LightStatusService.cs" />[m
+     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet_Lights.rd.xml" />[m
+   </ItemGroup>[m
+[31m-  <ItemGroup>[m
+[31m-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">[m
+[31m-      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>[m
+[31m-      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>[m
+[31m-    </ProjectReference>[m
+[31m-  </ItemGroup>[m
+   <ItemGroup>[m
+     <SDKReference Include="WindowsIoT, Version=10.0.10586.0">[m
+       <Name>Windows IoT Extensions for the UWP</Name>[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Azure/Raspberry_Pi_Trebuchet.RestUp.Azure.csproj b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Azure/Raspberry_Pi_Trebuchet.RestUp.Azure.csproj[m
+[1mindex aa8ca9b..ec50712 100644[m
+[1m--- a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Azure/Raspberry_Pi_Trebuchet.RestUp.Azure.csproj[m
+[1m+++ b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Azure/Raspberry_Pi_Trebuchet.RestUp.Azure.csproj[m
+[36m@@ -125,10 +125,6 @@[m
+       <Project>{23b00616-396e-4af7-b1d8-94156343932c}</Project>[m
+       <Name>Raspberry_Pi_Trebuchet.Azure-WebService.Models</Name>[m
+     </ProjectReference>[m
+[31m-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">[m
+[31m-      <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>[m
+[31m-      <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>[m
+[31m-    </ProjectReference>[m
+     <ProjectReference Include="..\Raspberry-Pi-Trebuchet-Lights\Raspberry_Pi_Trebuchet.RestUp.Lights.csproj">[m
+       <Project>{83825cdf-3c8c-4dfc-b4f9-7a6a4f274018}</Project>[m
+       <Name>Raspberry_Pi_Trebuchet.RestUp.Lights</Name>[m
+[1mdiff --git a/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Configuration/Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj b/Rasberry-Pi-Trebuchet/RestUp-Sevices/Raspberry-Pi-Trebuchet.Configuration/Raspberry_Pi
