@@ -102,9 +102,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
+  <ItemGroup>     
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\UltraSonicContext.cs" />
@@ -132,7 +130,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+    <ProjectReference Include="..\Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
     </ProjectReference>

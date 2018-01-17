@@ -5,11 +5,11 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity Name="6848e25b-872a-468a-a876-81bb8016d7c1"
+  <Identity Name="f726de0d-2751-4317-8e01-b0a0160ce7bc"
             Publisher="CN=ssmit"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="6848e25b-872a-468a-a876-81bb8016d7c1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="f726de0d-2751-4317-8e01-b0a0160ce7bc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Raspberry_Pi_Trebuchet.Tests.IOT</DisplayName>

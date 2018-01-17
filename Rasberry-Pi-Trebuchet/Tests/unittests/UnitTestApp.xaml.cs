@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Raspberry_Pi_Trebuchet.Tests.IOT
+namespace unittests
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

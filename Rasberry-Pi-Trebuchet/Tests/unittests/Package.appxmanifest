@@ -5,14 +5,14 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity Name="f726de0d-2751-4317-8e01-b0a0160ce7bc"
+  <Identity Name="1e5dce7d-a9a9-47a4-ad2b-b4589309c74a"
             Publisher="CN=ssmit"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="f726de0d-2751-4317-8e01-b0a0160ce7bc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1e5dce7d-a9a9-47a4-ad2b-b4589309c74a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Raspberry_Pi_Trebuchet.Tests.IOT</DisplayName>
+    <DisplayName>unittests</DisplayName>
     <PublisherDisplayName>ssmit</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -27,12 +27,12 @@
   <Applications>
     <Application Id="vstest.executionengine.universal.App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="Raspberry_Pi_Trebuchet.Tests.IOT.App">
+        EntryPoint="unittests.App">
       <uap:VisualElements
-        DisplayName="Raspberry_Pi_Trebuchet.Tests.IOT"
+        DisplayName="unittests"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Raspberry_Pi_Trebuchet.Tests.IOT"
+        Description="unittests"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

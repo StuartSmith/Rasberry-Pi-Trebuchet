@@ -1,83 +1,76 @@
-﻿//using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-//using Raspberry_Pi_Trebuchet.RestUp.Sonic.Controllers.api;
-//using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestupHttpRequests;
-//using Restup.HttpMessage.Models.Schemas;
-//using Restup.Webserver.Rest;
-//using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-//namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerSonic
-//{
-//    [TestClass]
-//    public class UnitTestSonicController
-//    {
-//        [TestMethod]
-//        public void UltraSonicTest_StartUltraSonicRun()
-//        {
-//            var restRouteHandler = new RestRouteHandler();
-//            restRouteHandler.RegisterController<UltraSonicController>();
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.Controllers.api;
+using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestupHttpRequests;
+using Restup.HttpMessage.Models.Schemas;
+using Restup.Webserver.Rest;
+using System.Threading.Tasks;
 
-//            var Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
-//            Assert.IsFalse(Isrunning);
+namespace Raspberry_Pi_Trebuchet.Tests.IOT.ControllerSonic
+{
+    [TestClass]
+    public class UnitTestSonicController
+    {
+        [TestMethod]
+        public void UltraSonicTest_StartUltraSonicRun()
+        {
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<UltraSonicController>();
 
-//            var RunHasStarted = UltraSonicRunTestHelper.StartUltraSonicRun(restRouteHandler);
-//            Assert.IsTrue(RunHasStarted);
+            var Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
+            Assert.IsFalse(Isrunning);
 
-//            Task.Delay(2000).Wait();
-//            Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
-//            while (Isrunning)
-//            {
-//                Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
-//                Task.Delay(2000).Wait();
-//            }
+            var RunHasStarted = UltraSonicRunTestHelper.StartUltraSonicRun(restRouteHandler);
+            Assert.IsTrue(RunHasStarted);
 
+            Task.Delay(2000).Wait();
+            Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
+            while (Isrunning)
+            {
+                Isrunning = UltraSonicRunTestHelper.IsUltraSonicRunning(restRouteHandler);
+                Task.Delay(2000).Wait();
+            }
 
-//            Assert.IsFalse(Isrunning);
-//        }
+            Assert.IsFalse(Isrunning);
+        }
 
-//        [TestMethod]
-//        public void UltraSonicTest_RemoveUltraSonicRun()
-//        {
-//            //clear Test remove all run
-//            var restRouteHandler = new RestRouteHandler();
-//            restRouteHandler.RegisterController<UltraSonicController>();
-//            var DeleteUltraSonicRunRequest = HttpRequestsSonic.DeleteRequest_RemoveAllUltraSonicRuns();
-//            var request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
+        [TestMethod]
+        public void UltraSonicTest_RemoveUltraSonicRun()
+        {
+            //clear Test remove all run
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<UltraSonicController>();
+            var DeleteUltraSonicRunRequest = HttpRequestsSonic.DeleteRequest_RemoveAllUltraSonicRuns();
+            var request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
 
-//            //Create an ultra sonic run 
-//            UltraSonicTest_StartUltraSonicRun();
-            
-//            //Removed one or more ultra sonic run 
-//            request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
-//            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK);
+            //Create an ultra sonic run
+            UltraSonicTest_StartUltraSonicRun();
 
-//            //No Ultra sonic runs left to remove
-//            request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
-//            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.NoContent);
-//        }
+            //Removed one or more ultra sonic run
+            request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
+            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.OK);
 
-//        [TestMethod]
-//        public void UltraSonicTest_RetrieveUltraSonicRun()
-//        {
-//            //Remove all Ultra sonic test data 
-//            UltraSonicTest_RemoveUltraSonicRun();
+            //No Ultra sonic runs left to remove
+            request = restRouteHandler.HandleRequest(DeleteUltraSonicRunRequest);
+            Assert.AreEqual(request.Result.ResponseStatus, HttpResponseStatus.NoContent);
+        }
 
-//            //Create some ultra sonic test data 
-//            UltraSonicTest_StartUltraSonicRun();
+        [TestMethod]
+        public void UltraSonicTest_RetrieveUltraSonicRun()
+        {
+            //Remove all Ultra sonic test data
+            UltraSonicTest_RemoveUltraSonicRun();
 
-//            var restRouteHandler = new RestRouteHandler();
-//            restRouteHandler.RegisterController<UltraSonicController>();
-//            var GetAllUltraSonicRunRequest = HttpRequestsSonic.GetRequest_AllUltraSonicRuns();
-//            var request = restRouteHandler.HandleRequest(GetAllUltraSonicRunRequest);
+            //Create some ultra sonic test data
+            UltraSonicTest_StartUltraSonicRun();
 
-//            var ultraSonicRuns = UltraSonicRunTestHelper.DeserializedUltraSonicRuns(request.Result);
-//            Assert.AreEqual(ultraSonicRuns.Count, 1, "Only one Ultra Sonic run count should exist.");    
+            var restRouteHandler = new RestRouteHandler();
+            restRouteHandler.RegisterController<UltraSonicController>();
+            var GetAllUltraSonicRunRequest = HttpRequestsSonic.GetRequest_AllUltraSonicRuns();
+            var request = restRouteHandler.HandleRequest(GetAllUltraSonicRunRequest);
 
-//        }
-
-       
-
-
-
-       
-//    }
-//}
+            var ultraSonicRuns = UltraSonicRunTestHelper.DeserializedUltraSonicRuns(request.Result);
+            Assert.AreEqual(ultraSonicRuns.Count, 1, "Only one Ultra Sonic run count should exist.");
+        }
+    }
+}

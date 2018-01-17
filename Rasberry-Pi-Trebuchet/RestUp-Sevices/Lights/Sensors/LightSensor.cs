@@ -40,7 +40,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Sensors
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
 
             }

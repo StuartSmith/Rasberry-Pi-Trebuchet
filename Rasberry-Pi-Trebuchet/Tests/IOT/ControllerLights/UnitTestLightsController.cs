@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Newtonsoft.Json;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.Enums;
-using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Lights.RestupHttpRequests;
+using Raspberry_Pi_Trebuchet.RestUp.Lights.RestViewModels;
 using Restup.Webserver.Rest;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +21,8 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             Assert.AreEqual(Lights.Count(), 2, "There should be two lights in the collection but there are {Lights.Count()}");
         }
 
-
         private void LightTestTurnLightOn(LightType lightType)
         {
-           
-
             //Makes sure the left light is turned off...
             var leftLight = new LightRestViewModel()
             {
@@ -42,21 +38,19 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             SendRequestToChangeLightStatus(leftLight);
             Lights = GetLightStatuses();
             Assert.AreEqual(Lights.Where(x => (x.IsLightOn == true && x.Description == lightType.ToString())).Any(), true, LightOnOrOffFailureMsg(lightType, "on"));
-
         }
+
         [TestMethod]
         public void LightTest_TurnLeftLightOn()
         {
             LightTestTurnLightOn(LightType.LeftLight);
         }
 
-
         [TestMethod]
         public void LightTest_TurnRightLightOn()
         {
             LightTestTurnLightOn(LightType.RightLight);
         }
-
 
         private void SendRequestToChangeLightStatus(LightRestViewModel lightRestViewModel)
         {
@@ -65,7 +59,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
 
             var postRequest = HttpRequestsLight.PostRequestSetLightStatus(lightRestViewModel);
 
-            var request = restRouteHandler.HandleRequest(postRequest);            
+            var request = restRouteHandler.HandleRequest(postRequest);
         }
 
         private List<LightRestViewModel> GetLightStatuses()
@@ -82,7 +76,7 @@ namespace Raspberry_Pi_Trebuchet.IOT.Tests.ControllerLights
             return Lights;
         }
 
-        private string LightOnOrOffFailureMsg(LightType lightType , string OffOrOn)
+        private string LightOnOrOffFailureMsg(LightType lightType, string OffOrOn)
         {
             return ($"The {lightType.ToString()} should be turned {OffOrOn} but is not. ");
         }

@@ -8,6 +8,7 @@ using Raspberry_Pi_Trebuchet.RestUp.Sonic.RestViewModels;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Context;
 using System.Diagnostics;
 using Raspberry_Pi_Trebuchet.RestUp.Sonic.Sensors;
+using Microsoft.EntityFrameworkCore;
 
 namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
 {
@@ -89,6 +90,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
             long ultraSonicRunsRemoved = 0;
             using (var db = new UltraSonicContext())
             {
+                db.Database.Migrate();
+
                 ultraSonicRunsRemoved = db.UltraSonicSensorRuns.Count();
                 db.UltraSonicSensorRunMeasurements.RemoveRange(db.UltraSonicSensorRunMeasurements);
                 db.UltraSonicSensorRuns.RemoveRange(db.UltraSonicSensorRuns);
@@ -101,7 +104,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
 
         public ViewModelUltraSonicSensorRun RetrieveLatestUltraSonicRun()
         {
-            UltraSonicSensorRun LastUltraSonic = null;
+           // UltraSonicSensorRun LastUltraSonic = null;
             ViewModelUltraSonicSensorRun viewModelLastUltraSonic = null;
             
             //Retrieve Data from Local SQL Lite Database
@@ -177,17 +180,21 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                   
-                    UltraSonicSensorRun SonicSensorRun = new UltraSonicSensorRun();
-                    SonicSensorRun.SonicMeasurements = new List<UltraSonicSensorRunMeasurement>();
+
+                    UltraSonicSensorRun SonicSensorRun = new UltraSonicSensorRun
+                    {
+                        SonicMeasurements = new List<UltraSonicSensorRunMeasurement>()
+                    };
 
                     while (stopWatch.ElapsedMilliseconds < runrequest.TimeInSecondsToRunSensor * 1000)
                     {
                         Task.Delay(100).Wait();
                         Debug.WriteLine($"Hello From Thread time elapsed {stopWatch.ElapsedMilliseconds}");
-                        UltraSonicSensorRunMeasurement measurement = new UltraSonicSensorRunMeasurement();
-                                  
-                        measurement.MeasurementDistance = _ultraSonicSensor.GetDistanceInInches;
+                        UltraSonicSensorRunMeasurement measurement = new UltraSonicSensorRunMeasurement
+                        {
+                            MeasurementDistance = _ultraSonicSensor.GetDistanceInInches
+                        };
+
                         if (measurement.MeasurementDistance > MaxDistance)
                             measurement.MeasurementDistance = -1;
                             

@@ -24,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api
                 return new GetResponse(GetResponse.ResponseStatus.OK,
                                        await lightStatusService.RetrieveLightStatuses());
             }
-            catch (Exception ex)
+            catch
             {
                 return new GetResponse(GetResponse.ResponseStatus.NotFound);
             }
@@ -47,7 +47,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api
                                     GetResponse.ResponseStatus.OK,
                                     lights);
             }
-            catch (Exception ex)
+            catch
             {
                 return new GetResponse(GetResponse.ResponseStatus.NotFound);
             }
@@ -70,7 +70,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Lights.Controllers.api
 
                 return new PostResponse(PostResponse.ResponseStatus.Created, $"/lights/statuses/{data.LightPosition}", data);
             }
-            catch (Exception ex)
+            catch 
             {
                 return new PostResponse(PostResponse.ResponseStatus.Conflict);
             }
