@@ -24,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api
                                    GetResponse.ResponseStatus.OK,
                                    task.Result);
             }
-            catch (Exception ex)
+            catch 
             {
                 return new GetResponse(GetResponse.ResponseStatus.OK);
             }
@@ -42,7 +42,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Controllers.api
 
                 return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", task.Result);
             }
-            catch (Exception ex)
+            catch 
             {
                 return new PostResponse(PostResponse.ResponseStatus.Created);
             }

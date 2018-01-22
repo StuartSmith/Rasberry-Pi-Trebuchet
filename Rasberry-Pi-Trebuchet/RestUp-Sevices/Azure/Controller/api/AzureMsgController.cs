@@ -24,7 +24,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
                 var OperationResult = await azureRegistration.RegisterDevice();
                 return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
             }
-            catch (Exception ex)
+            catch 
             {
                 var retval = new  OperationResult <RegisterDeviceStatus> (RegisterDeviceStatus.FailedToRegisterDevice , "Failed to Register Device");
                 return new PutResponse(PutResponse.ResponseStatus.NoContent);
@@ -50,7 +50,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
                 var OperationResult =  msgListener.StartAzureMsgListener();
                 return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
             }
-            catch(Exception ex)
+            catch
             {
                 return new PutResponse(PutResponse.ResponseStatus.NoContent);
             }      
@@ -75,7 +75,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Controllers.api
                 var OperationResult = msgListener.StopAzureMsgListener();
                 return new PutResponse(PutResponse.ResponseStatus.OK, OperationResult);
             }
-            catch (Exception ex)
+            catch 
             {
                 return new PutResponse(PutResponse.ResponseStatus.NoContent);
             }

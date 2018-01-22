@@ -161,7 +161,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Servos.Sensors
                     MillisecondToWait(timeToWait);
                     _motorPin?.Write(GpioPinValue.Low);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     Debug.WriteLine("Oops the unthinkable happened ");
                 }

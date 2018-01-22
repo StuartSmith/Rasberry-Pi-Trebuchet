@@ -14,7 +14,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Trebuchet.Controllers.api
     [RestController(InstanceCreationType.Singleton)]
     public class TrebuchetController
     {
-        private object runrequest;
+       
 
         [UriFormat("trebuchet/fire")]
         public IPostResponse Fire()

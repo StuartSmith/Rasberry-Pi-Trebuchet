@@ -114,15 +114,15 @@
     <EmbeddedResource Include="Properties\Raspberry_Pi_Tribuchet.Tribuchet.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+    <ProjectReference Include="..\Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Trebuchet.Servos\Raspberry_Pi_Trebuchet.RestUp.Servos.csproj">
+    <ProjectReference Include="..\Servos\Raspberry_Pi_Trebuchet.RestUp.Servos.csproj">
       <Project>{161ea637-f6df-44e3-8248-8d72e5cbd66e}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Servos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Tribuchet.Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj">
+    <ProjectReference Include="..\Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj">
       <Project>{88f2d4da-4deb-4e56-bd98-8496f0030e89}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Sonic</Name>
     </ProjectReference>

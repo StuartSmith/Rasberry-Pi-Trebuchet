@@ -121,31 +121,31 @@
     <EmbeddedResource Include="Properties\Raspberry_Pi_Trebuchet.Azure.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Azure-WebService\Raspberry_Pi_Trebuchet.Azure-WebService.Models\Raspberry_Pi_Trebuchet.Azure-WebService.Models.csproj">
+    <ProjectReference Include="..\..\Azure-WebService\Models\Raspberry_Pi_Trebuchet.Azure-WebService.Models.csproj">
       <Project>{23b00616-396e-4af7-b1d8-94156343932c}</Project>
       <Name>Raspberry_Pi_Trebuchet.Azure-WebService.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Rasberry-Pi-Trebuchet.Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
+    <ProjectReference Include="..\Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">
       <Project>{a1194a2e-14bb-4726-b273-a7ce7ab8c879}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Trebuchet-Lights\Raspberry_Pi_Trebuchet.RestUp.Lights.csproj">
-      <Project>{83825cdf-3c8c-4dfc-b4f9-7a6a4f274018}</Project>
-      <Name>Raspberry_Pi_Trebuchet.RestUp.Lights</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Trebuchet.Configuration\Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj">
-      <Project>{29b84a1f-2063-4cc4-8c65-583edc168635}</Project>
+    <ProjectReference Include="..\Configuration\Raspberry_Pi_Trebuchet.RestUp.Configuration.csproj">
+      <Project>{6ac5fff5-5c8f-40f3-a135-df1e9d05bf74}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Trebuchet.Servos\Raspberry_Pi_Trebuchet.RestUp.Servos.csproj">
+    <ProjectReference Include="..\Lights\Raspberry_Pi_Trebuchet.RestUp.Lights.csproj">
+      <Project>{d48cbd4a-84de-4473-9a89-e5bbc6ed2fdb}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.Lights</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servos\Raspberry_Pi_Trebuchet.RestUp.Servos.csproj">
       <Project>{161ea637-f6df-44e3-8248-8d72e5cbd66e}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Servos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Tribuchet.Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj">
+    <ProjectReference Include="..\Sonic\Raspberry_Pi_Trebuchet.RestUp.Sonic.csproj">
       <Project>{88f2d4da-4deb-4e56-bd98-8496f0030e89}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Sonic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Raspberry-Pi-Tribuchet.Tribuchet\Raspberry_Pi_Trebuchet.RestUp.Trebuchet.csproj">
+    <ProjectReference Include="..\Tribuchet\Raspberry_Pi_Trebuchet.RestUp.Trebuchet.csproj">
       <Project>{dbe38084-0619-40b8-b4cf-e2cd1e39f37b}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Trebuchet</Name>
     </ProjectReference>

@@ -134,7 +134,7 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                         }
                         return true;
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         return false;
                     }
