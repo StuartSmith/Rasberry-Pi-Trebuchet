@@ -59,8 +59,10 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Client
             MsgContentToAzure msgContent = new MsgContentToAzure(RequestGuid, restupRequestMSG);
             string msgContentJSON = JsonConvert.SerializeObject(msgContent);
 
-            var commandMessage = new Message(Encoding.ASCII.GetBytes(msgContentJSON));
-            commandMessage.Ack = DeliveryAcknowledgement.Full;
+            var commandMessage = new Message(Encoding.ASCII.GetBytes(msgContentJSON))
+            {
+                Ack = DeliveryAcknowledgement.Full
+            };
             await serviceClient.SendAsync(deviceName, commandMessage);
 
             return msgContent;

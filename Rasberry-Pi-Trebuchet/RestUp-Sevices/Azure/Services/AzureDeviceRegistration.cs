@@ -51,8 +51,10 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Azure.Services
                 return new OperationResult<RegisterDeviceStatus>(RegisterDeviceStatus.DeviceAlreadyRegistered, $"Device Already registered {deviceName}");
             }
 
-            var device = new Device(deviceName);
-            device.Authentication = new AuthenticationMechanism();
+            var device = new Device(deviceName)
+            {
+                Authentication = new AuthenticationMechanism()
+            };
 
             device.Authentication.SymmetricKey.PrimaryKey = CryptoKeyGenerator.GenerateKey(32);
             device.Authentication.SymmetricKey.SecondaryKey = CryptoKeyGenerator.GenerateKey(32);
