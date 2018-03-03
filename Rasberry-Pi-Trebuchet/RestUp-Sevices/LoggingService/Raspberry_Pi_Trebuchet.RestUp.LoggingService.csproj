@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -125,7 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Azure-WebService\Models\Raspberry_Pi_Trebuchet.Azure-WebService.Models.csproj">
-      <Project>{23b00616-396e-4af7-b1d8-94156343932c}</Project>
+      <Project>{06c5b70c-c40d-41b1-9832-c2d8a15e49ca}</Project>
       <Name>Raspberry_Pi_Trebuchet.Azure-WebService.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Raspberry_Pi_Trebuchet.RestUp.Common.csproj">

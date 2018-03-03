@@ -20,7 +20,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Trebuchet.Controllers.api
         public IPostResponse Fire()
         {
             TrebuchetService trebuchetService = new TrebuchetService();
-            bool trebuchetResult = trebuchetService.FireTrebuchet();
+            //bool trebuchetResult = trebuchetService.FireTrebuchet();'
+            bool trebuchetResult = true;
 
             return new PostResponse(PostResponse.ResponseStatus.Created, $"/Servo/statuses", new { trebuchetResult });
 

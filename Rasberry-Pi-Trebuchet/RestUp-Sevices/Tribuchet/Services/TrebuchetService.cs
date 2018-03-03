@@ -1,8 +1,8 @@
 ﻿
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Models;
 using Raspberry_Pi_Trebuchet.RestUp.Servos.Services;
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
-using Raspberry_Pi_Trebuchet.RestUp.Sonic.Services;
+//using Raspberry_Pi_Trebuchet.RestUp.Sonic.Models;
+//using Raspberry_Pi_Trebuchet.RestUp.Sonic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,24 +31,24 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Tribuchet.Services
             return SetServoTask.Result;
         }
 
-        public bool FireTrebuchet()
-        {
-            ServoStatusService servoStatusService = ServoStatusService.Instance;
-            UltraSonicSensorService ultrasonicSensorService = UltraSonicSensorService.Instance;           
+        //public bool FireTrebuchet()
+        //{
+        //    ServoStatusService servoStatusService = ServoStatusService.Instance;
+        //    UltraSonicSensorService ultrasonicSensorService = UltraSonicSensorService.Instance;           
 
-            if (ultrasonicSensorService.IsUltraSonicServiceRunning())
-                return false;
+        //    if (ultrasonicSensorService.IsUltraSonicServiceRunning())
+        //        return false;
 
-            //start the run Create the thread to get the distance of the trebuchet arm
-            UltraSonicRunRequest runrequest = new UltraSonicRunRequest
-            {
-                TimeInSecondsToRunSensor = 5
-            };
-            ultrasonicSensorService.StartUltraSonicRun(runrequest);          
+        //    //start the run Create the thread to get the distance of the trebuchet arm
+        //    UltraSonicRunRequest runrequest = new UltraSonicRunRequest
+        //    {
+        //        TimeInSecondsToRunSensor = 5
+        //    };
+        //    ultrasonicSensorService.StartUltraSonicRun(runrequest);          
 
 
-            return SetServo("ONEEIGHTYDEGREES", servoStatusService);
-        }
+        //    return SetServo("ONEEIGHTYDEGREES", servoStatusService);
+        //}
 
        
 
