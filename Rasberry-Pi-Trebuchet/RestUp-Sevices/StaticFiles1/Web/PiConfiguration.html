@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration</title>
+</head>
+<body>
+    <h1 class="type-splitter">Pi Configuration</h1>
+
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pi Configuration and Statuses</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="rowRefreshSave" class="row" >
+                        <div class="col-lg-10 col-md-11 col-sm-9 col-xs-4" Style="margin-left:10px">
+                            <h2 id="RefreshData"></h2>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-11 col-sm-offset-9 col-xs-offset-5" style="margin-top:20px;">
+                             <button id="ButtonConfigurationRefresh" type="button" class="btn btn-lg btn-primary control Button-Margin-LeftRight ">Refresh Values</button>    
+                        </div>
+                    </div>
+                    <div id="rowToggle"  class="row configRowMargin">
+                        <table class="table ConfigurationTable table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td><h3>Allow Sending Any Data to Azure:</h3></td>
+                                    <td>
+                                        <label class="switch">
+                                            <input type="checkbox" id="tglAllowSendingofData">
+                                            <div class="slider round">
+                                            </div>
+                                            <input />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Allow Sending Toast Light Data:</h3></td>
+                                    <td>
+                                        <label class="switch">
+                                            <input type="checkbox" id="tglAllowSendingToastLightData">
+                                            <div class="slider round">
+                                            </div>
+                                            <input />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Allow Sending Toast Servo Data:</h3></td>
+                                    <td>
+                                        <label class="switch">
+                                            <input type="checkbox" id="tglAllowSendingToastServoData">
+                                            <div class="slider round">
+                                            </div>
+                                            <input />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Allow Sending Ultra Sonic Data:</h3></td>
+                                    <td>
+                                        <label class="switch">
+                                            <input type="checkbox" id="tglAllowSendingUltraSonicData">
+                                            <div class="slider round">
+                                            </div>
+                                            <input />
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="RowAzureConnectinString" class="row configRowMargin" >
+                        <h3 style="margin-left:5px">Azure Connection String:</h3>
+                        <textarea class="form-control" rows="5" id="AzureConnectinString" style="width:99%;margin:5px"></textarea>
+                    </div>
+                    <div id="RowAzureToastServiceURL" class="row configRowMargin" >
+                        <h3 style="margin-left:5px">URL For Sending Toast Requests:</h3>
+                        <textarea class="form-control" rows="5" id="AzureToastServiceURL" style="width:99%;margin:5px"></textarea>
+                    </div>
+                    <div id="rowRefreshSave" class="row" >
+                        <div class="col-lg-10 col-md-11 col-sm-9 col-xs-4" Style="margin-left:10px">
+                            <h2 id="SavingData"></h2>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-11 col-sm-offset-9 col-xs-offset-4" style="margin-top:20px;">
+                            <button id="ButtonConfigurationSave" type="button" class="btn btn-lg btn-success control Button-Margin-LeftRight">Save Values</button>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="js/HttpClient.js"></script>
+            <script src="js/PiConfiguration.js"></script>
+</body>
+</html>

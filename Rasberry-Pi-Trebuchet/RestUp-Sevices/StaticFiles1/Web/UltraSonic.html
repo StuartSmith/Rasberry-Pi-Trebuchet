@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>UltraSonic</title>
+</head>
+<body>
+    <h2 class="type-splitter">UltraSonic Commands</h2>
+
+    <!--Span For Getting Ultra Sonic Data-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get UltraSonic UltraSonicRuns</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">GET:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/UltraSonic/UltraSonicRuns</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonUltraSonicStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="UltraSonicStatusResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting Ultra Sonic Data-->
+
+    <!--Span For Getting Ultra Sonic Data-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">UltraSonic Start Run</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Post:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/UltraSonic/StartRun</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonUltraSonicStartRun" type="button" class="btn btn-lg btn-success control ">Start</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="UltraSonicStartStatusResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting Ultra Sonic Data-->
+
+    <!--Span for Is UltraSonic Running-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Is UltraSonic Running</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Get:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/UltraSonic/IsUltraSonicRunning</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonIsUltraSonicsRunning" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="IsUltraSonicRunningResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Span for Is UltraSonic Running-->
+    <!--Span For Getting Ultra Sonic Data-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get lates UltraSonic Run</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Get:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/UltraSonic/LastRun</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonUltraSonicLastRun" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="UltraSonicLatestRunResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting Ultra Sonic Data-->
+    <!--Span For clearing Ultra Sonic Data-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Remove all UltraSonic Runs</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Delete:</h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/ultrasonic/removeultrasonicruns</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonRemoveUltraSonicsRun" type="button" class="btn btn-lg btn-danger control ">Delete</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="UltraSonicRemovalResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Span For Getting Ultra Sonic Data-->
+
+
+
+    <script src="js/HttpClient.js"></script>
+    <script src="js/UltraSonic.js"></script>
+</body>
+</html>

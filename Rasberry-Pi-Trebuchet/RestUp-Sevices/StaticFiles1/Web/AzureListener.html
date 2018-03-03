@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Listener</title>
+</head>
+<body>
+    <h1 class="type-splitter">Azure Listener Commands</h1>
+    <!--For Getting light statuses-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Register Device</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">POST: </h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/azuremsglistener/registerdevice</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonAzureRegisterDevice" type="button" class="btn btn-lg btn-success control ">Register Device</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="AzureRegisterDeviceStatusesResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Azure Message Listener Status-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Azure Message Listener Status</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Get: </h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2> /api/azuremsglistener/status</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonGetMSGListnerStatus" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span id="AzureMSGListnerStatusResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Azure Message Listener Status-->
+
+    <!-- Azure Message Listener Stop and Start-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-warning ">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Post Start and Stop the Message Listener</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">                           
+                                <h2 class="col-sm-1">POST: </h2>
+                                <div class="col-sm-10 col-xs-10 col-md-10">
+                                    <h2> /api/azuremsglistener/start <br/></h2>
+                                </div>                            
+                                <div class="clearfix"></div>                           
+                                <h2 class="col-sm-1">POST:</h2>
+                                <div class="col-sm-10 col-xs-10 col-md-10">
+                                    <h2> /api/azuremsglistener/stop</h2>
+                                </div>                            
+                            
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonStartAzureMSGListener" type="button" class="btn btn-lg btn-success control ">Start</button></th>
+                                    <th><button id="ButtonStopAzureMSGListener" type="button" class="btn btn-lg btn-danger control ">Stop</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <span>
+                        <div id="AzureMSGListenerChangeResult">
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+     </div>
+     <!-- Azure Message Listener Stop and Start-->
+
+    <!-- Azure Message Listener Status-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Retrieve Azure Message Listener Log</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="col-sm-1 control-label">Get: </h2>
+                            <div class="col-sm-10 col-xs-10 col-md-10">
+                                <h2>/api/azuremsglistener/loggedmessages</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10 col-md-ofset-10 col-sm-offset-9 col-xs-offset-7">
+                            <table style="width:100%">
+                                <tr>
+                                    <th><button id="ButtonGetMSGListnerLog" type="button" class="btn btn-lg btn-success control ">Get</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-offset-1 col-md-ofset-1 col-sm-offset-1 col-xs-offset-1">
+                            <table style="width:90%; margin-top:5px" id="tblAzureMSGListenerLog" class="table ConfigurationTable table-striped table-bordered">
+                                <tbody id="tblAzureMSGListenerLogbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                   
+                    <span id="AzureMSGListenerLogResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Azure Message Listener Status-->
+</body>
+
+<script src="js/HttpClient.js"></script>
+<script src="js/AzureListener.js"></script>
+
+</html>
