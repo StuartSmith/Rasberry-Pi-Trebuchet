@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="Trebuchet.UWP_IOT.Pii.Views.TrafficView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Trebuchet.UWP_IOT.Pii.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+                <Border BorderThickness="0,0,0,3" BorderBrush="white" >
+                    <TextBlock Foreground="White" Text="Trebuchet" FontWeight="Bold" FontSize="22"></TextBlock>
+                </Border>
+            </StackPanel>
+            <!--Version Number-->
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Border BorderThickness="0,0,0,3" BorderBrush="white" Background="black" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  Foreground="White" Text="Version: " FontWeight="Bold" FontSize="14"></TextBlock>
+                        <TextBlock  Foreground="White" Text="{Binding Path=TrebuchetVersion,  Mode=OneWay}" FontWeight="Bold" FontSize="14"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <!--IP Address Number-->
+            <StackPanel Grid.Row="2" Orientation="Vertical">
+                <Border BorderThickness="0,0,0,3" BorderBrush="white" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  Foreground="White" Text= "IP: " FontWeight="Bold" FontSize="14"></TextBlock>
+                        <TextBlock  Foreground="White" Text="{Binding Path=PiIP,  Mode=OneWay}" FontWeight="Bold" FontSize="14"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

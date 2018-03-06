@@ -48,6 +48,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Sonic.Services
             ViewModelUltraSonicSensorRun viewModelLastUltraSonic = null;
             using (var db = new UltraSonicContext())
             {
+                
+
                 if (ultraSonicSensorRun != null)
                 {
                     viewModelLastUltraSonic = new ViewModelUltraSonicSensorRun(ultraSonicSensorRun);

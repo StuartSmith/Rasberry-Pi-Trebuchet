@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
 {
@@ -23,6 +25,9 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
         {
             using (var db = new PiGeneralContext())
             {
+
+                db.Database.Migrate();
+
                 var PairToDelete = (from ValuePairs in db.PiNameValuePairs
                                     where ValuePairs.name.ToUpper() == PairName.ToUpper()
                                     select ValuePairs).FirstOrDefault();
@@ -42,6 +47,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
             List<IPiNameValuePair> retValues;
             using (var db = new PiGeneralContext())
             {
+                db.Database.Migrate();
+
                 retValues = db.PiNameValuePairs.ToList<IPiNameValuePair>();
             }
             return retValues;
@@ -54,6 +61,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
         {
             using (var db = new PiGeneralContext())
             {
+                db.Database.Migrate();
+
                 var allPairs = db.PiNameValuePairs.ToList<PiNameValuePair>();
                 var PairToFind = (from ValuePairs in allPairs
                                   where ValuePairs.name.ToUpper() == PairName.ToUpper()
@@ -104,6 +113,8 @@ namespace Raspberry_Pi_Trebuchet.RestUp.Configuration.Services
         {
             using (var db = new PiGeneralContext())
             {
+                db.Database.Migrate();
+
                 var PairToModify = GetPiNameValuePair(PairName);
 
                 if (PairToModify != null)

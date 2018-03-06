@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{9BAEEE15-85EB-4A23-B692-465A73DD570B}</ProjectGuid>
+    <ProjectGuid>{AB2F5096-5215-42DC-8CA2-74BE2F1662CB}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raspberry_Pi_Trebuchet.Tests.IOT</RootNamespace>
-    <AssemblyName>Raspberry_Pi_Trebuchet.Tests.IOT</AssemblyName>
+    <RootNamespace>Raspberry_Pi_Trebuchet.UWP_IOT.Pi</RootNamespace>
+    <AssemblyName>Raspberry_Pi_Trebuchet.UWP_IOT.Pi</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Raspberry_Pi_Trebuchet.Tests.IOT_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <UnitTestPlatformVersion Condition="'$(UnitTestPlatformVersion)' == ''">$(VisualStudioVersion)</UnitTestPlatformVersion>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>Raspberry_Pi_Trebuchet.UWP_IOT.Pi_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -92,38 +92,22 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ControllerConfiguration\UnitTestConfigurationRestUp.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTestApp.xaml.cs">
-      <DependentUpon>UnitTestApp.xaml</DependentUpon>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ControllerAzure\AzureControllerTestData.cs" />
-    <Compile Include="ControllerAzure\AzureUnitTestHelper.cs" />
-    <Compile Include="ControllerAzure\UnitTestAzureController.cs" />
-    <Compile Include="ControllerLights\UnitTestLightsController.cs" />
-    <Compile Include="ControllerSonic\UltraSonicRunTestHelper.cs" />
-    <Compile Include="ControllerSonic\UnitTestSonicController.cs" />
-    <Compile Include="ControllerTrebuchet\TrebuchetTestHelper.cs" />
-    <Compile Include="ControllerTrebuchet\UnitTestTrebuchetRestUp.cs" />
-    <Compile Include="ControllerServo\UnitTestServoController.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="UnitTestApp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VM_TrafficView.cs" />
+    <Compile Include="Views\TrafficView.xaml.cs">
+      <DependentUpon>TrafficView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Raspberry_Pi_Trebuchet.Tests.IOT_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\UnitTestApp.rd.xml" />
+    <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -133,17 +117,17 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IoT.Lightning">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="MSTest.TestAdapter">
-      <Version>1.1.18</Version>
-    </PackageReference>
-    <PackageReference Include="MSTest.TestFramework">
-      <Version>1.1.18</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.3</Version>
+      <Version>6.0.4</Version>
     </PackageReference>
     <PackageReference Include="Restup">
       <Version>1.0.0</Version>
@@ -174,10 +158,25 @@
       <Project>{88f2d4da-4deb-4e56-bd98-8496f0030e89}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Sonic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\RestUp-Sevices\StaticFiles\Raspberry_Pi_Trebuchet.RestUp.StaticFiles.csproj">
+      <Project>{d2ef87e1-8115-4a1f-929d-3f3a2ee52e2a}</Project>
+      <Name>Raspberry_Pi_Trebuchet.RestUp.StaticFiles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\RestUp-Sevices\Tribuchet\Raspberry_Pi_Trebuchet.RestUp.Trebuchet.csproj">
       <Project>{dbe38084-0619-40b8-b4cf-e2cd1e39f37b}</Project>
       <Name>Raspberry_Pi_Trebuchet.RestUp.Trebuchet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\TrafficView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.16299.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
