@@ -46,8 +46,8 @@ namespace Raspberry_Pi_Trebuchet.UWP_IOT.Pii.ViewModels
                 {
                     if (localHostName.Type == HostNameType.Ipv4)
                     {
-                        currentIP = localHostName.ToString();
-                        break;
+                        currentIP = $"{currentIP} {localHostName.ToString()}";
+                        ///break;
                     }
                 }
             }
@@ -79,7 +79,7 @@ namespace Raspberry_Pi_Trebuchet.UWP_IOT.Pii.ViewModels
             _httpServer = httpServer;
             await httpServer.StartServerAsync();
 
-
+           
 
         }
 
